@@ -74,6 +74,14 @@ NB: You only need to re-install if you delete your local repo from your system a
 
 **NB: This section will use the first unit, `01-Values-Types`, as the example.**
 
+Terminal: Change your branch from `main` to `01-Value-Types`:
+
+```shell
+git checkout 01-Value-Types
+```
+
+A folder named `01-Values-and-Data-Types` should appear in your code editor.
+
 ### Checking the test environment
 
 Before you first start working on problems in a new unit, [run the test command for that unit](#test-commands-for-each-unit) in a terminal.
