@@ -1,0 +1,30 @@
+{
+  "name": "intro-to-code-js",
+  "version": "1.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test-01": "mocha './01-Values-and-Data-Types/**.js'",
+    "test:mochawesome": "mocha './**/index.js' --reporter=mochawesome --reporter-options autoOpen=true"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chrismejia/intro-to-code-js.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chrismejia/intro-to-code-js/issues"
+  },
+  "homepage": "https://github.com/chrismejia/intro-to-code-js#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.12.13",
+    "@babel/core": "^7.12.13",
+    "@babel/preset-env": "^7.12.13",
+    "@babel/register": "^7.12.13",
+    "chai": "^4.2.0",
+    "mocha": "^8.2.1",
+    "mochawesome": "^6.2.1"
+  }
+}
