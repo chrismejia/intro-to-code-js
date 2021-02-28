@@ -323,10 +323,21 @@ Changes to be committed:
 
 4. Commit your files to your fork with a message, one that is short and details changes made since the last commit (e.g. if message was "added answers to #3 and #4 of Unit 2"):
    1. `git commit -m "added answers to #3 and #4 of Unit 2"`
-5. Check to see your commits again with `git status`
-6. Push this commit to your repo (e.g. if you were on the branch `01-Values-Types`):
+5. Check your working tree using `git status`. It should resemble this:
+
+```shell
+git status
+
+On branch 01-Values-Types
+Your branch is ahead of 'origin/01-Values-Types' by 1 commit.
+  (use "git push" to publish your local commits)
+
+nothing to commit, working tree clean
+```
+
+6. Push this local commit to your repo (e.g. if you were on the branch `01-Values-Types`):
    1. If this is your first commit to THIS branch: `git push -u origin 01-Values-Types`
    2. Otherwise, `git push`.
-7. Open your web browser to your repo and select the branch you just pushed to from the dropdown in the top-left, below the 'Code' tab.
+7. Open your web browser to your repo and select the branch you just pushed to from the dropdown (should say 'main') in the top-left, below the 'Code' tab.
 8. You should see your latest commit and message up top above the repo.
 9. You are now free to [switch branches](#switching-branches) or continue working.
