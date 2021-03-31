@@ -1,0 +1,18 @@
+{
+  "tags": {
+    "allowUnknownTags": true,
+    "dictionaries": ["jsdoc", "closure"]
+  },
+  "source": {
+    "includePattern": ".+\\.js$",
+    "excludePattern": "(node_modules/|docs)"
+  },
+  "plugins": ["plugins/markdown"],
+  "opts": {
+    "template": "templates/default",
+    "destination": "docs",
+    "recurse": true,
+    "encoding": "utf8",
+    "readme": "README.md"
+  }
+}

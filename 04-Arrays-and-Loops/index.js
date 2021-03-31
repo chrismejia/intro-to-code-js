@@ -1,17 +1,17 @@
 /**********************************
  * #1: measurer
  *
- * Define the function measurer.
- * measurer accepts an array of at least size 1, containing entries of any type.
- * measurer returns the length of the array.
+ * CHALLENGE: measurer can be written as a one-liner.
  *
- * EXAMPLES:
+ * @category 04 - Arrays and Loops
+ * @function measurer
+ * @param {...Number[]} numsArr - Always at least one number in the sample arrays/
+ * @returns {Number} The length of the array.
+ *
+ * @example
  * measurer([1]) => 1
  * measurer([1,3,5,7,9]) => 5
  * measurer(["abc", true, { "a": 1, "b": 2 } ]) => 3
- *
- * CHALLENGE:
- * Can you write this function as a one-liner? Remember to comment out the original function before testing your one-line version to avoid duplicate declaration errors!
  */
 
 function measurer(arr) {
@@ -24,18 +24,19 @@ function measurer(arr) {
 /**********************************
  * #2: indexer
  *
- * Define the function indexer.
- * indexer accepts an array of any length, containing entries of any type, and a number, index.
- * When index is defined, indexer returns the value stored.
- * Otherwise, indexer returns the first value in the array.
+ * CHALLENGE: indexer can be written as a one-liner.
  *
- * EXAMPLES:
+ * @category 04 - Arrays and Loops
+ * @function indexer
+ * @param {...*[]} array - array of any length, containing entries of any type
+ * @param {?Number} index - optional number
+ * @returns {*} When index is defined, indexer returns the value stored. Otherwise, indexer returns the first value in the array.
+ *
+ * @example
  * indexer([1], 0) => 1
  * indexer([1, 3, "value", 7, 9 ], 2) => "value"
  * indexer([false, 2, "string"]) => false
  *
- * CHALLENGE:
- * Can you write this function as a one-liner? Remember to comment out the original function before testing your one-line version to avoid duplicate declaration errors!
  */
 
 function indexer(arr, index) {
@@ -49,7 +50,26 @@ function indexer(arr, index) {
 // const indexer = (arr, index) => (index !== undefined ? arr[index] : arr[0]);
 
 /**********************************
- * #: frontOrBack
+ * #3: frontOrBack
+ *
+ * Define the function frontOrBack.
+ * frontOr back accepts an array, a place, an action, and a value.
+ *
+ * @category 04 - Arrays and Loops
+ * @function frontOrBack
+ * @param {...Number[]} array - an array containing at least one number
+ * @param {String} place - one of `"front"` or `"back"`
+ * @param {String} action - one of `"add"` or `"remove"`
+ * @param {Number} value - value to use when processing the input commands
+ * @returns {...Number[]}
+ *
+ * @example
+ * const array = [1, 2, 3, 4];
+ *
+ * frontOrBack(array, "front", "add", 5) => [5, 1, 2, 3, 4];
+ * frontOrBack(array, "back", "add", 5) => [1, 2, 3, 4, 5];
+ * frontOrBack(array, "front", "remove", 5) => [2, 3, 4];
+ * frontOrBack(array, "back", "remove", 5) => [1, 2, 3];
  */
 
 function frontOrBack(array, place, action, value) {
@@ -73,7 +93,23 @@ function frontOrBack(array, place, action, value) {
 }
 
 /**********************************
- * #: repeater
+ * #4: repeater
+ *
+ * Define the function repeater.
+ * repeater accepts a string and a number.
+ * repeater returns a string that is the input string repeated `times` number of times.
+ *
+ * @category 04 - Arrays and Loops
+ * @function repeater
+ * @param {String} str - the input string
+ * @param {Number} times - always >= 0
+ * @returns {String} the input string repeated `times` number
+ *
+ * @example
+ * repeater("empty string", 0) => ""
+ * repeater("one time only", 1) => "one time only"
+ * repeater("Hello", 2) => "HelloHello"
+ * repeater("abc123", 3) => "abc123abc123abc123"
  */
 
 function repeater(string, times) {
@@ -87,7 +123,27 @@ function repeater(string, times) {
 }
 
 /**********************************
- * #: disemvoweler
+ * #5: disemvoweler
+ *
+ * Define the function disemvoweler.
+ * disemvoweler takes in a string and returns it stripped of its vowels.
+ * BONUS: disemvoweler strips the input string of any capitalized vowels present.
+ *
+ * @category 04 - Arrays and Loops
+ * @function disemvoweler
+ * @param {String} string - the input string
+ * @returns {String} the input string with all its vowels removed
+ * @example
+ * disemvoweler("b") => "b"
+ * disemvoweler("xyz") => "xyz"
+ * disemvoweler("a") => ""
+ * disemvoweler("cr") => "cr"
+ * disemvoweler("dictionary") => "dctnry"
+ * disemvoweler("aaeeiioouu") => ""
+ *
+ * // BONUS
+ * disemvoweler("BeaR") => "BR"
+ * disemvoweler("diCTIONAry") => "dCTNry"
  */
 const vowels = ["a", "e", "i", "o", "u"];
 
@@ -99,7 +155,7 @@ function disemvoweler(string) {
       const currChar = string[i];
       const currVowel = vowels[j];
 
-      if (currChar === currVowel) {
+      if (currChar.toLowerCase() === currVowel) {
         break;
       } else if (currChar !== currVowel && j === vowels.length - 1) {
         noVowelStr += currChar;
@@ -110,15 +166,26 @@ function disemvoweler(string) {
 }
 
 /**********************************
- * #: valueLocator
+ * #6: valueLocator
+ *
+ * @category 04 - Arrays and Loops
+ * @function valueLocator
+ * @param {String} searchValue - the string to search for
+ * @param {String[]} arr - the array to search within
+ * @returns {String} A sentence detailing whether or not the search value was found, and at what index.
+ * @example
+ * valueLocator("xyx", ["zyz", "xyx", "abc", "bd"]) =>
+ *  "xyx is at index 1 of the array [zyz,xyx,abc,bd]."
+ * valueLocator("not", ["zyz", "xyx", "abc", "bd"]) =>
+ *  "not cannot be found in the array [zyz,xyx,abc,bd]."
  */
 
 function valueLocator(searchValue, arr) {
   const idx = arr.indexOf(searchValue);
   if (idx !== -1) {
-    return `${searchValue} is at index ${idx} of the array ${arr}.`;
+    return `${searchValue} is at index ${idx} of the array [${arr}].`;
   }
-  return `${searchValue} cannot be found in the array ${arr}.`;
+  return `${searchValue} cannot be found in the array [${arr}].`;
 }
 
 // One-liner
@@ -128,42 +195,28 @@ function valueLocator(searchValue, arr) {
 //     : `${searchValue} cannot be found in the array ${arr}.`;
 
 /**********************************
- * #: uniquesOnly
+ * #7: reversomatic
  *
- */
-
-function uniqueCharsOnly(string) {
-  let uniques = [];
-
-  for (let i = 0; i < string.length; i++) {
-    const currChar = string[i];
-
-    if (uniques.indexOf(currChar) === -1) {
-      uniques.push(currChar);
-    }
-  }
-  return uniques;
-}
-
-/**********************************
- * #: switchomatic
+ * Define the function reversomatic.
+ * reversomatic adds the array's elements to the end of a new array, one at a time.
+ * When reversomatic encounters the string "reverse", reversomatic switches so that from the next element in the array, it adds them to front instead of the back.
  *
- * Define the function switchomatic.
- * switchomatic accepts an array of at least size 1, made of entries of any type.
- * switchomatic adds the array's elements to the end of a new array, one at a time.
- * When switchomatic encounters the string "reverse", switchomatic switches so that from the next element in the array, it no longer adds them to the end, but rather the front.
- *
- * NOTES:
+ * NB:
  * Not every input array may contain a "reverse" string.
  * Input arrays will contain at most ONE (1) "reverse" string, if present.
  *
- * EXAMPLES:
+ * @category 04 - Arrays and Loops
+ * @function reversomatic
+ * @param {*[]} array - an array of at least size 1, made of entries of any type.
+ * @returns {*[]} array of entries that have been properly added to the new array
+ * @example
  * reversomatic([1, 2, 3, 4, 5]) => [1, 2, 3, 4, 5]
+ * reversomatic([["reverse", 1, 2, 3, 4, 5]]) => [5, 4, 3, 2, 1]
  * reversomatic([1, 2, "reverse", 3, 4, 5]) => [5, 4, 3, 1, 2]
- * reversomatic([true, false, 1, 2]) => [true, false, 1, 2]
+ * reversomatic([1, 2, 3, 4, 5, "reverse"]) => [1, 2, 3, 4, 5]
  */
 
-function switchomatic(array) {
+function reversomatic(array) {
   let output = [];
   let reverse = false;
 
@@ -182,28 +235,58 @@ function switchomatic(array) {
 }
 
 /**********************************
- * #: pairMultiplier
- * NOTE:
- * The nums and ops arrays will always be the same size, .length > 1
+ * #8: uniquesOnly
+ *
+ * Define the function uniquesOnly.
+ * uniquesOnly accepts an string and returns an array. Each entry in the array is one of the unique characters from the input string.
+ *
+ * @category 04 - Arrays and Loops
+ * @function uniquesOnly
+ * @param {String} inputStr - string made up of random characters with possible repeats
+ * @returns {String[]}
+ * @example
+ * uniquesOnly("a") => ['a']
+ * uniquesOnly("aaa") => ['a']
+ * uniquesOnly("abc") => ['a', 'b', 'c']
+ * uniquesOnly("abcbabcbabcbabcba") => ['a', 'b', 'c']
  */
 
-function pairMultiplier(arr1, arr2) {
-  let productsArr = [];
+function uniqueCharsOnly(inputStr) {
+  let uniques = [];
 
-  for (let i = 0; i < arr1.length; i++) {
-    for (let j = 0; j < arr2.length; j++) {
-      const numOne = arr1[i];
-      const numTwo = arr2[j];
-      productsArr.push(numOne * numTwo);
+  for (let i = 0; i < inputStr.length; i++) {
+    const currChar = inputStr[i];
+
+    if (uniques.indexOf(currChar) === -1) {
+      uniques.push(currChar);
     }
   }
-  return productsArr;
+  return uniques;
 }
 
 /**********************************
- * #: wordCalculator
+ * #9: wordCalculator
+ *
+ * Define the function wordCalculator.
+ * wordCalculator accepts an array of numbers and an array of strings, each representing a math operation.
+ * wordCalculator has an initial value of 0 and only accepts the valid math operations: "add", "sub", "mult", and "div".
+ * wordCalculator returns the total of all the values and operations passed into it.
+ *
  * NOTE:
- * The nums and ops arrays will always be the same size, .length > 1
+ * The nums and operations arrays will always be the same .length
+ *
+ * @category 04 - Arrays and Loops
+ * @function wordCalculator
+ * @param {Number[]} nums - array of numbers; nums.length always >= 1
+ * @param {String[]} operations - array of strings, representing operations; operations.length always >= 1
+ * @return {Number} resulting value after all operations have been computed
+ * @example
+ * wordCalculator([1], ["nope"]) => 0
+ * wordCalculator([1], ["add"]) => 1
+ * wordCalculator([2], ["sub"]) => 2
+ * wordCalculator([3], ["mult"]) => 2
+ * wordCalculator([5, 6], ["add", "mult"]) => 30
+ * wordCalculator([7, 11, 12], ["sub", "mult", "add"]) => -65
  */
 
 // One-loop version
@@ -236,6 +319,39 @@ function wordCalculator(nums, operations) {
   return result;
 }
 
+/**********************************
+ * #10: pairMultiplier
+ *
+ * Define the function pairMultiplier.
+ * pairMultiplier accepts two arrays of numbers.
+ * pairMultiplier returns an array of numbers made up of all the numbers from arr1 multiplied by all the numbers in arr2.
+ *
+ * NB: arr1 and arr2 will not always be the same length.
+ *
+ * @category 04 - Arrays and Loops
+ * @function pairMultiplier
+ * @param {Number[]} arr1 - array of numbers; arr1.length always > 1
+ * @param {Number[]} arr2 - array of numbers; arr2.length always > 1
+ * @returns {Number[]} array of all the multiples of each entry from arr1 and arr2, in the correct order.
+ * @example
+ * pairMultiplier([6],[4]) => [24]
+ * pairMultiplier([7], [2, 3]) => [14, 21]
+ * pairMultiplier([3, 8], [5, 2]) => [15, 6, 40, 16]
+ * pairMultiplier([3, 5, 8], [2, 4]) => [6, 12, 10, 20, 16, 32]
+ */
+
+function pairMultiplier(arr1, arr2) {
+  let productsArr = [];
+
+  for (let i = 0; i < arr1.length; i++) {
+    for (let j = 0; j < arr2.length; j++) {
+      const numOne = arr1[i];
+      const numTwo = arr2[j];
+      productsArr.push(numOne * numTwo);
+    }
+  }
+  return productsArr;
+}
 /**
  * The code below is what tests your answers.
  *
@@ -269,7 +385,7 @@ describe("04 - Arrays and Loops", () => {
     });
   });
 
-  describe("#: frontOrBack", () => {
+  describe("#3: frontOrBack", () => {
     describe("returns an array modified correctly based on place and action", () => {
       it('place = "front"; action = "add"', () => {
         const array = [1, 2, 3, 4];
@@ -293,50 +409,10 @@ describe("04 - Arrays and Loops", () => {
     });
   });
 
-  describe("#: valueLocator", () => {
-    describe("when searchValue is found in the array", () => {
-      describe("returns the correct phrase", () => {
-        const arr = ["zyz", "xyx", "abc", "bd"];
-        const term = "xyx";
-
-        it("containing the search term", () => {
-          expect(valueLocator(arr, term).includes(term));
-        });
-
-        it("containing the index of the search term in the array", () => {
-          expect(valueLocator(arr, term).includes("at index 1"));
-        });
-
-        it("containing the original array", () => {
-          expect(valueLocator(arr, term).includes(`${arr}`));
-        });
-      });
-
-      describe("if the searchValue is found in the array", () => {
-        const arr = ["zyz", "xyx", "abc", "bd"];
-        const term = "not";
-
-        it("containing the search term", () => {
-          expect(valueLocator(arr, term).includes(term));
-        });
-
-        it("containing the original array", () => {
-          expect(valueLocator(arr, term).includes(`${arr}`));
-        });
-
-        it("detailing that the term is not in the array", () => {
-          expect(
-            valueLocator(arr, term).includes("cannot be found in the array")
-          );
-        });
-      });
-    });
-  });
-
-  describe("#: repeater", () => {
+  describe("#4: repeater", () => {
     describe("returns a string", () => {
       it("repeated 0 times; an empty string", () => {
-        expect(repeater("empty output string")).to.equal("");
+        expect(repeater("empty string")).to.equal("");
       });
 
       it("repeated 1 time; the input string", () => {
@@ -345,7 +421,7 @@ describe("04 - Arrays and Loops", () => {
 
       describe("repeated multiple times", () => {
         const strings = [
-          { str: "hello", times: 2, result: "hellohello" },
+          { str: "Hello", times: 2, result: "HelloHello" },
           { str: "abc123", times: 3, result: "abc123abc123abc123" },
           { str: "catDog", times: 4, result: "catDogcatDogcatDogcatDog" },
           { str: "Five", times: 5, result: "FiveFiveFiveFiveFive" },
@@ -359,7 +435,7 @@ describe("04 - Arrays and Loops", () => {
     });
   });
 
-  describe("#: disemvoweler", () => {
+  describe("#5: disemvoweler", () => {
     describe("returns a string", () => {
       describe("no vowels -> same as the input string", () => {
         const noVowels = [
@@ -415,10 +491,120 @@ describe("04 - Arrays and Loops", () => {
           });
         });
       });
+
+      describe("BONUS: can handle UPPERCASE letters", () => {
+        const uppercaseOptions = [
+          { str: "BeaR", result: "BR" },
+          { str: "aAAabcdefgGGg", result: "bcdfgGGg" },
+          { str: "diCTIONAry", result: "dCTNry" },
+          { str: "aAeEiIoOuU", result: "" },
+        ];
+        uppercaseOptions.forEach(({ str, result }) => {
+          it(`'${str}' -> '${result}'`, () => {
+            expect(disemvoweler(str)).to.equal(result);
+          });
+        });
+      });
     });
   });
 
-  describe("#: uniqueCharsOnly", () => {
+  describe("#6: valueLocator", () => {
+    describe("when searchValue is found in the array", () => {
+      describe("returns the correct phrase", () => {
+        const arr = ["zyz", "xyx", "abc", "bd"];
+        const term = "xyx";
+
+        it("containing the search term", () => {
+          expect(valueLocator(term, arr).includes(term));
+        });
+
+        it("containing the index of the search term in the array", () => {
+          expect(valueLocator(term, arr).includes("at index 1"));
+        });
+
+        it("containing the original array", () => {
+          expect(valueLocator(term, arr).includes(`[${arr}]`));
+        });
+      });
+
+      describe("if the searchValue is found in the array", () => {
+        const arr = ["zyz", "xyx", "abc", "bd"];
+        const term = "not";
+
+        it("containing the search term", () => {
+          expect(valueLocator(term, arr).includes(term));
+        });
+
+        it("containing the original array", () => {
+          expect(valueLocator(term, arr).includes(`[${arr}]`));
+        });
+
+        it("detailing that the term is not in the array", () => {
+          expect(
+            valueLocator(term, arr).includes("cannot be found in the array")
+          );
+        });
+      });
+    });
+  });
+
+  describe("#7: reversomatic", () => {
+    const revStart = ["reverse", 1, 2, 3, 4, 5];
+    const revEnd = [1, 2, 3, 4, 5, "reverse"];
+    const hasRev1 = [1, "reverse", 2, 3, 4, 5];
+    const hasRev2 = [1, 2, "reverse", 3, 4, 5];
+    const hasRev3 = [1, 2, 3, "reverse", 4, 5];
+    const hasRev4 = [1, 2, 3, 4, "reverse", 5];
+
+    const revArrs = [revStart, revEnd, hasRev1, hasRev2, hasRev3, hasRev4];
+
+    const noRev1 = ["a", 1, "b", 2];
+    const noRev2 = [true, false, 1, 2, { a: 1, b: 2 }];
+
+    const noRevArrs = [noRev1, noRev2];
+
+    const allArrays = [...revArrs, ...noRevArrs];
+
+    describe("regardless of the 'reverse' string", () => {
+      it("returns an array", () => {
+        allArrays.forEach((arr) => {
+          expect(reversomatic(arr)).to.be.an("array");
+        });
+      });
+
+      describe("that doesn't contain the string 'reverse'", () => {
+        allArrays.forEach((arr) => {
+          expect(reversomatic(arr)).to.not.include("reverse");
+        });
+      });
+    });
+
+    describe("returns the items in the correct order", () => {
+      describe("if there's a 'reverse' string in the input array", () => {
+        it("at the front of the array", () => {
+          expect(reversomatic(revStart)).to.eql([5, 4, 3, 2, 1]);
+        });
+
+        it("at the back of the array", () => {
+          expect(reversomatic(revEnd)).to.eql([1, 2, 3, 4, 5]);
+        });
+
+        it("somewhere in the middle of the array", () => {
+          expect(reversomatic(hasRev1)).to.eql([5, 4, 3, 2, 1]);
+          expect(reversomatic(hasRev2)).to.eql([5, 4, 3, 1, 2]);
+          expect(reversomatic(hasRev3)).to.eql([5, 4, 1, 2, 3]);
+          expect(reversomatic(hasRev4)).to.eql([5, 1, 2, 3, 4]);
+        });
+      });
+
+      it("if there's no 'reverse' string in the array", () => {
+        expect(reversomatic(noRev1)).to.eql(noRev1);
+        expect(reversomatic(noRev2)).to.eql(noRev2);
+      });
+    });
+  });
+
+  describe("#8: uniqueCharsOnly", () => {
     describe("returns an array of the unique characters in the string", () => {
       it("if the string is one repeating character", () => {
         expect(uniqueCharsOnly("aaaa")).to.eql(["a"]);
@@ -442,115 +628,7 @@ describe("04 - Arrays and Loops", () => {
     });
   });
 
-  describe("#: switchomatic", () => {
-    const revStart = ["reverse", 1, 2, 3, 4, 5];
-    const revEnd = [1, 2, 3, 4, 5, "reverse"];
-    const hasRev1 = [1, "reverse", 2, 3, 4, 5];
-    const hasRev2 = [1, 2, "reverse", 3, 4, 5];
-    const hasRev3 = [1, 2, 3, "reverse", 4, 5];
-    const hasRev4 = [1, 2, 3, 4, "reverse", 5];
-
-    const revArrs = [revStart, revEnd, hasRev1, hasRev2, hasRev3, hasRev4];
-
-    const noRev1 = ["a", 1, "b", 2];
-    const noRev2 = [true, false, 1, 2, { a: 1, b: 2 }];
-
-    const noRevArrs = [noRev1, noRev2];
-
-    const allArrays = [...revArrs, ...noRevArrs];
-
-    describe("regardless of the 'reverse' string", () => {
-      it("returns an array", () => {
-        allArrays.forEach((arr) => {
-          expect(switchomatic(arr)).to.be.an("array");
-        });
-      });
-
-      describe("that doesn't contain the string 'reverse'", () => {
-        allArrays.forEach((arr) => {
-          expect(switchomatic(arr)).to.not.include("reverse");
-        });
-      });
-    });
-
-    describe("returns the items in the correct order", () => {
-      describe("if there's a 'reverse' string in the input array", () => {
-        it("at the front of the array", () => {
-          expect(switchomatic(revStart)).to.eql([5, 4, 3, 2, 1]);
-        });
-
-        it("at the back of the array", () => {
-          expect(switchomatic(revEnd)).to.eql([1, 2, 3, 4, 5]);
-        });
-
-        it("somewhere in the middle of the array", () => {
-          expect(switchomatic(hasRev1)).to.eql([5, 4, 3, 2, 1]);
-          expect(switchomatic(hasRev2)).to.eql([5, 4, 3, 1, 2]);
-          expect(switchomatic(hasRev3)).to.eql([5, 4, 1, 2, 3]);
-          expect(switchomatic(hasRev4)).to.eql([5, 1, 2, 3, 4]);
-        });
-      });
-
-      it("if there's no 'reverse' string in the array", () => {
-        expect(switchomatic(noRev1)).to.eql(noRev1);
-        expect(switchomatic(noRev2)).to.eql(noRev2);
-      });
-    });
-  });
-
-  describe("#: pairMultiplier", () => {
-    describe("returns an array of multiplied numbers, in the correct order", () => {
-      describe("when both arrays are the same size", () => {
-        const sameSize = [
-          {
-            arr1: [6],
-            arr2: [4],
-            result: [24],
-          },
-          { arr1: [3, 8], arr2: [5, 2], result: [15, 6, 40, 16] },
-          {
-            arr1: [2, 7, 9],
-            arr2: [5, 4, 6],
-            result: [10, 8, 12, 35, 28, 42, 45, 36, 54],
-          },
-        ];
-
-        sameSize.forEach(({ arr1, arr2, result }) => {
-          it(`[${arr1}], [${arr2}] -> [${result}]`, () => {
-            expect(pairMultiplier(arr1, arr2)).to.eql(result);
-          });
-        });
-      });
-
-      describe("first array smaller than second", () => {
-        const firstSmaller = [
-          { arr1: [7], arr2: [2, 3, 4], result: [14, 21, 28] },
-          { arr1: [2, 3], arr2: [4, 5, 6], result: [8, 10, 12, 12, 15, 18] },
-        ];
-
-        firstSmaller.forEach(({ arr1, arr2, result }) => {
-          it(`[${arr1}], [${arr2}] -> [${result}]`, () => {
-            expect(pairMultiplier(arr1, arr2)).to.eql(result);
-          });
-        });
-      });
-
-      describe("second array smaller than first", () => {
-        const secondSmaller = [
-          { arr1: [7, 3], arr2: [9], result: [63, 27] },
-          { arr1: [3, 5, 8], arr2: [2, 4], result: [6, 12, 10, 20, 16, 32] },
-        ];
-
-        secondSmaller.forEach(({ arr1, arr2, result }) => {
-          it(`[${arr1}], [${arr2}] -> [${result}]`, () => {
-            expect(pairMultiplier(arr1, arr2)).to.eql(result);
-          });
-        });
-      });
-    });
-  });
-
-  describe("#: wordCalculator", () => {
+  describe("#9: wordCalculator", () => {
     const calc1 = { nums: [1], ops: ["add"], result: 1 };
     const calc2 = { nums: [2], ops: ["sub"], result: -2 };
     const calc3 = { nums: [3], ops: ["mult"], result: 0 };
@@ -594,6 +672,58 @@ describe("04 - Arrays and Loops", () => {
         multiOp.forEach(({ nums, ops, result }) => {
           it(`[${nums}], [${ops}] -> ${result}`, () => {
             expect(wordCalculator(nums, ops)).to.equal(result);
+          });
+        });
+      });
+    });
+  });
+
+  describe("#10: pairMultiplier", () => {
+    describe("returns an array of multiplied numbers, in the correct order", () => {
+      describe("when both arrays are the same size", () => {
+        const sameSize = [
+          {
+            arr1: [6],
+            arr2: [4],
+            result: [24],
+          },
+          { arr1: [3, 8], arr2: [5, 2], result: [15, 6, 40, 16] },
+          {
+            arr1: [2, 7, 9],
+            arr2: [5, 4, 6],
+            result: [10, 8, 12, 35, 28, 42, 45, 36, 54],
+          },
+        ];
+
+        sameSize.forEach(({ arr1, arr2, result }) => {
+          it(`[${arr1}], [${arr2}] -> [${result}]`, () => {
+            expect(pairMultiplier(arr1, arr2)).to.eql(result);
+          });
+        });
+      });
+
+      describe("first array smaller than second", () => {
+        const firstSmaller = [
+          { arr1: [7], arr2: [2, 3], result: [14, 21] },
+          { arr1: [2, 3], arr2: [4, 5, 6], result: [8, 10, 12, 12, 15, 18] },
+        ];
+
+        firstSmaller.forEach(({ arr1, arr2, result }) => {
+          it(`[${arr1}], [${arr2}] -> [${result}]`, () => {
+            expect(pairMultiplier(arr1, arr2)).to.eql(result);
+          });
+        });
+      });
+
+      describe("second array smaller than first", () => {
+        const secondSmaller = [
+          { arr1: [7, 3], arr2: [9], result: [63, 27] },
+          { arr1: [3, 5, 8], arr2: [2, 4], result: [6, 12, 10, 20, 16, 32] },
+        ];
+
+        secondSmaller.forEach(({ arr1, arr2, result }) => {
+          it(`[${arr1}], [${arr2}] -> [${result}]`, () => {
+            expect(pairMultiplier(arr1, arr2)).to.eql(result);
           });
         });
       });

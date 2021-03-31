@@ -27,6 +27,7 @@
     "@babel/preset-env": "^7.12.13",
     "@babel/register": "^7.12.13",
     "chai": "^4.2.0",
+    "jsdoc": "^3.6.6",
     "mocha": "^8.2.1",
     "mochawesome": "^6.2.1"
   }
