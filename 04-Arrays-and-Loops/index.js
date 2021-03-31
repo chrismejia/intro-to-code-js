@@ -14,12 +14,7 @@
  * measurer(["abc", true, { "a": 1, "b": 2 } ]) => 3
  */
 
-function measurer(arr) {
-  return arr.length;
-}
-
-// One-line function
-// const measurer = (arr) => arr.length;
+function measurer(arr) {}
 
 /**********************************
  * #2: indexer
@@ -39,15 +34,7 @@ function measurer(arr) {
  *
  */
 
-function indexer(arr, index) {
-  if (index !== undefined) {
-    return arr[index];
-  }
-  return arr[0];
-}
-
-// One-line function
-// const indexer = (arr, index) => (index !== undefined ? arr[index] : arr[0]);
+function indexer(arr, index) {}
 
 /**********************************
  * #3: frontOrBack
@@ -72,25 +59,7 @@ function indexer(arr, index) {
  * frontOrBack(array, "back", "remove", 5) => [1, 2, 3];
  */
 
-function frontOrBack(array, place, action, value) {
-  if (place === "front") {
-    if (action === "add") {
-      array.unshift(value);
-      return array;
-    } else {
-      array.shift();
-      return array;
-    }
-  } else {
-    if (action === "add") {
-      array.push(value);
-      return array;
-    } else {
-      array.pop();
-      return array;
-    }
-  }
-}
+function frontOrBack(array, place, action, value) {}
 
 /**********************************
  * #4: repeater
@@ -112,15 +81,7 @@ function frontOrBack(array, place, action, value) {
  * repeater("abc123", 3) => "abc123abc123abc123"
  */
 
-function repeater(string, times) {
-  let repeatedStr = "";
-
-  for (let i = 1; i <= times; i++) {
-    repeatedStr += string;
-  }
-
-  return repeatedStr;
-}
+function repeater(string, times) {}
 
 /**********************************
  * #5: disemvoweler
@@ -145,25 +106,8 @@ function repeater(string, times) {
  * disemvoweler("BeaR") => "BR"
  * disemvoweler("diCTIONAry") => "dCTNry"
  */
-const vowels = ["a", "e", "i", "o", "u"];
 
-function disemvoweler(string) {
-  let noVowelStr = "";
-
-  for (let i = 0; i < string.length; i++) {
-    for (let j = 0; j < vowels.length; j++) {
-      const currChar = string[i];
-      const currVowel = vowels[j];
-
-      if (currChar.toLowerCase() === currVowel) {
-        break;
-      } else if (currChar !== currVowel && j === vowels.length - 1) {
-        noVowelStr += currChar;
-      }
-    }
-  }
-  return noVowelStr;
-}
+function disemvoweler(string) {}
 
 /**********************************
  * #6: valueLocator
@@ -180,19 +124,7 @@ function disemvoweler(string) {
  *  "not cannot be found in the array [zyz,xyx,abc,bd]."
  */
 
-function valueLocator(searchValue, arr) {
-  const idx = arr.indexOf(searchValue);
-  if (idx !== -1) {
-    return `${searchValue} is at index ${idx} of the array [${arr}].`;
-  }
-  return `${searchValue} cannot be found in the array [${arr}].`;
-}
-
-// One-liner
-// const valueLocator = (searchValue, arr) =>
-//   arr.indexOf(searchValue) !== -1
-//     ? `${searchValue} is at index ${idx} of the array ${arr}.`
-//     : `${searchValue} cannot be found in the array ${arr}.`;
+function valueLocator(searchValue, arr) {}
 
 /**********************************
  * #7: reversomatic
@@ -216,23 +148,7 @@ function valueLocator(searchValue, arr) {
  * reversomatic([1, 2, 3, 4, 5, "reverse"]) => [1, 2, 3, 4, 5]
  */
 
-function reversomatic(array) {
-  let output = [];
-  let reverse = false;
-
-  for (let i = 0; i < array.length; i++) {
-    const currValue = array[i];
-
-    if (reverse) {
-      output.unshift(currValue);
-    } else if (currValue === "reverse") {
-      reverse = true;
-    } else {
-      output.push(currValue);
-    }
-  }
-  return output;
-}
+function reversomatic(array) {}
 
 /**********************************
  * #8: uniquesOnly
@@ -251,18 +167,7 @@ function reversomatic(array) {
  * uniquesOnly("abcbabcbabcbabcba") => ['a', 'b', 'c']
  */
 
-function uniqueCharsOnly(inputStr) {
-  let uniques = [];
-
-  for (let i = 0; i < inputStr.length; i++) {
-    const currChar = inputStr[i];
-
-    if (uniques.indexOf(currChar) === -1) {
-      uniques.push(currChar);
-    }
-  }
-  return uniques;
-}
+function uniqueCharsOnly(inputStr) {}
 
 /**********************************
  * #9: wordCalculator
@@ -290,34 +195,7 @@ function uniqueCharsOnly(inputStr) {
  */
 
 // One-loop version
-function wordCalculator(nums, operations) {
-  let result = 0;
-
-  // Both input arrays are the same size
-  // Use the i pointer from the loop to grab current entry per iteration
-  for (let i = 0; i < nums.length; i++) {
-    const currNum = nums[i];
-    const currOp = operations[i];
-
-    switch (currOp) {
-      case "add":
-        result += currNum;
-        break;
-      case "sub":
-        result -= currNum;
-        break;
-      case "mult":
-        result *= currNum;
-        break;
-      case "div":
-        result /= currNum;
-        break;
-      default:
-        break;
-    }
-  }
-  return result;
-}
+function wordCalculator(nums, operations) {}
 
 /**********************************
  * #10: pairMultiplier
@@ -340,18 +218,7 @@ function wordCalculator(nums, operations) {
  * pairMultiplier([3, 5, 8], [2, 4]) => [6, 12, 10, 20, 16, 32]
  */
 
-function pairMultiplier(arr1, arr2) {
-  let productsArr = [];
-
-  for (let i = 0; i < arr1.length; i++) {
-    for (let j = 0; j < arr2.length; j++) {
-      const numOne = arr1[i];
-      const numTwo = arr2[j];
-      productsArr.push(numOne * numTwo);
-    }
-  }
-  return productsArr;
-}
+function pairMultiplier(arr1, arr2) {}
 /**
  * The code below is what tests your answers.
  *
@@ -371,7 +238,7 @@ describe("04 - Arrays and Loops", () => {
     });
   });
 
-  describe("#2: indexer", () => {
+  xdescribe("#2: indexer", () => {
     it("returns the value at the given index", () => {
       expect(indexer([1], 0)).to.equal(1);
       expect(indexer([1, 3, "value", 7, 9], 2)).to.equal("value");
@@ -385,7 +252,7 @@ describe("04 - Arrays and Loops", () => {
     });
   });
 
-  describe("#3: frontOrBack", () => {
+  xdescribe("#3: frontOrBack", () => {
     describe("returns an array modified correctly based on place and action", () => {
       it('place = "front"; action = "add"', () => {
         const array = [1, 2, 3, 4];
@@ -409,7 +276,7 @@ describe("04 - Arrays and Loops", () => {
     });
   });
 
-  describe("#4: repeater", () => {
+  xdescribe("#4: repeater", () => {
     describe("returns a string", () => {
       it("repeated 0 times; an empty string", () => {
         expect(repeater("empty string")).to.equal("");
@@ -435,7 +302,7 @@ describe("04 - Arrays and Loops", () => {
     });
   });
 
-  describe("#5: disemvoweler", () => {
+  xdescribe("#5: disemvoweler", () => {
     describe("returns a string", () => {
       describe("no vowels -> same as the input string", () => {
         const noVowels = [
@@ -508,7 +375,7 @@ describe("04 - Arrays and Loops", () => {
     });
   });
 
-  describe("#6: valueLocator", () => {
+  xdescribe("#6: valueLocator", () => {
     describe("when searchValue is found in the array", () => {
       describe("returns the correct phrase", () => {
         const arr = ["zyz", "xyx", "abc", "bd"];
@@ -548,7 +415,7 @@ describe("04 - Arrays and Loops", () => {
     });
   });
 
-  describe("#7: reversomatic", () => {
+  xdescribe("#7: reversomatic", () => {
     const revStart = ["reverse", 1, 2, 3, 4, 5];
     const revEnd = [1, 2, 3, 4, 5, "reverse"];
     const hasRev1 = [1, "reverse", 2, 3, 4, 5];
@@ -604,7 +471,7 @@ describe("04 - Arrays and Loops", () => {
     });
   });
 
-  describe("#8: uniqueCharsOnly", () => {
+  xdescribe("#8: uniqueCharsOnly", () => {
     describe("returns an array of the unique characters in the string", () => {
       it("if the string is one repeating character", () => {
         expect(uniqueCharsOnly("aaaa")).to.eql(["a"]);
@@ -628,7 +495,7 @@ describe("04 - Arrays and Loops", () => {
     });
   });
 
-  describe("#9: wordCalculator", () => {
+  xdescribe("#9: wordCalculator", () => {
     const calc1 = { nums: [1], ops: ["add"], result: 1 };
     const calc2 = { nums: [2], ops: ["sub"], result: -2 };
     const calc3 = { nums: [3], ops: ["mult"], result: 0 };
@@ -678,7 +545,7 @@ describe("04 - Arrays and Loops", () => {
     });
   });
 
-  describe("#10: pairMultiplier", () => {
+  xdescribe("#10: pairMultiplier", () => {
     describe("returns an array of multiplied numbers, in the correct order", () => {
       describe("when both arrays are the same size", () => {
         const sameSize = [
