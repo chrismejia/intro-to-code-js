@@ -5,7 +5,7 @@
  *
  * @category 04 - Arrays and Loops
  * @function measurer
- * @param {...Number[]} numsArr - Always at least one number in the sample arrays/
+ * @param {...Number[]} arr - always at least one number in the sample arrays/
  * @returns {Number} The length of the array.
  *
  * @example
@@ -23,7 +23,7 @@ function measurer(arr) {}
  *
  * @category 04 - Arrays and Loops
  * @function indexer
- * @param {...*[]} array - array of any length, containing entries of any type
+ * @param {...*[]} arr - array of any length, containing entries of any type
  * @param {?Number} index - optional number
  * @returns {*} When index is defined, indexer returns the value stored. Otherwise, indexer returns the first value in the array.
  *
@@ -31,7 +31,6 @@ function measurer(arr) {}
  * indexer([1], 0) => 1
  * indexer([1, 3, "value", 7, 9 ], 2) => "value"
  * indexer([false, 2, "string"]) => false
- *
  */
 
 function indexer(arr, index) {}
@@ -139,8 +138,8 @@ function valueLocator(searchValue, arr) {}
  *
  * @category 04 - Arrays and Loops
  * @function reversomatic
- * @param {*[]} array - an array of at least size 1, made of entries of any type.
- * @returns {*[]} array of entries that have been properly added to the new array
+ * @param {?String|Number[]} array - an array of at least size 1, made of entries of any type.
+ * @returns {Number[]} array of numbers that have been properly added to the new array
  * @example
  * reversomatic([1, 2, 3, 4, 5]) => [1, 2, 3, 4, 5]
  * reversomatic([["reverse", 1, 2, 3, 4, 5]]) => [5, 4, 3, 2, 1]
@@ -194,7 +193,6 @@ function uniqueCharsOnly(inputStr) {}
  * wordCalculator([7, 11, 12], ["sub", "mult", "add"]) => -65
  */
 
-// One-loop version
 function wordCalculator(nums, operations) {}
 
 /**********************************
@@ -230,7 +228,7 @@ function pairMultiplier(arr1, arr2) {}
 import { expect } from "chai";
 
 describe("04 - Arrays and Loops", () => {
-  describe("#1: measurer", () => {
+  xdescribe("#1: measurer", () => {
     it("returns the length of an array", () => {
       expect(measurer([1])).to.equal(1);
       expect(measurer([1, 3, 5, 7, 9])).to.equal(5);
@@ -440,6 +438,7 @@ describe("04 - Arrays and Loops", () => {
       });
 
       describe("that doesn't contain the string 'reverse'", () => {
+        console.log(allArrays);
         allArrays.forEach((arr) => {
           expect(reversomatic(arr)).to.not.include("reverse");
         });
