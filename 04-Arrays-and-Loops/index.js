@@ -5,7 +5,7 @@
  *
  * @category 04 - Arrays and Loops
  * @function measurer
- * @param {...Number[]} arr - always at least one number in the sample arrays/
+ * @param {...Number[]} arr - Always at least one number in the sample arrays/
  * @returns {Number} The length of the array.
  *
  * @example
@@ -138,8 +138,8 @@ function valueLocator(searchValue, arr) {}
  *
  * @category 04 - Arrays and Loops
  * @function reversomatic
- * @param {?String|Number[]} array - an array of at least size 1, made of entries of any type.
- * @returns {Number[]} array of numbers that have been properly added to the new array
+ * @param {*[]} array - an array of at least size 1, made of entries of any type.
+ * @returns {Number[]} array of entries that have been properly added to the new array
  * @example
  * reversomatic([1, 2, 3, 4, 5]) => [1, 2, 3, 4, 5]
  * reversomatic([["reverse", 1, 2, 3, 4, 5]]) => [5, 4, 3, 2, 1]
@@ -228,7 +228,7 @@ function pairMultiplier(arr1, arr2) {}
 import { expect } from "chai";
 
 describe("04 - Arrays and Loops", () => {
-  xdescribe("#1: measurer", () => {
+  describe("#1: measurer", () => {
     it("returns the length of an array", () => {
       expect(measurer([1])).to.equal(1);
       expect(measurer([1, 3, 5, 7, 9])).to.equal(5);
@@ -433,39 +433,33 @@ describe("04 - Arrays and Loops", () => {
     describe("regardless of the 'reverse' string", () => {
       it("returns an array", () => {
         allArrays.forEach((arr) => {
-          expect(reversomatic(arr)).to.be.an("array");
+          const result = reversomatic(arr);
+          expect(result).to.be.an("array");
         });
       });
 
-      describe("that doesn't contain the string 'reverse'", () => {
-        console.log(allArrays);
-        allArrays.forEach((arr) => {
-          expect(reversomatic(arr)).to.not.include("reverse");
-        });
-      });
-    });
+      describe("only add numbers to the array, in the correct order", () => {
+        describe("if there's a 'reverse' string in the input array", () => {
+          it("at the front of the array", () => {
+            expect(reversomatic(revStart)).to.eql([5, 4, 3, 2, 1]);
+          });
 
-    describe("returns the items in the correct order", () => {
-      describe("if there's a 'reverse' string in the input array", () => {
-        it("at the front of the array", () => {
-          expect(reversomatic(revStart)).to.eql([5, 4, 3, 2, 1]);
+          it("at the back of the array", () => {
+            expect(reversomatic(revEnd)).to.eql([1, 2, 3, 4, 5]);
+          });
+
+          it("somewhere in the middle of the array", () => {
+            expect(reversomatic(hasRev1)).to.eql([5, 4, 3, 2, 1]);
+            expect(reversomatic(hasRev2)).to.eql([5, 4, 3, 1, 2]);
+            expect(reversomatic(hasRev3)).to.eql([5, 4, 1, 2, 3]);
+            expect(reversomatic(hasRev4)).to.eql([5, 1, 2, 3, 4]);
+          });
         });
 
-        it("at the back of the array", () => {
-          expect(reversomatic(revEnd)).to.eql([1, 2, 3, 4, 5]);
+        it("if there's no 'reverse' string in the array", () => {
+          expect(reversomatic(noRev1)).to.eql(noRev1);
+          expect(reversomatic(noRev2)).to.eql(noRev2);
         });
-
-        it("somewhere in the middle of the array", () => {
-          expect(reversomatic(hasRev1)).to.eql([5, 4, 3, 2, 1]);
-          expect(reversomatic(hasRev2)).to.eql([5, 4, 3, 1, 2]);
-          expect(reversomatic(hasRev3)).to.eql([5, 4, 1, 2, 3]);
-          expect(reversomatic(hasRev4)).to.eql([5, 1, 2, 3, 4]);
-        });
-      });
-
-      it("if there's no 'reverse' string in the array", () => {
-        expect(reversomatic(noRev1)).to.eql(noRev1);
-        expect(reversomatic(noRev2)).to.eql(noRev2);
       });
     });
   });
