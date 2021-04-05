@@ -5,7 +5,7 @@
  *
  * @category 04 - Arrays and Loops
  * @function measurer
- * @param {...Number[]} numsArr - Always at least one number in the sample arrays/
+ * @param {...Number[]} arr - Always at least one number in the sample arrays/
  * @returns {Number} The length of the array.
  *
  * @example
@@ -28,7 +28,7 @@ function measurer(arr) {
  *
  * @category 04 - Arrays and Loops
  * @function indexer
- * @param {...*[]} array - array of any length, containing entries of any type
+ * @param {...*[]} arr - array of any length, containing entries of any type
  * @param {?Number} index - optional number
  * @returns {*} When index is defined, indexer returns the value stored. Otherwise, indexer returns the first value in the array.
  *
@@ -36,7 +36,6 @@ function measurer(arr) {
  * indexer([1], 0) => 1
  * indexer([1, 3, "value", 7, 9 ], 2) => "value"
  * indexer([false, 2, "string"]) => false
- *
  */
 
 function indexer(arr, index) {
@@ -114,11 +113,9 @@ function frontOrBack(array, place, action, value) {
 
 function repeater(string, times) {
   let repeatedStr = "";
-
   for (let i = 1; i <= times; i++) {
     repeatedStr += string;
   }
-
   return repeatedStr;
 }
 
@@ -149,12 +146,10 @@ const vowels = ["a", "e", "i", "o", "u"];
 
 function disemvoweler(string) {
   let noVowelStr = "";
-
   for (let i = 0; i < string.length; i++) {
     for (let j = 0; j < vowels.length; j++) {
       const currChar = string[i];
       const currVowel = vowels[j];
-
       if (currChar.toLowerCase() === currVowel) {
         break;
       } else if (currChar !== currVowel && j === vowels.length - 1) {
@@ -208,7 +203,7 @@ function valueLocator(searchValue, arr) {
  * @category 04 - Arrays and Loops
  * @function reversomatic
  * @param {*[]} array - an array of at least size 1, made of entries of any type.
- * @returns {*[]} array of entries that have been properly added to the new array
+ * @returns {Number[]} array of entries that have been properly added to the new array
  * @example
  * reversomatic([1, 2, 3, 4, 5]) => [1, 2, 3, 4, 5]
  * reversomatic([["reverse", 1, 2, 3, 4, 5]]) => [5, 4, 3, 2, 1]
@@ -219,10 +214,8 @@ function valueLocator(searchValue, arr) {
 function reversomatic(array) {
   let output = [];
   let reverse = false;
-
   for (let i = 0; i < array.length; i++) {
     const currValue = array[i];
-
     if (reverse) {
       output.unshift(currValue);
     } else if (currValue === "reverse") {
@@ -253,10 +246,8 @@ function reversomatic(array) {
 
 function uniqueCharsOnly(inputStr) {
   let uniques = [];
-
   for (let i = 0; i < inputStr.length; i++) {
     const currChar = inputStr[i];
-
     if (uniques.indexOf(currChar) === -1) {
       uniques.push(currChar);
     }
@@ -289,16 +280,13 @@ function uniqueCharsOnly(inputStr) {
  * wordCalculator([7, 11, 12], ["sub", "mult", "add"]) => -65
  */
 
-// One-loop version
 function wordCalculator(nums, operations) {
   let result = 0;
-
   // Both input arrays are the same size
   // Use the i pointer from the loop to grab current entry per iteration
   for (let i = 0; i < nums.length; i++) {
     const currNum = nums[i];
     const currOp = operations[i];
-
     switch (currOp) {
       case "add":
         result += currNum;
@@ -342,7 +330,6 @@ function wordCalculator(nums, operations) {
 
 function pairMultiplier(arr1, arr2) {
   let productsArr = [];
-
   for (let i = 0; i < arr1.length; i++) {
     for (let j = 0; j < arr2.length; j++) {
       const numOne = arr1[i];
@@ -351,6 +338,35 @@ function pairMultiplier(arr1, arr2) {
     }
   }
   return productsArr;
+}
+
+/**
+ * #11: fizzBuzz
+ *
+ * Define the function fizzBuzz.
+ * fizzBuzz accepts a number parameter, stop.
+ * fizzBuzz returns an array where every number from 1 to stop is added as a string.
+ * If the current number is divisible by 3, add "Fizz" to the array instead of the number.
+ * If the current number is divisible by 4, add "Buzz" to the array instead of the number.
+ * If the current number is divisible by both 3 and 4, add "FizzBuzz" to the array.
+ *
+ * @category 04 - Arrays and Loops
+ * @function fizzBuzz
+ * @param {Number} stopNum - the number to stop the loop at (inclusive)
+ * @returns {String[]} an array of strings
+ * @example
+ * fizzBuzz(12) => ["1", "2", "Fizz", "Buzz", "5", "Fizz", "7", "Buzz", "Fizz", "10", "11", "FizzBuzz"]
+ */
+
+function fizzBuzz(stopNum) {
+  let result = [];
+  for (let i = 1; i <= stopNum; i++) {
+    let entry = "";
+    if (i % 3 === 0) entry += "Fizz";
+    if (i % 4 === 0) entry += "Buzz";
+    result.push(entry || i);
+  }
+  return result;
 }
 /**
  * The code below is what tests your answers.
@@ -568,38 +584,33 @@ describe("04 - Arrays and Loops", () => {
     describe("regardless of the 'reverse' string", () => {
       it("returns an array", () => {
         allArrays.forEach((arr) => {
-          expect(reversomatic(arr)).to.be.an("array");
+          const result = reversomatic(arr);
+          expect(result).to.be.an("array");
         });
       });
 
-      describe("that doesn't contain the string 'reverse'", () => {
-        allArrays.forEach((arr) => {
-          expect(reversomatic(arr)).to.not.include("reverse");
-        });
-      });
-    });
+      describe("only add numbers to the array, in the correct order", () => {
+        describe("if there's a 'reverse' string in the input array", () => {
+          it("at the front of the array", () => {
+            expect(reversomatic(revStart)).to.eql([5, 4, 3, 2, 1]);
+          });
 
-    describe("returns the items in the correct order", () => {
-      describe("if there's a 'reverse' string in the input array", () => {
-        it("at the front of the array", () => {
-          expect(reversomatic(revStart)).to.eql([5, 4, 3, 2, 1]);
+          it("at the back of the array", () => {
+            expect(reversomatic(revEnd)).to.eql([1, 2, 3, 4, 5]);
+          });
+
+          it("somewhere in the middle of the array", () => {
+            expect(reversomatic(hasRev1)).to.eql([5, 4, 3, 2, 1]);
+            expect(reversomatic(hasRev2)).to.eql([5, 4, 3, 1, 2]);
+            expect(reversomatic(hasRev3)).to.eql([5, 4, 1, 2, 3]);
+            expect(reversomatic(hasRev4)).to.eql([5, 1, 2, 3, 4]);
+          });
         });
 
-        it("at the back of the array", () => {
-          expect(reversomatic(revEnd)).to.eql([1, 2, 3, 4, 5]);
+        it("if there's no 'reverse' string in the array", () => {
+          expect(reversomatic(noRev1)).to.eql(noRev1);
+          expect(reversomatic(noRev2)).to.eql(noRev2);
         });
-
-        it("somewhere in the middle of the array", () => {
-          expect(reversomatic(hasRev1)).to.eql([5, 4, 3, 2, 1]);
-          expect(reversomatic(hasRev2)).to.eql([5, 4, 3, 1, 2]);
-          expect(reversomatic(hasRev3)).to.eql([5, 4, 1, 2, 3]);
-          expect(reversomatic(hasRev4)).to.eql([5, 1, 2, 3, 4]);
-        });
-      });
-
-      it("if there's no 'reverse' string in the array", () => {
-        expect(reversomatic(noRev1)).to.eql(noRev1);
-        expect(reversomatic(noRev2)).to.eql(noRev2);
       });
     });
   });
@@ -727,6 +738,49 @@ describe("04 - Arrays and Loops", () => {
           });
         });
       });
+    });
+  });
+
+  describe("#11: fizzBuzz", () => {
+    const result = fizzBuzz(100);
+    const lengthTest = [1, 12, 50, 100];
+
+    it("returns an array", () => {
+      expect(result).to.be.an("array");
+    });
+
+    it("the array is the correct length", () => {
+      lengthTest.map((length) => {
+        expect(fizzBuzz(length)).to.have.lengthOf(length);
+      });
+    });
+
+    it("each number not divisible by either 3 or 4 is itself", () => {
+      const eachStringNumAppears = result
+        .filter((_, idx) => (idx + 1) % 3 !== 0 && (idx + 1) % 4 !== 0)
+        .every((entry) => typeof entry === "number");
+      expect(eachStringNumAppears).to.be.true;
+    });
+
+    it("each number divisible only by 3 is `Fizz`", () => {
+      const eachFizzAppears = result
+        .filter((_, idx) => (idx + 1) % 3 === 0 && (idx + 1) % 12 !== 0)
+        .every((entry) => entry === "Fizz");
+      expect(eachFizzAppears).to.be.true;
+    });
+
+    it("each number divisible only by 4 is `Buzz`", () => {
+      const eachBuzzAppears = result
+        .filter((_, idx) => (idx + 1) % 4 === 0 && (idx + 1) % 12 !== 0)
+        .every((entry) => entry === "Buzz");
+      expect(eachBuzzAppears).to.be.true;
+    });
+
+    it("each number divisible by both 3 and 4 is `FizzBuzz`", () => {
+      const eachFizzBuzzAppears = result
+        .filter((_, idx) => (idx + 1) % 12 === 0)
+        .every((entry) => entry === "FizzBuzz");
+      expect(eachFizzBuzzAppears).to.be.true;
     });
   });
 });
