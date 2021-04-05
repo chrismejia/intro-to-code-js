@@ -217,6 +217,27 @@ function wordCalculator(nums, operations) {}
  */
 
 function pairMultiplier(arr1, arr2) {}
+
+/**
+ * #11: fizzBuzz
+ *
+ * Define the function fizzBuzz.
+ * fizzBuzz accepts a number parameter, stop.
+ * fizzBuzz returns an array where every number from 1 to stop is added as a string.
+ * If the current number is divisible by 3, add "Fizz" to the array instead of the number.
+ * If the current number is divisible by 4, add "Buzz" to the array instead of the number.
+ * If the current number is divisible by both 3 and 4, add "FizzBuzz" to the array.
+ *
+ * @category 04 - Arrays and Loops
+ * @function fizzBuzz
+ * @param {Number} stopNum - the number to stop the loop at (inclusive)
+ * @returns {String[]} an array of strings
+ * @example
+ * fizzBuzz(12) => ["1", "2", "Fizz", "Buzz", "5", "Fizz", "7", "Buzz", "Fizz", "10", "11", "FizzBuzz"]
+ */
+
+function fizzBuzz(stopNum) {}
+
 /**
  * The code below is what tests your answers.
  *
@@ -587,6 +608,49 @@ describe("04 - Arrays and Loops", () => {
           });
         });
       });
+    });
+  });
+
+  describe.only("#11: fizzBuzz", () => {
+    const result = fizzBuzz(100);
+    const lengthTest = [1, 12, 50, 100];
+
+    it("returns an array", () => {
+      expect(result).to.be.an("array");
+    });
+
+    it("the array is the correct length", () => {
+      lengthTest.map((length) => {
+        expect(fizzBuzz(length)).to.have.lengthOf(length);
+      });
+    });
+
+    it("each number not divisible by either 3 or 4 is itself", () => {
+      const eachStringNumAppears = result
+        .filter((_, idx) => (idx + 1) % 3 !== 0 && (idx + 1) % 4 !== 0)
+        .every((entry) => typeof entry === "number");
+      expect(eachStringNumAppears).to.be.true;
+    });
+
+    it("each number divisible only by 3 is `Fizz`", () => {
+      const eachFizzAppears = result
+        .filter((_, idx) => (idx + 1) % 3 === 0 && (idx + 1) % 12 !== 0)
+        .every((entry) => entry === "Fizz");
+      expect(eachFizzAppears).to.be.true;
+    });
+
+    it("each number divisible only by 4 is `Buzz`", () => {
+      const eachBuzzAppears = result
+        .filter((_, idx) => (idx + 1) % 4 === 0 && (idx + 1) % 12 !== 0)
+        .every((entry) => entry === "Buzz");
+      expect(eachBuzzAppears).to.be.true;
+    });
+
+    it("each number divisible by both 3 and 4 is `FizzBuzz`", () => {
+      const eachFizzBuzzAppears = result
+        .filter((_, idx) => (idx + 1) % 12 === 0)
+        .every((entry) => entry === "FizzBuzz");
+      expect(eachFizzBuzzAppears).to.be.true;
     });
   });
 });
