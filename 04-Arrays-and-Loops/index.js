@@ -611,7 +611,7 @@ describe("04 - Arrays and Loops", () => {
     });
   });
 
-  describe.only("#11: fizzBuzz", () => {
+  xdescribe("#11: fizzBuzz", () => {
     const result = fizzBuzz(100);
     const lengthTest = [1, 12, 50, 100];
 
