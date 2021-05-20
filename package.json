@@ -8,7 +8,8 @@
     "test-02": "mocha './02-Conditionals/**.js'",
     "test-03": "mocha './03-Methods-and-Functions/**.js'",
     "test-04": "mocha './04-Arrays-and-Loops/**.js'",
-    "test:mochawesome": "mocha './**/**.js' --reporter=mochawesome --reporter-options autoOpen=true"
+    "test:mochawesome": "mocha './**/**.js' --reporter=mochawesome --reporter-options autoOpen=true",
+    "test-unsorted": "mocha './unsorted/**.js'"
   },
   "repository": {
     "type": "git",
