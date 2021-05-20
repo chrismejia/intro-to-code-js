@@ -8,6 +8,7 @@
     "test-02": "mocha './02-Conditionals/**.js'",
     "test-03": "mocha './03-Methods-and-Functions/**.js'",
     "test-04": "mocha './04-Arrays-and-Loops/**.js'",
+    "test-05": "mocha './05-Callbacks-Iterators/**.js'",
     "test:mochawesome": "mocha './**/**.js' --reporter=mochawesome --reporter-options autoOpen=true"
   },
   "repository": {
@@ -29,5 +30,8 @@
     "chai": "^4.2.0",
     "mocha": "^8.2.1",
     "mochawesome": "^6.2.1"
+  },
+  "dependencies": {
+    "sinon": "^10.0.0"
   }
 }
