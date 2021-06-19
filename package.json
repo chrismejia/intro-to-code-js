@@ -9,7 +9,15 @@
     "test-03": "mocha './03-Methods-and-Functions/**.js'",
     "test-04": "mocha './04-Arrays-and-Loops/**.js'",
     "test-05": "mocha './05-Callbacks-Iterators/**.js'",
-    "test:mochawesome": "mocha './**/**.js' --reporter=mochawesome --reporter-options autoOpen=true"
+    "test-06": "mocha './06-Objects/**.js'",
+    "test:mochawesome": "mocha './**/**.js' --reporter=mochawesome --reporter-options autoOpen=true",
+    "md-docs": "npm run md-01 && npm run md-02 && npm run md-03 && npm run md-04 && npm run md-05 && npm run md-06",
+    "md-01": "jsdoc2md './01-Values-and-Data-Types/index.js' > docs/01-Values-and-Data-Types.md",
+    "md-02": "jsdoc2md './02-Conditionals/index.js' > docs/02-Conditionals.md",
+    "md-03": "jsdoc2md './03-Methods-and-Functions/index.js' > docs/03-Methods-and-Functions.md",
+    "md-04": "jsdoc2md './04-Arrays-and-Loops/index.js' > docs/04-Arrays-and-Loops.md",
+    "md-05": "jsdoc2md './05-Callbacks-Iterators/index.js' > docs/05-Callbacks-Iterators.md",
+    "md-06": "jsdoc2md './06-Objects/index.js' > docs/06-Objects.md"
   },
   "repository": {
     "type": "git",
@@ -28,6 +36,8 @@
     "@babel/preset-env": "^7.12.13",
     "@babel/register": "^7.12.13",
     "chai": "^4.2.0",
+    "jsdoc-to-markdown": "^7.0.1",
+    "jsdocs": "^1.0.0",
     "mocha": "^8.2.1",
     "mochawesome": "^6.2.1"
   },
