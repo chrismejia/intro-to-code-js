@@ -1,4 +1,4 @@
-/**********************************
+/**
  * #1: Logically speaking
  *
  * Using the four given variables below, define four new variables and assign their values as follows:
@@ -27,7 +27,7 @@ const andFalse = givenOne && givenFour; // false && false
 const orTrue = givenTwo || givenThree; // true || true
 const orFalse = givenOne || givenFour; // false || false
 
-/**********************************
+/**
  * #2: 5 characters
  *
  * Define the variable notFiveChars.
@@ -49,7 +49,7 @@ let notFiveChars = "a1b2b3";
 let isItFiveChars =
   notFiveChars.length === 5 ? "it's 5 characters" : "not 5 characters";
 
-/**********************************
+/**
  * #3: numberOrString
  *
  * numberOrString is a function that accepts one input, a value of any type.
@@ -72,7 +72,7 @@ function numberOrString(value) {
   return "This is not a string nor a number";
 }
 
-/**********************************
+/**
  * #4: truthyFalsy
  *
  * truthyFalsy is a function that accepts one input, a value of any type.
@@ -146,7 +146,7 @@ function truthyFalsy(value) {
 //   return true;
 // }
 
-/**********************************
+/**
  * #5: testGrader
  *
  * testGrader is a function that accepts one input: a grade that is between 0 and 100. testGrader returns a letter grade that corresponding the
@@ -180,7 +180,7 @@ function testGrader(grade) {
   }
 }
 
-/**********************************
+/**
  * #6: daysInTheMonth
  *
  * daysInTheMonth is a function that accepts one input: a monthNum that is between 1 and 12.

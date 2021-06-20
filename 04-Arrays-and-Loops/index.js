@@ -1,4 +1,4 @@
-/**********************************
+/**
  * #1: measurer
  *
  * CHALLENGE: measurer can be written as a one-liner.
@@ -21,14 +21,14 @@ function measurer(arr) {
 // One-line function
 // const measurer = (arr) => arr.length;
 
-/**********************************
+/**
  * #2: indexer
  *
  * CHALLENGE: indexer can be written as a one-liner.
  *
  * @category 04 - Arrays and Loops
  * @function indexer
- * @param {...*[]} arr - array of any length, containing entries of any type
+ * @param {Array} arr - array of any length, containing entries of any type
  * @param {?Number} index - optional number
  * @returns {*} When index is defined, indexer returns the value stored. Otherwise, indexer returns the first value in the array.
  *
@@ -48,7 +48,7 @@ function indexer(arr, index) {
 // One-line function
 // const indexer = (arr, index) => (index !== undefined ? arr[index] : arr[0]);
 
-/**********************************
+/**
  * #3: frontOrBack
  *
  * Define the function frontOrBack.
@@ -91,7 +91,7 @@ function frontOrBack(array, place, action, value) {
   }
 }
 
-/**********************************
+/**
  * #4: repeater
  *
  * Define the function repeater.
@@ -119,7 +119,7 @@ function repeater(string, times) {
   return repeatedStr;
 }
 
-/**********************************
+/**
  * #5: disemvoweler
  *
  * Define the function disemvoweler.
@@ -160,7 +160,7 @@ function disemvoweler(string) {
   return noVowelStr;
 }
 
-/**********************************
+/**
  * #6: valueLocator
  *
  * @category 04 - Arrays and Loops
@@ -189,7 +189,7 @@ function valueLocator(searchValue, arr) {
 //     ? `${searchValue} is at index ${idx} of the array ${arr}.`
 //     : `${searchValue} cannot be found in the array ${arr}.`;
 
-/**********************************
+/**
  * #7: reversomatic
  *
  * Define the function reversomatic.
@@ -202,7 +202,7 @@ function valueLocator(searchValue, arr) {
  *
  * @category 04 - Arrays and Loops
  * @function reversomatic
- * @param {*[]} array - an array of at least size 1, made of entries of any type.
+ * @param {Number|?String[]} array - an array of at least size 1, made of entries of any type.
  * @returns {Number[]} array of entries that have been properly added to the new array
  * @example
  * reversomatic([1, 2, 3, 4, 5]) => [1, 2, 3, 4, 5]
@@ -227,7 +227,7 @@ function reversomatic(array) {
   return output;
 }
 
-/**********************************
+/**
  * #8: uniquesOnly
  *
  * Define the function uniquesOnly.
@@ -255,7 +255,7 @@ function uniqueCharsOnly(inputStr) {
   return uniques;
 }
 
-/**********************************
+/**
  * #9: wordCalculator
  *
  * Define the function wordCalculator.
@@ -307,7 +307,7 @@ function wordCalculator(nums, operations) {
   return result;
 }
 
-/**********************************
+/**
  * #10: pairMultiplier
  *
  * Define the function pairMultiplier.

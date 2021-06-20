@@ -1,4 +1,4 @@
-/**********************************
+/**
  * #1: helloWorld
  *
  * Define the function helloWorld.
@@ -12,7 +12,7 @@ function helloWorld() {
   return "Hello World!";
 }
 
-/**********************************
+/**
  * #2: helloWorldRedux
  *
  * Define the function helloWorldRedux.
@@ -38,7 +38,7 @@ function helloWorldRedux(name) {
 // One-line function
 // const helloWorldRedux = (name) => (name ? `Hello ${name}!` : `Hello World!`);
 
-/**********************************
+/**
  * #3: uppercaseThis
  *
  * Define the function uppercaseThis.
@@ -65,7 +65,7 @@ function uppercaseThis(phrase) {
 // One-line function
 // const uppercaseThis = phrase => phrase.toUpperCase()
 
-/**********************************
+/**
  * #4: doesItAddUp
  *
  * Define the function doesItAddUp.
@@ -91,7 +91,7 @@ function doesItAddUp(numA, numB, numC) {
 // One-line answer
 // const doesItAddUp = (numA, numB, numC) => numA + numB === numC;
 
-/**********************************
+/**
  * #5: arrayToString
  *
  * Define the function arrayToString.
@@ -114,7 +114,7 @@ function arrayToString(array, connector) {
 // One-line answer
 // const arrayToString = (string, separator) => array.join(separator)
 
-/**********************************
+/**
  * #6: smallTogetherNow
  *
  * Define the function smallTogetherNow.
@@ -147,7 +147,7 @@ function smallTogetherNow(str1, str2) {
 // const smallTogetherNow = (str1, str2) =>
 //   str1.toLowerCase().concat(str2.toLowerCase());
 
-/**********************************
+/**
  * #7: Dog owners and their dogs
  *
  * Define the function dogAndOwnerInfo.
@@ -184,7 +184,7 @@ function dogAndOwnerInfo(dogName, dogAge, ownerName, ownerAge) {
   }
 }
 
-/**********************************
+/**
  * #8: doesTheMathWork
  *
  * Define the function doesTheMathWork.
@@ -221,7 +221,7 @@ function doesTheMathWork(numA, numB, numC) {
   }
 }
 
-/**********************************
+/**
  * #9: allWordsLength
  *
  * Define the function allWordsLength.
@@ -248,7 +248,7 @@ function allWordsLength(array) {
   return array.join("").length;
 }
 
-/**********************************
+/**
  * The code below is what tests your answers.
  *
  * To test your answers to one of the problems above:

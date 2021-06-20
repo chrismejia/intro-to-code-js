@@ -1,4 +1,4 @@
-/**********************************
+/**
  * #1: What's your name?
  *
  * Define the variable myFirstName.
@@ -7,7 +7,7 @@
 
 const myFirstName = "name";
 
-/**********************************
+/**
  * #2: What's your age?
  *
  * Define the variable myAge.
@@ -16,7 +16,7 @@ const myFirstName = "name";
 
 const myAge = 40;
 
-/**********************************
+/**
  * #3: In fact, it's super fun.
  *
  * Define the variable codingIsFun and assign it a boolean value.
@@ -25,7 +25,7 @@ const myAge = 40;
 
 const codingIsFun = true;
 
-/**********************************
+/**
  * #4: Null and undefined
  *
  * Null represents the intentional absence of value.
@@ -38,7 +38,7 @@ const codingIsFun = true;
 const isNull = null;
 const isUndefined = undefined;
 
-/**********************************
+/**
  * #5: Quickest math class ever.
  *
  * Define the variable numA. Assign it the value 15.
@@ -65,7 +65,7 @@ let multipliedBy = numA * numB;
 let dividedBy = numA / numB;
 let moduloOf = numA % numB;
 
-/**********************************
+/**
  * #6: Numbers and Words, all together
  *
  * Define the variable myDetails.

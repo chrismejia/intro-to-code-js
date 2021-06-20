@@ -1,14 +1,33 @@
 import groceryPrices from "./groceryPrices.json";
 import foodPrices from "./foodPrices.json";
 
-/**********************************
+/**
  * #1: isAnObject
  *
+ * Define the function isAnObject.
+ * isAnObject accepts a single input of any type.
+ * isAnObject returns true or false depending on whether or not the input is an object.
  * @category 06 - Objects
- *
+ * @function isAnObject
+ * @param {*} input
+ * @returns {Boolean}
+ * @example
+ * isAnObject("string") // false
+ * isAnObject(42) // false
+ * isAnObject(true) // false
+ * isAnObject( [1, 2, 3] ) // false
+ * isAnObject( { fruit: "banana" } ) // true
  */
 
-/**********************************
+function isAnObject(input) {
+  return typeof input === "object" && !Array.isArray(input);
+}
+
+function keysToSuccess(object) {
+  return Object.keys(object);
+}
+
+/**
  * Transpose objects in an array to a single object
  * #2: priceTransformer
  *
@@ -42,7 +61,7 @@ function priceTransformer(arrayOfObj) {
   return transposedObj;
 }
 
-/**********************************
+/**
  * #9: Grocery Register
  *
  * Define a function groceryRegister that takes in an object variable, groceryList.
@@ -132,7 +151,7 @@ const listTwo = {
  * Segmented category lists
  */
 
-/**********************************
+/**
  * #3: keyValidator
  * Define the function keyValidator.
  * keyValidator accepts two objects, a testObj and a targetObj.
@@ -158,7 +177,7 @@ function keyValidator(testObj, targetObj) {
   return missingKeys;
 }
 
-/**********************************
+/**
  * The code below is what tests your answers.
  *
  * To test your answers to one of the problems above:
@@ -169,7 +188,30 @@ function keyValidator(testObj, targetObj) {
 import { expect } from "chai";
 
 describe("05 - Callbacks and Iterators", () => {
-  describe.only("#2: priceTransformer", () => {
+  describe("#1: isAnObject", () => {
+    describe("returns false", () => {
+      it("for a string", () => {
+        expect(isAnObject("string")).to.be.false;
+      });
+      it("for a number", () => {
+        expect(isAnObject(42)).to.be.false;
+      });
+      it("for a boolean", () => {
+        expect(isAnObject(true)).to.be.false;
+      });
+      it("for a array", () => {
+        expect(isAnObject([1, 2, 3])).to.be.false;
+      });
+    });
+
+    describe("returns true", () => {
+      it("for an object", () => {
+        expect(isAnObject({ fruit: "banana" })).to.be.true;
+      });
+    });
+  });
+
+  describe("#2: priceTransformer", () => {
     it("returns an object", () => {
       expect(priceTransformer(foodPrices)).to.be.an("object");
     });
