@@ -1,11 +1,12 @@
 import {
   emptyObject,
-  multipleObjects,
   noObjects,
   oneObject,
-  testPrices,
-} from "./data/testObjects";
-import groceryPrices from "./data/groceryPrices.json";
+  multipleObjects,
+} from "./data/01-testObjects";
+import { shortPrices } from "./data/priceTransformer";
+import groceryPrices from "./data/05-groceryPrices";
+import { noNull, oneNull, multipleNull, allNull } from "./data/nullDeleter";
 
 /**
  * #1: isAnObject
@@ -14,11 +15,13 @@ import groceryPrices from "./data/groceryPrices.json";
  * isAnObject accepts a single input of any type.
  * isAnObject returns true or false depending on whether or not the input is an object.
  *
- * @see {@link }
  * @category 06 - Objects
  * @function isAnObject
  * @param {*} input - any type
  * @returns {Boolean}
+ *
+ * @see {@link }
+ *
  * @example
  * isAnObject("string") // false
  * isAnObject(42) // false
@@ -59,7 +62,31 @@ function objectCount(outerObj) {
 }
 
 /**
- * #3: priceTransformer
+ * #: nullDeleter
+ *
+ * nullDeleter accepts an object that always has at least one key-value pair.
+ * If a key's value is null, nullDeleter deletes that key-value pair from the object.
+ * nullDeleter returns the object, free of all null key-value pairs.
+ *
+ * @category 06 - Objects
+ * @function nullDeleter
+ * @param {Object.<string, *>} object
+ * @returns {Object}
+ */
+function nullDeleter(object) {
+  for (const key in object) {
+    const currValue = object[key];
+    if (currValue === null) {
+      delete object[key];
+    }
+  }
+  return object;
+}
+
+function objectFlattener(object) {}
+
+/**
+ * #5: priceTransformer
  *
  * Define the function priceTransformer.
  * priceTransformer takes in an array of objects.
@@ -76,7 +103,10 @@ function objectCount(outerObj) {
  *
  * @example
  * const pricesOne = [ { food: "chips", price: 4.5, } ]
- * priceTransformer(pricesOne) // => { "chips": 4.5 }
+ * priceTransformer(pricesOne) // => { chips: 4.5 }
+ *
+ * const pricesTwo = [ { food: "yogurt", price: 1.5, }, { food: "banana", price: 1.99, } ]
+ * priceTransformer(pricesTwo) // => { yogurt: 1.5, banana: 1.99 }
  */
 
 function priceTransformer(arrayOfObj) {
@@ -304,8 +334,43 @@ describe("06 - Objects", () => {
     });
   });
 
-  describe.only("#3: priceTransformer", () => {
-    const transformedObj = priceTransformer(testPrices);
+  describe("#: nullDeleter", () => {
+    it("returns an object", () => {
+      expect(nullDeleter(noNull)).be.an("object");
+      expect(nullDeleter(oneNull)).be.an("object");
+      expect(nullDeleter(multipleNull)).be.an("object");
+      expect(nullDeleter(allNull)).be.an("object");
+    });
+
+    describe("returns the untouched input", () => {
+      it("when it has no null key-value pairs", () => {
+        expect(nullDeleter(noNull)).to.eql(noNull);
+      });
+    });
+
+    describe("removes all null key-value pairs", () => {
+      it("when there's one present", () => {
+        expect(nullDeleter(oneNull)).to.eql({
+          one: 1,
+          three: "goodbye",
+        });
+      });
+
+      it("when there's multiple present", () => {
+        expect(nullDeleter(multipleNull)).to.eql({
+          three: "goodbye",
+        });
+      });
+
+      it("when they're all null values", () => {
+        expect(nullDeleter(allNull)).to.eql({});
+      });
+    });
+  });
+
+  describe("#5: priceTransformer", () => {
+    const transformedObj = priceTransformer(shortPrices);
+
     it("returns an object", () => {
       expect(transformedObj).to.be.an("object");
     });
@@ -319,7 +384,7 @@ describe("06 - Objects", () => {
       });
 
       it("has each of the food values as keys", () => {
-        const foodKeys = testPrices.map(({ food }) => food);
+        const foodKeys = shortPrices.map(({ food }) => food);
         const hasAllFoodKeys = Object.keys(transformedObj).every(
           (key) => foodKeys.indexOf(key) !== -1
         );
@@ -327,7 +392,7 @@ describe("06 - Objects", () => {
       });
 
       it("has each of the price values as values", () => {
-        const priceValues = testPrices.map(({ price }) => price);
+        const priceValues = shortPrices.map(({ price }) => price);
         const hasAllPriceValues = Object.values(transformedObj).every(
           (values) => priceValues.indexOf(values) !== -1
         );
