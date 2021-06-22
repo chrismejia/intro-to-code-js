@@ -1,5 +1,11 @@
-import groceryPrices from "./groceryPrices.json";
-import foodPrices from "./foodPrices.json";
+import {
+  emptyObject,
+  multipleObjects,
+  noObjects,
+  oneObject,
+  testPrices,
+} from "./data/testObjects";
+import groceryPrices from "./data/groceryPrices.json";
 
 /**
  * #1: isAnObject
@@ -7,9 +13,11 @@ import foodPrices from "./foodPrices.json";
  * Define the function isAnObject.
  * isAnObject accepts a single input of any type.
  * isAnObject returns true or false depending on whether or not the input is an object.
+ *
+ * @see {@link }
  * @category 06 - Objects
  * @function isAnObject
- * @param {*} input
+ * @param {*} input - any type
  * @returns {Boolean}
  * @example
  * isAnObject("string") // false
@@ -23,13 +31,35 @@ function isAnObject(input) {
   return typeof input === "object" && !Array.isArray(input);
 }
 
-function keysToSuccess(object) {
-  return Object.keys(object);
+/**
+ * #2: objectCount
+ *
+ * D
+ *
+ * @category 06 - Objects
+ * @function objectCount
+ * @param {Object} outerObj
+ * @returns {Number}
+ */
+
+function objectCount(outerObj) {
+  let count = 0;
+  for (const value of Object.values(outerObj)) {
+    if (Array.isArray(value)) {
+      for (const element of value) {
+        if (isAnObject(element)) {
+          count++;
+        }
+      }
+    } else if (isAnObject(value)) {
+      count++;
+    }
+  }
+  return count;
 }
 
 /**
- * Transpose objects in an array to a single object
- * #2: priceTransformer
+ * #3: priceTransformer
  *
  * Define the function priceTransformer.
  * priceTransformer takes in an array of objects.
@@ -52,11 +82,11 @@ function keysToSuccess(object) {
 function priceTransformer(arrayOfObj) {
   const transposedObj = {};
 
-  for (const obj of arrayOfObj) {
-    console.log(obj);
-    // for (let key in obj) {
-    //   transposedObj.key = obj[key];
-    // }
+  for (const priceObj of arrayOfObj) {
+    const newKey = priceObj.food;
+    const newPrice = priceObj.price;
+
+    transposedObj[newKey] = newPrice;
   }
   return transposedObj;
 }
@@ -66,19 +96,19 @@ function priceTransformer(arrayOfObj) {
  *
  * Define a function groceryRegister that takes in an object variable, groceryList.
  *
- * `groceryList` is an object containing:
+ * groceryList is an object containing:
  * - grocery items as keys
  * - quantities of each items to buy as values
  *
  * See listOne and listTwo for examples.
  *
- * You will be given a `groceryPrices` object that contains prices for available goods to reference in the groceryRegister function.
+ * You will be given a groceryPrices object that contains prices for available goods to reference in the groceryRegister function.
  *
  * Write a function that returns the total cost of the items in groceryList.
  *
- * HINT: What does `groceryRegister` return? How would you initialize that value and when would you modify it?
+ * HINT: What does groceryRegister return? How would you initialize that value and when would you modify it?
  *
- * HINT: What is a shared trait between the `groceryPrices` and `groceryList` objects? How can you use it?
+ * HINT: What is a shared trait between the groceryPrices and groceryList objects? How can you use it?
  *
  * @example
  * const listOne = {
@@ -187,7 +217,7 @@ function keyValidator(testObj, targetObj) {
  */
 import { expect } from "chai";
 
-describe("05 - Callbacks and Iterators", () => {
+describe("06 - Objects", () => {
   describe("#1: isAnObject", () => {
     describe("returns false", () => {
       it("for a string", () => {
@@ -211,33 +241,102 @@ describe("05 - Callbacks and Iterators", () => {
     });
   });
 
-  describe("#2: priceTransformer", () => {
-    it("returns an object", () => {
-      expect(priceTransformer(foodPrices)).to.be.an("object");
+  describe("#2: objectCount", () => {
+    it("returns a number", () => {
+      expect(objectCount(emptyObject)).to.be.a("number");
+      expect(objectCount(noObjects)).to.be.a("number");
+      expect(objectCount(oneObject)).to.be.a("number");
+      expect(objectCount(multipleObjects)).to.be.a("number");
     });
 
-    it("does not have the original keys present in each object", () => {
-      // console.log(priceTransformer(foodPrices));
-      expect(priceTransformer(foodPrices)).to.not.have.property("food");
-      expect(priceTransformer(foodPrices)).to.not.have.property("price");
+    describe("returns the correct number of objects found within the input object", () => {
+      it("when the input object is empty", () => {
+        expect(objectCount(emptyObject)).to.be.a("number");
+        expect(objectCount(emptyObject)).to.equal(0);
+      });
+
+      it("when the input object has no object values", () => {
+        expect(objectCount(noObjects)).to.be.a("number");
+        expect(objectCount(noObjects)).to.equal(0);
+      });
+
+      it("when the input has only 1 object value", () => {
+        expect(objectCount(oneObject)).to.be.a("number");
+        expect(objectCount(oneObject)).to.equal(1);
+      });
+
+      it("when the input has multiple object values", () => {
+        expect(objectCount(multipleObjects)).to.be.a("number");
+        expect(objectCount(multipleObjects)).to.equal(4);
+      });
+    });
+
+    describe("BONUS", () => {
+      context(
+        "examines an array value for object elements and adds any found to the total count",
+        () => {
+          it("when the value array is empty", () => {
+            noObjects.noneArr = [];
+            expect(objectCount(noObjects)).to.be.a("number");
+            expect(objectCount(noObjects)).to.equal(0);
+          });
+
+          it("when the value array has no objects", () => {
+            noObjects.noneArr = [0, 1, 2, 3, 4];
+            expect(objectCount(noObjects)).to.be.a("number");
+            expect(objectCount(noObjects)).to.equal(0);
+          });
+
+          it("when the value array has 1 object", () => {
+            oneObject.oneArr = [0, 1, {}, 3, 4];
+            expect(objectCount(oneObject)).to.be.a("number");
+            expect(objectCount(oneObject)).to.equal(2);
+          });
+
+          it("when the value array has multiple objects", () => {
+            multipleObjects.firstArr = [{}, 1, {}, 3, {}];
+            multipleObjects.secondArr = [0, {}, 2, {}, 4];
+            expect(objectCount(multipleObjects)).to.be.a("number");
+            expect(objectCount(multipleObjects)).to.equal(9);
+          });
+        }
+      );
     });
   });
 
-  describe("#3: keyValidator", () => {
-    const emptyOne = {};
-    const emptyTwo = {};
-    const twoKeysOne = {
-      word: "hello",
-      nums: [1, 2, 3],
-    };
-    const twoKeysTwo = {
-      word: "hello",
-      nums: [1, 2, 3],
-    };
-    const twoKeysThree = {
-      word: "banana",
-      nums: [4, 5, 6],
-    };
+  describe.only("#3: priceTransformer", () => {
+    const transformedObj = priceTransformer(testPrices);
+    it("returns an object", () => {
+      expect(transformedObj).to.be.an("object");
+    });
+    describe("the returned object", () => {
+      it("does not have the 'food' key", () => {
+        expect(transformedObj).to.not.have.property("food");
+      });
+
+      it("does not have the 'price' key", () => {
+        expect(transformedObj).to.not.have.property("price");
+      });
+
+      it("has each of the food values as keys", () => {
+        const foodKeys = testPrices.map(({ food }) => food);
+        const hasAllFoodKeys = Object.keys(transformedObj).every(
+          (key) => foodKeys.indexOf(key) !== -1
+        );
+        expect(hasAllFoodKeys).to.be.true;
+      });
+
+      it("has each of the price values as values", () => {
+        const priceValues = testPrices.map(({ price }) => price);
+        const hasAllPriceValues = Object.values(transformedObj).every(
+          (values) => priceValues.indexOf(values) !== -1
+        );
+        expect(hasAllPriceValues).to.be.true;
+      });
+    });
+  });
+
+  describe("#4: keyValidator", () => {
     describe("returns an array", () => {
       describe("that is empty", () => {
         it("when both objects are empty", () => {
