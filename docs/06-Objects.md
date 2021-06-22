@@ -22,6 +22,12 @@ keyValidator compares the keys of the targetObj to the ones the testObj has.
 keyValidator returns an array of all the keys, as strings, missing from the testObj.</p>
 <p>If the testObj has all of the same keys as the targetObj, return the string &quot;Both objects are the same.&quot;</p>
 </dd>
+<dt><a href="#isAnObject">isAnObject(input)</a> ⇒ <code>Boolean</code></dt>
+<dd><p>#1: isAnObject</p>
+<p>Define the function isAnObject.
+isAnObject accepts a single input of any type.
+isAnObject returns true or false depending on whether or not the input is an object.</p>
+</dd>
 <dt><a href="#priceTransformer">priceTransformer(arrayOfObj)</a> ⇒ <code>Object</code></dt>
 <dd><p>Transpose objects in an array to a single object
 #2: priceTransformer</p>
@@ -69,6 +75,30 @@ If the testObj has all of the same keys as the targetObj, return the string "Bot
 | testObj | <code>Object</code> | 
 | targetObj | <code>Object</code> | 
 
+<a name="isAnObject"></a>
+
+## isAnObject(input) ⇒ <code>Boolean</code>
+#1: isAnObject
+
+Define the function isAnObject.
+isAnObject accepts a single input of any type.
+isAnObject returns true or false depending on whether or not the input is an object.
+
+**Kind**: global function  
+**Category**: 06 - Objects  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| input | <code>\*</code> | any type |
+
+**Example**  
+```js
+isAnObject("string") // false
+isAnObject(42) // false
+isAnObject(true) // false
+isAnObject( [1, 2, 3] ) // false
+isAnObject( { fruit: "banana" } ) // true
+```
 <a name="priceTransformer"></a>
 
 ## priceTransformer(arrayOfObj) ⇒ <code>Object</code>
