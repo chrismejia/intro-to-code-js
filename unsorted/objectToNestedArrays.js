@@ -1,9 +1,9 @@
 /**
  * Object to Nested Arrays
  *
- * Define a function objectToArray that takes in a variable, objectToConvert.
+ * Define a function objectToArray that takes in a variable, startObj.
  *
- * objectToArray returns an array where each element is itself an array where the first entry is one of objectToConvert's keys and the last, its corresponding value.
+ * objectToArray returns an array where each element is itself an array where the first entry is one of startObj's keys and the last, its corresponding value.
  *
  * HINT: How would you ensure that you're going through each key-value pair in the object?
  *
@@ -13,27 +13,12 @@
  * objectToArray(obj1) //==> [ ['a', 1], ['b', 2] ]
  */
 
-/**
- * APPROACH
- *
- * define the function, accepts an objectToConvert
- * initialize outer array
- *
- * for in loop - objectToConvert
- *    setup innerArray
- *    innerArray push (key and value)
- *    outerArray push (innerArray)
- * END LOOP
- *
- * return outer array
- */
-
-function objectToArray(objToConvert) {
+function objectToArray(startObj) {
   let outerArray = [];
 
-  for (let key in objToConvert) {
+  for (let key in startObj) {
     let innerArray = [];
-    const keysValue = objToConvert[key];
+    const keysValue = startObj[key];
 
     // Push to inner
     innerArray.push(key, keysValue);

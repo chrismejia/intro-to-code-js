@@ -3,18 +3,10 @@ import {
   noObjects,
   oneObject,
   multipleObjects,
-} from "./data/01-testObjects";
+} from "./data/objectCount";
 import { shortPrices } from "./data/priceTransformer";
 import groceryPrices from "./data/05-groceryPrices";
 import { noNull, oneNull, multipleNull, allNull } from "./data/nullDeleter";
-import {
-  noSubObject,
-  oneSubKey,
-  oneSubObjMultKeys,
-  multSubObjOneKey,
-  multSubObjMultKeys,
-  allSubObjMixedKeys,
-} from "./data/objectFlattener";
 
 /**
  * #1: isAnObject
@@ -28,7 +20,8 @@ import {
  * @param {*} input - any type
  * @returns {Boolean}
  *
- * @see {@link }
+ * @see {@link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures JavaScript data types and data structures}
+ * @see {@link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/typeof typeof}
  *
  * @example
  * isAnObject("string") // false
@@ -45,12 +38,21 @@ function isAnObject(input) {
 /**
  * #2: objectCount
  *
- * D
+ * Define the function objectCount.
+ * objectCount accepts a single object with any number of key-value pairs.
+ * objectCount counts the number of object sub-values the object contains.
+ *
+ * HINT: What can you use to help you determine whether or not a value is an object?
  *
  * @category 06 - Objects
  * @function objectCount
  * @param {Object} outerObj
  * @returns {Number}
+ * @example
+ * emptyObject({}) // => 0
+ * emptyObject({ one: 1, two: 2, }) // => 0
+ * emptyObject({ one: true, two: {}, three: "word", four: 4 }) // => 1
+ * emptyObject({ one: {}, two: {}, three: false, four: {}, five: {} }) // => 4
  */
 
 function objectCount(outerObj) {
@@ -70,7 +72,7 @@ function objectCount(outerObj) {
 }
 
 /**
- * #: nullDeleter
+ * #3: nullDeleter
  *
  * nullDeleter accepts an object that always has at least one key-value pair.
  * If a key's value is null, nullDeleter deletes that key-value pair from the object.
@@ -80,6 +82,11 @@ function objectCount(outerObj) {
  * @function nullDeleter
  * @param {Object.<string, *>} object
  * @returns {Object}
+ * @example
+ * nullDeleter({ one: 1 }) // => { one: 1 }
+ * nullDeleter({ one: 1, two: null }) // => { one: 1 }
+ * nullDeleter({ one: null, two: null, three: "goodbye" }) // => { three: "goodbye" }
+ * nullDeleter({ one: null, two: null, three: null }) // => {}
  */
 function nullDeleter(object) {
   for (const key in object) {
@@ -92,28 +99,7 @@ function nullDeleter(object) {
 }
 
 /**
- *
- * @category 06 - Objects
- * @function objectFlattener
- * @param {Object} object
- * @returns {Object}
- */
-function objectFlattener(object) {
-  for (const key in object) {
-    const currValue = object[key];
-    if (isAnObject(currValue)) {
-      for (const subKey in currValue) {
-        const subValue = currValue[subKey];
-        object[subKey] = subValue;
-      }
-      delete object[key];
-    }
-  }
-  return object;
-}
-
-/**
- * #5: priceTransformer
+ * #4: priceTransformer
  *
  * Define the function priceTransformer.
  * priceTransformer takes in an array of objects.
@@ -146,122 +132,6 @@ function priceTransformer(arrayOfObj) {
     transposedObj[newKey] = newPrice;
   }
   return transposedObj;
-}
-
-/**
- * #9: Grocery Register
- *
- * Define a function groceryRegister that takes in an object variable, groceryList.
- *
- * groceryList is an object containing:
- * - grocery items as keys
- * - quantities of each items to buy as values
- *
- * See listOne and listTwo for examples.
- *
- * You will be given a groceryPrices object that contains prices for available goods to reference in the groceryRegister function.
- *
- * Write a function that returns the total cost of the items in groceryList.
- *
- * HINT: What does groceryRegister return? How would you initialize that value and when would you modify it?
- *
- * HINT: What is a shared trait between the groceryPrices and groceryList objects? How can you use it?
- *
- * @example
- * const listOne = {
- *   "milk": 1,
- *   "cereal": 1
- * }
- * groceryRegister(listOne) //==> 11.49
- *
- * const listTwo = {
- *   "rice": 1,
- *   "milk": 2,
- *   "mango": 3,
- *   "cereal": 1,
- *   "strawberries": 2
- * }
- *
- * groceryRegister(listTwo) //==> 39.45
- */
-
-/**
- * APPROACH
- *
- * define function, accepts groceryList object
- * initialize total at 0
- *
- * for-in loop of groceryList (item)
- *    grab quantity needed in list using item key
- *    grab item price using item as list key
- *    use item key in groceryPrices to grab price
- *    subtotal is price x quantity
- *    add subtotal to total
- * END LOOP
- *
- * return total (number)
- */
-
-function groceryRegister(groceryList) {
-  let total = 0;
-
-  for (let item in groceryList) {
-    const quantityNeeded = groceryList[item];
-    const itemPrice = groceryPrices[item];
-
-    if (itemPrice) {
-      const subtotal = itemPrice * quantityNeeded;
-      total += subtotal;
-    }
-  }
-  return total;
-}
-
-const listOne = {
-  milk: 1,
-  cereal: 1,
-};
-
-// groceryRegister(listOne) //==> 11.49
-
-const listTwo = {
-  rice: 1,
-  milk: 2,
-  mango: 3,
-  cereal: 1,
-  strawberries: 2,
-};
-
-// groceryRegister(listTwo); //==> 39.45
-
-/**
- * Segmented category lists
- */
-
-/**
- * #3: keyValidator
- * Define the function keyValidator.
- * keyValidator accepts two objects, a testObj and a targetObj.
- * keyValidator compares the keys of the targetObj to the ones the testObj has.
- * keyValidator returns an array of all the keys, as strings, missing from the testObj.
- *
- * If the testObj has all of the same keys as the targetObj, return the string "Both objects are the same."
- *
- * @function keyValidator
- * @param {Object} testObj
- * @param {Object} targetObj
- * @returns {String[]}
- */
-
-function keyValidator(testObj, targetObj) {
-  let missingKeys = [];
-  const targetKeys = Object.keys(targetObj);
-  for (const testKey of Object.keys(testObj)) {
-    if (targetKeys.indexOf(testKey) === -1) {
-      missingKeys.push(testKey);
-    }
-  }
-  return missingKeys;
 }
 
 /**
@@ -361,7 +231,7 @@ describe("06 - Objects", () => {
     });
   });
 
-  describe("#: nullDeleter", () => {
+  describe("#3: nullDeleter", () => {
     it("returns an object", () => {
       expect(nullDeleter(noNull)).be.an("object");
       expect(nullDeleter(oneNull)).be.an("object");
@@ -395,71 +265,7 @@ describe("06 - Objects", () => {
     });
   });
 
-  describe.only("#: objectFlattener", () => {
-    it("returns an object", () => {
-      expect(objectFlattener(noSubObject)).to.be.an("object");
-      expect(objectFlattener(oneSubKey)).to.be.an("object");
-      expect(objectFlattener(oneSubObjMultKeys)).to.be.an("object");
-      expect(objectFlattener(multSubObjMultKeys)).to.be.an("object");
-    });
-
-    describe("when the input has no object values", () => {
-      it("the untouched input is returned", () => {
-        expect(objectFlattener(noSubObject)).to.eql(noSubObject);
-      });
-    });
-
-    describe("when the input has object values", () => {
-      describe("the returned object has each sub object's key-value pairs", () => {
-        describe("one sub object", () => {
-          it("one key-value pair e.g. { three: { four: 1 }}", () => {
-            const flattenedOne = Object.keys(objectFlattener(oneSubKey));
-            const hasOneSubKey = flattenedOne.indexOf("four") !== -1;
-            expect(hasOneSubKey).to.be.true;
-          });
-
-          it("multiple key-value pairs e.g. { three: { four: 3, five: 'hello' }}", () => {
-            const addedKeys = ["four", "five"];
-            const flattenedOneMult = Object.keys(
-              objectFlattener(oneSubObjMultKeys)
-            );
-            const hasOneSubMultKeys = addedKeys.every(
-              (key) => flattenedOneMult.indexOf(key) !== -1
-            );
-            expect(hasOneSubMultKeys).to.be.true;
-          });
-        });
-
-        describe("multiple sub objects", () => {
-          it("each having one key-value pair", () => {
-            const addedMultSubObjKeys = ["four", "five"];
-            const flatMultSubOneKeys = Object.keys(
-              objectFlattener(multSubObjOneKey)
-            );
-            const hasMultSubOneKeys = addedMultSubObjKeys.every(
-              (key) => flatMultSubOneKeys.indexOf(key) !== -1
-            );
-
-            expect(hasMultSubOneKeys).to.be.true;
-          });
-
-          it("for multiple sub objects key-value pairs", () => {
-            const multObjMultKeys = ["four", "five", "six", "seven", "eight"];
-            const flatMultObjMultKeys = Object.keys(
-              objectFlattener(multSubObjMultKeys)
-            );
-            console.log(flatMultObjMultKeys);
-            const hasMultObjMultKeys = multObjMultKeys.every(
-              (key) => flatMultObjMultKeys.indexOf(key) !== -1
-            );
-            expect(hasMultObjMultKeys).to.be.true;
-          });
-        });
-      });
-    });
-  });
-
-  describe("#5: priceTransformer", () => {
+  describe("#4: priceTransformer", () => {
     const transformedObj = priceTransformer(shortPrices);
 
     it("returns an object", () => {
@@ -489,64 +295,6 @@ describe("06 - Objects", () => {
         );
         expect(hasAllPriceValues).to.be.true;
       });
-    });
-  });
-
-  describe("#4: keyValidator", () => {
-    describe("returns an array", () => {
-      describe("that is empty", () => {
-        it("when both objects are empty", () => {
-          expect(keyValidator(emptyOne, emptyTwo)).to.eql([]);
-        });
-        describe("when each object has all the same keys", () => {
-          it("with the same values", () => {
-            expect(keyValidator(twoKeysOne, twoKeysTwo)).to.eql([]);
-          });
-          it("with different values", () => {
-            expect(keyValidator(twoKeysOne, twoKeysThree)).to.eql([]);
-          });
-        });
-      });
-    });
-  });
-  describe("#: groceryRegister", () => {
-    const orderOne = {
-      milk: 1,
-      cereal: 1,
-    };
-
-    const orderTwo = {
-      rice: 1,
-      milk: 2,
-      mango: 3,
-      cereal: 1,
-      strawberries: 2,
-    };
-
-    const twoItemsMissing = {
-      "sirloin steak": 3,
-      "potato chips": 2,
-      hamburgers: 10,
-    };
-
-    const allOOS = {
-      "soup stock": 2,
-    };
-
-    const baseGroceryLists = Array.of(orderOne, orderTwo);
-    it("returns a number representing the total price", () => {
-      baseGroceryLists.map((list) => {
-        expect(groceryRegister(list)).to.be.a("number");
-      });
-    });
-
-    it("returns", () => {
-      expect(groceryRegister(orderOne)).to.equal(11.49);
-      expect(groceryRegister(orderTwo)).to.equal(39.45);
-    });
-
-    describe("BONUS: can handle orders where items are out of stock", () => {
-      it("returns a number representing the total price", () => {});
     });
   });
 });
