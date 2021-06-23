@@ -5,7 +5,6 @@ import {
   multipleObjects,
 } from "./data/objectCount";
 import { shortPrices } from "./data/priceTransformer";
-import groceryPrices from "./data/05-groceryPrices";
 import { noNull, oneNull, multipleNull, allNull } from "./data/nullDeleter";
 
 /**
@@ -31,9 +30,7 @@ import { noNull, oneNull, multipleNull, allNull } from "./data/nullDeleter";
  * isAnObject( { fruit: "banana" } ) // true
  */
 
-function isAnObject(input) {
-  return typeof input === "object" && !Array.isArray(input);
-}
+function isAnObject(input) {}
 
 /**
  * #2: objectCount
@@ -55,21 +52,7 @@ function isAnObject(input) {
  * emptyObject({ one: {}, two: {}, three: false, four: {}, five: {} }) // => 4
  */
 
-function objectCount(outerObj) {
-  let count = 0;
-  for (const value of Object.values(outerObj)) {
-    if (Array.isArray(value)) {
-      for (const element of value) {
-        if (isAnObject(element)) {
-          count++;
-        }
-      }
-    } else if (isAnObject(value)) {
-      count++;
-    }
-  }
-  return count;
-}
+function objectCount(outerObj) {}
 
 /**
  * #3: nullDeleter
@@ -88,15 +71,7 @@ function objectCount(outerObj) {
  * nullDeleter({ one: null, two: null, three: "goodbye" }) // => { three: "goodbye" }
  * nullDeleter({ one: null, two: null, three: null }) // => {}
  */
-function nullDeleter(object) {
-  for (const key in object) {
-    const currValue = object[key];
-    if (currValue === null) {
-      delete object[key];
-    }
-  }
-  return object;
-}
+function nullDeleter(object) {}
 
 /**
  * #4: priceTransformer
@@ -122,17 +97,7 @@ function nullDeleter(object) {
  * priceTransformer(pricesTwo) // => { yogurt: 1.5, banana: 1.99 }
  */
 
-function priceTransformer(arrayOfObj) {
-  const transposedObj = {};
-
-  for (const priceObj of arrayOfObj) {
-    const newKey = priceObj.food;
-    const newPrice = priceObj.price;
-
-    transposedObj[newKey] = newPrice;
-  }
-  return transposedObj;
-}
+function priceTransformer(arrayOfObj) {}
 
 /**
  * The code below is what tests your answers.
@@ -168,7 +133,7 @@ describe("06 - Objects", () => {
     });
   });
 
-  describe("#2: objectCount", () => {
+  xdescribe("#2: objectCount", () => {
     it("returns a number", () => {
       expect(objectCount(emptyObject)).to.be.a("number");
       expect(objectCount(noObjects)).to.be.a("number");
@@ -231,7 +196,7 @@ describe("06 - Objects", () => {
     });
   });
 
-  describe("#3: nullDeleter", () => {
+  xdescribe("#3: nullDeleter", () => {
     it("returns an object", () => {
       expect(nullDeleter(noNull)).be.an("object");
       expect(nullDeleter(oneNull)).be.an("object");
@@ -265,7 +230,7 @@ describe("06 - Objects", () => {
     });
   });
 
-  describe("#4: priceTransformer", () => {
+  xdescribe("#4: priceTransformer", () => {
     const transformedObj = priceTransformer(shortPrices);
 
     it("returns an object", () => {
