@@ -23,13 +23,13 @@ export const multSubObjOneKey = {
 };
 
 export const multSubObjMultKeys = {
-  one: { four: 42, five: null },
+  one: { four: 42, five: "test" },
   two: false,
   three: { six: 10, seven: "bread", eight: true },
 };
 
 export const allSubObjMixedKeys = {
-  one: { four: 999, five: "javascript" },
+  one: { four: 999, five: [5, true, "right"] },
   two: { six: false },
   three: { seven: 7, eight: [1, 2, 3], nine: true },
 };
