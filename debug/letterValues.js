@@ -27,13 +27,14 @@ export const letterValues = {
   z: 26,
 };
 
-export const testScorePhrases = {
+export const regularScorePhrases = {
   a: 1,
   z: 26,
   aaa: 3,
   abc: 6,
   zzz: 78,
   pin: 39,
+  aabb: 6,
   folk: 44,
   drown: 74,
   margin: 62,
@@ -47,4 +48,13 @@ export const testScorePhrases = {
   assignment: 121,
   relinquish: 132,
   chimpanzee: 100,
+};
+
+export const comboScoredPhrases = {
+  a: 1,
+  z: 26,
+  aaa: 18,
+  abc: 18,
+  zzz: 468,
+  aabb: 36,
 };
