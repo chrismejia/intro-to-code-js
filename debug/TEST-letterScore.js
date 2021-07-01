@@ -4,10 +4,12 @@ import {
   comboScoredPhrases,
 } from "./letterValues";
 /**
+ * Define the function
+ *
  * @category 06 - Object
  * @function phraseScore
  * @param {String} inputPhrase
- * @param {Boolean} comboActive
+ * @param {Boolean} comboActive - when comboActive is true, combo scoring is in effect
  * @returns {Number} total value of inputPhrase
  */
 function phraseScore(inputPhrase, comboActive) {
@@ -15,6 +17,8 @@ function phraseScore(inputPhrase, comboActive) {
   let lastChar = "";
   let combo = 1;
   let multiplier = inputPhrase.length;
+  let currPoints;
+  let debugScores = [];
 
   for (const char of inputPhrase) {
     if (comboActive) {
@@ -33,18 +37,38 @@ function phraseScore(inputPhrase, comboActive) {
       if (lastChar !== char) {
         lastChar = char;
         combo = 1;
-        score += letterValues[char];
+
+        currPoints = letterValues[char];
+        debugScores.push(currPoints);
+
+        score += currPoints;
       } else {
         combo++;
-        score += letterValues[char] * combo;
+
+        currPoints = letterValues[char] * combo;
+        debugScores.push(currPoints);
+
+        score += currPoints;
       }
     } else {
+      currPoints = letterValues[char];
+      debugScores.push(currPoints);
+
       score += letterValues[char];
     }
   }
+
   if (comboActive) {
+    console.log({
+      inputPhrase: {
+        charScores: debugScores,
+        total: score,
+        multiplied: score * multiplier,
+      },
+    });
     return score * multiplier;
   }
+  // console.log(inputPhrase, debugScores, score, score * multiplier);
   return score;
 }
 
@@ -79,6 +103,8 @@ describe("#: phraseScore", () => {
   });
 
   describe("BONUS: when comboActive is true", () => {
+    console.log(Object.keys(comboScoredPhrases));
+
     context("phraseScore", () => {
       it("returns a number", () => {
         for (const phrase in comboScoredPhrases) {
@@ -97,13 +123,17 @@ describe("#: phraseScore", () => {
       });
 
       describe("returns the correct phrase score using the combo rules", () => {
+        let test = {};
+
         for (const phrase in comboScoredPhrases) {
           const comboScore = comboScoredPhrases[phrase];
+          test[phrase] = phraseScore(phrase, true);
 
           it(`${phrase} --> ${comboScore}`, () => {
             expect(phraseScore(phrase, true)).to.equal(comboScore);
           });
         }
+        // console.log(test);
       });
     });
   });
