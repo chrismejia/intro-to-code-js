@@ -10,6 +10,7 @@
     "test-04": "mocha './04-Arrays-and-Loops/**.js'",
     "test-05": "mocha './05-Callbacks-Iterators/**.js'",
     "test-06": "mocha './06-Objects/**.js'",
+    "test-07": "mocha './07-Objects-2/tests/**.js'",
     "test-debug": "mocha './debug/**.js'",
     "test:mochawesome": "mocha './**/**.js' --reporter=mochawesome --reporter-options autoOpen=true",
     "md-docs": "npm run md-01 && npm run md-02 && npm run md-03 && npm run md-04 && npm run md-05 && npm run md-06",

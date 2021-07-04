@@ -72,3 +72,20 @@ export const comboScoredPhrases = {
   relinquish: 1320,
   chimpanzee: 1050,
 };
+
+export const noRepeatsCombo = {
+  a: 1,
+  z: 26,
+  abc: 18,
+  exexex: 117,
+  folk: 176,
+  drown: 370,
+  margin: 372,
+  agency: 330,
+  subway: 546,
+  organize: 760,
+  practice: 600,
+  execution: 1044,
+  vegetable: 711,
+  relinquish: 1320,
+};
