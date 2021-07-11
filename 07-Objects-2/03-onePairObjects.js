@@ -10,17 +10,34 @@
  *
  * @example
  * onePairObjects( {} ) // => []
- * onePairObjects( {one: 1} ) // => [ {one: 1} ]
+ * onePairObjects( { one: 1 } ) // => [ { one: 1 } ]
  * onePairObjects( { one: 1, two: true, three: "no" } ) // => [ {one: 1}, {two: true}, {three: "no"} ]
  */
+
+//
 export function onePairObjects(inputObj) {
   const arrayOfObj = [];
 
-  for (const [key, value] of Object.entries(inputObj)) {
+  // Method 1: for-in loop using keys
+  for (const key in inputObj) {
     const singleObj = {};
-    singleObj[key] = value;
+    singleObj[key] = inputObj[key];
     arrayOfObj.push(singleObj);
   }
+
+  // Method 2: for-of loop using Object.keys
+  // for (const key of Object.keys(inputObj)) {
+  //   const singleObj = {};
+  //   singleObj[key] = inputObj[key];
+  //   arrayOfObj.push(singleObj);
+  // }
+
+  // Method 3: for-of loop using Object.entries
+  // for (const [key, value] of Object.entries(inputObj)) {
+  //   const singleObj = {};
+  //   singleObj[key] = value;
+  //   arrayOfObj.push(singleObj);
+  // }
 
   return arrayOfObj;
 }
