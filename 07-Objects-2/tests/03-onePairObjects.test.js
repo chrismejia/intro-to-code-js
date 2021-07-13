@@ -6,7 +6,7 @@ import {
   multiPairObj,
 } from "../data/onePairObject.data";
 
-describe.only("#3: onePairObjects", () => {
+describe("#3: onePairObjects", () => {
   it("returns an array", () => {
     expect(onePairObjects(noPairs)).to.be.an("array");
 

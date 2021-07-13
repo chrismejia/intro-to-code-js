@@ -14,8 +14,7 @@
  * onePairObjects( { one: 1, two: true, three: "no" } ) // => [ {one: 1}, {two: true}, {three: "no"} ]
  */
 
-//
-export function onePairObjects(inputObj) {
+function onePairObjects(inputObj) {
   const arrayOfObj = [];
 
   // Method 1: for-in loop using keys
@@ -41,3 +40,5 @@ export function onePairObjects(inputObj) {
 
   return arrayOfObj;
 }
+
+export { onePairObjects };
