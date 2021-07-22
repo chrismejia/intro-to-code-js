@@ -3,7 +3,8 @@
  * objectFlattener accepts a single input, inputObj.
  *
  * When objectFlattener comes across a top-level value that is an object, objectFlattener copies that top-level value's sub key-value pairs to the top-level of inputObj.
- * objectFlattener then deletes the top-level key-value pair. See examples.
+ * objectFlattener then deletes the top-level key-value pair.
+ * objectFlattener returns the object after all flattening and deletions are done.
  *
  * The inputObj is guaranteed to always have at least one key-value pair.
  * All inputObj values are guaranteed to never be null or undefined.

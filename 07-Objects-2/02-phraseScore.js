@@ -3,7 +3,8 @@ import { letterValues } from "./data/phraseScore.data";
 /**
  * Define the function phraseScore.
  * phraseScore accepts one string of alphabetical letters.
- * You are given a letterValues object to use,
+ * You are given a letterValues object to use, where each letter has a point value.
+ * phraseScore returns the total points the inputPhrase is worth.
  *
  * BONUS
  *

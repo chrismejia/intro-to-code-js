@@ -4,6 +4,7 @@ import { characters } from "./data/atbashEncoder.data";
  * Define the function atbashEncoder.
  * atbashEncoder accepts no parameters and returns and object with 26 key-value pairs.
  * A `characters` array has been imported for your use; apply it as you see fit.
+ * atbashEncoder returns an object where each letter of the alphabet is a key and its encoded letter is its value. See example.
  *
  * @category 07 - Objects 2
  * @function atbashEncoder
