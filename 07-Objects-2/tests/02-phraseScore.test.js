@@ -27,9 +27,9 @@ xdescribe("#2: phraseScore", () => {
   describe("returns the correct score for the input phrase", () => {
     for (const phrase in regularScorePhrases) {
       const currScore = phraseScore(phrase);
+      const currTestScore = regularScorePhrases[phrase];
 
-      it(`${phrase} = ${currScore}`, () => {
-        const currTestScore = regularScorePhrases[phrase];
+      it(`${phrase} = ${currTestScore}`, () => {
         expect(currScore).to.equal(currTestScore);
       });
     }
