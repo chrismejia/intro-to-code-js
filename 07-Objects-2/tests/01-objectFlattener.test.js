@@ -9,7 +9,7 @@ import {
 } from "../data/objectFlattener.data.js";
 import { expect } from "chai";
 
-describe("#1: objectFlattener", () => {
+xdescribe("#1: objectFlattener", () => {
   it("returns an object", () => {
     expect(objectFlattener(noSubObject)).to.be.an("object");
     expect(objectFlattener(oneSubKey)).to.be.an("object");
@@ -58,7 +58,14 @@ describe("#1: objectFlattener", () => {
         });
 
         it("for multiple sub objects key-value pairs", () => {
-          const multObjMultKeys = ["four", "five", "six", "seven", "eight"];
+          const multObjMultKeys = [
+            "two",
+            "four",
+            "five",
+            "six",
+            "seven",
+            "eight",
+          ];
           const flatMultObjMultKeys = Object.keys(
             objectFlattener(multSubObjMultKeys)
           );

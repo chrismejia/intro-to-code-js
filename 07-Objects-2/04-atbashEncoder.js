@@ -24,16 +24,6 @@ import { characters } from "./data/atbashEncoder.data";
  *   Z: 'A'
  * }
  */
-function atbashEncoder() {
-  const encoder = {};
-  let reversePointer = characters.length - 1;
-  for (let i = 0; i < characters.length; i++) {
-    const oldChar = characters[i];
-    const newChar = characters[reversePointer];
-    encoder[oldChar] = newChar;
-    reversePointer--;
-  }
-  return encoder;
-}
+function atbashEncoder() {}
 
 export default atbashEncoder;

@@ -10,7 +10,7 @@
     "test-04": "mocha './04-Arrays-and-Loops/**.js'",
     "test-05": "mocha './05-Callbacks-Iterators/**.js'",
     "test-06": "mocha './06-Objects/**.js'",
-    "test-07": "mocha './07-Objects-2/tests/**.js'",
+    "test-07": "mocha './07-Objects-2/tests/**.js'"
   },
   "repository": {
     "type": "git",

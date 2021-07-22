@@ -21,24 +21,23 @@
  *
  * const oneObjVal = { one: 1, two: { three: false } }
  * objectFlattener(oneObjVal) // => { one: 1, three: false }
+ *
+ * const multSubObjMultKeys = {
+ *   one: { four: 42, five: "test" },
+ *   two: false,
+ *   three: { six: 10, seven: "bread", eight: true },
+ * }
+ * objectFlattener(multSubObjMultKeys)
+ * // => {
+ *  two: false,
+ *  four: 42,
+ *  five: "test",
+ *  six: 10,
+ *  seven: "bread",
+ *  eight: true
+ * }
  */
 
-function isAnObject(input) {
-  return typeof input === "object" && !Array.isArray(input);
-}
-
-function objectFlattener(inputObj) {
-  for (const key in inputObj) {
-    const currValue = inputObj[key];
-    if (isAnObject(currValue)) {
-      for (const subKey in currValue) {
-        const subValue = currValue[subKey];
-        inputObj[subKey] = subValue;
-      }
-      delete inputObj[key];
-    }
-  }
-  return inputObj;
-}
+function objectFlattener() {}
 
 export default objectFlattener;

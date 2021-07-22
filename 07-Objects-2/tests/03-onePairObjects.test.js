@@ -1,12 +1,12 @@
 import { expect } from "chai";
-import { onePairObjects } from "../03-onePairObjects";
+import onePairObjects from "../03-onePairObjects";
 import {
   noPairs,
   onePairVariety,
   multiPairObj,
 } from "../data/onePairObject.data";
 
-describe("#3: onePairObjects", () => {
+xdescribe("#3: onePairObjects", () => {
   it("returns an array", () => {
     expect(onePairObjects(noPairs)).to.be.an("array");
 
