@@ -12,7 +12,12 @@
  * @example
  * onePairObjects( {} ) // => []
  * onePairObjects( { one: 1 } ) // => [ { one: 1 } ]
- * onePairObjects( { one: 1, two: true, three: "no" } ) // => [ {one: 1}, {two: true}, {three: "no"} ]
+ * onePairObjects( { one: 1, two: true, three: "no" } )
+ * // => [
+ *  { one: 1 },
+ *  { two: true },
+ *  { three: "no" }
+ * ]
  */
 
 function onePairObjects() {}

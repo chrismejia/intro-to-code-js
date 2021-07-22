@@ -30,7 +30,31 @@ import { noNull, oneNull, multipleNull, allNull } from "./data/nullDeleter";
  * isAnObject( { fruit: "banana" } ) // true
  */
 
-function isAnObject(input) {}
+/**
+ * APPROACH
+ * define the function isAnObject which takes in a single parameter of any type
+ *    IF the data type of parameter is an object and is not an array, return TRUE
+ *    ELSE, return FALSE
+ */
+
+// function isAnObject(input) {
+//   if (typeof input === 'object' && Array.isArray(input) === false && input !== null) {
+//     return true
+//   } else {
+//     return false
+//   }
+// }
+
+export const isAnObject = (input) =>
+  typeof input === "object" && !Array.isArray(input) && input !== null;
+
+// console.log(typeof null)
+// const type = typeof undefined // => "undefined"
+// const typeofType = typeof type // typeof "undefined" => "string"
+// console.log(type, typeofType)
+
+// console.log(isAnObject({fruit: "banana"}))
+// console.log("null test", isAnObject(null)) // => true
 
 /**
  * #2: objectCount
@@ -46,13 +70,94 @@ function isAnObject(input) {}
  * @param {Object} outerObj
  * @returns {Number}
  * @example
- * emptyObject({}) // => 0
- * emptyObject({ one: 1, two: 2, }) // => 0
- * emptyObject({ one: true, two: {}, three: "word", four: 4 }) // => 1
- * emptyObject({ one: {}, two: {}, three: false, four: {}, five: {} }) // => 4
+ * objectCount({}) // => 0
+ * objectCount({ one: 1, two: 2, }) // => 0
+ * objectCount({ one: true, two: {}, three: "word", four: 4 }) // => 1
+ * objectCount({ one: {}, two: {}, three: false, four: {}, five: {} }) // => 4
+ *
+ * // BONUS
+ * const bonusObj = {
+ *  one: [{}, 1, {}, 3, {}],
+ *  two: {},
+ *  three: true,
+ *  four: "banana",
+ *  five: [5, {}, 7, {}, 9]
+ * }
+ * objectCount(bonusObj) // => 3 + 1 + 2 => 6
  */
 
-function objectCount(outerObj) {}
+/**
+ * APPROACH
+ *
+ * define the function objectCount
+ * define a variable to initialize count starting from 0
+ *     START LOOP (through values)
+ *        IF current value is an array
+ *           START LOOP (through array)
+ *              grab current element
+ *              IF current element is an object, add 1 to value count
+ *           END ARRAY LOOP
+ *        ELSE IF current value is an object, add 1 to value count
+ *     END LOOP
+ * return value count
+ */
+
+/**
+ *
+ */
+
+function objectCount(outerObj) {
+  let valueCount = 0;
+
+  for (const currValue of Object.values(outerObj)) {
+    if (Array.isArray(currValue)) {
+      for (const currElement of currValue) {
+        if (isAnObject(currElement)) {
+          valueCount++;
+        }
+      }
+    } else if (isAnObject(currValue)) {
+      valueCount++;
+    }
+  }
+  return valueCount;
+}
+
+// function objectCount(outerObj) {
+//   let valueCount = 0
+
+//   // MOST DIRECT METHOD: for-of loop using Object.values to focus all the values
+//   for (const currValue of Object.values(outerObj)) {
+//     if (isAnObject(currValue)) {
+//       valueCount++
+//     }
+//   }
+
+//   // INDIRECT METHOD: for-of loop using Object.keys to grab a value to focus
+//   // for (const key of Object.keys(outerObj)){
+//   //   const value = outerObj[key]
+//   //   if (isAnObject(value)) {
+//   //     valueCount++
+//   //   }
+//   // }
+
+//   // LEAST DIRECT METHOD: for-in loop using key to grab current value
+//   // Based off how we can focus a single element in an array
+//   // EXAMPLE ARRAY LOOP
+//   // for (let i =0; i < arr.length; i++){
+//   //   let currElement = arr[i] // collection[indexReference]
+//   // }
+//   //
+//   // for (const key in outerObj) {
+//   //   const value = outerObj[key]   // collection[reference]
+//   //
+//   //   if (isAnObject(value)) {
+//   //     valueCount++
+//   //   }
+//   // }
+
+//   return valueCount
+// }
 
 /**
  * #3: nullDeleter
@@ -71,7 +176,25 @@ function objectCount(outerObj) {}
  * nullDeleter({ one: null, two: null, three: "goodbye" }) // => { three: "goodbye" }
  * nullDeleter({ one: null, two: null, three: null }) // => {}
  */
-function nullDeleter(object) {}
+
+/**
+ * APPROACH
+ * define funtion nullDeleter
+ * nullDeleter accepts an object with at least one key-value pair
+ *    START LOOP (through key-value pairs)
+ *      IF current value is null, remove property using 'delete'
+ *     END LOOP
+ * returns object without null values
+ */
+function nullDeleter(object) {
+  for (const currKey in object) {
+    let currValue = object[currKey];
+    if (currValue === null) {
+      delete object[currKey];
+    }
+  }
+  return object;
+}
 
 /**
  * #4: priceTransformer
@@ -97,7 +220,56 @@ function nullDeleter(object) {}
  * priceTransformer(pricesTwo) // => { yogurt: 1.5, banana: 1.99 }
  */
 
-function priceTransformer(arrayOfObj) {}
+/**
+ * APPROACH
+ * define function priceTransformer
+ * princeTransformer input(paramater) is an array of objects
+ * define variable pricesObject for new object to be returned
+ *     START FOR OF LOOP (for array of objects)
+ *       grab the values from array of objects
+ *       IF current value is from food key, change food value from value into key
+ *       add new key to priceObjects
+ *      ELSE IF current value is from price key add current value to new food property
+ *      add new value to pricesObject
+ *     END FOR OF LOOP
+ * return pricesObject
+ */
+function priceTransformer(arrayOfObj) {
+  const transposedObj = {};
+
+  for (const priceObj of arrayOfObj) {
+    // priceObj {food: "banana", price: 2}
+
+    const combinedKey = priceObj.food; // "banana"
+    const combinedPrice = priceObj.price; // 2
+
+    // interpret combinedKey and assign it the value of combinedPrice
+    transposedObj[combinedKey] = combinedPrice;
+  }
+  return transposedObj;
+}
+
+// function priceTransformer(arrayOfObj) {
+//   let pricesObject = {};
+//   for (const foodObj of arrayOfObj) {
+//     // foodObj { food: "chips", price: 4.5, }
+//     // make food value new key
+//     // make price value new value
+//     foodObj.food;
+//     foodObj["food"];
+
+//     const newKey = foodObj.food; // "chips"
+//     const newValue = foodObj.price; // 4.5
+
+//     // We use brackets here to set a new key-value pair because the newKey
+//     // needs to be interpreted from the variable
+//     // Dot-notation (pricesObject.newKey) would set a key in the object
+//     // called "newKey" instead.
+//     pricesObject[newKey] = newValue;
+//   }
+
+//   return pricesObject;
+// }
 
 /**
  * The code below is what tests your answers.
@@ -124,6 +296,9 @@ describe("06 - Objects", () => {
       it("for a array", () => {
         expect(isAnObject([1, 2, 3])).to.be.false;
       });
+      it("for null", () => {
+        expect(isAnObject(null)).to.be.false;
+      });
     });
 
     describe("returns true", () => {
@@ -133,7 +308,7 @@ describe("06 - Objects", () => {
     });
   });
 
-  xdescribe("#2: objectCount", () => {
+  describe("#2: objectCount", () => {
     it("returns a number", () => {
       expect(objectCount(emptyObject)).to.be.a("number");
       expect(objectCount(noObjects)).to.be.a("number");
@@ -196,7 +371,7 @@ describe("06 - Objects", () => {
     });
   });
 
-  xdescribe("#3: nullDeleter", () => {
+  describe("#3: nullDeleter", () => {
     it("returns an object", () => {
       expect(nullDeleter(noNull)).be.an("object");
       expect(nullDeleter(oneNull)).be.an("object");
@@ -230,7 +405,7 @@ describe("06 - Objects", () => {
     });
   });
 
-  xdescribe("#4: priceTransformer", () => {
+  describe("#4: priceTransformer", () => {
     const transformedObj = priceTransformer(shortPrices);
 
     it("returns an object", () => {
@@ -247,9 +422,13 @@ describe("06 - Objects", () => {
 
       it("has each of the food values as keys", () => {
         const foodKeys = shortPrices.map(({ food }) => food);
-        const hasAllFoodKeys = Object.keys(transformedObj).every(
-          (key) => foodKeys.indexOf(key) !== -1
-        );
+
+        const transformedKeys = Object.keys(transformedObj);
+
+        const hasAllFoodKeys = transformedKeys.every((key) => {
+          return foodKeys.indexOf(key) !== -1;
+        });
+
         expect(hasAllFoodKeys).to.be.true;
       });
 

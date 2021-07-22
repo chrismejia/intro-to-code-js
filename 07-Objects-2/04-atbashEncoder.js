@@ -6,6 +6,8 @@ import { characters } from "./data/atbashEncoder.data";
  * A `characters` array has been imported for your use; apply it as you see fit.
  * atbashEncoder returns an object where each letter of the alphabet is a key and its encoded letter is its value. See example.
  *
+ * HINT: Read up on multiple pointers in a loop. Think about how you can use pointers to grab keys and values in the same loop.
+ *
  * @category 07 - Objects 2
  * @function atbashEncoder
  * @returns {Object}

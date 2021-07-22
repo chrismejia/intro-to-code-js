@@ -1,5 +1,5 @@
 import { letterValues } from "./data/phraseScore.data";
-
+// in this folder -> in data folder -> in phraseScore.data.js
 /**
  * Define the function phraseScore.
  * phraseScore accepts one string of alphabetical letters.
@@ -12,10 +12,10 @@ import { letterValues } from "./data/phraseScore.data";
  * When comboActive is true, combo rules are in effect.
  * The combo rules are:
  * 1. The combo counter starts at 1.
- * 2. Each character's score is (value X combo).
- * 2. When a character is the same as its predecessor,
+ * 2. Each character's score is (value times combo).
+ * 3a. When a character is the same as its predecessor,
  *    it increases the combo counter by 1.
- * 3. When a character is not the same,
+ * 3b. When it's not the same,
  *    the combo counter resets back to 1.
  * 4. The phrase's total score = character point total x phrase length
  *
@@ -33,7 +33,7 @@ import { letterValues } from "./data/phraseScore.data";
  * phraseScore("abc") // => 6
  * phraseScore("aaa") // => 3
  * phraseScore("zzz") // => 78
- * phraseScore("aabb") // => 91
+ * phraseScore("aabb") // => 6
  *
  * // BONUS
  * phraseScore("a", true) // => 1 x 1 = 1

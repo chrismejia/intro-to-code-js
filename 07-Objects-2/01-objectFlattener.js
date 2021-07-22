@@ -1,3 +1,5 @@
+import { isAnObject } from "../06-Objects";
+
 /**
  * Define the function objectFlattener.
  * objectFlattener accepts a single input, inputObj.
@@ -9,13 +11,13 @@
  * The inputObj is guaranteed to always have at least one key-value pair.
  * All inputObj values are guaranteed to never be null or undefined.
  *
- * HINT: What can you use to test the data type of a value of inputObj?
+ * HINT: What can you use to test the data type of a value in inputObj?
  *
  * @category 06 - Objects
  * @function objectFlattener
  * @param {Object} inputObj
  * @returns {Object}
- *
+//  *
  * @example
  * const noObjVal = { one: 1, two: "string" }
  * objectFlattener(noObjVal) // => { one: 1, two: "string" }
