@@ -24,8 +24,6 @@
  * valueReader("sierra", dataObj) // => undefined
  */
 
-function valueReader(keyString, dataObj) {
-  return dataObj[keyString];
-}
+function valueReader() {}
 
 export default valueReader;
