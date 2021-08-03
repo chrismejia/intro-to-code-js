@@ -1,0 +1,3 @@
+function stringAssembler() {}
+
+[string];
