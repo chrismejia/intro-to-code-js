@@ -15,7 +15,6 @@ function phraseScore(inputPhrase, comboActive) {
   let combo = 1;
   let multiplier = inputPhrase.length;
   let currPoints;
-  let debugScores = [];
 
   for (const char of inputPhrase) {
     if (comboActive) {
@@ -31,41 +30,29 @@ function phraseScore(inputPhrase, comboActive) {
        *    set lastChar to currChar
        *    add that char's value to score
        */
-      if (lastChar !== char) {
+      if (lastChar === char) {
+        combo++;
+        currPoints = letterValues[char] * combo;
+
+        score += currPoints;
+      } else {
         lastChar = char;
         combo = 1;
 
         currPoints = letterValues[char];
-        debugScores.push(currPoints);
-
-        score += currPoints;
-      } else {
-        combo++;
-
-        currPoints = letterValues[char] * combo;
-        debugScores.push(currPoints);
-
         score += currPoints;
       }
     } else {
       currPoints = letterValues[char];
-      debugScores.push(currPoints);
 
       score += letterValues[char];
     }
   }
-  // let testValuesObj = {};
-  // testValuesObj[inputPhrase] = {
-  //   charScores: debugScores,
-  //   total: score,
-  //   multiplied: score * multiplier,
-  // };
 
   if (comboActive) {
-    // console.log(testValuesObj);
     return score * multiplier;
   }
-  // console.log(inputPhrase, debugScores, score, score * multiplier);
+
   return score;
 }
 

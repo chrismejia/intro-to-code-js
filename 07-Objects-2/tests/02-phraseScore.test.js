@@ -64,9 +64,7 @@ describe("#2: phraseScore", () => {
           const comboScore = comboScoredPhrases[phrase];
           test[phrase] = phraseScore(phrase, true);
 
-          it(`${phrase} --> ${comboScore}`, () => {
-            expect(phraseScore(phrase, true)).to.equal(comboScore);
-          });
+          expect(phraseScore(phrase, true)).to.equal(comboScore);
         }
       });
     });
