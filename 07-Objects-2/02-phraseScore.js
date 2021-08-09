@@ -33,18 +33,15 @@ function phraseScore(inputPhrase, comboActive) {
       if (lastChar === char) {
         combo++;
         currPoints = letterValues[char] * combo;
-
         score += currPoints;
       } else {
         lastChar = char;
         combo = 1;
-
         currPoints = letterValues[char];
         score += currPoints;
       }
     } else {
       currPoints = letterValues[char];
-
       score += letterValues[char];
     }
   }
