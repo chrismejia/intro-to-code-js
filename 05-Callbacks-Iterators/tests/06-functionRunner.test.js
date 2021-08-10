@@ -49,8 +49,6 @@ describe.only("#6: functionRunner", () => {
       const strSpyCallInfo = fourRunStrSpy.getCalls();
       const numSpyCallInfo = fourRunNumSpy.getCalls();
 
-      // console.log(strSpyCallInfo);
-
       it("uses inputVal as input for the first callback run", () => {
         const firstRunStrInput = fourRunStrSpy.getCall(0).args[0];
         expect(firstRunStrInput).to.eql(strInput);
@@ -89,6 +87,18 @@ describe.only("#6: functionRunner", () => {
 
           expect(currCallbackResult).to.eql(currExpectedResult);
         });
+      });
+
+      it("returns the correct final value after all callback runs are complete", () => {
+        const lastStrCallResult =
+          strSpyCallInfo[strSpyCallInfo.length - 1].returnValue;
+
+        expect(lastStrCallResult).to.equal(fourRunStrResult);
+
+        const lastNumCallResult =
+          numSpyCallInfo[numSpyCallInfo.length - 1].returnValue;
+
+        expect(lastNumCallResult).to.eql(fourRunNumResult);
       });
     });
   });
