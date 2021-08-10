@@ -3,7 +3,7 @@ import sinon from "sinon";
 import { a, b, c, d, e, testArr } from "../data/positiveNegatives.data";
 import { multiplyNums, numType } from "../01-positivesNegatives";
 
-describe.only("#1: Positives & Negatives", () => {
+describe("#1: Positives & Negatives", () => {
   describe("multiplyNums", () => {
     it("is a function", () => {
       expect(multiplyNums).to.be.a("function");
