@@ -8,9 +8,9 @@ import {
   strInput,
   fourRunsLetter,
 } from "../data/functionRunner.data";
-import functionRunner from "../06-functionRunner";
+import functionRunner from "../03-functionRunner";
 
-describe("#6: functionRunner", () => {
+xdescribe("#3: functionRunner", () => {
   const noRunStr = sinon.spy(strDoubler);
   const noRunStrResult = functionRunner(strInput, noRunStr, 0);
 

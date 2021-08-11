@@ -7,7 +7,7 @@ import {
 } from "../data/startingCapsOnly.data";
 import { startingCapsOnly } from "../02-startingCapsOnly";
 
-describe("#2: startingCapsOnly", () => {
+xdescribe("#2: startingCapsOnly", () => {
   it("returns an array", () => {
     expect(startingCapsOnly(startCapWords)).to.be.an("array");
     expect(startingCapsOnly(noCapWords)).to.be.an("array");

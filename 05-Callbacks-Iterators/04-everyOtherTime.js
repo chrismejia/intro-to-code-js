@@ -1,8 +1,9 @@
 /**
- * Define the function everyOtherTime.
- * everyOtherTime accepts an array of any number of elements of any data type, and a callback function.
- * everOther returns an array where every other element in the input array has had the callback applied to it.
+ * Define the function `everyOtherTime`.
+ * `everyOtherTime` accepts an array of any number of elements of any data type, and a callback function.
+ * `everyOtherTime` returns an array where every other element in the input array has had the callback applied to it.
  *
+ * @category 05 - Callbacks
  * @param {Array} inputArr - array elements can be any data type
  * @param {Function} callback
  * @returns {Array}
