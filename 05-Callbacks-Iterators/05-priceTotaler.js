@@ -4,9 +4,10 @@
  *
  * `priceTotaler` returns a function that takes in a number, the subtotal, and returns the correct final total after shipping and sales tax.
  *
- * "NY": shipping is 3%; sales tax is 6.35%
- * "NJ": shipping is 2.5%; sales tax is 8.25%
- * "CT": shipping is 4%; sales tax is 6%
+ * The three states `priceTotaler` needs to account for:
+ * - "NY": shipping is 3%; sales tax is 6.35%
+ * - "NJ": shipping is 2.5%; sales tax is 8.25%
+ * - "CT": shipping is 4%; sales tax is 6%
  *
  * @category 05 - Callbacks
  * @param {String} state
