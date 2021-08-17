@@ -10,7 +10,7 @@ import {
 } from "../data/functionRunner.data";
 import functionRunner from "../03-functionRunner";
 
-xdescribe("#3: functionRunner", () => {
+describe("#3: functionRunner", () => {
   const noRunStr = sinon.spy(strDoubler);
   const noRunStrResult = functionRunner(strInput, noRunStr, 0);
 

@@ -10,7 +10,7 @@ import {
 } from "../data/everyOtherTime.data";
 import everyOtherTime from "../04-everyOtherTime";
 
-xdescribe("#4: everyOtherTime", () => {
+describe("#4: everyOtherTime", () => {
   const capSpy = sinon.spy(capitalize);
   const cubeSpy = sinon.spy(cubeNum);
 
