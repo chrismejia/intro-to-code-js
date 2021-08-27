@@ -2,7 +2,7 @@ import { expect } from "chai";
 import sinon from "sinon";
 import countToTen from "../01-countToTen";
 
-describe("#1: countToTen", () => {
+xdescribe("#1: countToTen", () => {
   const logSpy = sinon.spy(console, "log");
   const countSpy = sinon.spy(countToTen);
   const oneRun = countSpy(1);
@@ -19,17 +19,24 @@ describe("#1: countToTen", () => {
     });
 
     it("logs each number between startNum and 10, inclusive", () => {
-      const twoToTenCalls = countSpyCalls.slice(1);
+      if (countSpyCalls.length === 0) {
+        expect.fail("No numbers have been logged.");
+      } else {
+        const twoToTenCalls = countSpyCalls.slice(1);
 
-      twoToTenCalls.forEach(({ args }, index) => {
-        const indexMatchToTotal = index + 2; // 0 becomes 2, etc
-        const currentLogVal = args[0]; // compare to matchedIndex
-        expect(indexMatchToTotal).to.equal(currentLogVal);
-      });
+        twoToTenCalls.forEach(({ args }, index) => {
+          const indexMatchToTotal = index + 2; // 0 becomes 2, etc
+          const currentLogVal = args[0]; // compare to matchedIndex
+          expect(indexMatchToTotal).to.equal(currentLogVal);
+        });
+      }
     });
 
     it("recursively calls itself the correct number of times", () => {
       expect(countSpyCalls.length).to.equal(10);
     });
   });
+
+  // needed as log
+  logSpy.restore();
 });

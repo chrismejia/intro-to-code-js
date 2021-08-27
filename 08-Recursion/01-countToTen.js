@@ -12,7 +12,7 @@
  * @param {Number} startNum
  */
 function countToTen(startNum) {
-  console.log(startNum);
+  // console.log(startNum);
   if (startNum < 10) {
     countToTen(startNum + 1);
   }
