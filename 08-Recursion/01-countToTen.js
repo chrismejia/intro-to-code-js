@@ -11,6 +11,11 @@
  * @function countToTen
  * @param {Number} startNum
  */
-function countToTen() {}
+function countToTen(startNum) {
+  // console.log(startNum);
+  if (startNum < 10) {
+    countToTen(startNum + 1);
+  }
+}
 
 export default countToTen;
