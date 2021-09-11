@@ -5,10 +5,15 @@ class Car {
     this.model = model;
     this.miles = miles;
   }
+
+  details() {
+    return `${this.year} ${this.make} ${this.model} @ ${this.miles}`;
+  }
 }
 
 class Owner extends Car {
-  constructor(name) {
+  constructor(year, make, model, miles, name) {
+    super(year, make, model, miles);
     this.name = name;
   }
 
