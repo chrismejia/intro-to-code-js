@@ -54,12 +54,22 @@ describe("#2: Car and Owner", () => {
       expect(myOwner instanceof Owner).to.be.true;
     });
 
+    it("is a subclass off of Car", () => {
+      const result = Car.isPrototypeOf(myOwner);
+      console.log(Car.isPrototypeOf(myOwner));
+      console.log(Object.getPrototypeOf(Car));
+      console.log(Object.getPrototypeOf(Car.prototype));
+      expect(result).to.be.true;
+    });
+
     describe("inherited properties and methods", () => {
       it("inherits `year`, `make`, `model`, `miles` from the Car class", () => {
-        expect(myOwner.hasOwnProperty("year")).to.be.false;
-        expect(myOwner.hasOwnProperty("make")).to.be.false;
-        expect(myOwner.hasOwnProperty("model")).to.be.false;
-        expect(myOwner.hasOwnProperty("miles")).to.be.false;
+        console.log(Car.prototype.isPrototypeOf(myOwner));
+
+        // expect(myOwner.hasOwnProperty("year")).to.be.false;
+        // expect(myOwner.hasOwnProperty("make")).to.be.false;
+        // expect(myOwner.hasOwnProperty("model")).to.be.false;
+        // expect(myOwner.hasOwnProperty("miles")).to.be.false;
       });
     });
   });
