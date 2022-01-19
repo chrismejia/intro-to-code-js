@@ -13,6 +13,8 @@
     "test-07": "mocha './07-Objects-2/tests/**.js'",
     "test-08": "mocha './08-Recursion/tests/**.js'",
     "test-09": "mocha './09-Classes/tests/**.js'",
+    "test-10": "mocha './10-Data-Structures/tests/**.js'",
+    "test-twitter": "mocha './11-Projects/Twitter/tests/**.js'",
     "test-debug": "mocha './debug/tests/**.test.js'",
     "test:mochawesome": "mocha './**/**.js' --reporter=mochawesome --reporter-options autoOpen=true",
     "md-docs": "npm run md-01 && npm run md-02 && npm run md-03 && npm run md-04 && npm run md-05 && npm run md-06",
@@ -28,7 +30,7 @@
     "url": "git+https://github.com/chrismejia/intro-to-code-js.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "Christian Mejia",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/chrismejia/intro-to-code-js/issues"
