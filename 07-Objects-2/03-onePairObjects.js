@@ -6,7 +6,7 @@
  * @category 07 - Objects 2
  * @function onePairObjects
  * @param {Object} inputObj
- * @returns {[]|Object[]} an array where each entry of the array is a single key-value paired obj, based off the original inputObj
+ * @returns {[] | Object[]} an array where each entry of the array is a single key-value paired obj, based off the original inputObj
  *
  * @example
  * onePairObjects( {} ) // => []
