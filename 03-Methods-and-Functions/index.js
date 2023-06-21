@@ -162,7 +162,7 @@ function arrayToString(array, connector) {
  *
  * @example
  * smallTogetherNow("HELLO", "WORLD") => "helloworld"
- * smallTogetherNow("apple", pie) => "applepie"
+ * smallTogetherNow("apple", "pie") => "applepie"
  * smallTogetherNow("mIxEd", "CaPiTaLs") => "mixedcapitals"
  */
 
