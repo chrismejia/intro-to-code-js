@@ -5,7 +5,7 @@
  * When objectFlattener comes across a top-level value that is an object, objectFlattener copies that top-level value's sub key-value pairs to the top-level of inputObj.
  * objectFlattener then deletes the top-level key-value pair. See examples.
  *
- * The inputObj is guaranteed to always have at least one key-value pair.
+ * The inputObj is guaranteed to be an object that always has at least one key-value pair.
  * All inputObj values are guaranteed to never be null or undefined.
  *
  * HINT: What can you use to test the data type of a value of inputObj?
