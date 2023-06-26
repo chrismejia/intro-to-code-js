@@ -37,15 +37,15 @@
   },
   "homepage": "https://github.com/chrismejia/intro-to-code-js#readme",
   "devDependencies": {
-    "@babel/cli": "^7.12.13",
-    "@babel/core": "^7.12.13",
-    "@babel/preset-env": "^7.12.13",
-    "@babel/register": "^7.12.13",
-    "chai": "^4.2.0",
+    "@babel/cli": "^7.22.5",
+    "@babel/core": "^7.22.5",
+    "@babel/preset-env": "^7.22.5",
+    "@babel/register": "^7.22.5",
+    "chai": "^4.3.7",
     "jsdoc-to-markdown": "^7.0.1",
     "jsdocs": "^1.0.0",
-    "mocha": "^8.2.1",
-    "mochawesome": "^6.2.1"
+    "mocha": "^8.4.0",
+    "nodemon": "^2.0.22"
   },
   "dependencies": {
     "sinon": "^10.0.0"
