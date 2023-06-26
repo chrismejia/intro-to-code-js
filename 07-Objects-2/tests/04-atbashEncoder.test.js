@@ -2,7 +2,7 @@ import { expect } from "chai";
 import { characters } from "../data/atbashEncoder.data";
 import atbashEncoder from "../04-atbashEncoder";
 
-describe("#4 - atbashEncoder", () => {
+describe("#4: atbashEncoder", () => {
   const result = atbashEncoder();
   it("returns an object", () => {
     expect(result).to.be.an("object");

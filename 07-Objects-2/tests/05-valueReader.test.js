@@ -2,7 +2,7 @@ import { expect } from "chai";
 import { dataObj } from "../data/valueReader.data";
 import valueReader from "../05-valueReader";
 
-describe.only("#5: valueReader", () => {
+describe("#5: valueReader", () => {
   describe("returns the correct value", () => {
     it("when the key-value pair exists in the data object", () => {
       expect(valueReader("alfa", dataObj)).to.equal("hello world");
