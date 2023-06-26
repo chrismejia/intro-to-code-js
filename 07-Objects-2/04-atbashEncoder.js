@@ -5,11 +5,11 @@ import { characters } from "./data/atbashEncoder.data";
  * atbashEncoder accepts no parameters and returns and object with 26 key-value pairs.
  * A `characters` array has been imported for your use; apply it as you see fit.
  *
+ * @see {@link https://en.wikipedia.org/wiki/Atbash#Encryption Atbash Encryption scheme on Wikipedia}
+ *
  * @category 07 - Objects 2
  * @function atbashEncoder
  * @returns {Object}
- *
- * @see {@link https://en.wikipedia.org/wiki/Atbash#Encryption Atbash Encryption scheme on Wikipedia}
  *
  * @example
  * const resultObject = atbashEncoder()
