@@ -23,7 +23,9 @@
     "md-03": "jsdoc2md './03-Methods-and-Functions/index.js' > docs/03-Methods-and-Functions.md",
     "md-04": "jsdoc2md './04-Arrays-and-Loops/index.js' > docs/04-Arrays-and-Loops.md",
     "md-05": "jsdoc2md './05-Callbacks-Iterators/index.js' > docs/05-Callbacks-Iterators.md",
-    "md-06": "jsdoc2md './06-Objects/index.js' > docs/06-Objects.md"
+    "md-06": "jsdoc2md './06-Objects/index.js' > docs/06-Objects.md",
+    "lint": "eslint ./lessons/**/*.js",
+    "lint:fix": "eslint --fix ./lessons/**/*.js"
   },
   "repository": {
     "type": "git",
@@ -45,7 +47,9 @@
     "eslint": "^8.44.0",
     "eslint-config-prettier": "^8.8.0",
     "eslint-config-standard": "^17.1.0",
+    "eslint-plugin-chai-friendly": "^0.7.2",
     "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-mocha": "^10.1.0",
     "eslint-plugin-n": "^16.0.1",
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-promise": "^6.1.1",
