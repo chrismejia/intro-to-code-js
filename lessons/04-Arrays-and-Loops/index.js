@@ -65,7 +65,7 @@ function indexer(arr, index) {
  *
  * @category 04 - Arrays and Loops
  * @function frontOrBack
- * @param {...Number[]} array - an array containing at least one number
+ * @param {Number[]} array - an array containing at least one number
  * @param {String} place - one of `"front"` or `"back"`
  * @param {String} action - one of `"add"` or `"remove"`
  * @param {Number} value - value to use when processing the input commands
@@ -750,7 +750,7 @@ describe("04 - Arrays and Loops", function () {
     });
 
     it("the array is the correct length", function () {
-      lengthTest.map((length) => {
+      lengthTest.forEach((length) => {
         expect(fizzBuzz(length)).to.have.lengthOf(length);
       });
     });

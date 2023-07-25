@@ -12,10 +12,10 @@
  * If `runCount` is greater than 1, the callback uses `inputVal` for the first run, and uses that result as input for the next run.
  *
  * @category 05 - Callbacks
- * @param {*} inputVal can be any data type
+ * @param {any} inputVal can be any data type
  * @param {Function} callback
  * @param {Number} runCount
- * @returns {*} the inputVal processed by the callback the appropriate number of times
+ * @returns {any} the inputVal processed by the callback the appropriate number of times
  *
  * @example
  * const str = "Abc"
