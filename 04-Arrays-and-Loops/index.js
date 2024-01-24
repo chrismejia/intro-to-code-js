@@ -56,11 +56,11 @@ function indexer(arr, index) {
  *
  * @category 04 - Arrays and Loops
  * @function frontOrBack
- * @param {...Number[]} array - an array containing at least one number
+ * @param {Number[]} array - an array containing at least one number
  * @param {String} place - one of `"front"` or `"back"`
  * @param {String} action - one of `"add"` or `"remove"`
  * @param {Number} value - value to use when processing the input commands
- * @returns {...Number[]}
+ * @returns {Number[]}
  *
  * @example
  * const array = [1, 2, 3, 4];
@@ -202,7 +202,7 @@ function valueLocator(searchValue, arr) {
  *
  * @category 04 - Arrays and Loops
  * @function reversomatic
- * @param {Number|?String[]} array - an array of at least size 1, made of entries of any type.
+ * @param {Number|String[]} array - an array of at least size 1, made of entries of any type.
  * @returns {Number[]} array of entries that have been properly added to the new array
  * @example
  * reversomatic([1, 2, 3, 4, 5]) => [1, 2, 3, 4, 5]
