@@ -16,6 +16,7 @@ import {
   nameType,
   ageType,
   funType,
+  exponentiatedTo,
 } from "../01-Values-and-Data-Types";
 
 /**
@@ -97,6 +98,9 @@ describe("01 - Values and Types", () => {
       });
       it("remainderOf -> expression assignment evaluates to 0", () => {
         expect(remainderOf).to.equal(0);
+      });
+      it("exponentiatedTo -> expression assignment evaluates to 3375", () => {
+        expect(exponentiatedTo).to.equal(3375);
       });
     });
   });

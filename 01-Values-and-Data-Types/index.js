@@ -48,7 +48,8 @@ const isUndefined = undefined;
  * Define the variable subtractedBy. Assign it the expression (don't solve) of numA subtracted by numB.
  * Define the variable multipliedBy. Assign it the expression (don't solve) of numA being multiplied by numB.
  * Define the variable dividedBy. Assign it the expression (don't solve) of numA being divided by numB.
- * Define the variable remainderOf. Assign it the expression (don't solve) of numA being added to numB.
+ * Define the variable remainderOf. Assign it the expression (don't solve) of the remainder after dividing numA by numB.
+ * Define the variable exponentiatedTo. Assign it the expression (don't solve) of numA being raised to numB.
  *
  * Do not reassign or directly use the values of numA and numB in the math variable value defintions.
  * Do not enter the solved math expression's result for any of the math variable values.
@@ -64,6 +65,7 @@ let subtractedBy = numA - numB;
 let multipliedBy = numA * numB;
 let dividedBy = numA / numB;
 let remainderOf = numA % numB;
+let exponentiatedTo = numA ** numB;
 
 /**
  * #6: Values are more than values
@@ -107,6 +109,7 @@ export {
   multipliedBy,
   dividedBy,
   remainderOf,
+  exponentiatedTo,
   nameType,
   ageType,
   funType,
