@@ -13,6 +13,9 @@ import {
   dividedBy,
   remainderOf,
   myDetails,
+  nameType,
+  ageType,
+  funType,
 } from "../01-Values-and-Data-Types";
 
 /**
@@ -98,7 +101,22 @@ describe("01 - Values and Types", () => {
     });
   });
 
-  describe("#6: Numbers and words, all together", () => {
+  describe("#6: Values are more than values", () => {
+    it("nameType -> correctly evaluates type", () => {
+      expect(nameType).to.be.a("string");
+      expect(nameType).to.equal("string");
+    });
+    it("ageType -> correctly evaluates type", () => {
+      expect(ageType).to.be.a("string");
+      expect(ageType).to.equal("number");
+    });
+    it("funType -> correctly evaluates type", () => {
+      expect(funType).to.be.a("string");
+      expect(funType).to.equal("boolean");
+    });
+  });
+
+  describe("#7: Numbers and words, all together", () => {
     it("myDetails -> is a string", () => {
       expect(myDetails).to.be.a("string");
     });

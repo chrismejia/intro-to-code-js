@@ -28,7 +28,7 @@ const codingIsFun = true;
 /**
  * #4: Null and undefined
  *
- * Null represents the intentional absence of value.
+ * Null represents the intentional absence of value; you can assign a variable NO value.
  * Undefined represents a lack of defined value. Variables that are declared but don't have an initial value set will be assigned the value `undefined`.
  *
  * Define two variables: isNull and isUndefined.
@@ -39,7 +39,7 @@ const isNull = null;
 const isUndefined = undefined;
 
 /**
- * #5: Quickest math class ever.
+ * #5: Quickest math class ever
  *
  * Define the variable numA. Assign it the value 15.
  * Define the variable numB. Assign it the value 3.
@@ -66,7 +66,19 @@ let dividedBy = numA / numB;
 let remainderOf = numA % numB;
 
 /**
- * #6: Numbers and Words, all together
+ * #6: Values are more than values
+ *
+ * Define the variable nameType. Assign it the expression (don't solve) that determines what type myFirstName is.
+ * Define the variable ageType. Assign it the expression (don't solve) that determines what type ageType is.
+ * Define the variable funType. Assign it the expression (don't solve) that determines what type funType is.
+ */
+
+let nameType = typeof myFirstName;
+let ageType = typeof myAge;
+let funType = typeof codingIsFun;
+
+/**
+ * #7: Numbers and Words, all together
  *
  * Define the variable myDetails.
  * Assign it the value of a template literal that has the myFirstName and myAge variables embedded within. DO NOT direct embed the values into myDetails.
@@ -95,5 +107,8 @@ export {
   multipliedBy,
   dividedBy,
   remainderOf,
+  nameType,
+  ageType,
+  funType,
   myDetails,
 };
