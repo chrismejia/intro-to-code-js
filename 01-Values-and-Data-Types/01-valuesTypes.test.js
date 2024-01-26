@@ -126,11 +126,11 @@ describe("01 - Values and Types", () => {
     });
 
     it("myDetails features the value of myFirstName", () => {
-      expect(myDetails.split(" ")).to.include(`${myFirstName}`);
+      expect(myDetails).to.include(`${myFirstName}`);
     });
 
     it("myDetails features the value of myAge", () => {
-      expect(myDetails.split(" ")).to.include(`${myAge}`);
+      expect(myDetails).to.include(`${myAge}`);
     });
   });
 });
