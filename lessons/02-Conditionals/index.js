@@ -4,12 +4,12 @@
  * Using the four given variables below, define four new variables and assign their values as follows:
  *
  * AND (&&)
- * a) Define andTrue. Use two of the givens and the && operator so that the evaluated value is true.
- * b) Define andFalse. Use two of the givens and the && operator so that the evaluated value is false.
+ * a) Define andTrue. Use two of the givens and the && operator so that the evaluated value is true. Make sure to export it.
+ * b) Define andFalse. Use two of the givens and the && operator so that the evaluated value is false. Make sure to export it.
  *
  * OR (||)
- * c) Define orTrue. Use two of the givens and the || operator so that the evaluated value is true.
- * d) Define orFalse. Use two of the givens and the || operator so that the evaluated value is true.
+ * c) Define orTrue. Use two of the givens and the || operator so that the evaluated value is true. Make sure to export it.
+ * d) Define orFalse. Use two of the givens and the || operator so that the evaluated value is true. Make sure to export it.
  *
  * See:
  * AND: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_AND
@@ -21,19 +21,19 @@ const givenTwo = "cheese" === "cheese"; // true
 const givenThree = 15 / 3 === 5; // true
 const givenFour = 12 > 13; // false
 
-const andTrue = givenTwo && givenThree; // true && true
-const andFalse = givenOne && givenFour; // false && false
+export const andTrue = givenTwo && givenThree; // true && true
+export const andFalse = givenOne && givenFour; // false && false
 
-const orTrue = givenTwo || givenThree; // true || true
-const orFalse = givenOne || givenFour; // false || false
+export const orTrue = givenTwo || givenThree; // true || true
+export const orFalse = givenOne || givenFour; // false || false
 
 /**
- * #2: 5 characters
+ * #2: fiveCharacters
  *
- * Define the variable notFiveChars.
+ * Define the variable notFiveChars. Make sure to export it.
  * Assign it a string that's not 5 characters long.
  *
- * Define the variable isItFiveChars.
+ * Define the variable isItFiveChars. Make sure to export it.
  * Assign it a ternary that checks to see if notFiveChars has length 5.
  * - True output: "it's 5 characters"
  * - False output: "not 5 characters"
@@ -45,8 +45,8 @@ const orFalse = givenOne || givenFour; // false || false
 
 // Ternary helper: (true/false expression to test) ? true value : false value
 
-let notFiveChars = "a1b2b3";
-let isItFiveChars =
+export const notFiveChars = "a1b2b3";
+export const isItFiveChars =
   notFiveChars.length === 5 ? "it's 5 characters" : "not 5 characters";
 
 /**
@@ -55,8 +55,8 @@ let isItFiveChars =
  * numberOrString is a function that accepts one input, a value of any type.
  * numberOrString returns the following based on these conditions:
  *
- * - "This is a string" if the value is a String
- * - "This is a number" if the value is a Number
+ * - "This is a string" if the value is a string
+ * - "This is a number" if the value is a number
  * - "This is not a string nor a number" if it's neither
  *
  * SEE:
@@ -162,11 +162,16 @@ function truthyFalsy(value) {
  *    -> return 'D'
  * - grade is below 60
  *    -> return 'F'
+ *
+ * Make sure to handle invalid inputs by returning "Not a valid grade."
  */
 
 // Here we connect various if and else-if statements with a final else because we have multiple different conditions to test, each with their own return statement.
-
 function testGrader(grade) {
+  if (grade < 0 || typeof grade !== "number") {
+    return "Not a valid grade.";
+  }
+
   if (grade >= 90) {
     return "A";
   } else if (grade >= 80) {
@@ -175,7 +180,7 @@ function testGrader(grade) {
     return "C";
   } else if (grade >= 60) {
     return "D";
-  } else {
+  } else if (grade >= 0) {
     return "F";
   }
 }
@@ -193,6 +198,8 @@ function testGrader(grade) {
  *    -> return 30
  * - if the month is 2
  *    -> return 28
+ *
+ * Make sure to also handle invalid inputs by returning "Not a valid month."
  */
 
 // This is a problem where many different conditions resolve to the same result. We have many possible results so this is a great place to use a switch statement.
@@ -214,192 +221,18 @@ function daysInTheMonth(month) {
       return 30;
     case 2:
       return 28;
+    default:
+      return "Not a valid month.";
   }
 }
 
-/**
- * The code below is what tests your answers.
- *
- * To test your answers to one of the problems above:
- * 1. Find the number of the problem you're working on
- * 2. Remove the `x` in `xdescribe` so that it reads `describe`
- * 3. Type `npm run test-02` in the Shell and hit Enter.
- */
-import { expect } from "chai";
-
-describe("02 - Conditionals", () => {
-  describe("#1: Logically speaking", () => {
-    describe("Using the && (AND) operator", () => {
-      it("andTrue -> evaluates two givens with && to TRUE", () => {
-        expect(andTrue).to.be.true;
-      });
-
-      it("andFalse -> evaluates two givens with && to FALSE", () => {
-        expect(andFalse).to.be.false;
-      });
-    });
-
-    describe("Using the || (OR) operator", () => {
-      it("orTrue -> evaluates two givens with || to TRUE", () => {
-        expect(orTrue).to.be.true;
-      });
-
-      it("orFalse -> evaluates two givens with || to FALSE", () => {
-        expect(orFalse).to.be.false;
-      });
-    });
-  });
-
-  describe("#2: 5 characters", () => {
-    describe("notFiveChars", () => {
-      it("is a string that isn't 5 characters long", () => {
-        expect(notFiveChars).to.be.a("string").to.not.have.lengthOf(5);
-      });
-    });
-
-    describe("isItFiveChars", () => {
-      it("resolves to the String `it's 5 characters`", () => {
-        expect(isItFiveChars).to.equal("not 5 characters");
-      });
-    });
-  });
-
-  describe("#3: numberOrString", () => {
-    describe("returns the correct output", () => {
-      it("string input -> 'This is a string'", () => {
-        expect(numberOrString("")).to.equal("This is a string");
-        expect(numberOrString("a")).to.equal("This is a string");
-        expect(numberOrString("word")).to.equal("This is a string");
-        expect(numberOrString("two words")).to.equal("This is a string");
-        expect(numberOrString("a1b2c3")).to.equal("This is a string");
-      });
-
-      it("number input -> 'This is a number'", () => {
-        for (let i = 1; i <= 100; i++) {
-          let num = i * Math.ceil(Math.random() * 99);
-          expect(numberOrString(num)).to.equal("This is a number");
-        }
-      });
-
-      it("any other input -> 'This is not a string nor a number'", () => {
-        let types = [{ a: 1 }, [1, 2, 3], false];
-
-        types.forEach((type) => {
-          expect(numberOrString(type)).to.be.a("string");
-        });
-      });
-    });
-  });
-  describe("#4: truthyFalsy", () => {
-    describe("returns false", () => {
-      it("value -> 0", () => {
-        expect(truthyFalsy(0)).to.be.false;
-      });
-
-      it('value -> ""', () => {
-        expect(truthyFalsy("")).to.be.false;
-      });
-
-      it("value -> null", () => {
-        expect(truthyFalsy(null)).to.be.false;
-      });
-
-      it("value -> undefined", () => {
-        expect(truthyFalsy(undefined)).to.be.false;
-      });
-    });
-
-    describe("returns true", () => {
-      it("value -> false", () => {
-        expect(truthyFalsy(false)).to.be.false;
-      });
-
-      it("value -> any other number", () => {
-        expect(truthyFalsy(1)).to.be.true;
-        expect(truthyFalsy(Math.PI)).to.be.true;
-        expect(truthyFalsy(Infinity)).to.be.true;
-      });
-
-      it("value -> any other string", () => {
-        expect(truthyFalsy("a")).to.be.true;
-        expect(truthyFalsy("hello 'world'")).to.be.true;
-        expect(truthyFalsy(`template expression 1 + 2 = ${1 + 2}`)).to.be.true;
-      });
-
-      it("value -> an array", () => {
-        expect(truthyFalsy([])).to.be.true;
-        expect(truthyFalsy([1])).to.be.true;
-        expect(truthyFalsy([1, 2, 3, 4, 5])).to.be.true;
-      });
-
-      it("value -> an object", () => {
-        expect(truthyFalsy({})).to.be.true;
-        expect(truthyFalsy({ a: 1 })).to.be.true;
-      });
-    });
-  });
-
-  describe("#5: testGrader", () => {
-    describe("returns the correct grade", () => {
-      it("when grade is between 90 and 100", () => {
-        expect(testGrader(100)).to.equal("A");
-        expect(testGrader(97)).to.equal("A");
-        expect(testGrader(93)).to.equal("A");
-        expect(testGrader(90)).to.equal("A");
-      });
-
-      it("when grade is between 80 and 89", () => {
-        expect(testGrader(89)).to.equal("B");
-        expect(testGrader(87)).to.equal("B");
-        expect(testGrader(83)).to.equal("B");
-        expect(testGrader(80)).to.equal("B");
-      });
-
-      it("when grade is between 70 and 79", () => {
-        expect(testGrader(79)).to.equal("C");
-        expect(testGrader(77)).to.equal("C");
-        expect(testGrader(73)).to.equal("C");
-        expect(testGrader(70)).to.equal("C");
-      });
-
-      it("when grade is between 60 and 69", () => {
-        expect(testGrader(69)).to.equal("D");
-        expect(testGrader(67)).to.equal("D");
-        expect(testGrader(63)).to.equal("D");
-        expect(testGrader(60)).to.equal("D");
-      });
-
-      it("when grade is below 60", () => {
-        for (let i = 0; i < 60; i++) {
-          let gradeUnder60 = Math.ceil(Math.random() * 59);
-          expect(testGrader(gradeUnder60)).to.equal("F");
-        }
-      });
-    });
-  });
-
-  describe("#6: daysInTheMonth", () => {
-    describe("returns the correct number of days", () => {
-      it("when the month is 1, 3, 5, 7, 8, 10, 12", () => {
-        expect(daysInTheMonth(1)).to.equal(31);
-        expect(daysInTheMonth(3)).to.equal(31);
-        expect(daysInTheMonth(5)).to.equal(31);
-        expect(daysInTheMonth(7)).to.equal(31);
-        expect(daysInTheMonth(8)).to.equal(31);
-        expect(daysInTheMonth(10)).to.equal(31);
-        expect(daysInTheMonth(12)).to.equal(31);
-      });
-
-      it("when the month is 4, 6, 9, 11", () => {
-        expect(daysInTheMonth(4)).to.equal(30);
-        expect(daysInTheMonth(6)).to.equal(30);
-        expect(daysInTheMonth(9)).to.equal(30);
-        expect(daysInTheMonth(11)).to.equal(30);
-      });
-
-      it("when the month is 2", () => {
-        expect(daysInTheMonth(2)).to.equal(28);
-      });
-    });
-  });
-});
+export {
+  givenOne,
+  givenTwo,
+  givenThree,
+  givenFour,
+  numberOrString,
+  truthyFalsy,
+  testGrader,
+  daysInTheMonth,
+};
