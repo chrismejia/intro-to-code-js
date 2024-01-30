@@ -149,7 +149,7 @@ function truthyFalsy(value) {
 /**
  * #5: testGrader
  *
- * testGrader is a function that accepts one input: a grade that is between 0 and 100. testGrader returns a letter grade that corresponding the
+ * testGrader is a function that accepts one input: a grade that is between 0 and 100. testGrader returns a letter grade based of the range the input grade falls into.
  * Complete the function testGrader given below by writing condtional statements that fulfill the following.
  *
  * - grade is 90 to 100
@@ -188,7 +188,7 @@ function testGrader(grade) {
 /**
  * #6: daysInTheMonth
  *
- * daysInTheMonth is a function that accepts one input: a monthNum that is between 1 and 12.
+ * daysInTheMonth is a function that accepts one input: a monthNum that is between 1 and 12, inclusive.
  *
  * Complete the function daysInTheMonth given below by writing conditional statements that fulfill the following.
  *
