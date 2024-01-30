@@ -17,7 +17,7 @@ import {
   ageType,
   funType,
   exponentiatedTo,
-} from "../01-Values-and-Data-Types";
+} from ".";
 
 /**
  * The code below is what tests your answers.
