@@ -147,7 +147,36 @@ function truthyFalsy(value) {
 // }
 
 /**
- * #5: testGrader
+ * #5: letsGoParty
+ *
+ * letsGoParty is a function that accepts three inputs: legalAge, outfitType, hasCoverCharge.
+ * letsGoParty reads these three inputs and tests them to see if a person should be allowed in to party.
+ * letsGoParty should return "Go home, no partying for you tonight." if any of these conditions are not met:
+ *
+ * - if a person's legalAge doesn't meet the party minimum of 25
+ * - if a person's outfitType isn't "pool party"
+ * - if a person's doesn't have the money to pay the coverCharge (false)
+ *
+ * If a person meets all three conditions, welcome them in: "Let's go party!"
+ *
+ * @category 02 - Conditionals
+ * @function letsGoParty
+ * @param {number} legalAge
+ * @param {string} outfitType
+ * @param {boolean} hasCoverCharge
+ * @returns {string}
+ */
+
+function letsGoParty(legalAge, outfitType, hasCoverCharge) {
+  if (legalAge < 25 || outfitType !== "pool party" || !hasCoverCharge) {
+    return "Go home, no partying for you tonight.";
+  }
+
+  return "Let's go party!";
+}
+
+/**
+ * #6: testGrader
  *
  * testGrader is a function that accepts one input: a grade that is between 0 and 100. testGrader returns a letter grade based of the range the input grade falls into.
  * Complete the function testGrader given below by writing condtional statements that fulfill the following.
@@ -186,7 +215,7 @@ function testGrader(grade) {
 }
 
 /**
- * #6: daysInTheMonth
+ * #7: daysInTheMonth
  *
  * daysInTheMonth is a function that accepts one input: a monthNum that is between 1 and 12, inclusive.
  *
@@ -233,6 +262,7 @@ export {
   givenFour,
   numberOrString,
   truthyFalsy,
+  letsGoParty,
   testGrader,
   daysInTheMonth,
 };
