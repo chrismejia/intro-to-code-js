@@ -40,7 +40,7 @@ describe("#6: testGrader", () => {
       expect(testGrader(60)).to.equal("D");
     });
 
-    it("when grade is below 60", () => {
+    it("when grade is between 0 and 60", () => {
       for (let i = 0; i < 60; i++) {
         let gradeUnder60 = Math.ceil(Math.random() * 59);
         expect(testGrader(gradeUnder60)).to.equal("F");
@@ -54,6 +54,8 @@ describe("#6: testGrader", () => {
     it("invalid numbers", () => {
       expect(testGrader(-12)).to.equal(err);
       expect(testGrader(-1)).to.equal(err);
+      expect(testGrader(101)).to.equal(err);
+      expect(testGrader(255)).to.equal(err);
     });
 
     it("other invalid inputs", () => {

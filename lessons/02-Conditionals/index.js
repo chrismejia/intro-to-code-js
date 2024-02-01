@@ -195,9 +195,10 @@ function letsGoParty(legalAge, outfitType, hasCoverCharge) {
  * Make sure to handle invalid inputs by returning "Not a valid grade."
  */
 
-// Here we connect various if and else-if statements with a final else because we have multiple different conditions to test, each with their own return statement.
+// First we need a guard clause to filter out invalid values and return the appropriate error.
+// Then, we connect various if and else-if statements with a final else because we have multiple different conditions to test, each with their own return statement.
 function testGrader(grade) {
-  if (grade < 0 || typeof grade !== "number") {
+  if (grade < 0 || grade > 100 || typeof grade !== "number") {
     return "Not a valid grade.";
   }
 
