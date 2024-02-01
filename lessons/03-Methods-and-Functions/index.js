@@ -29,7 +29,7 @@ function helloWorld() {
  *
  * @category 03 - Methods and Functions
  * @function helloWorldRedux
- * @param {?String} name - optional name input
+ * @param {String?} name - optional name input
  * @returns {String}
  *
  * @example
