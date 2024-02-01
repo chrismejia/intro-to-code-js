@@ -6,7 +6,7 @@
   "scripts": {
     "test-01": "mocha './lessons/01-Values-and-Data-Types/tests/**.js'",
     "test-02": "mocha './lessons/02-Conditionals/tests/**.js'",
-    "test-03": "mocha './lessons/03-Methods-and-Functions/**.js'",
+    "test-03": "mocha './lessons/03-Methods-and-Functions/tests/**.js'",
     "test-04": "mocha './lessons/04-Arrays-and-Loops/**.js'",
     "test-05": "mocha './lessons/05-Callbacks-Iterators/tests/**.js'",
     "test-06": "mocha './lessons/06-Objects/**.js'",
