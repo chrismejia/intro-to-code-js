@@ -1,18 +1,20 @@
 ---
 name: Add New Exercise
-about: Detail a new exercise to add to the lessons
+about: Detail a new exercise to add to a unit
 title: "[Exercise] (Unit-##) Problem Title"
 labels: ''
 assignees: chrismejia
 
 ---
 
-## Exercise Name
+# Exercise Name
 
-### For which lesson?
+## For which unit?
 
 ### Description
 
-### Example Test Cases
+### Sample Inputs and Outputs
+
+### Bonus Challenges (Harder Versions)
 
 #### Packages to Add/Related Issues
