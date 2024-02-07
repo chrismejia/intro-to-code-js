@@ -193,6 +193,11 @@ function letsGoParty(legalAge, outfitType, hasCoverCharge) {
  *    -> return 'F'
  *
  * Make sure to handle invalid inputs by returning "Not a valid grade."
+ *
+ * @category 02 - Conditionals
+ * @function testGrader
+ * @param {number} grade
+ * @returns {string}
  */
 
 // First we need a guard clause to filter out invalid values and return the appropriate error.
