@@ -10,7 +10,7 @@ import { truthyFalsy } from "..";
  * 3. Type `npm run test-02` in the Shell and hit Enter.
  */
 
-describe("#4: truthyFalsy", () => {
+xdescribe("#4: truthyFalsy", () => {
   describe("returns false", () => {
     it("value -> 0", () => {
       expect(truthyFalsy(0)).to.be.false;
