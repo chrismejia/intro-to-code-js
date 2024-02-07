@@ -5,6 +5,8 @@
  * Assign it the string of your name.
  */
 
+// Replace this comment with your code.
+
 /**
  * #2: What's your age?
  *
@@ -12,12 +14,16 @@
  * Assign it the value of your age.
  */
 
+// Replace this comment with your code.
+
 /**
  * #3: In fact, it's super fun.
  *
  * Define the variable codingIsFun and assign it a boolean value.
  * There's only one right answer here.
  */
+
+// Replace this comment with your code.
 
 /**
  * #4: Null and undefined
@@ -28,6 +34,8 @@
  * Define two variables: isNull and isUndefined.
  * Assign the value null to isNull and the value undefined to isUndefined.
  */
+
+// Replace this comment with your code.
 
 /**
  * #5: Quickest math class ever
@@ -48,6 +56,8 @@
  * Pass numA and numB in as variables, not as their values.
  */
 
+// Replace this comment with your code.
+
 /**
  * #6: Values are more than values
  *
@@ -55,6 +65,8 @@
  * Define the variable ageType. Assign it the expression (don't solve) that determines what type ageType is.
  * Define the variable funType. Assign it the expression (don't solve) that determines what type funType is.
  */
+
+// Replace this comment with your code.
 
 /**
  * #7: Numbers and Words, all together
@@ -67,6 +79,8 @@
  *
  * SEE: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals#expression_interpolation
  */
+
+// Replace this comment with your code.
 
 /**
  * Needed for test to work; please do not touch
