@@ -1,35 +1,26 @@
 {
   "name": "intro-to-code-js",
   "version": "2.2.0",
-  "description": "",
-  "main": "index.js",
+  "private": true,
+  "description": "A repo meant new JS learners help with guided topic-centered practice problems.",
   "scripts": {
     "test-01": "mocha './lessons/01-Values-and-Data-Types/tests/**.js'",
     "test-02": "mocha './lessons/02-Conditionals/tests/**.js'",
     "test-03": "mocha './lessons/03-Methods-and-Functions/tests/**.js'",
     "test-04": "mocha './lessons/04-Arrays-and-Loops/**.js'",
     "test-05": "mocha './lessons/05-Callbacks-Iterators/tests/**.js'",
-    "test-06": "mocha './lessons/06-Objects/**.js'",
+    "test-06": "mocha './lessons/06-Objects/tests/**.js'",
     "test-07": "mocha './lessons/07-Objects-2/tests/**.js'",
     "test-08": "mocha './lessons/08-Recursion/tests/**.js'",
     "test-09": "mocha './lessons/09-Classes/tests/**.js'",
     "test-10": "mocha './lessons/10-Data-Structures/tests/**.js'",
     "test-twitter": "mocha './11-Projects/Twitter/tests/**.js'",
-    "test-debug": "mocha './debug/tests/**.test.js'",
-    "test:mochawesome": "mocha './**/**.js' --reporter=mochawesome --reporter-options autoOpen=true",
-    "md-docs": "npm run md-01 && npm run md-02 && npm run md-03 && npm run md-04 && npm run md-05 && npm run md-06",
-    "md-01": "jsdoc2md './01-Values-and-Data-Types/index.js' > docs/01-Values-and-Data-Types.md",
-    "md-02": "jsdoc2md './02-Conditionals/index.js' > docs/02-Conditionals.md",
-    "md-03": "jsdoc2md './03-Methods-and-Functions/index.js' > docs/03-Methods-and-Functions.md",
-    "md-04": "jsdoc2md './04-Arrays-and-Loops/index.js' > docs/04-Arrays-and-Loops.md",
-    "md-05": "jsdoc2md './05-Callbacks-Iterators/index.js' > docs/05-Callbacks-Iterators.md",
-    "md-06": "jsdoc2md './06-Objects/index.js' > docs/06-Objects.md"
+    "test:mochawesome": "mocha './**/**.js' --reporter=mochawesome --reporter-options autoOpen=true"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/chrismejia/intro-to-code-js.git"
   },
-  "keywords": [],
   "author": "Christian Mejia",
   "license": "ISC",
   "bugs": {
