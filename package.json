@@ -1,30 +1,44 @@
 {
   "name": "intro-to-code-js",
-  "version": "1.2.0",
-  "description": "",
-  "main": "index.js",
+  "version": "2.2.0",
+  "private": true,
+  "description": "A repo meant new JS learners help with guided topic-centered practice problems.",
   "scripts": {
-    "test-01": "mocha './01-Values-and-Data-Types/**.js'",
-    "test:mochawesome": "mocha './**/index.js' --reporter=mochawesome --reporter-options autoOpen=true"
+    "test-01": "mocha './lessons/01-Values-and-Data-Types/**.test.js'",
+    "test-02": "mocha './lessons/02-Conditionals/tests/**.test.js'",
+    "test-03": "mocha './lessons/03-Methods-and-Functions/tests/**.test.js'",
+    "test-04": "mocha './lessons/04-Arrays-and-Loops/**.test.js'",
+    "test-05": "mocha './lessons/05-Callbacks-Iterators/tests/**.test.js'",
+    "test-06": "mocha './lessons/06-Objects/tests/**.test.js'",
+    "test-07": "mocha './lessons/07-Objects-2/tests/**.test.js'",
+    "test-08": "mocha './lessons/08-Recursion/tests/**.test.js'",
+    "test-09": "mocha './lessons/09-Classes/tests/**.test.js'",
+    "test-10": "mocha './lessons/10-Data-Structures/tests/**.test.js'",
+    "test-twitter": "mocha './11-Projects/Twitter/tests/**.test.js'",
+    "test:mochawesome": "mocha './**/**.test.js' --reporter=mochawesome --reporter-options autoOpen=true"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/chrismejia/intro-to-code-js.git"
   },
-  "keywords": [],
-  "author": "",
+  "author": "Christian Mejia",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/chrismejia/intro-to-code-js/issues"
   },
   "homepage": "https://github.com/chrismejia/intro-to-code-js#readme",
   "devDependencies": {
-    "@babel/cli": "^7.12.13",
-    "@babel/core": "^7.12.13",
-    "@babel/preset-env": "^7.12.13",
-    "@babel/register": "^7.12.13",
-    "chai": "^4.2.0",
-    "mocha": "^8.2.1",
-    "mochawesome": "^6.2.1"
+    "@babel/cli": "^7.22.5",
+    "@babel/core": "^7.22.5",
+    "@babel/preset-env": "^7.22.5",
+    "@babel/register": "^7.22.5",
+    "chai": "^4.3.7",
+    "jsdoc-to-markdown": "^7.0.1",
+    "jsdocs": "^1.0.0",
+    "mocha": "^8.4.0",
+    "nodemon": "^2.0.22"
+  },
+  "dependencies": {
+    "sinon": "^10.0.0"
   }
 }
