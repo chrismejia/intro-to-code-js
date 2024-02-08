@@ -20,9 +20,4 @@
  * arrayToString(["cat", "dog", "moo"], "+-%") => "cat+-%dog+-%moo"
  */
 
-export function arrayToString(array, connector) {
-  return array.join(connector);
-}
-
-// One-line answer
-// const arrayToString = (string, separator) => array.join(separator)
+// Replace this comment with your code.

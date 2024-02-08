@@ -21,12 +21,4 @@
  * doesItAddUp(10, 5, 20) => false
  */
 
-export function doesItAddUp(numA, numB, numC) {
-  if (numA + numB === numC) {
-    return true;
-  }
-  return false;
-}
-
-// One-line answer
-// const doesItAddUp = (numA, numB, numC) => numA + numB === numC;
+// Replace this comment with your code.

@@ -1,7 +1,7 @@
 import { smallTogetherNow } from "../06-smallTogetherNow";
 import { expect } from "chai";
 
-describe("#6: smallTogetherNow", () => {
+xdescribe("#6: smallTogetherNow", () => {
   describe("returns a unified, lowercase string", () => {
     it("when two uppercase input strings are passed in", () => {
       expect(smallTogetherNow("HELLO", "WORLD")).to.equal("helloworld");

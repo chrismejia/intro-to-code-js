@@ -1,7 +1,7 @@
 import { allWordsLength } from "../09-allWordsLength";
 import { expect } from "chai";
 
-describe("#9: allWordsLength", () => {
+xdescribe("#9: allWordsLength", () => {
   const testWords = [
     ["apple"],
     ["old", "textbook"],

@@ -1,7 +1,7 @@
 import { doesTheMathWork } from "../08-doesTheMathWork";
 import { expect } from "chai";
 
-describe("#8: doesTheMathWork", () => {
+xdescribe("#8: doesTheMathWork", () => {
   describe("returns a string", () => {
     it("for addition", () => {
       expect(doesTheMathWork(1, 2, 3)).to.be.a("string");
