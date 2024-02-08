@@ -170,7 +170,7 @@ function testGrader(grade) {
  * @category 02 - Conditionals
  * @function daysInTheMonth
  * @param {number} month - 1 to 12; represents months from January to December.
- * @returns {28 | 30 | 31 | string}
+ * @returns {28 | 30 | 31 | "Not a valid month."}
  */
 
 function daysInTheMonth(month) {
