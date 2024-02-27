@@ -2,7 +2,7 @@ import { indexer } from "../02-indexer";
 import { expect } from "chai";
 import { arr1, arr2, arr3, arr4 } from "../data/02-indexer.data";
 
-describe.only("#2: indexer", () => {
+describe("#2: indexer", () => {
   describe("when idx is not a valid array index value", () => {
     it("returns 'Invalid index.'", () => {
       const message = "Invalid index.";
