@@ -7,7 +7,7 @@ import {
   hasUppercase,
 } from "../data/05-disemvoweler.data";
 
-describe.only("#5: disemvoweler", () => {
+describe("#5: disemvoweler", () => {
   describe("returns a string", () => {
     describe("no vowels -> same as the input string", () => {
       noVowels.forEach(({ str }) => {
