@@ -73,65 +73,73 @@ If the current number is divisible by both 3 and 4, add &quot;FizzBuzz&quot; to 
 <a name="measurer"></a>
 
 ## measurer(...arr) ⇒ <code>Number</code>
+
 #1: measurer
 
 CHALLENGE: measurer can be written as a one-liner.
 
-**Kind**: global function  
-**Returns**: <code>Number</code> - The length of the array.  
-**Category**: 04 - Arrays and Loops  
+**Kind**: global function
+**Returns**: <code>Number</code> - The length of the array.
+**Category**: 04 - Arrays and Loops
 
-| Param | Type | Description |
-| --- | --- | --- |
+| Param  | Type                              | Description                                      |
+| ------ | --------------------------------- | ------------------------------------------------ |
 | ...arr | <code>Array.&lt;Number&gt;</code> | Always at least one number in the sample arrays/ |
 
-**Example**  
+**Example**
+
 ```js
 measurer([1]) => 1
 measurer([1,3,5,7,9]) => 5
 measurer(["abc", true, { "a": 1, "b": 2 } ]) => 3
 ```
+
 <a name="indexer"></a>
 
 ## indexer(arr, index) ⇒ <code>\*</code>
+
 #2: indexer
 
 CHALLENGE: indexer can be written as a one-liner.
 
-**Kind**: global function  
-**Returns**: <code>\*</code> - When index is defined, indexer returns the value stored. Otherwise, indexer returns the first value in the array.  
-**Category**: 04 - Arrays and Loops  
+**Kind**: global function
+**Returns**: <code>\*</code> - When index is defined, indexer returns the value stored. Otherwise, indexer returns the first value in the array.
+**Category**: 04 - Arrays and Loops
 
-| Param | Type | Description |
-| --- | --- | --- |
-| arr | <code>Array</code> | array of any length, containing entries of any type |
-| index | <code>Number</code> | optional number |
+| Param | Type                | Description                                         |
+| ----- | ------------------- | --------------------------------------------------- |
+| arr   | <code>Array</code>  | array of any length, containing entries of any type |
+| index | <code>Number</code> | optional number                                     |
 
-**Example**  
+**Example**
+
 ```js
 indexer([1], 0) => 1
 indexer([1, 3, "value", 7, 9 ], 2) => "value"
 indexer([false, 2, "string"]) => false
 ```
+
 <a name="frontOrBack"></a>
 
 ## frontOrBack(...array, place, action, value) ⇒ <code>Array.&lt;Number&gt;</code>
+
 #3: frontOrBack
 
 Define the function frontOrBack.
 frontOr back accepts an array, a place, an action, and a value.
 
-**Kind**: global function  
-**Category**: 04 - Arrays and Loops  
+**Kind**: global function
+**Category**: 04 - Arrays and Loops
 
-| Param | Type | Description |
-| --- | --- | --- |
-| ...array | <code>Array.&lt;Number&gt;</code> | an array containing at least one number |
-| place | <code>String</code> | one of `"front"` or `"back"` |
-| action | <code>String</code> | one of `"add"` or `"remove"` |
-| value | <code>Number</code> | value to use when processing the input commands |
+| Param    | Type                              | Description                                     |
+| -------- | --------------------------------- | ----------------------------------------------- |
+| ...array | <code>Array.&lt;Number&gt;</code> | an array containing at least one number         |
+| place    | <code>String</code>               | one of `"front"` or `"back"`                    |
+| action   | <code>String</code>               | one of `"add"` or `"remove"`                    |
+| value    | <code>Number</code>               | value to use when processing the input commands |
 
-**Example**  
+**Example**
+
 ```js
 const array = [1, 2, 3, 4];
 
@@ -140,49 +148,55 @@ frontOrBack(array, "back", "add", 5) => [1, 2, 3, 4, 5];
 frontOrBack(array, "front", "remove", 5) => [2, 3, 4];
 frontOrBack(array, "back", "remove", 5) => [1, 2, 3];
 ```
+
 <a name="repeater"></a>
 
 ## repeater(str, times) ⇒ <code>String</code>
+
 #4: repeater
 
 Define the function repeater.
 repeater accepts a string and a number.
 repeater returns a string that is the input string repeated `times` number of times.
 
-**Kind**: global function  
-**Returns**: <code>String</code> - the input string repeated `times` number  
-**Category**: 04 - Arrays and Loops  
+**Kind**: global function
+**Returns**: <code>String</code> - the input string repeated `times` number
+**Category**: 04 - Arrays and Loops
 
-| Param | Type | Description |
-| --- | --- | --- |
-| str | <code>String</code> | the input string |
-| times | <code>Number</code> | always >= 0 |
+| Param | Type                | Description      |
+| ----- | ------------------- | ---------------- |
+| str   | <code>String</code> | the input string |
+| times | <code>Number</code> | always >= 0      |
 
-**Example**  
+**Example**
+
 ```js
 repeater("empty string", 0) => ""
 repeater("one time only", 1) => "one time only"
 repeater("Hello", 2) => "HelloHello"
 repeater("abc123", 3) => "abc123abc123abc123"
 ```
+
 <a name="disemvoweler"></a>
 
 ## disemvoweler(string) ⇒ <code>String</code>
+
 #5: disemvoweler
 
 Define the function disemvoweler.
 disemvoweler takes in a string and returns it stripped of its vowels.
 BONUS: disemvoweler strips the input string of any capitalized vowels present.
 
-**Kind**: global function  
-**Returns**: <code>String</code> - the input string with all its vowels removed  
-**Category**: 04 - Arrays and Loops  
+**Kind**: global function
+**Returns**: <code>String</code> - the input string with all its vowels removed
+**Category**: 04 - Arrays and Loops
 
-| Param | Type | Description |
-| --- | --- | --- |
+| Param  | Type                | Description      |
+| ------ | ------------------- | ---------------- |
 | string | <code>String</code> | the input string |
 
-**Example**  
+**Example**
+
 ```js
 disemvoweler("b") => "b"
 disemvoweler("xyz") => "xyz"
@@ -195,80 +209,91 @@ disemvoweler("aaeeiioouu") => ""
 disemvoweler("BeaR") => "BR"
 disemvoweler("diCTIONAry") => "dCTNry"
 ```
+
 <a name="valueLocator"></a>
 
 ## valueLocator(searchValue, arr) ⇒ <code>String</code>
+
 #6: valueLocator
 
-**Kind**: global function  
-**Returns**: <code>String</code> - A sentence detailing whether or not the search value was found, and at what index.  
-**Category**: 04 - Arrays and Loops  
+**Kind**: global function
+**Returns**: <code>String</code> - A sentence detailing whether or not the search value was found, and at what index.
+**Category**: 04 - Arrays and Loops
 
-| Param | Type | Description |
-| --- | --- | --- |
-| searchValue | <code>String</code> | the string to search for |
-| arr | <code>Array.&lt;String&gt;</code> | the array to search within |
+| Param       | Type                              | Description                |
+| ----------- | --------------------------------- | -------------------------- |
+| searchValue | <code>String</code>               | the string to search for   |
+| arr         | <code>Array.&lt;String&gt;</code> | the array to search within |
 
-**Example**  
+**Example**
+
 ```js
 valueLocator("xyx", ["zyz", "xyx", "abc", "bd"]) =>
  "xyx is at index 1 of the array [zyz,xyx,abc,bd]."
 valueLocator("not", ["zyz", "xyx", "abc", "bd"]) =>
  "not cannot be found in the array [zyz,xyx,abc,bd]."
 ```
+
 <a name="reversomatic"></a>
 
 ## reversomatic(array) ⇒ <code>Array.&lt;Number&gt;</code>
+
 #7: reversomatic
 
 Define the function reversomatic.
 reversomatic adds the array's elements to the end of a new array, one at a time.
-When reversomatic encounters the string "reverse", reversomatic switches so that from the next element in the array, it adds them to front instead of the back.
+When reversomatic encounters the string "flip", reversomatic switches so that from the next element in the array, it adds them to front instead of the back.
 
 NB:
-Not every input array may contain a "reverse" string.
-Input arrays will contain at most ONE (1) "reverse" string, if present.
+Not every input array may contain a "flip" string.
+Input arrays will contain at most ONE (1) "flip" string, if present.
 
-**Kind**: global function  
-**Returns**: <code>Array.&lt;Number&gt;</code> - array of entries that have been properly added to the new array  
-**Category**: 04 - Arrays and Loops  
+**Kind**: global function
+**Returns**: <code>Array.&lt;Number&gt;</code> - array of entries that have been properly added to the new array
+**Category**: 04 - Arrays and Loops
 
-| Param | Type | Description |
-| --- | --- | --- |
+| Param | Type                                                      | Description                                               |
+| ----- | --------------------------------------------------------- | --------------------------------------------------------- |
 | array | <code>Number</code> \| <code>?Array.&lt;String&gt;</code> | an array of at least size 1, made of entries of any type. |
 
-**Example**  
+**Example**
+
 ```js
 reversomatic([1, 2, 3, 4, 5]) => [1, 2, 3, 4, 5]
-reversomatic([["reverse", 1, 2, 3, 4, 5]]) => [5, 4, 3, 2, 1]
-reversomatic([1, 2, "reverse", 3, 4, 5]) => [5, 4, 3, 1, 2]
-reversomatic([1, 2, 3, 4, 5, "reverse"]) => [1, 2, 3, 4, 5]
+reversomatic([["flip", 1, 2, 3, 4, 5]]) => [5, 4, 3, 2, 1]
+reversomatic([1, 2, "flip", 3, 4, 5]) => [5, 4, 3, 1, 2]
+reversomatic([1, 2, 3, 4, 5, "flip"]) => [1, 2, 3, 4, 5]
 ```
+
 <a name="uniquesOnly"></a>
 
 ## uniquesOnly(inputStr) ⇒ <code>Array.&lt;String&gt;</code>
+
 #8: uniquesOnly
 
 Define the function uniquesOnly.
 uniquesOnly accepts an string and returns an array. Each entry in the array is one of the unique characters from the input string.
 
-**Kind**: global function  
-**Category**: 04 - Arrays and Loops  
+**Kind**: global function
+**Category**: 04 - Arrays and Loops
 
-| Param | Type | Description |
-| --- | --- | --- |
+| Param    | Type                | Description                                               |
+| -------- | ------------------- | --------------------------------------------------------- |
 | inputStr | <code>String</code> | string made up of random characters with possible repeats |
 
-**Example**  
+**Example**
+
 ```js
 uniquesOnly("a") => ['a']
 uniquesOnly("aaa") => ['a']
 uniquesOnly("abc") => ['a', 'b', 'c']
 uniquesOnly("abcbabcbabcbabcba") => ['a', 'b', 'c']
 ```
+
 <a name="wordCalculator"></a>
 
 ## wordCalculator(nums, operations) ⇒ <code>Number</code>
+
 #9: wordCalculator
 
 Define the function wordCalculator.
@@ -279,16 +304,17 @@ wordCalculator returns the total of all the values and operations passed into it
 NOTE:
 The nums and operations arrays will always be the same .length
 
-**Kind**: global function  
-**Returns**: <code>Number</code> - resulting value after all operations have been computed  
-**Category**: 04 - Arrays and Loops  
+**Kind**: global function
+**Returns**: <code>Number</code> - resulting value after all operations have been computed
+**Category**: 04 - Arrays and Loops
 
-| Param | Type | Description |
-| --- | --- | --- |
-| nums | <code>Array.&lt;Number&gt;</code> | array of numbers; nums.length always >= 1 |
+| Param      | Type                              | Description                                                              |
+| ---------- | --------------------------------- | ------------------------------------------------------------------------ |
+| nums       | <code>Array.&lt;Number&gt;</code> | array of numbers; nums.length always >= 1                                |
 | operations | <code>Array.&lt;String&gt;</code> | array of strings, representing operations; operations.length always >= 1 |
 
-**Example**  
+**Example**
+
 ```js
 wordCalculator([1], ["nope"]) => 0
 wordCalculator([1], ["add"]) => 1
@@ -297,9 +323,11 @@ wordCalculator([3], ["mult"]) => 2
 wordCalculator([5, 6], ["add", "mult"]) => 30
 wordCalculator([7, 11, 12], ["sub", "mult", "add"]) => -65
 ```
+
 <a name="pairMultiplier"></a>
 
 ## pairMultiplier(arr1, arr2) ⇒ <code>Array.&lt;Number&gt;</code>
+
 #10: pairMultiplier
 
 Define the function pairMultiplier.
@@ -308,25 +336,28 @@ pairMultiplier returns an array of numbers made up of all the numbers from arr1 
 
 NB: arr1 and arr2 will not always be the same length.
 
-**Kind**: global function  
-**Returns**: <code>Array.&lt;Number&gt;</code> - array of all the multiples of each entry from arr1 and arr2, in the correct order.  
-**Category**: 04 - Arrays and Loops  
+**Kind**: global function
+**Returns**: <code>Array.&lt;Number&gt;</code> - array of all the multiples of each entry from arr1 and arr2, in the correct order.
+**Category**: 04 - Arrays and Loops
 
-| Param | Type | Description |
-| --- | --- | --- |
-| arr1 | <code>Array.&lt;Number&gt;</code> | array of numbers; arr1.length always > 1 |
-| arr2 | <code>Array.&lt;Number&gt;</code> | array of numbers; arr2.length always > 1 |
+| Param | Type                              | Description                              |
+| ----- | --------------------------------- | ---------------------------------------- |
+| arr1  | <code>Array.&lt;Number&gt;</code> | array of numbers; arr1.length always > 1 |
+| arr2  | <code>Array.&lt;Number&gt;</code> | array of numbers; arr2.length always > 1 |
 
-**Example**  
+**Example**
+
 ```js
 pairMultiplier([6],[4]) => [24]
 pairMultiplier([7], [2, 3]) => [14, 21]
 pairMultiplier([3, 8], [5, 2]) => [15, 6, 40, 16]
 pairMultiplier([3, 5, 8], [2, 4]) => [6, 12, 10, 20, 16, 32]
 ```
+
 <a name="fizzBuzz"></a>
 
 ## fizzBuzz(stopNum) ⇒ <code>Array.&lt;String&gt;</code>
+
 #11: fizzBuzz
 
 Define the function fizzBuzz.
@@ -336,15 +367,16 @@ If the current number is divisible by 3, add "Fizz" to the array instead of the 
 If the current number is divisible by 4, add "Buzz" to the array instead of the number.
 If the current number is divisible by both 3 and 4, add "FizzBuzz" to the array.
 
-**Kind**: global function  
-**Returns**: <code>Array.&lt;String&gt;</code> - an array of strings  
-**Category**: 04 - Arrays and Loops  
+**Kind**: global function
+**Returns**: <code>Array.&lt;String&gt;</code> - an array of strings
+**Category**: 04 - Arrays and Loops
 
-| Param | Type | Description |
-| --- | --- | --- |
+| Param   | Type                | Description                                |
+| ------- | ------------------- | ------------------------------------------ |
 | stopNum | <code>Number</code> | the number to stop the loop at (inclusive) |
 
-**Example**  
+**Example**
+
 ```js
 fizzBuzz(12) => ["1", "2", "Fizz", "Buzz", "5", "Fizz", "7", "Buzz", "Fizz", "10", "11", "FizzBuzz"]
 ```
