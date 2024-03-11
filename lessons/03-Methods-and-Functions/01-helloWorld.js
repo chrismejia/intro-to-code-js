@@ -12,6 +12,4 @@
  * helloWorld() => "Hello World!"
  */
 
-export function helloWorld() {
-  return "Hello World!";
-}
+// Replace this comment with your code.

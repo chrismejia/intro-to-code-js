@@ -19,12 +19,4 @@
  * helloWorldRedux("Bob") => "Hello Bob!"
  */
 
-export function helloWorldRedux(name) {
-  if (name) {
-    return `Hello ${name}!`;
-  }
-  return "Hello World!";
-}
-
-// One-line function
-// const helloWorldRedux = (name) => (name ? `Hello ${name}!` : `Hello World!`);
+// Replace this comment with your code.

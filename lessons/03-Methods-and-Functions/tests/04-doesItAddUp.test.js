@@ -1,7 +1,7 @@
 import { doesItAddUp } from "../04-doesItAddUp";
 import { expect } from "chai";
 
-describe("#4: doesItAddUp", () => {
+xdescribe("#4: doesItAddUp", () => {
   it("returns true -> first two inputs equal the third", () => {
     expect(doesItAddUp(1, 2, 3)).to.be.true;
     expect(doesItAddUp(2, 1, 3)).to.be.true;
