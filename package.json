@@ -7,7 +7,7 @@
     "test-01": "mocha './lessons/01-Values-and-Data-Types/**.test.js'",
     "test-02": "mocha './lessons/02-Conditionals/tests/**.test.js'",
     "test-03": "mocha './lessons/03-Methods-and-Functions/tests/**.test.js'",
-    "test-04": "mocha './lessons/04-Arrays-and-Loops/**.test.js'",
+    "test-04": "mocha './lessons/04-Arrays-and-Loops/tests/**.test.js'",
     "test-05": "mocha './lessons/05-Callbacks-Iterators/tests/**.test.js'",
     "test-06": "mocha './lessons/06-Objects/tests/**.test.js'",
     "test-07": "mocha './lessons/07-Objects-2/tests/**.test.js'",
