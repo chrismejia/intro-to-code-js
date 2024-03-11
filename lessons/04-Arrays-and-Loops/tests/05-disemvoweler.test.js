@@ -7,7 +7,11 @@ import {
   hasUppercase,
 } from "../data/05-disemvoweler.data";
 
-describe("#5: disemvoweler", () => {
+xdescribe("#5: disemvoweler", () => {
+  expect(disemvoweler).to.be.a(
+    "function",
+    "No `disemvoweler` function found; please check if defined and exported correctly."
+  );
   describe("returns a string", () => {
     describe("no vowels -> same as the input string", () => {
       noVowels.forEach(({ str }) => {
@@ -39,7 +43,7 @@ describe("#5: disemvoweler", () => {
     });
   });
 
-  describe("BONUS: can handle UPPERCASE letters", () => {
+  xdescribe("BONUS: can handle UPPERCASE letters", () => {
     hasUppercase.forEach(({ str, result }) => {
       it(`'${str}' -> '${result}'`, () => {
         const testResult = disemvoweler(str);

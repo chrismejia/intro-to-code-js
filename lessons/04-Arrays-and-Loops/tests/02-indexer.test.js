@@ -2,7 +2,12 @@ import { indexer } from "../02-indexer";
 import { expect } from "chai";
 import { arr1, arr2, arr3, arr4 } from "../data/02-indexer.data";
 
-describe("#2: indexer", () => {
+xdescribe("#2: indexer", () => {
+  expect(indexer).to.be.a(
+    "function",
+    "No `indexer` function found; please check if defined and exported correctly."
+  );
+
   describe("when idx is not a valid array index value", () => {
     it("returns 'Invalid index.'", () => {
       const message = "Invalid index.";

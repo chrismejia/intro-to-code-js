@@ -15,7 +15,12 @@ import {
   multiFlip,
 } from "../data/07-flipomatic.data";
 
-describe("#7: flipomatic", () => {
+xdescribe("#7: flipomatic", () => {
+  expect(flipomatic).to.be.a(
+    "function",
+    "No `flipomatic` function found; please check if defined and exported correctly."
+  );
+
   describe("returns an array", () => {
     it("if there's a 'flip'", () => {
       flipArrs.forEach((arr) => {
@@ -55,7 +60,7 @@ describe("#7: flipomatic", () => {
     });
   });
 
-  describe("BONUS: can handle multiple 'flip' values", () => {
+  xdescribe("BONUS: can handle multiple 'flip' values", () => {
     describe("2 'flip' vals", () => {
       twoFlip.forEach(({ val, ans }) => {
         it(`[${val}] => [${ans}]`, () => {

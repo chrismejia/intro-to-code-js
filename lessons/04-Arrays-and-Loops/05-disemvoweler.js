@@ -22,28 +22,3 @@
  * disemvoweler("BeaR") => "BR"
  * disemvoweler("diCTIONAry") => "dCTNry"
  */
-
-export function disemvoweler(string) {
-  const vowels = ["a", "e", "i", "o", "u"];
-  let baseStr = "";
-
-  for (let i = 0; i < string.length; i++) {
-    // Grab curr char and vowel
-    const currChar = string[i];
-
-    // If the lowercase version of currChar isn't a vowel, add it to baseStr
-    if (!vowels.includes(currChar.toLowerCase())) {
-      baseStr += currChar;
-    }
-  }
-  return baseStr;
-}
-
-// One-liner
-// export const disemvoweler = (string) =>
-//   string
-//     .split("")
-//     .filter(
-//       (letter) => !["a", "e", "i", "o", "u"].includes(letter.toLowerCase())
-//     )
-//     .join("");

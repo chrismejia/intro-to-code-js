@@ -15,14 +15,3 @@
  * @example
  * fizzBuzz(12) => ["1", "2", "Fizz", "Buzz", "5", "Fizz", "7", "Buzz", "Fizz", "10", "11", "FizzBuzz"]
  */
-
-export function fizzBuzz(stopNum) {
-  let result = [];
-  for (let i = 1; i <= stopNum; i++) {
-    let entry = "";
-    if (i % 3 === 0) entry += "Fizz";
-    if (i % 4 === 0) entry += "Buzz";
-    result.push(entry || i);
-  }
-  return result;
-}
