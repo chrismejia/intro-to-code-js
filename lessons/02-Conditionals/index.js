@@ -113,7 +113,7 @@ function truthyFalsy(value) {
 }
 
 // Another way to do this problem is by using a switch statement.
-// The fact that you have are asked to return false given a number of different conditions makes this a good situation for the switch statement.
+// The fact that you are asked to return false given a number of different conditions makes this a good situation for the switch statement.
 // You catch all the matching cases under one return and the default statement catches all other value possibilities.
 
 // function truthyFalsy(value) {
@@ -132,7 +132,7 @@ function truthyFalsy(value) {
 /**
  * CHALLENGE ANSWER:
  * Using ! to negate the incoming value forces the value into a Boolean and negates it.
- * This is one to force a value to work in a Boolean context.
+ * This is done to force a value to work in a Boolean context.
  * Comment out the function above and uncomment the one below to try it out
  */
 
