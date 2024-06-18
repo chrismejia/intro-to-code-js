@@ -17,7 +17,7 @@ import {
   ageType,
   funType,
   exponentiatedTo,
-} from ".";
+} from "./101-index";
 
 /**
  * The code below is what tests your answers.
@@ -28,7 +28,7 @@ import {
  * 3. Type `npm run test-01` in the Shell and hit Enter.
  */
 
-describe("01 - Values and Types", () => {
+describe("101 - Values and Types", () => {
   describe("#1: What's your name?", () => {
     describe("The variable myFirstName", () => {
       it("should be a string", () => {
