@@ -11,10 +11,6 @@ describe("#5: priceTotaler", () => {
   const njTotaler = njSpy("NJ");
   const ctTotaler = ctSpy("CT");
 
-  const nyResult = nyTotaler(1000);
-  const njResult = njTotaler(1000);
-  const ctResult = ctTotaler(1000);
-
   it("returns a function", () => {
     expect(nyTotaler).to.be.a("function");
     expect(njTotaler).to.be.a("function");
@@ -23,16 +19,19 @@ describe("#5: priceTotaler", () => {
 
   describe("the returned function correctly calculates the final price for", () => {
     it("NY", () => {
+      const nyResult = nyTotaler(1000);
       expect(nyResult).to.be.a("number");
       expect(nyResult).to.equal(1095.405);
     });
 
     it("NJ", () => {
+      const njResult = njTotaler(1000);
       expect(njResult).to.be.a("number");
       expect(njResult).to.equal(1109.5625);
     });
 
     it("CT", () => {
+      const ctResult = ctTotaler(1000);
       expect(ctResult).to.be.a("number");
       expect(ctResult).to.equal(1102.4);
     });

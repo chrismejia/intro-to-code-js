@@ -20,32 +20,6 @@
  * // => [1, 2000, 3, 4000, 5, 6000]
  */
 
-// Using a created array and explicit boolean flag
-// function everyOtherTime(inputArr, callback) {
-//   let runFunc = false;
-//   let result = [];
-
-//   for (const element of inputArr) {
-//     if (runFunc) {
-//       result.push(callback(element));
-//     } else {
-//       result.push(element);
-//     }
-
-//     runFunc = !runFunc;
-//   }
-//   return result;
-// }
-
-// Using .map
-function everyOtherTime(inputArr, callback) {
-  return inputArr.map((element, index) => {
-    if ((index + 1) % 2 === 0) {
-      return callback(element);
-    } else {
-      return element;
-    }
-  });
-}
+function everyOtherTime() {}
 
 export default everyOtherTime;
