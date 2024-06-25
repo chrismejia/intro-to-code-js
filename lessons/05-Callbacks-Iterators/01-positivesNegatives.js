@@ -29,16 +29,8 @@
  * numType(0, 5, multiplyNums) => "0 times 5 is zero."
  */
 
-function multiplyNums(a, b) {
-  return a * b;
-}
+function multiplyNums() {}
 
-function numType(a, b, multiplyFn) {
-  if (multiplyFn(a, b) > 0) {
-    return `${a} times ${b} is a positive number.`;
-  } else if (multiplyFn(a, b) < 0) {
-    return `${a} times ${b} is a negative number.`;
-  } else return `${a} times ${b} is zero.`;
-}
+function numType() {}
 
 export { multiplyNums, numType };
