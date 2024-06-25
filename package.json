@@ -8,14 +8,7 @@
     "test-02": "mocha './lessons/02-Conditionals/tests/**.test.js'",
     "test-03": "mocha './lessons/03-Methods-and-Functions/tests/**.test.js'",
     "test-04": "mocha './lessons/04-Arrays-and-Loops/tests/**.test.js'",
-    "test-05": "mocha './lessons/05-Callbacks-Iterators/tests/**.test.js'",
-    "test-06": "mocha './lessons/06-Objects/tests/**.test.js'",
-    "test-07": "mocha './lessons/07-Objects-2/tests/**.test.js'",
-    "test-08": "mocha './lessons/08-Recursion/tests/**.test.js'",
-    "test-09": "mocha './lessons/09-Classes/tests/**.test.js'",
-    "test-10": "mocha './lessons/10-Data-Structures/tests/**.test.js'",
-    "test-twitter": "mocha './11-Projects/Twitter/tests/**.test.js'",
-    "test:mochawesome": "mocha './**/**.test.js' --reporter=mochawesome --reporter-options autoOpen=true"
+    "test-05": "mocha './lessons/05-Callbacks-Iterators/tests/**.test.js'"
   },
   "repository": {
     "type": "git",
@@ -39,6 +32,6 @@
     "nodemon": "^2.0.22"
   },
   "dependencies": {
-    "sinon": "^10.0.0"
+    "sinon": "^10.0.1"
   }
 }
