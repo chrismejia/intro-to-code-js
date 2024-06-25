@@ -2,6 +2,11 @@ import { expect } from "chai";
 import { measurer } from "../01-measurer";
 
 describe("#1: measurer", () => {
+  expect(measurer).to.be.a(
+    "function",
+    "No `measurer` function found; please check if defined and exported correctly."
+  );
+
   const resultA = measurer([]);
   const resultB = measurer([1]);
   const resultC = measurer([1, 3, 5, 7, 9]);

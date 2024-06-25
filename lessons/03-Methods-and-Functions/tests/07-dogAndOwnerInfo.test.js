@@ -1,7 +1,7 @@
 import { dogAndOwnerInfo } from "../07-dogAndOwnerInfo";
 import { expect } from "chai";
 
-describe("#7: Dog owners and their dogs", () => {
+xdescribe("#7: Dog owners and their dogs", () => {
   describe("returns the correct phrase", () => {
     it("when dog is older than their owner", () => {
       expect(dogAndOwnerInfo("Turbo", 10, "Richard", 55)).to.equal(

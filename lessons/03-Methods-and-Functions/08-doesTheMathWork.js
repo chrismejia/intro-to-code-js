@@ -28,16 +28,4 @@
  * doesTheMathWork(11, 222, 3) = "no operation"
  */
 
-export function doesTheMathWork(numA, numB, numC) {
-  if (numA + numB === numC) {
-    return "addition";
-  } else if (numA - numB === numC) {
-    return "subtraction";
-  } else if (numA * numB === numC) {
-    return "multiplication";
-  } else if (numA / numB === numC) {
-    return "division";
-  } else {
-    return "no operation";
-  }
-}
+// Replace this comment with your code.

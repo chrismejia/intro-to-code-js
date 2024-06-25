@@ -18,17 +18,3 @@
  * uniqueCharsOnly("abc") => ['a', 'b', 'c']
  * uniqueCharsOnly("abcbabcbabcbabcba") => ['a', 'b', 'c']
  */
-
-export function uniqueCharsOnly(input) {
-  let uniques = [];
-  for (let i = 0; i < input.length; i++) {
-    const currChar = input[i];
-    if (uniques.indexOf(currChar) === -1) {
-      uniques.push(currChar);
-    }
-  }
-  return uniques;
-}
-
-// One-line solution
-// export const uniqueCharsOnly = (input) => Array.from(new Set(input.split("")));

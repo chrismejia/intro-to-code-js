@@ -9,7 +9,12 @@ import {
   allCalcs,
 } from "../data/09-wordCalculator.data";
 
-describe("#9: wordCalculator", () => {
+xdescribe("#9: wordCalculator", () => {
+  expect(wordCalculator).to.be.a(
+    "function",
+    "No `wordCalculator` function found; please check if defined and exported correctly."
+  );
+
   it("returns a number", () => {
     allCalcs.forEach(({ nums, ops }) => {
       expect(wordCalculator(nums, ops)).to.be.a("number");

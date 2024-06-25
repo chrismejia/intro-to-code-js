@@ -6,7 +6,12 @@ import {
   secondArrSmaller,
 } from "../data/10-pairMultiplier.data";
 
-describe("#10: pairMultiplier", () => {
+xdescribe("#10: pairMultiplier", () => {
+  expect(pairMultiplier).to.be.a(
+    "function",
+    "No `pairMultiplier` function found; please check if defined and exported correctly."
+  );
+
   describe("returns an array of multiplied numbers, in the correct order", () => {
     describe("when both arrays are the same size", () => {
       sameArraySizes.forEach(({ arr1, arr2, result }) => {

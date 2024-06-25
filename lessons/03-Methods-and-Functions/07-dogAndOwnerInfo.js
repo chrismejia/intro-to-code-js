@@ -27,18 +27,4 @@
  *    "John and Star are the both 14 years old."
  */
 
-export function dogAndOwnerInfo(dogName, dogAge, ownerName, ownerAge) {
-  let dogAgeInHumanYears = dogAge * 7;
-
-  if (dogAgeInHumanYears > ownerAge) {
-    return `${dogName} is older than their owner, ${ownerName}, by ${
-      dogAgeInHumanYears - ownerAge
-    } years.`;
-  } else if (dogAgeInHumanYears < ownerAge) {
-    return `${ownerName} is older than their dog, ${dogName}, by ${
-      ownerAge - dogAgeInHumanYears
-    } years.`;
-  } else {
-    return `${ownerName} and ${dogName} are both ${ownerAge} years old.`;
-  }
-}
+// Replace this comment with your code.

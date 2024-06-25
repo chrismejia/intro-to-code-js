@@ -25,17 +25,3 @@
  * indexer([1], -10) => "Invalid index."
  * indexer([1, 3, "value", 7, 9 ], 53) => "Invalid index."
  */
-
-export function indexer(arr, idx) {
-  if (idx < -1 || idx > arr.length - 1) {
-    return "Invalid index.";
-  }
-
-  if (idx !== undefined) {
-    return arr[idx];
-  }
-  return arr[0];
-}
-
-// One-line function
-// const indexer = (arr, index) => (index !== undefined ? arr[index] : arr[0]);

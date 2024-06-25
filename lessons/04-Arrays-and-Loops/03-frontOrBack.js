@@ -24,23 +24,3 @@
  * frontOrBack([false, true, false], "front", "remove", 5) => [true, false];
  * frontOrBack(["be", "dog", "ride"], "back", "remove", 5) => ["be", "dog"];
  */
-
-export function frontOrBack(array, place, action, value) {
-  if (place === "front") {
-    if (action === "add") {
-      array.unshift(value);
-      return array;
-    } else {
-      array.shift();
-      return array;
-    }
-  } else {
-    if (action === "add") {
-      array.push(value);
-      return array;
-    } else {
-      array.pop();
-      return array;
-    }
-  }
-}
