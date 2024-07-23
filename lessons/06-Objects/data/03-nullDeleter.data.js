@@ -21,3 +21,26 @@ export const allNull = {
   two: null,
   three: null,
 };
+
+/**
+ * BONUS
+ */
+export const noNullsNested = {
+  ...noNull,
+  nested: noNull,
+};
+
+export const oneNullTopLevel = {
+  ...oneNull,
+  nested: noNull,
+};
+
+export const oneNullNested = {
+  ...noNull,
+  nested: oneNull,
+};
+
+export const allNullsNested = {
+  ...allNull,
+  nested: allNull,
+};
