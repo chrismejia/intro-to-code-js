@@ -22,6 +22,15 @@ export const allNull = {
   three: null,
 };
 
+export const mixedTypes = {
+  num: 1,
+  bool: true,
+  str: "hello",
+  obj: { key: "value" },
+  arr: [1, 2, 3],
+  nil: null,
+};
+
 /**
  * BONUS
  */
