@@ -39,12 +39,4 @@ describe("#3: nullDeleter", () => {
       expect(nullDeleter(allNull)).to.eql({});
     });
   });
-
-  // describe("BONUS", () => {
-  //   describe("", () => {
-  //     it("", () => {});
-
-  //     it("", () => {});
-  //   });
-  // });
 });
