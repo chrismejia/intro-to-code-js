@@ -5,13 +5,16 @@
  * priceTransformer takes in an array of objects.
  * Each object in the array has `food` and `price` keys.
  *
- * priceTransformer returns a single object where the keys are the values of each original `food` value, and its values are the values of each original `price` value.
+ * priceTransformer returns a single object where the keys are the values of each original `food` value, and its values are the values of each original `price` value..
+ *
+ * CHALLENGE:
+ * Can you write priceTransformer as a one-liner?
  *
  * @category 06 - Objects
  * @function priceTransformer
- * @param {Object[]} arrayOfObj
- * @prop {Object.<string, string>} food
- * @prop {Object.<string, number>} price
+ * @param {Object[]} objArr
+ * @prop {String} objArr[].food - the kind of food
+ * @prop {Number} objArr[].price - the food's price
  * @returns {Object} the transformed object
  *
  * @example
@@ -22,14 +25,33 @@
  * priceTransformer(pricesTwo) // => { yogurt: 1.5, banana: 1.99 }
  */
 
-export function priceTransformer(arrayOfObj) {
-  const transposedObj = {};
+// Without destructuring priceObj
+// export function priceTransformer(objArr) {
+//   const transformedObj = {};
 
-  for (const priceObj of arrayOfObj) {
-    const newKey = priceObj.food;
-    const newPrice = priceObj.price;
+//   for (const priceObj of objArr) {
+//     const newKey = priceObj.food;
+//     const newPrice = priceObj.price;
 
-    transposedObj[newKey] = newPrice;
+//     transformedObj[newKey] = newPrice;
+//   }
+//   return transformedObj;
+// }
+
+// Destructuring priceObj
+export function priceTransformer(objArr) {
+  const transformedObj = {};
+
+  for (const { food, price } of objArr) {
+    transformedObj[food] = price;
   }
-  return transposedObj;
+
+  return transformedObj;
 }
+
+// One-liner
+// export const priceTransformer = (objArr) =>
+//   objArr.reduce((prev, { food, price }) => {
+//     prev[food] = price;
+//     return prev;
+//   }, {});

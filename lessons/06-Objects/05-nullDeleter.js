@@ -1,5 +1,5 @@
 /**
- * #3: nullDeleter
+ * #5: nullDeleter
  *
  * Define the function nullDeleter.
  * nullDeleter accepts an object that always has at least one key-value pair.

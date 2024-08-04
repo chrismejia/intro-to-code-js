@@ -1,5 +1,5 @@
 import { expect } from "chai";
-import { objectCount } from "../02-objectCount";
+import { objectCount } from "../03-objectCount";
 import {
   emptyObject,
   noObjects,
@@ -9,9 +9,9 @@ import {
   noObjectsWithElementsBonus,
   oneObjectBonus,
   multipleKeysWithObjectsBonus,
-} from "../data/02-objectCount.data";
+} from "../data/03-objectCount.data";
 
-describe("#2: objectCount", () => {
+describe("#3: objectCount", () => {
   it("returns a number", () => {
     expect(objectCount(emptyObject)).to.be.a("number");
     expect(objectCount(noObjects)).to.be.a("number");

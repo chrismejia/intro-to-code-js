@@ -1,7 +1,7 @@
 import { isAnObject } from "./01-isAnObject";
 
 /**
- * #2: objectCount
+ * #3: objectCount
  *
  * Define the function objectCount.
  * objectCount accepts a single object with any number of key-value pairs.

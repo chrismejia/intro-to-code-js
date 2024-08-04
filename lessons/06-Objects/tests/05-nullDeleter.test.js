@@ -1,5 +1,5 @@
 import { expect } from "chai";
-import { nullDeleter } from "../03-nullDeleter";
+import { nullDeleter } from "../05-nullDeleter";
 import {
   noNull,
   oneNull,
@@ -10,9 +10,9 @@ import {
   oneNullTopLevel,
   oneNullNested,
   allNullsNested,
-} from "../data/03-nullDeleter.data";
+} from "../data/05-nullDeleter.data";
 
-describe("#3: nullDeleter", () => {
+describe("#5: nullDeleter", () => {
   it("returns an object", () => {
     expect(nullDeleter(noNull)).be.an("object");
     expect(nullDeleter(oneNull)).be.an("object");
