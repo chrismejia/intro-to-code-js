@@ -7,7 +7,7 @@
  * valueReader returns the value that corresponds to the the keyString in the dataObj.
  * If the key doesn't exists in the dataObj, valueReader returns undefined.
  *
- * @category 07 - Objects 2
+ * @category 06 - Objects
  * @function valueReader
  * @param {String} keyString - the key whose value you need to fetch
  * @param {Object} dataObj - the object to fetch the data value from

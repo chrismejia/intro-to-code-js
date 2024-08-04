@@ -4,7 +4,7 @@
  * objectCombiner combines any number of input objects into a single object.
  * objectCombiner will handle properties from later objects by overwriting those from earlier objects if they have the same key.
  *
- * @category 07 - Objects
+ * @category 06 - Objects
  * @function objectCombiner
  * @param {...Object} args - The objects to be combined.
  * @returns {Object} - The combined object.
