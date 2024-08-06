@@ -1,14 +1,15 @@
 {
   "name": "intro-to-code-js",
-  "version": "2.2.0",
+  "version": "2.3.0",
   "private": true,
   "description": "A repo meant new JS learners help with guided topic-centered practice problems.",
   "scripts": {
-    "test-01": "mocha './lessons/01-Values-and-Data-Types/**.test.js'",
-    "test-02": "mocha './lessons/02-Conditionals/tests/**.test.js'",
-    "test-03": "mocha './lessons/03-Methods-and-Functions/tests/**.test.js'",
-    "test-04": "mocha './lessons/04-Arrays-and-Loops/tests/**.test.js'",
-    "test-05": "mocha './lessons/05-Callbacks-Iterators/tests/**.test.js'"
+    "test:01": "mocha './lessons/01-Values-and-Data-Types/**.js'",
+    "test:02": "mocha './lessons/02-Conditionals/tests/**.js'",
+    "test:03": "mocha './lessons/03-Methods-and-Functions/tests/**.js'",
+    "test:04": "mocha './lessons/04-Arrays-and-Loops/tests/**.js'",
+    "test:05": "mocha './lessons/05-Callbacks-Iterators/tests/**.js'",
+    "test:06": "mocha './lessons/06-Objects/tests/**.js'"
   },
   "repository": {
     "type": "git",
