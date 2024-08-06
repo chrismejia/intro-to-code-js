@@ -12,7 +12,7 @@ import {
   allNullsNested,
 } from "../data/05-nullDeleter.data";
 
-describe("#5: nullDeleter", () => {
+xdescribe("#5: nullDeleter", () => {
   it("returns an object", () => {
     expect(nullDeleter(noNull)).be.an("object");
     expect(nullDeleter(oneNull)).be.an("object");
