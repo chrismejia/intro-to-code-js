@@ -1,35 +1,28 @@
-export const noSubObject = {
+export const noObjVal = { one: 1, two: "string" };
+
+export const oneObjVal = { one: 1, two: { three: false } };
+
+export const oneObjExpected = { one: 1, three: false };
+
+export const multiObjVal = {
   one: 1,
-  two: true,
-  three: "hello",
+  two: { three: false, four: 4 },
+  five: { six: "six" },
 };
 
-export const oneSubKey = {
+export const multiObjExpected = {
   one: 1,
-  two: false,
-  three: { four: 1 },
+  three: false,
+  four: 4,
+  six: "six",
 };
 
-export const oneSubObjMultKeys = {
-  one: 1,
-  two: false,
-  three: { four: 3, five: "hello" },
-};
+export const arrayObjVal = { one: 1, two: { three: [1, 2, 3] } };
+export const arrayObjExpected = { one: 1, three: [1, 2, 3] };
 
-export const multSubObjOneKey = {
-  one: { four: 55 },
-  two: false,
-  three: { five: "lunch" },
-};
-
-export const multSubObjMultKeys = {
-  one: { four: 42, five: "test" },
-  two: false,
-  three: { six: 10, seven: "bread", eight: true },
-};
-
-export const allSubObjMixedKeys = {
-  one: { four: 999, five: [5, true, "right"] },
-  two: { six: false },
-  three: { seven: 7, eight: [1, 2, 3], nine: true },
+export const originalObj = { one: true, three: "four", five: { six: 7 } };
+export const originalObjExpected = {
+  one: true,
+  three: "four",
+  six: 7,
 };
