@@ -1,58 +1,37 @@
 import { baseCaesar } from "./data/caesarCrafter.data";
 
 /**
- * Define the function caesarCrafter.
- * caesarCrafter accepts a single input, the number shiftAmount.
+ * caesarCrafter accepts two inputs, an object param called data, and a string the number shiftAmount.
  *
  * caesarCrafter returns an object with 26 key-value pairs where the key represents the PLAINTEXT letter, and the value represents that shifted CIPHER'S letter.
- *
- * See the examples section below for the value of shiftAmount affects the expected cipher output.
  *
  * @see {@link https://en.wikipedia.org/wiki/Caesar_cipher Caesar cipher}
  *
  * @category 07 - Objects 2
- * @function caesarCipher
- * @returns {Object}
+ * @function caesarCrafter
+ * @param {Object} data - The object containing the message and shift value.
+ * @param {string} data.message - The message to be encoded or decoded.
+ * @param {number} data.shift - The shift value for the Caesar cipher.
+ * @param {string} mode - The mode of operation: 'encode' or 'decode'.
+ * @returns {string} - The encoded or decoded message.
  *
  * @example
  * // When shiftAmount is positive, the ciphertext shifts down the alphabet.
- * const shiftedByPos2 = caesarCipher(2)
+ * const shiftedByPos2 = caesarCrafter({msg: "Hello World", shift: 3}, "ev")
  *
- * // Cipher text shifted to the right by 2
+ * // Cipher text shifted to the RIGHT by 2
  *            ↓   ↓
  * // PLAIN   A B C ... X Y Z
  * // CIPHER  Y Z A ... V W X
- * console.log(shiftedByPos2)
- * {
- *   A: 'Y',
- *   B: 'Z',
- *   C: 'A',
- *   ⋮   ⋮
- *   X: 'V',
- *   Y: 'W',
- *   Z: 'X'
- * }
  *
  * // When shiftAmount is negative, the ciphertext shifts down the alphabet.
- * const shiftedByNeg2 = caesarCipher(-2)
- *
- * // Cipher text shifted to the left by 2
+ * // Cipher text shifted to the LEFT by 2
  *            ↓           ↓
  * // PLAIN   A B C ... X Y Z
  * // CIPHER  C D E ... Z A B
- * console.log(shiftedByNeg2)
- * {
- *   A: 'C',
- *   B: 'D',
- *   C: 'E',
- *   ⋮   ⋮
- *   X: 'Z',
- *   Y: 'A',
- *   Z: 'B'
- * }
  */
 
-function caesarCipher(shiftAmount) {
+function caesarCrafter(shiftAmount) {
   let actualShift = shiftAmount % 26;
 
   if (actualShift === 0) {
@@ -77,4 +56,4 @@ function caesarCipher(shiftAmount) {
   return shiftedCipherGuide;
 }
 
-export default caesarCipher;
+export default caesarCrafter;
