@@ -1,7 +1,6 @@
 /**
  * #6: onePairObjects
  *
- * Define the function onePairObjects.
  * onePairObjects accepts an inputObj containing any number of key-value pairs.
  * onePairObjects splits an object into an array of single key-value pair objects.
  *
@@ -31,14 +30,14 @@
 //   arrayOfObj.push(singleObj);
 // }
 
-// Method 2: for-of loop using Object.keys
+// or Method 2: for-of loop using Object.keys
 // for (const key of Object.keys(inputObj)) {
 //   const singleObj = {};
 //   singleObj[key] = inputObj[key];
 //   arrayOfObj.push(singleObj);
 // }
 
-// Method 3: for-of loop using Object.entries
+// or Method 3: for-of loop using Object.entries
 // for (const [key, value] of Object.entries(inputObj)) {
 //   const singleObj = {};
 //   singleObj[key] = value;
