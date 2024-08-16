@@ -3,7 +3,6 @@ import { isAnObject } from "./01-isAnObject";
 /**
  * #3: objectCount
  *
- * Define the function objectCount.
  * objectCount accepts a single object with any number of key-value pairs.
  * objectCount counts the number of object sub-values the object contains.
  *
@@ -23,6 +22,7 @@ export function objectCount(obj) {
   let count = 0;
   for (const value of Object.values(obj)) {
     if (Array.isArray(value)) {
+      // maybe is an array containing objects
       for (const element of value) {
         if (isAnObject(element)) {
           count++;
