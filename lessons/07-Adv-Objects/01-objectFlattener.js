@@ -1,5 +1,5 @@
 /**
- * #1: objectFlattener
+ * 1. objectFlattener
  *
  * objectFlattener accepts a single input, inputObj, which is an object.
  *
@@ -44,3 +44,17 @@ export function objectFlattener(inputObj) {
   }
   return inputObj;
 }
+
+/**
+ * Using Object.assign
+ */
+// export function objectFlattener(inputObj) {
+//   for (const key in inputObj) {
+//     const currVal = inputObj[key];
+//     if (isAnObject(currVal)) {
+//       Object.assign(inputObj, inputObj[key]);
+//       delete inputObj[key];
+//     }
+//   }
+//   return inputObj;
+// }
