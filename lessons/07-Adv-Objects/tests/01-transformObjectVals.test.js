@@ -1,5 +1,5 @@
 import { expect } from "chai";
-import { transformObjectVals } from "../transformObjectVals.js";
+import { transformObjectVals } from "../01-transformObjectVals.js";
 import {
   doubleInput,
   doubleExpected,
@@ -17,7 +17,7 @@ import {
   mixedTransform,
   identityTransform,
   numOnlyTransform,
-} from "../data/transformObjectVals.data.js";
+} from "../data/01-transformObjectVals.data.js";
 
 describe("transformObjectVals", () => {
   it("returns an object", () => {
