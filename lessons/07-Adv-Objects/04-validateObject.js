@@ -1,13 +1,13 @@
 /**
- * 2. validateObject
+ * #4: validateObject
  *
- * validateObject accepts two objects as inputs, inputObj, and schema.
+ * `validateObject` accepts two objects as inputs, inputObj, and schema.
  *
- * validateObject checks that an object matches a given schema, where the schema is defined as another object.
+ * `validateObject` checks that an object matches a given schema, where the schema is defined as another object.
  *
  * The schema object contains keys that the input object must have, and each key's value in the schema specifies the expected type of the value in the input object.
  *
- * validateObject returns true if the input object conforms to the schema and false otherwise.
+ * `validateObject` returns true if the input object conforms to the schema and false otherwise.
  *
  * Empty schema objects signify that there are no required keys and value types.
  *
