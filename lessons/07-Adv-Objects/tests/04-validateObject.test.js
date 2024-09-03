@@ -1,5 +1,5 @@
 import { expect } from "chai";
-import { validateObject } from "../02-validateObject.js";
+import { validateObject } from "../04-validateObject.js";
 import {
   schema,
   validObj,
