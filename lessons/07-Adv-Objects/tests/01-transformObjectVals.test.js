@@ -21,13 +21,20 @@ import {
 
 describe("#1: transformObjectVals", () => {
   it("returns an object", () => {
-    const result = transformObjectVals(doubleInput, (x) => x * 2);
+    const result = transformObjectVals(doubleInput, doubleTransform);
     expect(result).to.be.an("object");
   });
 
   it("returns a different object with same input k-v pairs using an identity function", () => {
     const result = transformObjectVals(nestedObj, identityTransform);
-    expect(result).to.not.equal(nestedObjExpected);
+    expect(result).to.not.equal(nestedObj);
+    expect(result).to.deep.equal(nestedObjExpected);
+  });
+
+  it("returns a different object with same input k-v pairs using an unmatched type-specific function", () => {
+    const result = transformObjectVals(uppercaseInput, numOnlyTransform);
+    expect(result).to.not.equal(uppercaseInput);
+    expect(result).to.deep.equal(uppercaseInput);
   });
 
   it("transforms numeric values using a doubling function", () => {
@@ -48,10 +55,5 @@ describe("#1: transformObjectVals", () => {
   it("correctly handles mixed data types using a type-dependent function", () => {
     const result = transformObjectVals(mixedInput, mixedTransform);
     expect(result).to.deep.equal(mixedExpected);
-  });
-
-  it("returns a different object with same input k-v pairs using an unmatched type-specific function", () => {
-    const result = transformObjectVals(uppercaseInput, numOnlyTransform);
-    expect(result).to.not.deep.equal(uppercaseExpected);
   });
 });

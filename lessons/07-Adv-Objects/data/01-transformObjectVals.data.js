@@ -13,6 +13,7 @@ export const mixedExpected = { num: 6, str: "TEST", bool: false };
 export const nestedObj = { a: { b: 1 }, c: { d: 2 } };
 export const nestedObjExpected = { a: { b: 1 }, c: { d: 2 } };
 
+// Test Transformation functions
 export const doubleTransform = (x) => x * 2;
 export const toUpperCase = (x) => x.toUpperCase();
 export const negateBoolean = (x) => !x;
