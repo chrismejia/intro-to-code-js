@@ -17,7 +17,7 @@ import {
   multipleIdenticalExpected,
   oneObjSingleKV,
   oneObjSingleKVExpected,
-} from "../data/06-uniquePropCollector.data";
+} from "../../data/06-uniquePropCollector.data";
 
 describe("uniquePropCollector", () => {
   it("should handle an empty array", () => {
