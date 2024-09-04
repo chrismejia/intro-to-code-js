@@ -16,6 +16,11 @@
  * console.log(result); // { a: 1, b: 3, c: 4 } <- Notice that the "b" value from obj2 is used since it came last in the order.
  */
 
+// like .reduce() but for Objects
+// export function objectCombiner(...args) {
+//   return Object.assign({}, ...args);
+// }
+
 /**
  * The arguments object in JavaScript is not an array but an array-like object. This means it has some properties and behaviors of an array (like indexed access to its elements and a length property), but it does not have array methods like `.reduce()` directly available.
  *
