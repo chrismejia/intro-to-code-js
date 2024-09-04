@@ -1,8 +1,8 @@
 /**
  * #2: propValMap
  *
- * propValMap accepts an array of objects, items.
- * propValMap creates a Map where each key is a unique property from the input objects,
+ * `propValMap` accepts an array of objects, items.
+ * `propValMap` creates a Map where each key is a unique property from the input objects,
  * and its corresponding value is an array of all the values associated with that property.
  *
  * @category 07 - Adv Objects

@@ -1,12 +1,13 @@
 /**
  * #8: classSorter
  *
- * Define the function classSorter.
- * classSorter sorts a roster of students and teachers into classes based on their grades.
- * classSorter accepts a roster object containing students and teachers, and sorts them into classes based on their grades.
+ * `classSorter` sorts a roster of students and teachers into classes based on their grades.
+ * `classSorter` accepts a roster object containing students and teachers, and sorts them into classes based on their grades.
  *
- * classSorter returns an object with grades as keys, each containing an array of student names and an array of teacher names for that grade.
+ * `classSorter` returns an object with grades as keys, each containing an array of student names and an array of teacher names for that grade.
  *
+ * @category 07 - Adv Objects
+ * @function classSorter
  * @param {Object} roster - The roster object containing arrays of students and teachers.
  * @param {Array} roster.students - Array of student objects.
  * @param {Array} roster.teachers - Array of teacher objects.
