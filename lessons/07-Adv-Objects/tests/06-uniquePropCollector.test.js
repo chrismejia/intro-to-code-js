@@ -1,5 +1,5 @@
 import { expect } from "chai";
-import { uniquePropCollector } from "../uniquePropCollector";
+import { uniquePropCollector } from "../06-uniquePropCollector";
 import {
   hasAllUnique,
   hasAllUniqueExpected,
@@ -17,7 +17,7 @@ import {
   multipleIdenticalExpected,
   oneObjSingleKV,
   oneObjSingleKVExpected,
-} from "../data/uniquePropCollector.data";
+} from "../data/06-uniquePropCollector.data";
 
 describe("uniquePropCollector", () => {
   it("should handle an empty array", () => {
