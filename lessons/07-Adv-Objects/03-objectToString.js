@@ -11,7 +11,7 @@
  *
  * @example
  * const data = { name: 'Alice', age: 25, hobbies: ['reading', 'gaming'] };
- * const obJAsString = objectToString(data);
- * // obJAsString: '{"name":"Alice","age":25,"hobbies":["reading","gaming"]}'
+ * const objAsString = objectToString(data);
+ * // objAsString: '{"name":"Alice","age":25,"hobbies":["reading","gaming"]}'
  */
 export const objectToString = (obj) => JSON.stringify(obj);
