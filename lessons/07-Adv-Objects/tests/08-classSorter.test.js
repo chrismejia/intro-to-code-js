@@ -1,5 +1,5 @@
 import { expect } from "chai";
-import { classSorter } from "../06-classSorter";
+import { classSorter } from "../08-classSorter";
 import {
   emptyRoster,
   onlyStudentsRoster,
@@ -12,9 +12,9 @@ import {
   twoGradeSaTExpected,
   multipleGradeSaTRoster,
   multipleGradeSaTExpected,
-} from "../data/06-classSorter.data";
+} from "../data/08-classSorter.data";
 
-describe("#6: classSorter", function () {
+describe("#8: classSorter", function () {
   it("should return an empty object for an empty roster", function () {
     const sortedClasses = classSorter(emptyRoster);
     expect(sortedClasses).to.deep.equal({});

@@ -1,5 +1,5 @@
 /**
- * #6: classSorter
+ * #8: classSorter
  *
  * Define the function classSorter.
  * classSorter sorts a roster of students and teachers into classes based on their grades.
