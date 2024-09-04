@@ -1,5 +1,5 @@
 import { expect } from "chai";
-import { keyValidator } from "../05-keyValidator";
+import { keyValidator } from "../06-keyValidator";
 import {
   emptyOne,
   emptyTwo,
@@ -9,9 +9,9 @@ import {
   twoKeysDiffVals,
   twoKeysDiffKeys,
   manyKeys,
-} from "../data/05-keyValidator.data";
+} from "../data/06-keyValidator.data";
 
-describe("#5: keyValidator", () => {
+describe("#6: keyValidator", () => {
   describe("returns an empty array", () => {
     it("for empty objects", () => {
       expect(keyValidator(emptyOne, emptyTwo)).to.eql([]);
