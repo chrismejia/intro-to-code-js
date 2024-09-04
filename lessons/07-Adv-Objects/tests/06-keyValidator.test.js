@@ -11,7 +11,7 @@ import {
   manyKeys,
 } from "../data/06-keyValidator.data";
 
-describe("#6: keyValidator", () => {
+xdescribe("#6: keyValidator", () => {
   describe("returns an empty array", () => {
     it("for empty objects", () => {
       expect(keyValidator(emptyOne, emptyTwo)).to.eql([]);

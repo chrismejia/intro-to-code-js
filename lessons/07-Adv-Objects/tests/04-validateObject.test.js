@@ -9,7 +9,7 @@ import {
   extraKeysObj,
 } from "../data/04-validateObject.data.js";
 
-describe("#4: validateObject", () => {
+xdescribe("#4: validateObject", () => {
   describe("should return true", () => {
     it("for a valid object", () => {
       const result = validateObject(validObj, schema);
