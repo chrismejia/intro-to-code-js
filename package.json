@@ -9,7 +9,8 @@
     "test:03": "mocha './lessons/03-Methods-and-Functions/tests/**.js'",
     "test:04": "mocha './lessons/04-Arrays-and-Loops/tests/**.js'",
     "test:05": "mocha './lessons/05-Callbacks-Iterators/tests/**.js'",
-    "test:06": "mocha './lessons/06-Objects/tests/**.js'"
+    "test:06": "mocha './lessons/06-Objects/tests/**.js'",
+    "test:07": "mocha './lessons/07-Adv-Objects/tests/**.js'"
   },
   "repository": {
     "type": "git",

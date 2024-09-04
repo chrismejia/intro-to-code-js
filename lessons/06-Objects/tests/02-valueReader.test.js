@@ -1,6 +1,6 @@
 import { expect } from "chai";
 import { dataObj } from "../data/02-valueReader.data";
-import valueReader from "../02-valueReader";
+import { valueReader } from "../02-valueReader";
 
 xdescribe("#2: valueReader", () => {
   describe("returns the correct value", () => {
