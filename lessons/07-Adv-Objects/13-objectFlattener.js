@@ -1,9 +1,9 @@
 /**
- * 1. objectFlattener
+ * #13: objectFlattener
  *
- * objectFlattener accepts a single input, inputObj, which is an object.
+ * `objectFlattener` accepts a single input, inputObj, which is an object.
  *
- * When objectFlattener encounters a top-level key in inputObj with a value that is an object,
+ * When `objectFlattener` encounters a top-level key in inputObj with a value that is an object,
  * it will copy all the key-value pairs from that nested object to the top-level of inputObj.
  * Then, it will delete the original top-level key that had the nested object as its value.
  *
