@@ -24,7 +24,7 @@ describe("#10: deepClone", () => {
     expect(result).to.deep.equal(clonedObjWithoutDate);
   });
 
-  xdescribe("BONUS", () => {
+  describe("BONUS", () => {
     it("should correctly clone objects with Date objects", () => {
       const result = deepClone(objWithDate);
       expect(result).to.deep.equal(clonedObjWithDate);
