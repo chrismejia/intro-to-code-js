@@ -135,3 +135,37 @@ Here is the reorganized list with difficulty ratings added:
     - **Topics**: Object Manipulation, Deep Object Handling
     - **Summary**: Flatten an object by moving sub-object key-value pairs to the top level, without recursion.
     - **Difficulty**: Hard
+
+Here's the list of problems planned for the Advanced Objects unit, ordered from easiest to hardest:
+
+X1. **transformObjectValues** (Easy)
+_Topic_: Object manipulation and transformation of values.
+
+X2. **propertyValueMap** (Easy)
+_Topic_: Object to Map conversion, insertion order.
+
+X3. **jsonSerializer** (Easy)
+_Topic_: Object serialization to JSON.
+
+X4. **validateObject** (Easy-Medium)
+_Topic_: Object validation, checking for specific properties and types.
+
+X5. **manageInventory** (Medium)
+_Topic_: Object manipulation, nested object management.
+
+X6. **uniquePropertyCollector** (Medium)
+_Topic_: Using objects and Sets to track unique property values.
+
+X7. **mergeConfigs** (Medium)
+_Topic_: Merging multiple objects, handling conflicts.
+
+X8. **findObjectDifferences** (Medium-Hard)
+_Topic_: Comparing objects to find differences.
+
+9. **deepClone** (Hard)
+   _Topic_: Creating deep copies of objects.
+
+10. **manageProfiles** (Hard)
+    _Topic_: Object manipulation, complex nested structures, object property access.
+
+This selection offers a balanced progression of difficulty and a diverse range of object-related topics.
