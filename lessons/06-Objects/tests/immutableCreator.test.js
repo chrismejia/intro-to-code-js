@@ -6,7 +6,7 @@ import {
   noUpdates,
   overwriteProperties,
   emptyOriginalObject,
-} from "./testData";
+} from "../data/immutableCreator.data";
 
 describe("immutableModifier", function () {
   it("should modify existing properties and add new ones", function () {
