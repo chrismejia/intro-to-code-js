@@ -26,17 +26,17 @@
  */
 
 // Without destructuring priceObj
-// export function priceTransformer(objArr) {
-//   const transformedObj = {};
+export function priceTransformer(objArr) {
+  const transformedObj = {};
 
-//   for (const priceObj of objArr) {
-//     const newKey = priceObj.food;
-//     const newPrice = priceObj.price;
+  for (const priceObj of objArr) {
+    const newKey = priceObj.food;
+    const newPrice = priceObj.price;
 
-//     transformedObj[newKey] = newPrice;
-//   }
-//   return transformedObj;
-// }
+    transformedObj[newKey] = newPrice;
+  }
+  return transformedObj;
+}
 
 // Destructuring priceObj
 export function priceTransformer(objArr) {
@@ -50,8 +50,8 @@ export function priceTransformer(objArr) {
 }
 
 // One-liner
-// export const priceTransformer = (objArr) =>
-//   objArr.reduce((prev, { food, price }) => {
-//     prev[food] = price;
-//     return prev;
-//   }, {});
+export const priceTransformer = (objArr) =>
+  objArr.reduce((newObj, { food, price }) => {
+    newObj[food] = price;
+    return newObj;
+  }, {});
