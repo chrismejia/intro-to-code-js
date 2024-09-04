@@ -1,7 +1,7 @@
 {
   "name": "intro-to-code-js",
   "version": "2.2.0",
-  "description": "",
+  "description": "A repo meant new JS learners help with guided topic-centered practice problems.",
   "main": "index.js",
   "scripts": {
     "test:all": "mocha './lessons/**/*/**.test.js'",
