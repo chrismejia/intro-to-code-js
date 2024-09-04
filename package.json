@@ -28,10 +28,7 @@
     "@babel/preset-env": "^7.22.5",
     "@babel/register": "^7.22.5",
     "chai": "^4.3.7",
-    "jsdoc-to-markdown": "^7.0.1",
-    "jsdocs": "^1.0.0",
-    "mocha": "^8.4.0",
-    "nodemon": "^2.0.22"
+    "mocha": "^8.4.0"
   },
   "dependencies": {
     "sinon": "^10.0.1"
