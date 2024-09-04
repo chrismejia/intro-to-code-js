@@ -14,25 +14,25 @@ import {
   multipleGradeSaTExpected,
 } from "../data/08-classSorter.data";
 
-describe("#8: classSorter", function () {
-  it("should return an empty object for an empty roster", function () {
+describe("#8: classSorter", () => {
+  it("should return an empty object for an empty roster", () => {
     const sortedClasses = classSorter(emptyRoster);
     expect(sortedClasses).to.deep.equal({});
   });
 
-  describe("should correctly sort a roster", function () {
+  describe("should correctly sort a roster", () => {
     describe("one grade", () => {
-      it("only students", function () {
+      it("only students", () => {
         const sortedClasses = classSorter(onlyStudentsRoster);
         expect(sortedClasses).to.deep.equal(onlyStudentsExpected);
       });
 
-      it("only teachers", function () {
+      it("only teachers", () => {
         const sortedClasses = classSorter(onlyTeachersRoster);
         expect(sortedClasses).to.deep.equal(onlyTeachersExpected);
       });
 
-      it("students and teachers", function () {
+      it("students and teachers", () => {
         const sortedClasses = classSorter(oneGradeSaTRoster);
         expect(sortedClasses).to.deep.equal(oneGradeSaTExpected);
       });
