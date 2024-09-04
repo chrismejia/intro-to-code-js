@@ -25,14 +25,4 @@
  * const clone = deepClone(withDateObj);
  * console.log(clone); // => { name: 'Alice', date: Date object }
  */
-export function deepClone(inputObj) {
-  const copy = { ...inputObj };
-  for (const key in copy) {
-    if (copy[key] instanceof Date) {
-      copy[key] = new Date(copy[key].getTime());
-    } else if (typeof copy[key] === "object") {
-      copy[key] = { ...copy[key] };
-    }
-  }
-  return copy;
-}
+export function deepClone() {}

@@ -27,34 +27,4 @@
  * const nestedObjVal = { one: 1, two: { three: false, four: 4 }, five: { six: 'six' } };
  * objectFlattener(nestedObjVal); // => { one: 1, three: false, four: 4, six: 'six' }
  */
-
-function isAnObject(input) {
-  return typeof input === "object" && !Array.isArray(input) && input !== null;
-}
-
-export function objectFlattener(inputObj) {
-  for (const key in inputObj) {
-    const currValue = inputObj[key];
-    if (isAnObject(currValue)) {
-      for (const subKey in currValue) {
-        inputObj[subKey] = currValue[subKey];
-      }
-      delete inputObj[key];
-    }
-  }
-  return inputObj;
-}
-
-/**
- * Using Object.assign
- */
-// export function objectFlattener(inputObj) {
-//   for (const key in inputObj) {
-//     const currVal = inputObj[key];
-//     if (isAnObject(currVal)) {
-//       Object.assign(inputObj, inputObj[key]);
-//       delete inputObj[key];
-//     }
-//   }
-//   return inputObj;
-// }
+export function objectFlattener() {}

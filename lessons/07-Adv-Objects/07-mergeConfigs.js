@@ -24,6 +24,4 @@
  * mergeConfigs(configDefaults, customConfig);
  * // Returns: { apiUrl: 'http://api.example.com', timeout: 2000, retries: 3 }
  */
-export function mergeConfigs(defaultConfig, userConfig) {
-  return { ...defaultConfig, ...userConfig };
-}
+export function mergeConfigs() {}

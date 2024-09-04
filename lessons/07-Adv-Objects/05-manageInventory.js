@@ -22,13 +22,4 @@
  * manageInventory(items);
  * // Returns: { apple: 4, banana: 2 }
  */
-export function manageInventory(items) {
-  return items.reduce((acc, item) => {
-    if (acc[item.name]) {
-      acc[item.name] += item.quantity;
-    } else {
-      acc[item.name] = item.quantity;
-    }
-    return acc;
-  }, {});
-}
+export function manageInventory() {}
