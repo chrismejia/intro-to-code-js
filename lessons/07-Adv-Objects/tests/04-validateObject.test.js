@@ -7,9 +7,9 @@ import {
   incompleteObj,
   wrongTypeObj,
   extraKeysObj,
-} from "../data/02-validateObject.data.js";
+} from "../data/04-validateObject.data.js";
 
-describe("validateObject", () => {
+describe("#4: validateObject", () => {
   describe("should return true", () => {
     it("for a valid object", () => {
       const result = validateObject(validObj, schema);
