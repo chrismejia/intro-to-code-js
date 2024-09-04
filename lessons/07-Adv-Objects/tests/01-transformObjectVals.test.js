@@ -19,7 +19,7 @@ import {
   numOnlyTransform,
 } from "../data/01-transformObjectVals.data.js";
 
-describe("transformObjectVals", () => {
+describe("#1: transformObjectVals", () => {
   it("returns an object", () => {
     const result = transformObjectVals(doubleInput, (x) => x * 2);
     expect(result).to.be.an("object");
