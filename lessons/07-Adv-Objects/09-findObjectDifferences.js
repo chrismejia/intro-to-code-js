@@ -3,7 +3,10 @@
  *
  * The `findObjectDifferences` function accepts two objects, `obj1` and `obj2`.
  *
- * `findObjectDifferences` compares the two objects and returns an object that contains the differences. If a property exists in `obj1` but not in `obj2`, it will be included in the result with its value from `obj1`. If a property exists in both objects but with different values, it will be included with its values from both `obj1` and `obj2`. If a property exists in `obj2` but not in `obj1`, it will be included with its value from `obj2`.
+ * `findObjectDifferences` compares the two objects and returns an object that contains the differences.
+ * - If a property exists in `obj1` but not in `obj2`, it will be included in the result with its value from `obj1`.
+ * - If a property exists in both objects but with different values, it will be included with its values from both `obj1` and `obj2`.
+ * - If a property exists in `obj2` but not in `obj1`, it will be included with its value from `obj2`.
  *
  * `findObjectDifferences` helps in identifying discrepancies between two objects by highlighting properties that differ between them.
  *
