@@ -16,15 +16,15 @@ describe("#2: startingCapsOnly", () => {
   });
 
   it("removes no words if all words start with a capital letter", () => {
-    expect(startingCapsOnly(startCapWords)).to.eql(startCapWords);
+    expect(startingCapsOnly(startCapWords)).to.deep.equal(startCapWords);
   });
 
   it("removes all words that don't start with a capital letter", () => {
-    expect(startingCapsOnly(noCapWords)).to.eql([]);
-    expect(startingCapsOnly(capsNotAtStart)).to.eql([]);
+    expect(startingCapsOnly(noCapWords)).to.deep.equal([]);
+    expect(startingCapsOnly(capsNotAtStart)).to.deep.equal([]);
   });
 
   it("removes words that don't start with a capital letter from a mixed array", () => {
-    expect(startingCapsOnly(mixedWords)).to.eql(startCapWords);
+    expect(startingCapsOnly(mixedWords)).to.deep.equal(startCapWords);
   });
 });

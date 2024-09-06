@@ -27,7 +27,7 @@ xdescribe("#5: nullDeleter", () => {
 
   describe("returns the input untouched", () => {
     it("when it has no null key-value pairs", () => {
-      expect(nullDeleter(noNull)).to.eql(noNull);
+      expect(nullDeleter(noNull)).to.deep.equal(noNull);
     });
   });
 
@@ -44,13 +44,13 @@ xdescribe("#5: nullDeleter", () => {
     });
 
     it("when there's multiple present", () => {
-      expect(nullDeleter(multipleNull)).to.eql({
+      expect(nullDeleter(multipleNull)).to.deep.equal({
         three: "goodbye",
       });
     });
 
     it("when they're all null values", () => {
-      expect(nullDeleter(allNull)).to.eql({});
+      expect(nullDeleter(allNull)).to.deep.equal({});
     });
   });
 

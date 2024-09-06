@@ -23,7 +23,7 @@ describe("#4: everyOtherTime", () => {
   });
 
   it("returns the correct value", () => {
-    expect(capResult).to.eql(cappedArr);
-    expect(cubeResult).to.eql(evenCubed);
+    expect(capResult).to.deep.equal(cappedArr);
+    expect(cubeResult).to.deep.equal(evenCubed);
   });
 });

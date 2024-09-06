@@ -35,7 +35,7 @@ describe("#3: functionRunner", () => {
 
     it("the inputVal is returned untouched", () => {
       expect(noRunStrResult).to.equal(strInput);
-      expect(noRunResult).to.eql(numsArrInput);
+      expect(noRunResult).to.deep.equal(numsArrInput);
     });
   });
 
@@ -51,10 +51,10 @@ describe("#3: functionRunner", () => {
 
       it("uses inputVal as input for the first callback run", () => {
         const firstRunStrInput = fourRunStrSpy.getCall(0).args[0];
-        expect(firstRunStrInput).to.eql(strInput);
+        expect(firstRunStrInput).to.deep.equal(strInput);
 
         const firstRunNumInput = fourRunNumSpy.getCall(0).args[0];
-        expect(firstRunNumInput).to.eql(numsArrInput);
+        expect(firstRunNumInput).to.deep.equal(numsArrInput);
       });
 
       it("uses the return of previous callback run as input for the next", () => {
@@ -69,7 +69,7 @@ describe("#3: functionRunner", () => {
           const lastReturn = numSpyCallInfo[run - 1].returnValue;
           const currRunArgs = numSpyCallInfo[run].args[0];
 
-          expect(lastReturn).to.eql(currRunArgs);
+          expect(lastReturn).to.deep.equal(currRunArgs);
         }
       });
 
@@ -85,7 +85,7 @@ describe("#3: functionRunner", () => {
           const currCallbackResult = infoObj.returnValue;
           const currExpectedResult = fourRunsNums[callNum];
 
-          expect(currCallbackResult).to.eql(currExpectedResult);
+          expect(currCallbackResult).to.deep.equal(currExpectedResult);
         });
       });
 
@@ -98,7 +98,7 @@ describe("#3: functionRunner", () => {
         const lastNumCallResult =
           numSpyCallInfo[numSpyCallInfo.length - 1].returnValue;
 
-        expect(lastNumCallResult).to.eql(fourRunNumResult);
+        expect(lastNumCallResult).to.deep.equal(fourRunNumResult);
       });
     });
   });
