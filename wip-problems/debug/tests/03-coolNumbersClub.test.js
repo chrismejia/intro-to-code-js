@@ -26,8 +26,8 @@ describe("#3: coolNumbersClub", () => {
 
   it("removes all numbers if all numbers are", () => {
     console.log(allUncool.filter(isNumberCool));
-    expect(coolNumbersClub(allUncool, isNumberCool, coolSquaredNumbers)).to.eql(
-      []
-    );
+    expect(
+      coolNumbersClub(allUncool, isNumberCool, coolSquaredNumbers)
+    ).to.deep.equal([]);
   });
 });
