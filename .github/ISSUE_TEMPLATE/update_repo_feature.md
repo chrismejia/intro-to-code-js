@@ -2,8 +2,7 @@
 name: Update/Change Repo Feature
 about: Suggest updates/changes to an existing feature in the repository.
 title: "🔧 Update/Change Repo Feature"
-labels:
-  - "🏗️ Repo/Build"
+labels: "🏗️ Repo/Build"
 assignees: chrismejia
 ---
 

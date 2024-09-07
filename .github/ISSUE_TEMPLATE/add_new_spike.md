@@ -3,8 +3,8 @@ name: Create Research Spike
 about: Request research or exploration of a specific topic for future implementation.
 title: "🔍 SPIKE: Research Topic"
 labels:
-  - "Merge to 0X-Guide"
   - "📚 SPIKE"
+  - "Merge to 0X-Guide"
 assignees: chrismejia
 ---
 

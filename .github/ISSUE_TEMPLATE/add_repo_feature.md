@@ -2,8 +2,7 @@
 name: Add Repo Feature
 about: Propose a new feature or functionality for the repository.
 title: "🆕 Add Repo Feature"
-labels:
-  - "🏗️ Repo/Build"
+labels: "🏗️ Repo/Build"
 assignees: chrismejia
 ---
 
