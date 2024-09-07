@@ -11,9 +11,9 @@
  *
  * @category 04 - Arrays and Loops
  * @function indexer
- * @param {any[]} arr - array of length >= 1, containing entries of any type
+ * @param {unknown[]} arr - array of length >= 1, containing entries of any type
  * @param {Number?} idx
- * @returns {any}
+ * @returns {unknown}
  *
  * @example
  * indexer([1], 0) => 1
