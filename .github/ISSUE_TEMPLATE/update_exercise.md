@@ -12,7 +12,7 @@ assignees: chrismejia
 
 ### Sample Changes
 
-### Other Detailss
+### Other Details
 
 **Related Issues**
 
