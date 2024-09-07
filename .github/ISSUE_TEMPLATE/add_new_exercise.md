@@ -1,7 +1,7 @@
 ---
 name: Add New Exercise
 about: Propose a new practice problem to be added to the repo.
-title: "✨ (UNIT) Exercise Title"
+title: "✨ [UNIT] Exercise Title"
 labels: "Merge to 0X-Guide"
 assignees: chrismejia
 ---
