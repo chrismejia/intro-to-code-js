@@ -27,8 +27,6 @@ assignees: chrismejia
 **Reference Links**
 
 - [Link Title](link)
-- [Link Title](link)
-- [Link Title](link)
 
 **Related Issues**
 

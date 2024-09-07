@@ -26,7 +26,11 @@ assignees: chrismejia
 
 <!-- Add any other context about the problem here. -->
 
-### Other Details
+### Other Resources
+
+**Reference Links**
+
+- [Link Title](link)
 
 **Related Issues**
 
@@ -34,4 +38,4 @@ assignees: chrismejia
 
 **Packages to Add**
 
-<!-- Pkgs/libs needed to be added for this issue to completed  -->
+<!-- Pkgs/libs to be added to help complete unit -->
