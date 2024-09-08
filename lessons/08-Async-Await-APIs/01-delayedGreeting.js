@@ -11,6 +11,9 @@
  * `delayedGreeting` should wait for the specified delay, then construct a greeting message in the format: `"Hello, <name>!"`.
  * It should then call the `callback` function with the constructed greeting message.
  *
+ * HINT:
+ * @see {@link https://developer.mozilla.org/en-US/docs/Web/API/setTimeout setTimeout global function}
+ *
  * @param {string} name - The name of the person to greet.
  * @param {number} delay - The time, in milliseconds, to wait before logging the greeting.
  * @param {function} callback - The callback function to be executed with the greeting message after the delay.
