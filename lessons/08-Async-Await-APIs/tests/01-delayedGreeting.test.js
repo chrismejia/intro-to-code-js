@@ -20,6 +20,7 @@ describe("#1: delayedGreeting", function () {
 
   it("should return a greeting with a shorter delay", function (done) {
     this.timeout(1500); // Slightly more than 1 second
+
     const { name, delay, expectedMessage } = shorterDelayData;
 
     delayedGreeting(name, delay, (greeting) => {
@@ -29,6 +30,7 @@ describe("#1: delayedGreeting", function () {
   });
 
   it("should return a greeting immediately when delay is 0", function (done) {
+    // No mocha timeout adjustment needed.
     const { name, delay, expectedMessage } = immediateGreetingData;
 
     delayedGreeting(name, delay, (greeting) => {
