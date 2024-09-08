@@ -35,6 +35,6 @@
     "nodemon": "^2.0.22"
   },
   "dependencies": {
-    "sinon": "^10.0.1"
+    "sinon": "^18.0.0"
   }
 }
