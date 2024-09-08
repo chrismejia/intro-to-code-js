@@ -14,6 +14,8 @@
  * HINT:
  * @see {@link https://developer.mozilla.org/en-US/docs/Web/API/setTimeout setTimeout global function}
  *
+ * @category 08 - Async/Await & APIs
+ * @function delayedGreeting
  * @param {string} name - The name of the person to greet.
  * @param {number} delay - The time, in milliseconds, to wait before logging the greeting.
  * @param {function} callback - The callback function to be executed with the greeting message after the delay.
