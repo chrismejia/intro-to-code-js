@@ -2,6 +2,7 @@
  * getPostsByUser
  *
  * `getPostsByUser` accepts two callbacks, `fetchUserData` and `fetchUserPosts`.
+ *
  * Assume both callbacks are predefined; you just need to call them correctly within `getPostsByUser`.
  *
  * - `fetchUserData`: A callback that accepts no parameters and returns a Promise that resolves to an object with the shape `{ id: number, name: string }`.
