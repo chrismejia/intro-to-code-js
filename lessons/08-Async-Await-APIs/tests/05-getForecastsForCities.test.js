@@ -10,7 +10,7 @@ import {
   mixedForecastResult,
 } from "../data/05-getForecastsForCities.data";
 
-describe.only("getForecastsForCities", function () {
+describe("getForecastsForCities", function () {
   this.timeout(7500); // Ensure enough time for async tasks
 
   it("should resolve with the forecasts for valid cities", async () => {
