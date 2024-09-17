@@ -16,9 +16,7 @@
  *
  * BONUS:
  * Write `fetchMultipleUsers` WITHOUT using any kind of for-loop.
- */
-
-/**
+ *
  * @function fetchUser
  * @param {number} userId - The ID of the user to fetch.
  * @returns {Promise<Object | Error>} Resolves with a data object on successful fetch, and an Error on a failed one.
@@ -87,27 +85,56 @@ export const fetchUser = async (userId) => {
 //   return results;
 // };
 
+// export const fetchMultipleUsers = async (userIds) => {
+//   const fetchUser = async (userId) => {
+//     const response = await fetch(
+//       `https://jsonplaceholder.typicode.com/users/${userId}`
+//     );
+//     if (!response.ok)
+//       throw new Error(`Failed to fetch user with ID: ${userId}`);
+//     return await response.json();
+//   };
+
+//   const results = await Promise.allSettled(
+//     userIds.map((userId) =>
+//       fetchUser(userId)
+//         .then((userData) => ({ status: "fulfilled", value: userData }))
+//         .catch(() => ({ status: "rejected", userId }))
+//     )
+//   );
+
+//   const successful = results
+//     .filter((result) => result.status === "fulfilled")
+//     .map((result) => result.value);
+
+//   const failed = results
+//     .filter((result) => result.status === "rejected")
+//     .map((result) => result.userId);
+
+//   return { successful, failed };
+// };
+
 // Commented one-liner
-export const fetchMultipleUsers = async (userIds) =>
-  // Step 1: Use Promise.allSettled to get the status of all fetchUser Promises
-  (await Promise.allSettled(userIds.map(fetchUser)))
+// export const fetchMultipleUsers = async (userIds) =>
+//   // Step 1: Use Promise.allSettled to get the status of all fetchUser Promises
+//   (await Promise.allSettled(userIds.map(fetchUser)))
 
-    // Step 2: Use reduce to iterate through the results and accumulate successful and failed tasks
-    .reduce(
-      (acc, result, idx) => (
-        // Step 3: Check if the current result's status is "fulfilled"
-        result.status === "fulfilled"
-          ? // If fulfilled, push the resolved value (user data) to the "successful" array
-            acc.successful.push(result.value)
-          : // If rejected, push the user ID (from the original array) to the "failed" array
-            acc.failed.push(userIds[idx]),
-        // Step 4: Return the updated accumulator object in each iteration
-        acc
-      ),
+//     // Step 2: Use reduce to iterate through the results and accumulate successful and failed tasks
+//     .reduce(
+//       (acc, result, idx) => (
+//         // Step 3: Check if the current result's status is "fulfilled"
+//         result.status === "fulfilled"
+//           ? // If fulfilled, push the resolved value (user data) to the "successful" array
+//             acc.successful.push(result.value)
+//           : // If rejected, push the user ID (from the original array) to the "failed" array
+//             acc.failed.push(userIds[idx]),
+//         // Step 4: Return the updated accumulator object in each iteration
+//         acc
+//       ),
 
-      // Step 5: Initialize the accumulator with two empty arrays: "successful" and "failed"
-      { successful: [], failed: [] }
-    );
+//       // Step 5: Initialize the accumulator with two empty arrays: "successful" and "failed"
+//       { successful: [], failed: [] }
+//     );
 
 // Uncommented one-liner
 // export const fetchMultipleUsers = async (userIds, fetchUser) =>
