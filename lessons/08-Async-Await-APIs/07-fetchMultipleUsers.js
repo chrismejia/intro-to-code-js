@@ -22,10 +22,15 @@
  * @function fetchUser
  * @param {number} userId - The ID of the user to fetch.
  * @returns {Promise<Object | Error>} Resolves with a data object on successful fetch, and an Error on a failed one.
- *  - `ok`: `true`, indicating the request was successful.
- *  - `status`: `200`, representing a successful HTTP status.
- *  - `json`: A function that resolves to a user object based on the provided `userId`.
- *    Example user object shape: `{ id: number, name: string }`.
+ * @example
+ * // Success
+ * const userData = await fetchUser(1);
+ * //=> { id: 1, name: "Leanne Graham" }
+ *
+ * @example
+ * // Failure
+ * const userData = await fetchUser(99);
+ * // Error: `Failed to fetch user with ID: 99`
  */
 export const fetchUser = async (userId) => {
   const response = await fetch(

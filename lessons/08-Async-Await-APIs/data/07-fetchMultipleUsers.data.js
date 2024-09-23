@@ -25,7 +25,7 @@ export const mockFetchUserSuccess = (userId) =>
           clone: () => this,
           text: () => Promise.resolve(JSON.stringify(data)),
         }),
-      400
+      500
     );
   });
 
@@ -50,7 +50,7 @@ export const mockFetchUserFailure = (userId) =>
               message: new Error(`Failed to fetch user with ID: ${userId}`),
             }),
         }),
-      400
+      500
     );
   });
 
