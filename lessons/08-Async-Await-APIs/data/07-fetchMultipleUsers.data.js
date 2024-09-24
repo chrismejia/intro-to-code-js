@@ -1,10 +1,30 @@
+export const passingUserIds = [1, 2];
+export const failingUserIds = [9997, 9998, 9999];
+
 export const validUserData = [
   { id: 1, name: "Leanne Graham" },
   { id: 2, name: "Ervin Howell" },
 ];
 
-export const mockFetchUserSuccess = (userId) =>
-  new Promise((resolve) => {
+export const expectedHeaders = {
+  Authorization: "Bearer fake123fake456fake789",
+  "Content-Type": "application/json",
+  Accept: "application/json",
+};
+
+export const mockFetchUserSuccess = (userId, headers) =>
+  new Promise((resolve, reject) => {
+    // Validate the headers
+    const headersMatch = Object.keys(expectedHeaders).every(
+      (key) => headers[key] === expectedHeaders[key]
+    );
+
+    if (!headersMatch) {
+      return reject({
+        message: new Error("Invalid headers passed in fetch request"),
+      });
+    }
+
     const data = validUserData.find((user) => user.id === userId);
     setTimeout(
       () =>
@@ -25,12 +45,22 @@ export const mockFetchUserSuccess = (userId) =>
           clone: () => this,
           text: () => Promise.resolve(JSON.stringify(data)),
         }),
-      500
+      250
     );
   });
 
-export const mockFetchUserFailure = (userId) =>
-  new Promise((resolve) => {
+export const mockFetchUserFailure = (userId, headers) =>
+  new Promise((resolve, reject) => {
+    const headersMatch = Object.keys(expectedHeaders).every(
+      (key) => headers[key] === expectedHeaders[key]
+    );
+
+    if (!headersMatch) {
+      return reject({
+        message: new Error("Invalid headers passed in fetch request"),
+      });
+    }
+
     setTimeout(
       () =>
         resolve({
@@ -50,8 +80,6 @@ export const mockFetchUserFailure = (userId) =>
               message: new Error(`Failed to fetch user with ID: ${userId}`),
             }),
         }),
-      500
+      250
     );
   });
-
-export const userIds = [1, 2, 3];
