@@ -28,19 +28,44 @@
  * // }
  */
 export function propValMap(items) {
-  const map = new Map();
+  // Create an empty Map to store the results
+  const resultMap = new Map();
 
+  // Loop through the array of objects
   items.forEach((item) => {
-    Object.entries(item).forEach(([key, value]) => {
-      if (!map.has(key)) {
-        map.set(key, []);
+    // For each object, get all the key-value pairs
+    const entries = Object.entries(item);
+
+    // Loop through each key-value pair
+    entries.forEach(([key, value]) => {
+      // Check if this key already exists in the Map
+      if (!resultMap.has(key)) {
+        // If not, create a new empty array for this key
+        resultMap.set(key, []);
       }
-      map.get(key).push(value);
+      // Add the value to the array associated with the key
+      resultMap.get(key).push(value);
     });
   });
 
-  return map;
+  // Return the Map with all the values collected
+  return resultMap;
 }
+
+// export function propValMap(items) {
+//   const map = new Map();
+
+//   items.forEach((item) => {
+//     Object.entries(item).forEach(([key, value]) => {
+//       if (!map.has(key)) {
+//         map.set(key, []);
+//       }
+//       map.get(key).push(value);
+//     });
+//   });
+
+//   return map;
+// }
 
 // export const propValMap = (items) =>
 //   items.reduce(
