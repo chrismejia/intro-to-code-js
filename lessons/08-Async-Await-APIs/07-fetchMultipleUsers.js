@@ -16,7 +16,9 @@
  *
  * BONUS:
  * Write `fetchMultipleUsers` WITHOUT using any kind of for-loop.
- *
+ */
+
+/**
  * @function fetchUser
  * @param {number} userId - The ID of the user to fetch.
  * @returns {Promise<Object | Error>} Resolves with a data object on successful fetch, and an Error on a failed one.
