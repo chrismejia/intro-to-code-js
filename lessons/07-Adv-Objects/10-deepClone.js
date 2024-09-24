@@ -26,13 +26,66 @@
  * console.log(clone); // => { name: 'Alice', date: Date object }
  */
 export function deepClone(inputObj) {
-  const copy = { ...inputObj };
-  for (const key in copy) {
-    if (copy[key] instanceof Date) {
-      copy[key] = new Date(copy[key].getTime());
-    } else if (typeof copy[key] === "object") {
-      copy[key] = { ...copy[key] };
+  const copy = {};
+
+  for (const key in inputObj) {
+    const val = inputObj[key];
+
+    if (val instanceof Date) {
+      // Handle Date objects by creating a new Date instance
+      copy[key] = new Date(val.getTime());
+    } else if (typeof val === "object" && val !== null) {
+      // Handle plain objects by creating a shallow copy
+      copy[key] = { ...val };
+    } else {
+      // Handle other types (primitives, functions, etc.)
+      copy[key] = val;
     }
   }
+
   return copy;
 }
+
+// True Deep Clone
+// export function deepClone(obj) {
+//   // Handle non-objects (primitive values)
+//   if (obj === null || typeof obj !== "object") {
+//     return obj;
+//   }
+
+//   // Handle Date objects
+//   if (obj instanceof Date) {
+//     return new Date(obj.getTime());
+//   }
+
+//   // Initialize a stack to keep track of objects to clone
+//   const stack = [{ source: obj, target: {} }];
+//   const clone = stack[0].target;
+
+//   // Process the stack until all objects are cloned
+//   while (stack.length) {
+//     const { source, target } = stack.pop();
+
+//     // Iterate through each property in the source object
+//     for (const key in source) {
+//       if (source.hasOwnProperty(key)) {
+//         const value = source[key];
+
+//         // Handle nested objects and Date objects
+//         if (value && typeof value === "object") {
+//           if (value instanceof Date) {
+//             target[key] = new Date(value.getTime());
+//           } else {
+//             target[key] = {}; // Create a placeholder for nested objects
+//             stack.push({ source: value, target: target[key] });
+//           }
+//         } else {
+//           // Directly assign primitive values
+//           target[key] = value;
+//         }
+//       }
+//     }
+//   }
+
+//   return clone;
+// }
