@@ -2,7 +2,7 @@ import { expect } from "chai";
 import sinon from "sinon";
 import { getRandomJoke } from "../06-getRandomJoke";
 
-describe.only("getRandomJoke", () => {
+describe("getRandomJoke", () => {
   let fetchStub;
 
   beforeEach(() => {
