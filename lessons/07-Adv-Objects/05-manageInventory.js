@@ -22,8 +22,24 @@
  * manageInventory(items);
  * // Returns: { apple: 4, banana: 2 }
  */
-export function manageInventory(items) {
-  return items.reduce((acc, item) => {
+// Simple loop
+// export function manageInventory(items) {
+//   const inventory = {};
+
+//   for (let i = 0; i < items.length; i++) {
+//     const item = items[i];
+//     if (inventory[item.name]) {
+//       inventory[item.name] += item.quantity;
+//     } else {
+//       inventory[item.name] = item.quantity;
+//     }
+//   }
+
+//   return inventory;
+// }
+
+export const manageInventory = (items) =>
+  items.reduce((acc, item) => {
     if (acc[item.name]) {
       acc[item.name] += item.quantity;
     } else {
@@ -31,4 +47,3 @@ export function manageInventory(items) {
     }
     return acc;
   }, {});
-}
