@@ -30,9 +30,12 @@
 export function findObjectDifferences(obj1, obj2) {
   const result = {};
 
-  const allKeys = new Set([...Object.keys(obj1), ...Object.keys(obj2)]);
+  const allKeys = [...Object.keys(obj1), ...Object.keys(obj2)];
 
-  allKeys.forEach((key) => {
+  //
+  const allUniqueKeys = new Set(allKeys);
+
+  allUniqueKeys.forEach((key) => {
     if (obj1[key] !== obj2[key]) {
       result[key] = [obj1[key], obj2[key]];
     }

@@ -38,7 +38,7 @@ export function manageProfiles(profiles, updates) {
 
   // Iterate over each key in the updates object
   for (const key in updates) {
-    if (Object.hasOwnProperty.call(updates, key)) {
+    if (updates.hasOwnProperty(key)) {
       // If the profile already exists, merge the existing profile with the updates
       if (updatedProfiles.hasOwnProperty(key)) {
         updatedProfiles[key] = { ...updatedProfiles[key], ...updates[key] };

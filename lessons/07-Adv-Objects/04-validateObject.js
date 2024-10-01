@@ -25,8 +25,17 @@
  * const invalidObj = { name: 'Alice', age: '30' };
  * validateObject(invalidObj, schema); // => false
  */
+// Expanded function
 export function validateObject(inputObj, schema) {
-  return Object.keys(schema).every(
-    (key) => key in inputObj && typeof inputObj[key] === schema[key]
-  );
+  return Object.keys(schema).every((key) => {
+    const isKeyPresent = key in inputObj;
+    const isTypeValid = typeof inputObj[key] === schema[key];
+    return isKeyPresent && isTypeValid;
+  });
 }
+
+// export function validateObject(inputObj, schema) {
+//   return Object.keys(schema).every(
+//     (key) => key in inputObj && typeof inputObj[key] === schema[key]
+//   );
+// }
