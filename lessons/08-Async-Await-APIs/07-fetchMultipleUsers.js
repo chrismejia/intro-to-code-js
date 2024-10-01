@@ -21,6 +21,7 @@
  * - an Authorization header with value `Bearer fake123fake456fake789`
  * - Content-Type and Accept headers with value `"application/json"`
  *
+ * @category 08 - Async/Await & APIs
  * @function fetchUser
  * @param {number} userId - The ID of the user to fetch.
  * @returns {Promise<Object | Error>} Resolves with a data object on successful fetch, and an Error on a failed one.
@@ -53,6 +54,7 @@ export const fetchUser = async (userId) => {
 };
 
 /**
+ * @category 08 - Async/Await & APIs
  * @function fetchMultipleUsers
  * @param {number[]} userIds - An array of user IDs.
  * @returns {Promise<{successful: object[], failed: number[]}>} - Resolves with an object containing two arrays:
