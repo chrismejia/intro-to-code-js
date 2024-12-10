@@ -21,7 +21,6 @@ This unit introduces students to asynchronous JavaScript concepts with a focus o
     - [3. Event Loop](#3-event-loop)
       - [Example with `setTimeout`](#example-with-settimeout)
     - [The Importance of the Event Loop in Handling Asynchronous Code](#the-importance-of-the-event-loop-in-handling-asynchronous-code)
-    - [What Happens If You Run Asynchronous Code Synchronously?](#what-happens-if-you-run-asynchronous-code-synchronously)
     - [Callbacks: How They're Used with Asynchronous Code](#callbacks-how-theyre-used-with-asynchronous-code)
     - [Callback Hell](#callback-hell)
     - [Summary](#summary)
@@ -160,8 +159,8 @@ In this model, the program doesn’t wait for task B to finish. It moves on to t
 console.log("Start");
 
 setTimeout(() => {
-  console.log("Task B done (after 2 seconds)");
-}, 2000); // Simulate async task with setTimeout
+  console.log("Task B done (after 5 seconds)");
+}, 5000); // Simulate async task with setTimeout
 
 console.log("Task C done");
 ```
@@ -306,21 +305,6 @@ Without the Event Loop, JavaScript would have no way to manage asynchronous task
 
 - **Non-blocking behavior**: The Event Loop allows JavaScript to run other code while waiting for time-consuming tasks (like fetching data) to complete.
 - **Efficient task management**: Even though JavaScript is single-threaded, the Event Loop makes it possible to handle multiple tasks without blocking the user interface or halting other code execution.
-
----
-
-### What Happens If You Run Asynchronous Code Synchronously?
-
-If you try to treat asynchronous operations as synchronous, you run into problems. Let’s take `fetch`, for example:
-
-```javascript
-const data = fetch("https://api.example.com/data");
-console.log(data); // Will log a Promise, not the actual data
-```
-
-Here, `fetch` is asynchronous. It starts the request, but the result isn’t ready yet. Instead of waiting, JavaScript moves on, logging the `data` variable immediately. But since `fetch` hasn’t resolved, what you get is a **Promise**, not the actual data.
-
-To get the data, you need to handle it asynchronously, either with callbacks, promises, or `async/await`.
 
 ---
 
