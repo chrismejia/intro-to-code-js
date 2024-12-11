@@ -12,7 +12,7 @@ import {
   expectedDifferencesEmpty,
 } from "../data/09-findObjectDifferences.data";
 
-xdescribe("#9: findObjectDifferences", function () {
+describe("#9: findObjectDifferences", function () {
   it("should find differences between two objects with some differing and some matching properties", function () {
     expect(findObjectDifferences(objectA, objectB)).to.deep.equal(
       expectedDifferencesAB

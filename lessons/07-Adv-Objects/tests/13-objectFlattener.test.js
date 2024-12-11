@@ -10,7 +10,7 @@ import {
   multiObjExpected,
 } from "../data/13-objectFlattener.data";
 
-xdescribe("#13: objectFlattener", () => {
+describe("#13: objectFlattener", () => {
   describe("objectFlattener", () => {
     it("returns the same object untouched if there are no nested objects", () => {
       const result = objectFlattener(noObjVal);

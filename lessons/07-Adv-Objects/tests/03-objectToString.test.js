@@ -11,7 +11,7 @@ import {
   specialCharsObjAsString,
 } from "../data/03-objectToString.data";
 
-xdescribe("#3: objectToString", () => {
+describe("#3: objectToString", () => {
   it("returns a string", () => {
     const result = objectToString({});
     expect(result).to.be.a("string");
