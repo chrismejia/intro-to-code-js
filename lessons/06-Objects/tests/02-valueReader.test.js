@@ -8,8 +8,8 @@ xdescribe("#2: valueReader", () => {
       expect(valueReader("alfa", dataObj)).to.equal("hello world");
       expect(valueReader("bravo", dataObj)).to.equal(123);
       expect(valueReader("foxtrot", dataObj)).to.equal(false);
-      expect(valueReader("lima", dataObj)).to.eql([1, 2, 3]);
-      expect(valueReader("tango", dataObj)).to.eql({ a: 1 });
+      expect(valueReader("lima", dataObj)).to.deep.equal([1, 2, 3]);
+      expect(valueReader("tango", dataObj)).to.deep.equal({ a: 1 });
     });
 
     it("when the key does not exist in the data object", () => {

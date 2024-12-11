@@ -11,7 +11,7 @@ import {
   noComboPhraseNoRepeats,
 } from "../data/11-phraseScore.data";
 
-xdescribe("#11: phraseScore", () => {
+describe("#11: phraseScore", () => {
   describe("should return the correct score", () => {
     it("for an empty phrase", () => {
       const { phrase, comboActive, expectedScore } = noComboEmpty;
@@ -38,7 +38,7 @@ xdescribe("#11: phraseScore", () => {
     });
   });
 
-  xdescribe("BONUS: with combo active", () => {
+  describe("BONUS: with combo active", () => {
     it("for an empty phrase", () => {
       const { phrase, comboActive, expectedScore } = comboEmpty;
       const result = phraseScore(phrase, comboActive);

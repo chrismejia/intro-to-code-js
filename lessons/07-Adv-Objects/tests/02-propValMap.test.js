@@ -11,7 +11,7 @@ import {
   emptyMap,
 } from "../data/02-propValMap.data.js";
 
-xdescribe("#2: propValMap", () => {
+describe("#2: propValMap", () => {
   it("returns a Map", () => {
     const result = propValMap(basicItems);
     expect(result).to.be.instanceOf(Map);

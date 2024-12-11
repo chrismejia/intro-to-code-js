@@ -15,12 +15,15 @@ jobs:
           script: |
             const prTitle = context.payload.pull_request.title;
 
+            // Validation regex:
             // ^CODE-: Ensures the string starts with "CODE-".
-            // \d{3,4}: Matches three or four digits.
+            // \d{2,4}: Matches between 2 and 4 digits.
             // : A single space is required after the digits.
             // [A-Z]: Ensures the first character after the space is an uppercase letter if it's alphabetic.
-            const regex = /^CODE-\d{3,4} [A-Z]/;
+            const regex = /^CODE-\d{2,4} [A-Z]/;
 
             if (!regex.test(prTitle)) {
-              core.setFailed("PR title must start with 'CODE-###', where ### is a number.");
+              core.setFailed("PR title must start with 'CODE-###', where ### is a number between 2 and 4 digits long.");
+            } else {
+              console.log("PR title validation succeeded.");
             }

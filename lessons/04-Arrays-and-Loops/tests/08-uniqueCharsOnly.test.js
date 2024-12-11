@@ -18,7 +18,7 @@ xdescribe("#8: uniqueCharsOnly", () => {
       singleRepeatingStr.forEach(({ val, ans }) => {
         it(`"${val}" => ${JSON.stringify(ans)}`, () => {
           const result = uniqueCharsOnly(val);
-          expect(result).to.eql(ans);
+          expect(result).to.deep.equal(ans);
         });
       });
     });
@@ -27,7 +27,7 @@ xdescribe("#8: uniqueCharsOnly", () => {
       fewCharRepeats.forEach(({ val, ans }) => {
         it(`"${val}" => ${JSON.stringify(ans)}`, () => {
           const result = uniqueCharsOnly(val);
-          expect(result).to.eql(ans);
+          expect(result).to.deep.equal(ans);
         });
       });
     });
@@ -36,7 +36,7 @@ xdescribe("#8: uniqueCharsOnly", () => {
       hasDoubleLetters.forEach(({ val, ans }) => {
         it(`"${val}" => ${JSON.stringify(ans)}`, () => {
           const result = uniqueCharsOnly(val);
-          expect(result).to.eql(ans);
+          expect(result).to.deep.equal(ans);
         });
       });
     });
@@ -45,7 +45,7 @@ xdescribe("#8: uniqueCharsOnly", () => {
       allUniqueLetters.forEach(({ val, ans }) => {
         it(`"${val}" => ${JSON.stringify(ans)}`, () => {
           const result = uniqueCharsOnly(val);
-          expect(result).to.eql(ans);
+          expect(result).to.deep.equal(ans);
         });
       });
     });
