@@ -1,6 +1,6 @@
 {
   "name": "intro-to-code-js",
-  "version": "2.2.0",
+  "version": "2.3.0",
   "private": true,
   "description": "A repo meant new JS learners help with guided topic-centered practice problems.",
   "scripts": {
