@@ -65,7 +65,7 @@ export const students = [
   {
     id: 1,
     name: "Alice Johnson",
-    email: "alice.johnson@example.com",
+    email: "alice.johnson@aeterna.edu",
     major: "Psychology",
     year: "Sophomore",
     courses: [1, 2, 3, 4],
@@ -73,7 +73,7 @@ export const students = [
   {
     id: 2,
     name: "Bob Smith",
-    email: "bob.smith@example.com",
+    email: "bob.smith@aeterna.edu",
     major: "Computer Science",
     year: "Junior",
     courses: [2, 12, 14, 15],
@@ -81,7 +81,7 @@ export const students = [
   {
     id: 3,
     name: "Clara Martinez",
-    email: "clara.martinez@example.com",
+    email: "clara.martinez@aeterna.edu",
     major: "Philosophy",
     year: "Senior",
     courses: [10, 18, 6, 5],
@@ -89,7 +89,7 @@ export const students = [
   {
     id: 4,
     name: "David Lee",
-    email: "david.lee@example.com",
+    email: "david.lee@aeterna.edu",
     major: "Biology",
     year: "Freshman",
     courses: [4, 9, 3, 11],
@@ -97,7 +97,7 @@ export const students = [
   {
     id: 5,
     name: "Emma Brown",
-    email: "emma.brown@example.com",
+    email: "emma.brown@aeterna.edu",
     major: "Business",
     year: "Sophomore",
     courses: [7, 17, 8, 19],
@@ -106,7 +106,7 @@ export const students = [
   {
     id: 6,
     name: "Frank White",
-    email: "frank.white@example.com",
+    email: "frank.white@aeterna.edu",
     major: "History",
     year: "Junior",
     courses: [6, 5, 3, 13],
@@ -114,7 +114,7 @@ export const students = [
   {
     id: 7,
     name: "Grace Kim",
-    email: "grace.kim@example.com",
+    email: "grace.kim@aeterna.edu",
     major: "Environmental Science",
     year: "Sophomore",
     courses: [19, 4, 9, 11],
@@ -122,7 +122,7 @@ export const students = [
   {
     id: 8,
     name: "Henry Clark",
-    email: "henry.clark@example.com",
+    email: "henry.clark@aeterna.edu",
     major: "Economics",
     year: "Senior",
     courses: [7, 12, 14, 17],
@@ -130,7 +130,7 @@ export const students = [
   {
     id: 9,
     name: "Ivy Torres",
-    email: "ivy.torres@example.com",
+    email: "ivy.torres@aeterna.edu",
     major: "Art",
     year: "Sophomore",
     courses: [13, 10, 6, 3],
@@ -138,7 +138,7 @@ export const students = [
   {
     id: 10,
     name: "Jack Lopez",
-    email: "jack.lopez@example.com",
+    email: "jack.lopez@aeterna.edu",
     major: "Physics",
     year: "Junior",
     courses: [15, 12, 3, 9],
@@ -147,7 +147,7 @@ export const students = [
   {
     id: 11,
     name: "Kelly Green",
-    email: "kelly.green@example.com",
+    email: "kelly.green@aeterna.edu",
     major: "English",
     year: "Freshman",
     courses: [2, 6, 3, 5],
@@ -155,7 +155,7 @@ export const students = [
   {
     id: 12,
     name: "Liam Hall",
-    email: "liam.hall@example.com",
+    email: "liam.hall@aeterna.edu",
     major: "Political Science",
     year: "Senior",
     courses: [16, 7, 6, 10],
@@ -163,7 +163,7 @@ export const students = [
   {
     id: 13,
     name: "Mia Nelson",
-    email: "mia.nelson@example.com",
+    email: "mia.nelson@aeterna.edu",
     major: "Languages",
     year: "Junior",
     courses: [20, 2, 6, 18],
@@ -171,7 +171,7 @@ export const students = [
   {
     id: 14,
     name: "Noah Scott",
-    email: "noah.scott@example.com",
+    email: "noah.scott@aeterna.edu",
     major: "Mathematics",
     year: "Sophomore",
     courses: [12, 11, 3, 9],
@@ -179,7 +179,7 @@ export const students = [
   {
     id: 15,
     name: "Olivia Rivera",
-    email: "olivia.rivera@example.com",
+    email: "olivia.rivera@aeterna.edu",
     major: "Psychology",
     year: "Senior",
     courses: [1, 5, 10, 19],
@@ -188,7 +188,7 @@ export const students = [
   {
     id: 16,
     name: "Paul Adams",
-    email: "paul.adams@example.com",
+    email: "paul.adams@aeterna.edu",
     major: "Philosophy",
     year: "Junior",
     courses: [10, 18, 6, 15],
@@ -196,7 +196,7 @@ export const students = [
   {
     id: 17,
     name: "Quinn Baker",
-    email: "quinn.baker@example.com",
+    email: "quinn.baker@aeterna.edu",
     major: "Business",
     year: "Senior",
     courses: [7, 17, 8, 14],
@@ -204,7 +204,7 @@ export const students = [
   {
     id: 18,
     name: "Ruby Carter",
-    email: "ruby.carter@example.com",
+    email: "ruby.carter@aeterna.edu",
     major: "Sociology",
     year: "Sophomore",
     courses: [5, 6, 2, 19],
@@ -212,7 +212,7 @@ export const students = [
   {
     id: 19,
     name: "Samuel Diaz",
-    email: "samuel.diaz@example.com",
+    email: "samuel.diaz@aeterna.edu",
     major: "Computer Science",
     year: "Senior",
     courses: [14, 12, 9, 3],
@@ -220,7 +220,7 @@ export const students = [
   {
     id: 20,
     name: "Taylor Evans",
-    email: "taylor.evans@example.com",
+    email: "taylor.evans@aeterna.edu",
     major: "Environmental Science",
     year: "Junior",
     courses: [19, 4, 15, 6],
@@ -229,7 +229,7 @@ export const students = [
   {
     id: 21,
     name: "Uma Foster",
-    email: "uma.foster@example.com",
+    email: "uma.foster@aeterna.edu",
     major: "Languages",
     year: "Freshman",
     courses: [20, 13, 2, 5],
@@ -237,7 +237,7 @@ export const students = [
   {
     id: 22,
     name: "Victor Garcia",
-    email: "victor.garcia@example.com",
+    email: "victor.garcia@aeterna.edu",
     major: "Biology",
     year: "Junior",
     courses: [4, 9, 15, 12],
@@ -245,7 +245,7 @@ export const students = [
   {
     id: 23,
     name: "Wendy Hill",
-    email: "wendy.hill@example.com",
+    email: "wendy.hill@aeterna.edu",
     major: "Political Science",
     year: "Senior",
     courses: [16, 7, 18, 2],
@@ -253,7 +253,7 @@ export const students = [
   {
     id: 24,
     name: "Xander Knight",
-    email: "xander.knight@example.com",
+    email: "xander.knight@aeterna.edu",
     major: "History",
     year: "Junior",
     courses: [6, 5, 10, 18],
@@ -261,7 +261,7 @@ export const students = [
   {
     id: 25,
     name: "Yara Lewis",
-    email: "yara.lewis@example.com",
+    email: "yara.lewis@aeterna.edu",
     major: "English",
     year: "Sophomore",
     courses: [2, 6, 13, 10],
@@ -270,7 +270,7 @@ export const students = [
   {
     id: 26,
     name: "Zach Miller",
-    email: "zach.miller@example.com",
+    email: "zach.miller@aeterna.edu",
     major: "Physics",
     year: "Junior",
     courses: [15, 12, 9, 4],
@@ -278,7 +278,7 @@ export const students = [
   {
     id: 27,
     name: "Anna Brooks",
-    email: "anna.brooks@example.com",
+    email: "anna.brooks@aeterna.edu",
     major: "Philosophy",
     year: "Senior",
     courses: [10, 18, 6, 5],
@@ -286,7 +286,7 @@ export const students = [
   {
     id: 28,
     name: "Ben Taylor",
-    email: "ben.taylor@example.com",
+    email: "ben.taylor@aeterna.edu",
     major: "Economics",
     year: "Junior",
     courses: [7, 12, 14, 11],
@@ -294,7 +294,7 @@ export const students = [
   {
     id: 29,
     name: "Carmen Ramirez",
-    email: "carmen.ramirez@example.com",
+    email: "carmen.ramirez@aeterna.edu",
     major: "Business",
     year: "Sophomore",
     courses: [7, 17, 19, 8],
@@ -302,7 +302,7 @@ export const students = [
   {
     id: 30,
     name: "Dylan Morgan",
-    email: "dylan.morgan@example.com",
+    email: "dylan.morgan@aeterna.edu",
     major: "Art",
     year: "Junior",
     courses: [13, 6, 5, 18],
