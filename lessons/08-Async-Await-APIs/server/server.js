@@ -24,7 +24,7 @@ unit8Server.use((err, _, res) => {
 
 unit8Server.listen(PORT, () => {
   console.log(`08-Async/Await & APIs Server is running!`);
-  console.log(`http://localhost:${PORT}`);
+  console.log(`Use http://localhost:${PORT}/ as the base for your URLs!`);
 });
 
 export { unit8Server };

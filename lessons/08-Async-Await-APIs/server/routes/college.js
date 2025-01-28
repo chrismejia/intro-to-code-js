@@ -1,8 +1,5 @@
 import express from "express";
-import {
-  courses,
-  students,
-} from "../../data/08-fetchCourseEnrollments.data.js";
+import { courses, students } from "../../data/08-fetchCourseEnrollments.data";
 
 const collegeRouter = express.Router();
 
@@ -26,9 +23,18 @@ collegeRouter.get("/courses", (req, res) => {
   const filteredCourses = courses.filter(
     (course) => course.type === courseType
   );
+
+  if (filteredCourses.length === 0) {
+    // If no courses match the type, return an empty array
+    return res.status(404).json({
+      error: `No courses found for the type '${courseType}'.`,
+    });
+  }
+
   res.json(filteredCourses);
 });
 
+// /college/students
 collegeRouter.get("/students", (_, res) => {
   res.json(students);
 });
