@@ -61,12 +61,10 @@ export async function fetchCourseEnrollments(courseType) {
   try {
     // Fetch all courses
     const coursesResponse = await fetch(
-      `/courses` + courseType ? new URLSearchParams({ courseType }) : ""
+      `http://localhost:3000/college/courses` +
+        (courseType ? `?${new URLSearchParams({ courseType })}` : "")
     );
 
-    if (!coursesResponse.ok) {
-      throw new Error(`Failed to fetch courses: ${coursesResponse.statusText}`);
-    }
     const coursesData = await coursesResponse.json();
 
     // Filter courses by type if provided
@@ -75,12 +73,10 @@ export async function fetchCourseEnrollments(courseType) {
       : coursesData;
 
     // Fetch all students
-    const studentsResponse = await fetch(`/students`);
-    if (!studentsResponse.ok) {
-      throw new Error(
-        `Failed to fetch students: ${studentsResponse.statusText}`
-      );
-    }
+    const studentsResponse = await fetch(
+      `http://localhost:3000/college/students`
+    );
+
     const studentsData = await studentsResponse.json();
 
     // Map students to their courses
