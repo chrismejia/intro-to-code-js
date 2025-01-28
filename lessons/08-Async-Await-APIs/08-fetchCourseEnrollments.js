@@ -60,7 +60,10 @@ export async function fetchCourseEnrollments(courseType) {
 
   try {
     // Fetch all courses
-    const coursesResponse = await fetch(`/courses`);
+    const coursesResponse = await fetch(
+      `/courses` + courseType ? new URLSearchParams({ courseType }) : ""
+    );
+
     if (!coursesResponse.ok) {
       throw new Error(`Failed to fetch courses: ${coursesResponse.statusText}`);
     }

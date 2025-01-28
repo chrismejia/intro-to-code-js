@@ -7,11 +7,29 @@ import {
 const collegeRouter = express.Router();
 
 // BASE is /college
-collegeRouter.get("/courses", (_, res) => {
-  res.json(courses);
+collegeRouter.get("/courses", (req, res) => {
+  const { courseType } = req.query;
+
+  if (courseType === undefined) {
+    // Return all courses if no courseType is specified
+    return res.json(courses);
+  }
+
+  if (courseType !== "mandatory" && courseType !== "elective") {
+    // Invalid courseType query parameter
+    return res.status(400).json({
+      error: "Invalid courseType. Valid values are 'mandatory' or 'elective'.",
+    });
+  }
+
+  // Filter courses by courseType
+  const filteredCourses = courses.filter(
+    (course) => course.type === courseType
+  );
+  res.json(filteredCourses);
 });
 
-collegeRouter.get("/students", (req, res) => {
+collegeRouter.get("/students", (_, res) => {
   res.json(students);
 });
 
