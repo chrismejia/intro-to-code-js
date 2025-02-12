@@ -22,9 +22,6 @@ unit8Server.use((err, _, res) => {
   res.status(500).json({ error: "Internal Server Error" });
 });
 
-unit8Server.listen(PORT, () => {
-  console.log(`08-Async/Await & APIs Server is running!`);
-  console.log(`Use http://localhost:${PORT}/ as the base for your URLs!`);
-});
+unit8Server.listen(PORT);
 
 export { unit8Server };
