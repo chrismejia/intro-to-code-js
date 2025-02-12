@@ -39,7 +39,7 @@ describe.only("08 - fetchCourseEnrollments", function () {
       server.close(() => {
         done();
         setTimeout(() => {
-          console.log("\n  Test server closed");
+          console.log("  == Unit 8 Server shutdown ==");
           process.exit(0);
         }, 1000);
       });
