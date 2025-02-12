@@ -35,10 +35,14 @@
  *     {
  *       courseName: "Mathematics 101",
  *       students: ["Alice Johnson", "Bob Smith"],
- *     }
+ *     },
+ *     {
+ *       courseName: "History of Science",
+ *       students: ["John Doe"],
+ *     },
  *   ],
- *   courses: 1,
- *   students: 2,
+ *   courses: 2,
+ *   students: 3,
  * }
  *
  * // with an input, returns only "mandatory" courses
@@ -49,14 +53,10 @@
  *     {
  *       courseName: "Mathematics 101",
  *       students: ["Alice Johnson", "Bob Smith"],
- *     },
- *     {
- *       courseName: "History of Science",
- *       students: ["John Doe"],
- *     },
+ *     }
  *   ],
- *   courses: 2,
- *   students: 3,
+ *   courses: 1,
+ *   students: 2,
  * }
  */
 
@@ -69,11 +69,11 @@ export async function fetchCourseEnrollments(courseType) {
       "courseType must be 'mandatory', 'elective', or undefined."
     );
   }
-
   try {
     const coursesUrl =
       `${BASE_URL}/college/courses` +
       (courseType ? `?${new URLSearchParams({ courseType })}` : "");
+
     const studentsUrl = `${BASE_URL}/college/students`;
 
     const [coursesResponse, studentsResponse] = await Promise.all([
@@ -92,7 +92,6 @@ export async function fetchCourseEnrollments(courseType) {
       const enrolledStudents = studentsData
         .filter((student) => student.courses.includes(course.courseId))
         .map((student) => student.name);
-
       // Ensure we're only collecting student names we have NOT seen so far
       enrolledStudents.forEach((student) => {
         totalStudents.add(student);
