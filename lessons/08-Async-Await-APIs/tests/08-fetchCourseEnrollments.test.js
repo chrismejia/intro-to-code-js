@@ -37,9 +37,11 @@ describe.only("08 - fetchCourseEnrollments", function () {
   after((done) => {
     if (server) {
       server.close(() => {
-        console.log("\n  Test server closed");
-        console.log("Kill test process with Ctrl-C");
         done();
+        setTimeout(() => {
+          console.log("\n  Test server closed");
+          process.exit(0);
+        }, 1000);
       });
     }
   });
