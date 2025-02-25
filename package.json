@@ -11,7 +11,8 @@
     "test:05": "mocha './lessons/05-Callbacks-Iterators/tests/**.js'",
     "test:06": "mocha './lessons/06-Objects/tests/**.js'",
     "test:07": "mocha './lessons/07-Adv-Objects/tests/**.js'",
-    "test:08": "mocha './lessons/08-Async-Await-APIs/tests/**.js'"
+    "test:08": "mocha './lessons/08-Async-Await-APIs/tests/**.js'",
+    "server:08": "mocha './lessons/08-Async-Await-APIs/server/tests/**.js'"
   },
   "repository": {
     "type": "git",
@@ -28,10 +29,16 @@
     "@babel/core": "^7.22.5",
     "@babel/preset-env": "^7.22.5",
     "@babel/register": "^7.22.5",
-    "chai": "^4.3.7",
-    "mocha": "^8.4.0"
+    "@faker-js/faker": "^9.4.0",
+    "chai": "^4.5.0",
+    "jsdoc-to-markdown": "^7.0.1",
+    "jsdocs": "^1.0.0",
+    "mocha": "^8.4.0",
+    "nodemon": "^2.0.22",
+    "supertest": "^7.0.0"
   },
   "dependencies": {
+    "express": "^4.21.2",
     "sinon": "^18.0.0"
   }
 }
