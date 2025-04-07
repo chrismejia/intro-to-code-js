@@ -6,7 +6,7 @@ import {
   secondArrSmaller,
 } from "../data/10-pairMultiplier.data";
 
-xdescribe("#10: pairMultiplier", () => {
+describe("#10: pairMultiplier", () => {
   expect(pairMultiplier).to.be.a(
     "function",
     "No `pairMultiplier` function found; please check if defined and exported correctly."
