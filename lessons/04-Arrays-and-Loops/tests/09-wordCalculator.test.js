@@ -9,7 +9,7 @@ import {
   allCalcs,
 } from "../data/09-wordCalculator.data";
 
-xdescribe("#9: wordCalculator", () => {
+describe("#9: wordCalculator", () => {
   expect(wordCalculator).to.be.a(
     "function",
     "No `wordCalculator` function found; please check if defined and exported correctly."
