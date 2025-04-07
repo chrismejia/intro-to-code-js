@@ -2,7 +2,7 @@ import { valueLocator } from "../06-valueLocator";
 import { expect } from "chai";
 import { arr, foundVals, notFoundVals } from "../data/06-valueLocator.data";
 
-xdescribe("#6: valueLocator", () => {
+describe("#6: valueLocator", () => {
   expect(valueLocator).to.be.a(
     "function",
     "No `valueLocator` function found; please check if defined and exported correctly."

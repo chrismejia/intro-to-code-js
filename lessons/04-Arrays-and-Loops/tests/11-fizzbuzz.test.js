@@ -2,7 +2,7 @@ import { expect } from "chai";
 import { fizzBuzz } from "../11-fizzbuzz";
 import { lengthTest } from "../data/11-fizzBuzz.data";
 
-xdescribe("#11: fizzBuzz", () => {
+describe("#11: fizzBuzz", () => {
   expect(fizzBuzz).to.be.a(
     "function",
     "No `fizzBuzz` function found; please check if defined and exported correctly."

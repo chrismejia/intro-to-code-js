@@ -15,7 +15,7 @@ import {
   multiFlip,
 } from "../data/07-flipomatic.data";
 
-xdescribe("#7: flipomatic", () => {
+describe("#7: flipomatic", () => {
   expect(flipomatic).to.be.a(
     "function",
     "No `flipomatic` function found; please check if defined and exported correctly."
@@ -60,7 +60,7 @@ xdescribe("#7: flipomatic", () => {
     });
   });
 
-  xdescribe("BONUS: can handle multiple 'flip' values", () => {
+  describe("BONUS: can handle multiple 'flip' values", () => {
     describe("2 'flip' vals", () => {
       twoFlip.forEach(({ val, ans }) => {
         it(`[${val}] => [${ans}]`, () => {
