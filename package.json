@@ -15,6 +15,7 @@
     "server:08": "mocha './lessons/08-Async-Await-APIs/server/tests/**.js'",
     "test:09": "mocha './lessons/09-Recursion/tests/**.js'",
     "test:10": "mocha './lessons/10-Classes/tests/**.js'",
+    "test:11": "mocha './lessons/11-Data-Structures/tests/**.js'",
     "test:twitter": "mocha './11-Projects/Twitter/tests/**.js'",
     "test:debug": "mocha './debug/tests/**.test.js'",
     "test:mochawesome": "mocha './**/**.js' --reporter=mochawesome --reporter-options autoOpen=true"
