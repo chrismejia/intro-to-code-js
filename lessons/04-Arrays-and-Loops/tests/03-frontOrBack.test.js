@@ -1,7 +1,7 @@
 import { frontOrBack } from "../03-frontOrBack";
 import { expect } from "chai";
 
-xdescribe("#3: frontOrBack", () => {
+describe("#3: frontOrBack", () => {
   expect(frontOrBack).to.be.a(
     "function",
     "No `frontOrBack` function found; please check if defined and exported correctly."
