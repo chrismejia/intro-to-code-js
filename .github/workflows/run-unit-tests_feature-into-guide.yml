@@ -1,0 +1,40 @@
+# GitHub Actions workflow to run all test.js files
+# Triggers on pull requests from 'feat/' branches into any branch containing '0X-Guide'
+name: Run Unit Tests for Feature Branches into Guide
+
+on:
+  pull_request:
+    branches:
+      - "*0X-Guide*" # Matches any branch with '0X-Guide' in its name
+    paths-ignore:
+      - "**/README.md"
+      - "base/**" # Ignore any changes in the base folder
+      - "docs/**" # Ignore any changes in the docs folder
+      - "scripts/**" # Ignore any changes in the scripts folder
+      - "teaching-notes/**"
+    types: [opened, synchronize, reopened]
+
+jobs:
+  test:
+    if: startsWith(github.head_ref, 'feat/')
+    runs-on: ubuntu-latest
+    steps:
+      # Checkout the code
+      - name: Checkout repository
+        uses: actions/checkout@v7
+
+      # Set up Node.js
+      - name: Set up Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: "24"
+
+      # Install dependencies
+      - name: Install dependencies
+        run: npm ci
+
+      # Run all test.js files using Mocha
+      - name: Run all tests
+        run: npx mocha 'lessons/**/tests/**.test.js'
+    # You can adjust the glob pattern if your test files are elsewhere
+    # This will fail the workflow if any test fails
