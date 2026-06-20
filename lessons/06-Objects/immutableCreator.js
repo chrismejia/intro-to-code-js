@@ -20,3 +20,5 @@
 function immutableCreator(originalObj, updates) {
   return { ...originalObj, ...updates };
 }
+
+export default immutableCreator;

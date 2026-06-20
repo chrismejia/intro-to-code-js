@@ -1,6 +1,7 @@
 /**
  * #2: valueReader
  *
+ * Define the function valueReader.
  * valueReader accepts a single input, the string keyString.
  *
  * valueReader returns the value that corresponds to the the keyString in the dataObj.
@@ -25,4 +26,6 @@
  * valueReader("sierra", dataObj) // => undefined
  */
 
-export function valueReader() {}
+export function valueReader(keyString, dataObj) {
+  return dataObj[keyString];
+}
