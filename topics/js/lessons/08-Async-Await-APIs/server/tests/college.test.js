@@ -104,8 +104,4 @@ describe("08 - fetchCourseEnrollments | /college API", function () {
       });
     });
   });
-
-  after(() => {
-    process.exit(0);
-  });
 });

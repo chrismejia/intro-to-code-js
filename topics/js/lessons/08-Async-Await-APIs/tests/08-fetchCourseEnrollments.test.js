@@ -1,12 +1,12 @@
 import sinon from "sinon";
 import { expect } from "chai";
-import { unit8Server } from "../server/server";
-import { BASE_URL, fetchCourseEnrollments } from "../08-fetchCourseEnrollments";
+import { unit8Server } from "../server/server.js";
+import { BASE_URL, fetchCourseEnrollments } from "../08-fetchCourseEnrollments.js";
 import {
   allCoursesAns,
   electiveCoursesAns,
   mandatoryCoursesAns,
-} from "../data/08-fetchCourseEnrollments.data";
+} from "../data/08-fetchCourseEnrollments.data.js";
 
 describe.only("08 - fetchCourseEnrollments", function () {
   let server;

@@ -1,5 +1,5 @@
 import { expect } from "chai";
-import { firstSuccessfulResult } from "../03-firstSuccessfulResult";
+import { firstSuccessfulResult } from "../03-firstSuccessfulResult.js";
 import { spy } from "sinon";
 
 describe("firstSuccessfulResult", function () {

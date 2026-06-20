@@ -1,8 +1,9 @@
 import express from "express";
+import { pathToFileURL } from "url";
 import collegeRouter from "./routes/college.js";
 
 const unit8Server = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 // Middleware
 unit8Server.use(express.json());
@@ -22,6 +23,10 @@ unit8Server.use((err, _, res) => {
   res.status(500).json({ error: "Internal Server Error" });
 });
 
-unit8Server.listen(PORT);
+const startUnit8Server = (port = PORT) => unit8Server.listen(port);
 
-export { unit8Server };
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
+  startUnit8Server();
+}
+
+export { startUnit8Server, unit8Server };
