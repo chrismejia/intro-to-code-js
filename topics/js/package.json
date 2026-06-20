@@ -1,0 +1,23 @@
+{
+  "name": "@intro-to-code/js",
+  "version": "2.2.0",
+  "private": true,
+  "description": "JavaScript lessons and projects for intro-to-code.",
+  "scripts": {
+    "test": "npm run test:01 && npm run test:02 && npm run test:03 && npm run test:04 && npm run test:05 && npm run test:06 && npm run test:07 && npm run test:08 && npm run test:09 && npm run test:10 && npm run test:11 && npm run test:projects",
+    "test:01": "mocha '../../lessons/01-Values-and-Data-Types/**.js'",
+    "test:02": "mocha '../../lessons/02-Conditionals/tests/**.js'",
+    "test:03": "mocha '../../lessons/03-Methods-and-Functions/tests/**.js'",
+    "test:04": "mocha '../../lessons/04-Arrays-and-Loops/tests/**.js'",
+    "test:05": "mocha '../../lessons/05-Callbacks-Iterators/tests/**.js'",
+    "test:06": "mocha '../../lessons/06-Objects/tests/**.js'",
+    "test:07": "mocha '../../lessons/07-Adv-Objects/tests/**.js'",
+    "test:08": "mocha '../../lessons/08-Async-Await-APIs/tests/**.js'",
+    "server:08": "mocha '../../lessons/08-Async-Await-APIs/server/tests/**.js'",
+    "test:09": "mocha '../../lessons/09-Recursion/tests/**.js'",
+    "test:10": "mocha '../../lessons/10-Classes/tests/**.js'",
+    "test:11": "mocha '../../lessons/11-Data-Structures/tests/**.js'",
+    "test:projects": "mocha '../../js/projects/**/tests/**.js'",
+    "test:twitter": "mocha '../../js/projects/Twitter/tests/**.js'"
+  }
+}
