@@ -40,10 +40,14 @@ jobs:
             command: npm run test:08
           - suite: 08 - Async Await APIs Server
             command: npm run server:08
-          - suite: 09 - Classes
+          - suite: 09 - Recursion
             command: npm run test:09
-          - suite: 10 - Data Structures
+          - suite: 10 - Classes
             command: npm run test:10
+          - suite: 11 - Data Structures
+            command: npm run test:11
+          - suite: Projects
+            command: npm run test:projects
     steps:
       # Checkout the code
       - name: Checkout repository

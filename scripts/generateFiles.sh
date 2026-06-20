@@ -11,7 +11,15 @@ BASE_NAME="$1"
 
 # Convert the base name to a valid JavaScript function name (camelCase)
 # This line converts "file-name" or "file_name" to "fileName"
-FUNCTION_NAME=$(echo "$BASE_NAME" | sed -r 's/(^|-|_)([a-z])/\U\2/g')
+FUNCTION_NAME=$(printf "%s" "$BASE_NAME" | perl -pe 's/[-_]+([a-zA-Z0-9])/\U$1/g; s/^([A-Z])/\l$1/; s/[^A-Za-z0-9_\$]//g; s/^[^A-Za-z_\$]+//')
+
+if [ -z "$FUNCTION_NAME" ]; then
+  FUNCTION_NAME="generatedProblem"
+fi
+
+# Create the wip-problems directories if they don't exist
+mkdir -p "./wip-problems/tests"
+mkdir -p "./wip-problems/data"
 
 # Create the main JavaScript file with a JSDoc boilerplate and function
 cat <<EOL > "./wip-problems/$BASE_NAME.js"
@@ -26,18 +34,13 @@ cat <<EOL > "./wip-problems/$BASE_NAME.js"
 export function $FUNCTION_NAME(param1) {
   // TODO: Implement function logic
 }
-
-export { $FUNCTION_NAME };
 EOL
-
-# Create the test directory if it doesn't exist
-mkdir -p "./tests"
 
 # Create the test file
 cat <<EOL > "./wip-problems/tests/$BASE_NAME.test.js"
 import { expect } from 'chai';
-import { $FUNCTION_NAME } from '../$BASE_NAME';
-import { baseData, baseExpected, caseOne, caseOneExpected } from '../data/$BASE_NAME.data'
+import { $FUNCTION_NAME } from '../$BASE_NAME.js';
+import { baseData, baseExpected, caseOne, caseOneExpected } from '../data/$BASE_NAME.data.js';
 
 describe("#XX: $FUNCTION_NAME", () => {
   it('base condition met', () => {
@@ -56,11 +59,8 @@ describe("#XX: $FUNCTION_NAME", () => {
       expect(result).to.deep.equal(caseOneExpected);
     });
   });
-})
+});
 EOL
-
-# Create the data directory if it doesn't exist
-mkdir -p "./data"
 
 # Create the data file
 cat <<EOL > "./wip-problems/data/$BASE_NAME.data.js"
@@ -72,6 +72,6 @@ export const caseOneExpected = [];
 EOL
 
 echo "Files created:"
-echo "./$BASE_NAME.js"
-echo "./tests/$BASE_NAME.test.js"
-echo "./data/$BASE_NAME.data.js"
+echo "./wip-problems/$BASE_NAME.js"
+echo "./wip-problems/tests/$BASE_NAME.test.js"
+echo "./wip-problems/data/$BASE_NAME.data.js"
