@@ -12,7 +12,7 @@ import {
   allNullsNested,
 } from "../data/05-nullDeleter.data";
 
-xdescribe("#5: nullDeleter", () => {
+describe("#5: nullDeleter", () => {
   it("returns an object", () => {
     expect(nullDeleter(noNull)).be.an("object");
     expect(nullDeleter(oneNull)).be.an("object");
@@ -27,7 +27,7 @@ xdescribe("#5: nullDeleter", () => {
 
   describe("returns the input untouched", () => {
     it("when it has no null key-value pairs", () => {
-      expect(nullDeleter(noNull)).to.deep.equal(noNull);
+      expect(nullDeleter(noNull)).to.eql(noNull);
     });
   });
 
@@ -44,13 +44,13 @@ xdescribe("#5: nullDeleter", () => {
     });
 
     it("when there's multiple present", () => {
-      expect(nullDeleter(multipleNull)).to.deep.equal({
+      expect(nullDeleter(multipleNull)).to.eql({
         three: "goodbye",
       });
     });
 
     it("when they're all null values", () => {
-      expect(nullDeleter(allNull)).to.deep.equal({});
+      expect(nullDeleter(allNull)).to.eql({});
     });
   });
 

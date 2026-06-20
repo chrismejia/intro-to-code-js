@@ -2,7 +2,7 @@ import { expect } from "chai";
 import { priceTransformer } from "../04-priceTransformer";
 import { shortPrices } from "../data/04-priceTransformer.data";
 
-xdescribe("#4: priceTransformer", () => {
+describe("#4: priceTransformer", () => {
   const transformedObj = priceTransformer(shortPrices);
 
   it("returns an object", () => {

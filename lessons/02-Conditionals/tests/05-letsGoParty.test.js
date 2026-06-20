@@ -1,7 +1,7 @@
 import { letsGoParty } from "..";
 import { expect } from "chai";
 
-xdescribe("#5: letsGoParty", () => {
+describe("#5: letsGoParty", () => {
   const validAge = 32;
   const validOutfit = "pool party";
   const validCover = true;

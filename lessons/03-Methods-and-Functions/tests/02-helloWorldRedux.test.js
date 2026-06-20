@@ -1,7 +1,7 @@
 import { helloWorldRedux } from "../02-helloWorldRedux";
 import { expect } from "chai";
 
-xdescribe("#2: helloWorldRedux", () => {
+describe("#2: helloWorldRedux", () => {
   it("returns a personalized greeting if a name is passed in", () => {
     expect(helloWorldRedux("Markus")).to.equal("Hello Markus!");
     expect(helloWorldRedux("Jon")).to.equal("Hello Jon!");

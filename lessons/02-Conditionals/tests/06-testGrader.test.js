@@ -10,7 +10,7 @@ import { testGrader } from "..";
  * 3. Type `npm run test-02` in the Shell and hit Enter.
  */
 
-xdescribe("#6: testGrader", () => {
+describe("#6: testGrader", () => {
   describe("returns the correct grade", () => {
     it("when grade is between 90 and 100", () => {
       expect(testGrader(100)).to.equal("A");

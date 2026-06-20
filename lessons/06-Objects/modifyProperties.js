@@ -27,3 +27,5 @@ function modifyProperties(obj, operations) {
   });
   return obj;
 }
+
+export default modifyProperties;

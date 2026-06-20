@@ -47,45 +47,78 @@ class LinkedList {
   addToTail(value) {
     const addedNode = new Node(value);
 
-    // 1. No nodes
-    // Set added node and head and tail
     if (!this.head) {
       this.head = addedNode;
       this.tail = addedNode;
+      return this.head;
     } else {
-      // 2. Head exists, therefore at least one node
-      // Set temp variable to help loop
-      // Travel through .next until it's null
-      let currNode = this.head;
-      while (currNode.next !== null) {
-        currNode = currNode.next;
-      }
-
-      // Arrived at final node
-      // Set created node to next of final
-      // update this.tail
-      currNode.next = addedNode;
-      addedNode.previous = currNode;
+      this.tail.next = addedNode;
+      addedNode.previous = this.tail;
       this.tail = addedNode;
-
       return this.head;
     }
   }
 
-  removeTail() {}
+  removeTail() {
+    if (!this.tail) {
+      return null;
+    }
 
-  search(value) {
-    let currNode = this.head;
-    // 1. No nodes, auto fail
+    const removedTail = this.tail;
+
+    if (this.head === this.tail) {
+      this.head = null;
+      this.tail = null;
+      return removedTail.value;
+    }
+
+    this.tail = removedTail.previous;
+    this.tail.next = null;
+    removedTail.previous = null;
+
+    return removedTail.value;
+  }
+
+  addToHead(value) {
+    const addedNode = new Node(value);
+
+    if (!this.head) {
+      this.head = addedNode;
+      this.tail = addedNode;
+      return this.head;
+    }
+
+    addedNode.next = this.head;
+    this.head.previous = addedNode;
+    this.head = addedNode;
+
+    return this.head;
+  }
+
+  removeHead() {
     if (!this.head) {
       return null;
     }
 
-    // LL has nodes, traverse till found OR reached end
-    while (currNode.next !== null) {
-      // Compare currNode value to search value
-      // if same, return value
-      // if not, advance to next node in LL
+    const removedHead = this.head;
+
+    if (this.head === this.tail) {
+      this.head = null;
+      this.tail = null;
+      return removedHead.value;
+    }
+
+    this.head = removedHead.next;
+    this.head.previous = null;
+    removedHead.next = null;
+
+    return removedHead.value;
+  }
+
+  search(value) {
+    let currNode = this.head;
+
+    while (currNode !== null) {
       if (typeof value === "function") {
         if (value(currNode.value)) {
           return currNode.value;
@@ -93,10 +126,10 @@ class LinkedList {
       } else if (currNode.value === value) {
         return value;
       }
-      console.log(currNode);
+
       currNode = currNode.next;
     }
-    // Reached .next is null, no more nodes, return null
+
     return null;
   }
 }
