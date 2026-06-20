@@ -17,6 +17,16 @@
  * const nyBiller = priceTotaler("NY")
  * nyBiller(1000) // => 1095.405 (1000 * 1.03 * 1.0635)
  */
-function priceTotaler() {}
+function priceTotaler(state) {
+  return function (subtotal) {
+    if (state === "NY") {
+      return subtotal * 1.03 * 1.0635;
+    } else if (state === "NJ") {
+      return subtotal * 1.025 * 1.0825;
+    } else {
+      return subtotal * 1.04 * 1.06;
+    }
+  };
+}
 
 export default priceTotaler;
