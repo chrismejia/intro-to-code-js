@@ -1,5 +1,4 @@
 import { expect } from "chai";
-import sinon from "sinon";
 import { Car, Owner } from "../02-carAndOwner";
 
 describe("#2: Car and Owner", () => {
@@ -7,7 +6,7 @@ describe("#2: Car and Owner", () => {
 
   before(() => {
     myCar = new Car(2008, "Subaru", "Forester", 155000);
-    myOwner = new Owner("John Doe");
+    myOwner = new Owner(2008, "Subaru", "Forester", 155000, "John Doe");
   });
 
   describe("Car", () => {
@@ -54,22 +53,18 @@ describe("#2: Car and Owner", () => {
       expect(myOwner instanceof Owner).to.be.true;
     });
 
-    it("is a subclass off of Car", () => {
-      const result = Car.isPrototypeOf(myOwner);
-      console.log(Car.isPrototypeOf(myOwner));
-      console.log(Object.getPrototypeOf(Car));
-      console.log(Object.getPrototypeOf(Car.prototype));
-      expect(result).to.be.true;
+    it("is a subclass of Car", () => {
+      expect(Object.getPrototypeOf(Owner.prototype)).to.equal(Car.prototype);
+      expect(myOwner instanceof Car).to.be.true;
     });
 
     describe("inherited properties and methods", () => {
       it("inherits `year`, `make`, `model`, `miles` from the Car class", () => {
-        console.log(Car.prototype.isPrototypeOf(myOwner));
-
-        // expect(myOwner.hasOwnProperty("year")).to.be.false;
-        // expect(myOwner.hasOwnProperty("make")).to.be.false;
-        // expect(myOwner.hasOwnProperty("model")).to.be.false;
-        // expect(myOwner.hasOwnProperty("miles")).to.be.false;
+        expect(myOwner.year).to.equal(2008);
+        expect(myOwner.make).to.equal("Subaru");
+        expect(myOwner.model).to.equal("Forester");
+        expect(myOwner.miles).to.equal(155000);
+        expect(myOwner.details()).to.include("2008 Subaru Forester @ 155000");
       });
     });
   });
