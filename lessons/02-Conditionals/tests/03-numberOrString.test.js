@@ -10,7 +10,7 @@ import { numberOrString } from "..";
  * 3. Type `npm run test-02` in the Shell and hit Enter.
  */
 
-xdescribe("#3: numberOrString", () => {
+describe("#3: numberOrString", () => {
   describe("returns the correct output", () => {
     it("string input -> 'This is a string'", () => {
       expect(numberOrString("")).to.equal("This is a string");

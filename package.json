@@ -13,8 +13,8 @@
     "test:07": "mocha './lessons/07-Adv-Objects/tests/**.js'",
     "test:08": "mocha './lessons/08-Async-Await-APIs/tests/**.js'",
     "server:08": "mocha './lessons/08-Async-Await-APIs/server/tests/**.js'",
-    "test-09": "mocha './lessons/09-Classes/tests/**.js'",
-    "test-10": "mocha './lessons/10-Data-Structures/tests/**.js'",
+    "test:09": "mocha './lessons/09-Classes/tests/**.js'",
+    "test:10": "mocha './lessons/10-Data-Structures/tests/**.js'",
     "test-twitter": "mocha './11-Projects/Twitter/tests/**.js'",
     "test-debug": "mocha './debug/tests/**.test.js'",
     "test:mochawesome": "mocha './**/**.js' --reporter=mochawesome --reporter-options autoOpen=true"

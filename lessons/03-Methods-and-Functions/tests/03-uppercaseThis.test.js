@@ -1,7 +1,7 @@
 import { uppercaseThis } from "../03-uppercaseThis";
 import { expect } from "chai";
 
-xdescribe("#3: uppercaseThis", () => {
+describe("#3: uppercaseThis", () => {
   it("returns a string", () => {
     expect(uppercaseThis("zzzz")).to.be.a("string");
     expect(uppercaseThis("aaaa")).to.be.a("string");

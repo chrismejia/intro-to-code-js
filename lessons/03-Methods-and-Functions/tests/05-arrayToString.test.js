@@ -1,7 +1,7 @@
 import { arrayToString } from "../05-arrayToString";
 import { expect } from "chai";
 
-xdescribe("#5: arrayToString", () => {
+describe("#5: arrayToString", () => {
   const array = ["cat", "dog", "moo"];
   describe("returns the correct string", () => {
     it("when the separator is an empty string ('')", () => {

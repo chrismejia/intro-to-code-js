@@ -1,7 +1,7 @@
 import { expect } from "chai";
 import { notFiveChars, isItFiveChars } from "..";
 
-xdescribe("#2: 5 characters", () => {
+describe("#2: 5 characters", () => {
   describe("notFiveChars", () => {
     it("is defined", () => {
       expect(notFiveChars).not.to.be.undefined;
