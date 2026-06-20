@@ -1,0 +1,65 @@
+# GitHub Actions workflow to run each unit test suite as a separate job
+# Triggers on pull requests into '0X-Guide'
+name: Guide PR Unit Tests
+
+on:
+  pull_request:
+    branches:
+      - "0X-Guide"
+    paths-ignore:
+      - "**/README.md"
+      - "base/**" # Ignore any changes in the base folder
+      - "docs/**" # Ignore any changes in the docs folder
+      - "scripts/**" # Ignore any changes in the scripts folder
+      - "teaching-notes/**"
+    types: [opened, synchronize, reopened]
+
+jobs:
+  test:
+    name: ${{ matrix.suite }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - suite: 01 - Values and Data Types
+            command: npm run test:01
+          - suite: 02 - Conditionals
+            command: npm run test:02
+          - suite: 03 - Methods and Functions
+            command: npm run test:03
+          - suite: 04 - Arrays and Loops
+            command: npm run test:04
+          - suite: 05 - Callbacks and Iterators
+            command: npm run test:05
+          - suite: 06 - Objects
+            command: npm run test:06
+          - suite: 07 - Advanced Objects
+            command: npm run test:07
+          - suite: 08 - Async Await APIs
+            command: npm run test:08
+          - suite: 08 - Async Await APIs Server
+            command: npm run server:08
+          - suite: 09 - Classes
+            command: npm run test:09
+          - suite: 10 - Data Structures
+            command: npm run test:10
+    steps:
+      # Checkout the code
+      - name: Checkout repository
+        uses: actions/checkout@v7
+
+      # Set up Node.js
+      - name: Set up Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: "24"
+          cache: npm
+
+      # Install dependencies
+      - name: Install dependencies
+        run: npm ci
+
+      # Run one package.json test suite per matrix job
+      - name: Run ${{ matrix.suite }}
+        run: ${{ matrix.command }}
