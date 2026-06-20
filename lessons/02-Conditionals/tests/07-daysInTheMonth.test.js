@@ -10,7 +10,7 @@ import { daysInTheMonth } from "..";
  * 3. Type `npm run test-02` in the Shell and hit Enter.
  */
 
-xdescribe("#7: daysInTheMonth", () => {
+describe("#7: daysInTheMonth", () => {
   describe("returns the correct number of days", () => {
     it("when the month is 1, 3, 5, 7, 8, 10, 12", () => {
       expect(daysInTheMonth(1)).to.equal(31);
