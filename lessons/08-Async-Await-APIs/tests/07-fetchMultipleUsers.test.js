@@ -10,7 +10,7 @@ import {
   expectedHeaders,
 } from "../data/07-fetchMultipleUsers.data";
 
-describe.only("fetchMultipleUsers", function () {
+describe("fetchMultipleUsers", function () {
   this.timeout(10000);
 
   let fetchStub;

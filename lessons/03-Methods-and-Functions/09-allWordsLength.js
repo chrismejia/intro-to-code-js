@@ -25,4 +25,6 @@
  * allWordsLength(["robin", "hood", "men", "in", "tights"]) => 19 (5 + 4 + 3 + 2 + 5)
  */
 
-// Replace this comment with your code.
+export function allWordsLength(wordsArr) {
+  return wordsArr.join("").length;
+}

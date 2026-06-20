@@ -21,6 +21,8 @@ import { uppers } from "./data/startingCapsOnly.data";
  * startingCapsOnly(["Microsoft", "party", "lION"]) // => ["Microsoft"]
  */
 
-function startingCapsOnly() {}
+function startingCapsOnly(words) {
+  return words.filter((word) => uppers.indexOf(word[0]) !== -1);
+}
 
 export { startingCapsOnly };

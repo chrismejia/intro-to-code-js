@@ -29,7 +29,7 @@ describe("#1: Logically speaking", () => {
     });
   });
 
-  xdescribe("Using the || (OR) operator", () => {
+  describe("Using the || (OR) operator", () => {
     it("orTrue -> is defined", () => {
       expect(orTrue).not.to.be.undefined;
     });
