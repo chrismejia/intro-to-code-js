@@ -1,5 +1,5 @@
 import { expect } from "chai";
-import { notFiveChars, isItFiveChars } from "..";
+import { notFiveChars, isItFiveChars } from "../index.js";
 
 describe("#2: 5 characters", () => {
   describe("notFiveChars", () => {

@@ -1,5 +1,5 @@
 import { expect } from "chai";
-import { objectCount } from "../03-objectCount";
+import { objectCount } from "../03-objectCount.js";
 import {
   emptyObject,
   noObjects,
@@ -9,7 +9,7 @@ import {
   noObjectsWithElementsBonus,
   oneObjectBonus,
   multipleKeysWithObjectsBonus,
-} from "../data/03-objectCount.data";
+} from "../data/03-objectCount.data.js";
 
 describe("#3: objectCount", () => {
   it("returns a number", () => {

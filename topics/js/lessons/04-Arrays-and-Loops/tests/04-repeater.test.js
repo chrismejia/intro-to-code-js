@@ -1,4 +1,4 @@
-import { repeater } from "../04-repeater";
+import { repeater } from "../04-repeater.js";
 import { expect } from "chai";
 
 describe("#4: repeater", () => {

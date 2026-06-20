@@ -1,12 +1,12 @@
 import { expect } from "chai";
-import modifyProperties from "../modifyProperties";
+import modifyProperties from "../modifyProperties.js";
 import {
   updateExistingProperties,
   addNewProperties,
   deleteProperties,
   multipleOperations,
   emptyOperationsArray,
-} from "../data/modifyProperties.data";
+} from "../data/modifyProperties.data.js";
 
 describe("modifyProperties", function () {
   it("should update existing properties", function () {

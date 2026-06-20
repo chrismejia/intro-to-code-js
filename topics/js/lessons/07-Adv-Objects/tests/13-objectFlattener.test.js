@@ -1,5 +1,5 @@
 import { expect } from "chai";
-import { objectFlattener } from "../13-objectFlattener";
+import { objectFlattener } from "../13-objectFlattener.js";
 import {
   noObjVal,
   oneObjVal,
@@ -8,7 +8,7 @@ import {
   arrayObjExpected,
   multiObjVal,
   multiObjExpected,
-} from "../data/13-objectFlattener.data";
+} from "../data/13-objectFlattener.data.js";
 
 describe("#13: objectFlattener", () => {
   describe("objectFlattener", () => {

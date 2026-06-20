@@ -1,4 +1,4 @@
-import { phraseScore } from "../11-phraseScore";
+import { phraseScore } from "../11-phraseScore.js";
 import { expect } from "chai";
 import {
   comboChar,
@@ -9,7 +9,7 @@ import {
   noComboEmpty,
   noComboPhraseHasRepeats,
   noComboPhraseNoRepeats,
-} from "../data/11-phraseScore.data";
+} from "../data/11-phraseScore.data.js";
 
 describe("#11: phraseScore", () => {
   describe("should return the correct score", () => {

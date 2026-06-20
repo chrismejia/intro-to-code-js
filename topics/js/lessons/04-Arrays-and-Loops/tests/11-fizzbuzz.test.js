@@ -1,6 +1,6 @@
 import { expect } from "chai";
-import { fizzBuzz } from "../11-fizzbuzz";
-import { lengthTest } from "../data/11-fizzBuzz.data";
+import { fizzBuzz } from "../11-fizzbuzz.js";
+import { lengthTest } from "../data/11-fizzBuzz.data.js";
 
 describe("#11: fizzBuzz", () => {
   expect(fizzBuzz).to.be.a(

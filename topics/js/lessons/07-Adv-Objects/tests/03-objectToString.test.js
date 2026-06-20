@@ -1,5 +1,5 @@
 import { expect } from "chai";
-import { objectToString } from "../03-objectToString";
+import { objectToString } from "../03-objectToString.js";
 import {
   simpleObj,
   simpleObjAsString,
@@ -9,7 +9,7 @@ import {
   arrayWithObjectsAsString,
   specialCharsObj,
   specialCharsObjAsString,
-} from "../data/03-objectToString.data";
+} from "../data/03-objectToString.data.js";
 
 describe("#3: objectToString", () => {
   it("returns a string", () => {

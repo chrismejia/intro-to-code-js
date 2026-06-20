@@ -4,8 +4,8 @@ import {
   noCapWords,
   capsNotAtStart,
   mixedWords,
-} from "../data/startingCapsOnly.data";
-import { startingCapsOnly } from "../02-startingCapsOnly";
+} from "../data/startingCapsOnly.data.js";
+import { startingCapsOnly } from "../02-startingCapsOnly.js";
 
 describe("#2: startingCapsOnly", () => {
   it("returns an array", () => {

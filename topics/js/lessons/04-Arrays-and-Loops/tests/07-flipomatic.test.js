@@ -1,4 +1,4 @@
-import { flipomatic } from "../07-flipomatic";
+import { flipomatic } from "../07-flipomatic.js";
 import { expect } from "chai";
 import {
   flipStart,
@@ -13,7 +13,7 @@ import {
   noFlipArrs,
   twoFlip,
   multiFlip,
-} from "../data/07-flipomatic.data";
+} from "../data/07-flipomatic.data.js";
 
 describe("#7: flipomatic", () => {
   expect(flipomatic).to.be.a(

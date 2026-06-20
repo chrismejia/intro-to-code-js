@@ -1,4 +1,4 @@
-import { andTrue, andFalse, orTrue, orFalse } from "..";
+import { andTrue, andFalse, orTrue, orFalse } from "../index.js";
 
 /**
  * The code below is what tests your answers.

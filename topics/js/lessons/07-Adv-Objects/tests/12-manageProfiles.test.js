@@ -1,5 +1,5 @@
 import { expect } from "chai";
-import { manageProfiles } from "../12-manageProfiles";
+import { manageProfiles } from "../12-manageProfiles.js";
 import {
   initialProfiles,
   profileUpdates,
@@ -11,7 +11,7 @@ import {
   expectedProfiles,
   expectedNewProfilesOnly,
   expectedCompleteOverwriteProfiles,
-} from "../data/12-manageProfiles.data";
+} from "../data/12-manageProfiles.data.js";
 
 describe("#12: manageProfiles", () => {
   it("should return the same profiles object when updates object is empty", () => {

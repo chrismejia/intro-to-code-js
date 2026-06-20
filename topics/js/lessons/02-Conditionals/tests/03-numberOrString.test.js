@@ -1,5 +1,5 @@
 import { expect } from "chai";
-import { numberOrString } from "..";
+import { numberOrString } from "../index.js";
 
 /**
  * The code below is what tests your answers.

@@ -1,5 +1,5 @@
 import { expect } from "chai";
-import Rectangle from "../01-rectangle";
+import Rectangle from "../01-rectangle.js";
 
 describe("#1: Rectangle", () => {
   let myRect, mySquare;

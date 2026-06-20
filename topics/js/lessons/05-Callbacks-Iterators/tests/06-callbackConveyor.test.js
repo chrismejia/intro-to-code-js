@@ -3,8 +3,8 @@ import {
   addTen,
   minusTwenty,
   multiplyThree,
-} from "../data/callbackConveyor.data";
-import callbackConveyor from "../06-callbackConveyor";
+} from "../data/callbackConveyor.data.js";
+import callbackConveyor from "../06-callbackConveyor.js";
 
 describe("#6: callbackConveyor", () => {
   it("returns the correct result from one callback", () => {

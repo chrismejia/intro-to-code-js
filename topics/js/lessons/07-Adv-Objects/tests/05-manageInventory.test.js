@@ -1,5 +1,5 @@
 import { expect } from "chai";
-import { manageInventory } from "../05-manageInventory";
+import { manageInventory } from "../05-manageInventory.js";
 import {
   itemsWithMultipleEntries,
   singleItem,
@@ -11,7 +11,7 @@ import {
   expectedEmptyResult,
   expectedZeroQuantityResult,
   expectedDifferentNamesResult,
-} from "../data/05-manageInventory.data";
+} from "../data/05-manageInventory.data.js";
 
 describe("manageInventory", () => {
   it("should return an empty object if no items are provided", () => {

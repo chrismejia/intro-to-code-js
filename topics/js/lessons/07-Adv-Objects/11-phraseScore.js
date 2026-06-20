@@ -1,4 +1,4 @@
-import { letterValues } from "./data/11-phraseScore.data";
+import { letterValues } from "./data/11-phraseScore.data.js";
 
 /**
  * #11: phraseScore

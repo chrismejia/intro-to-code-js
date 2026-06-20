@@ -1,6 +1,6 @@
 import { expect } from "chai";
 import sinon from "sinon";
-import priceTotaler from "../05-priceTotaler";
+import priceTotaler from "../05-priceTotaler.js";
 
 describe("#5: priceTotaler", () => {
   const nySpy = sinon.spy(priceTotaler);

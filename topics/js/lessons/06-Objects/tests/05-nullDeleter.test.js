@@ -1,5 +1,5 @@
 import { expect } from "chai";
-import { nullDeleter } from "../05-nullDeleter";
+import { nullDeleter } from "../05-nullDeleter.js";
 import {
   noNull,
   oneNull,
@@ -10,7 +10,7 @@ import {
   oneNullTopLevel,
   oneNullNested,
   allNullsNested,
-} from "../data/05-nullDeleter.data";
+} from "../data/05-nullDeleter.data.js";
 
 describe("#5: nullDeleter", () => {
   it("returns an object", () => {

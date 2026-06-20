@@ -1,6 +1,6 @@
-import { indexer } from "../02-indexer";
+import { indexer } from "../02-indexer.js";
 import { expect } from "chai";
-import { arr1, arr2, arr3, arr4 } from "../data/02-indexer.data";
+import { arr1, arr2, arr3, arr4 } from "../data/02-indexer.data.js";
 
 describe("#2: indexer", () => {
   expect(indexer).to.be.a(

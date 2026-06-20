@@ -1,4 +1,4 @@
-import { helloWorldRedux } from "../02-helloWorldRedux";
+import { helloWorldRedux } from "../02-helloWorldRedux.js";
 import { expect } from "chai";
 
 describe("#2: helloWorldRedux", () => {

@@ -1,4 +1,4 @@
-import { wordCalculator } from "../09-wordCalculator";
+import { wordCalculator } from "../09-wordCalculator.js";
 import { expect } from "chai";
 import {
   zeroStarts,
@@ -7,7 +7,7 @@ import {
   multiCalcs,
   invalidCalcs,
   allCalcs,
-} from "../data/09-wordCalculator.data";
+} from "../data/09-wordCalculator.data.js";
 
 describe("#9: wordCalculator", () => {
   expect(wordCalculator).to.be.a(

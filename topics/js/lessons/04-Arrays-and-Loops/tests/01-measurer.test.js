@@ -1,5 +1,5 @@
 import { expect } from "chai";
-import { measurer } from "../01-measurer";
+import { measurer } from "../01-measurer.js";
 
 describe("#1: measurer", () => {
   expect(measurer).to.be.a(

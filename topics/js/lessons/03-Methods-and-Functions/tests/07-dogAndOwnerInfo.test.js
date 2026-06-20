@@ -1,4 +1,4 @@
-import { dogAndOwnerInfo } from "../07-dogAndOwnerInfo";
+import { dogAndOwnerInfo } from "../07-dogAndOwnerInfo.js";
 import { expect } from "chai";
 
 describe("#7: Dog owners and their dogs", () => {

@@ -1,4 +1,4 @@
-import { allWordsLength } from "../09-allWordsLength";
+import { allWordsLength } from "../09-allWordsLength.js";
 import { expect } from "chai";
 
 describe("#9: allWordsLength", () => {

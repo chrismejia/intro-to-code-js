@@ -1,4 +1,4 @@
-import { doesItAddUp } from "../04-doesItAddUp";
+import { doesItAddUp } from "../04-doesItAddUp.js";
 import { expect } from "chai";
 
 describe("#4: doesItAddUp", () => {

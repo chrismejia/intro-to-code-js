@@ -1,5 +1,5 @@
 import { expect } from "chai";
-import { truthyFalsy } from "..";
+import { truthyFalsy } from "../index.js";
 
 /**
  * The code below is what tests your answers.

@@ -1,7 +1,7 @@
 import { expect } from "chai";
 import sinon from "sinon";
-import { a, b, c, d, e, testArr } from "../data/positiveNegatives.data";
-import { multiplyNums, numType } from "../01-positivesNegatives";
+import { a, b, c, d, e, testArr } from "../data/positiveNegatives.data.js";
+import { multiplyNums, numType } from "../01-positivesNegatives.js";
 
 describe("#1: Positives & Negatives", () => {
   describe("multiplyNums", () => {

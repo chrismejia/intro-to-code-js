@@ -1,4 +1,4 @@
-import { helloWorld } from "../01-helloWorld";
+import { helloWorld } from "../01-helloWorld.js";
 import { expect } from "chai";
 
 describe("#1: helloWorld", () => {

@@ -1,4 +1,4 @@
-import { doesTheMathWork } from "../08-doesTheMathWork";
+import { doesTheMathWork } from "../08-doesTheMathWork.js";
 import { expect } from "chai";
 
 describe("#8: doesTheMathWork", () => {

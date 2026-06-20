@@ -1,4 +1,4 @@
-import { uppers } from "./data/startingCapsOnly.data";
+import { uppers } from "./data/startingCapsOnly.data.js";
 
 /**
  * Define the function `startingCapsOnly`.

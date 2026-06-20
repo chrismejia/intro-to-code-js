@@ -1,6 +1,6 @@
 import { expect } from "chai";
-import { dataObj } from "../data/02-valueReader.data";
-import { valueReader } from "../02-valueReader";
+import { dataObj } from "../data/02-valueReader.data.js";
+import { valueReader } from "../02-valueReader.js";
 
 describe("#2: valueReader", () => {
   describe("returns the correct value", () => {

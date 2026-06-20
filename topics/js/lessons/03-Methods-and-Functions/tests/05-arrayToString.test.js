@@ -1,4 +1,4 @@
-import { arrayToString } from "../05-arrayToString";
+import { arrayToString } from "../05-arrayToString.js";
 import { expect } from "chai";
 
 describe("#5: arrayToString", () => {

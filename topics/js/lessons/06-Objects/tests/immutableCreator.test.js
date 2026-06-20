@@ -1,12 +1,12 @@
 import { expect } from "chai";
-import immutableCreator from "../immutableCreator";
+import immutableCreator from "../immutableCreator.js";
 import {
   modifyExistingProperties,
   addNewProperties,
   noUpdates,
   overwriteProperties,
   emptyOriginalObject,
-} from "../data/immutableCreator.data";
+} from "../data/immutableCreator.data.js";
 
 describe("immutableCreator", function () {
   it("should modify existing properties and add new ones", function () {

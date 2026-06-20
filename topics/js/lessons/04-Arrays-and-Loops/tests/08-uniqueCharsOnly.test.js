@@ -1,11 +1,11 @@
-import { uniqueCharsOnly } from "../08-uniqueCharsOnly";
+import { uniqueCharsOnly } from "../08-uniqueCharsOnly.js";
 import { expect } from "chai";
 import {
   singleRepeatingStr,
   fewCharRepeats,
   hasDoubleLetters,
   allUniqueLetters,
-} from "../data/08-uniqueCharsOnly.data";
+} from "../data/08-uniqueCharsOnly.data.js";
 
 describe("#8: uniqueCharsOnly", () => {
   expect(uniqueCharsOnly).to.be.a(
