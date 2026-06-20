@@ -7,8 +7,8 @@ import {
   strDoubler,
   strInput,
   fourRunsLetter,
-} from "../data/functionRunner.data";
-import functionRunner from "../03-functionRunner";
+} from "../data/functionRunner.data.js";
+import functionRunner from "../03-functionRunner.js";
 
 describe("#3: functionRunner", () => {
   const noRunStr = sinon.spy(strDoubler);

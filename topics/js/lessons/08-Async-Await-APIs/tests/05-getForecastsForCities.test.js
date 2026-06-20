@@ -1,6 +1,6 @@
 import { expect } from "chai";
 import sinon from "sinon";
-import { getForecastsForCities } from "../05-getForecastsForCities";
+import { getForecastsForCities } from "../05-getForecastsForCities.js";
 import {
   fetchForecast,
   validCities,
@@ -8,7 +8,7 @@ import {
   invalidCities,
   mixedResultCities,
   mixedForecastResult,
-} from "../data/05-getForecastsForCities.data";
+} from "../data/05-getForecastsForCities.data.js";
 
 describe("getForecastsForCities", function () {
   this.timeout(7500); // Ensure enough time for async tasks

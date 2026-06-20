@@ -1,5 +1,5 @@
 import express from "express";
-import { courses, students } from "../../data/08-fetchCourseEnrollments.data";
+import { courses, students } from "../../data/08-fetchCourseEnrollments.data.js";
 
 const collegeRouter = express.Router();
 

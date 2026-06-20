@@ -1,4 +1,4 @@
-import { frontOrBack } from "../03-frontOrBack";
+import { frontOrBack } from "../03-frontOrBack.js";
 import { expect } from "chai";
 
 describe("#3: frontOrBack", () => {

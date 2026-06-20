@@ -1,11 +1,11 @@
-import { disemvoweler } from "../05-disemvoweler";
+import { disemvoweler } from "../05-disemvoweler.js";
 import { expect } from "chai";
 import {
   noVowels,
   oneVowel,
   multiVowels,
   hasUppercase,
-} from "../data/05-disemvoweler.data";
+} from "../data/05-disemvoweler.data.js";
 
 describe("#5: disemvoweler", () => {
   expect(disemvoweler).to.be.a(

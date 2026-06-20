@@ -1,11 +1,11 @@
 import { expect } from "chai";
-import { objectCombiner } from "../07-objectCombiner";
+import { objectCombiner } from "../07-objectCombiner.js";
 import {
   hasOverlappingKeys,
   multipleHasOverlap,
   multipleNoOverlap,
   noOverlappingKeys,
-} from "../data/07-objectCombiner.data";
+} from "../data/07-objectCombiner.data.js";
 
 describe("#7: objectCombiner", () => {
   it("should handle no arguments and return an empty object", () => {

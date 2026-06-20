@@ -1,6 +1,6 @@
 /* eslint-env mocha */
 import { expect } from "chai";
-import { LinkedList, Node } from "../linked-list";
+import { LinkedList, Node } from "../linked-list.js";
 
 describe("A linked list implementation", () => {
   let linkedList;

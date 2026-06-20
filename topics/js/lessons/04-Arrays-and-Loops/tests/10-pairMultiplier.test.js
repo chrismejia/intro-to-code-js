@@ -1,10 +1,10 @@
 import { expect } from "chai";
-import { pairMultiplier } from "../10-pairMultiplier";
+import { pairMultiplier } from "../10-pairMultiplier.js";
 import {
   firstArrSmaller,
   sameArraySizes,
   secondArrSmaller,
-} from "../data/10-pairMultiplier.data";
+} from "../data/10-pairMultiplier.data.js";
 
 describe("#10: pairMultiplier", () => {
   expect(pairMultiplier).to.be.a(

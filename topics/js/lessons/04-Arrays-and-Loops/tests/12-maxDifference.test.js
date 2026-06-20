@@ -1,13 +1,13 @@
 import { expect } from "chai";
 import { describe } from "mocha";
-import { maxDifference } from "../12-maxDifference";
+import { maxDifference } from "../12-maxDifference.js";
 import {
   oneNum,
   twoNums,
   threeNums,
   allSameNums,
   withRepeats,
-} from "../data/12-maxDifference.data";
+} from "../data/12-maxDifference.data.js";
 
 describe("#12: maxDifference", () => {
   it("returns a number", () => {

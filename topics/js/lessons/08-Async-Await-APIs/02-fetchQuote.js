@@ -1,4 +1,4 @@
-import { quotes } from "./data/02-fetchQuotes.data";
+import { quotes } from "./data/02-fetchQuotes.data.js";
 
 /**
  * #2: fetchQuote

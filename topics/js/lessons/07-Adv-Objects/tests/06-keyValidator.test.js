@@ -1,5 +1,5 @@
 import { expect } from "chai";
-import { keyValidator } from "../06-keyValidator";
+import { keyValidator } from "../06-keyValidator.js";
 import {
   emptyOne,
   emptyTwo,
@@ -9,7 +9,7 @@ import {
   twoKeysDiffVals,
   twoKeysDiffKeys,
   manyKeys,
-} from "../data/06-keyValidator.data";
+} from "../data/06-keyValidator.data.js";
 
 describe("#6: keyValidator", () => {
   describe("returns an empty array", () => {

@@ -17,7 +17,7 @@ import {
   ageType,
   funType,
   exponentiatedTo,
-} from ".";
+} from "./index.js";
 
 /**
  * The code below is what tests your answers.

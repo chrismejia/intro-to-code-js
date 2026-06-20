@@ -1,4 +1,4 @@
-import { letsGoParty } from "..";
+import { letsGoParty } from "../index.js";
 import { expect } from "chai";
 
 describe("#5: letsGoParty", () => {

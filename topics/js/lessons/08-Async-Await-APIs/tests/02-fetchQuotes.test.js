@@ -1,6 +1,6 @@
 import { expect } from "chai";
-import { fetchQuote } from "../02-fetchQuote";
-import { quotes } from "../data/02-fetchQuotes.data";
+import { fetchQuote } from "../02-fetchQuote.js";
+import { quotes } from "../data/02-fetchQuotes.data.js";
 import { stub } from "sinon";
 
 describe("fetchQuote", function () {

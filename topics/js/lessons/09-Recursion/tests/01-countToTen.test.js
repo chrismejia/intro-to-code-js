@@ -1,6 +1,6 @@
 import { expect } from "chai";
 import sinon from "sinon";
-import countToTen from "../01-countToTen";
+import countToTen from "../01-countToTen.js";
 
 xdescribe("#1: countToTen", () => {
   const logSpy = sinon.spy(console, "log");

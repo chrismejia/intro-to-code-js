@@ -1,4 +1,4 @@
-import { isAnObject } from "../01-isAnObject";
+import { isAnObject } from "../01-isAnObject.js";
 import { expect } from "chai";
 
 describe("#1: isAnObject", () => {

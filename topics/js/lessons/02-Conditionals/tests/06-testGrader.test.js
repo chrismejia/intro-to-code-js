@@ -1,5 +1,5 @@
 import { expect } from "chai";
-import { testGrader } from "..";
+import { testGrader } from "../index.js";
 
 /**
  * The code below is what tests your answers.

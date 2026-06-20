@@ -1,7 +1,7 @@
 import { expect } from "chai";
 import sinon from "sinon";
-import { counts, repeated } from "../data/repeatStr.data";
-import { wrapper } from "../02-repeatStr";
+import { counts, repeated } from "../data/02-repeatStr.data.js";
+import { wrapper } from "../02-repeatStr.js";
 
 describe("#2: repeatStr", () => {
   it("returns a string", () => {

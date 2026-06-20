@@ -1,6 +1,6 @@
 import { expect } from "chai";
 import sinon from "sinon";
-import { fetchUser, fetchMultipleUsers } from "../07-fetchMultipleUsers";
+import { fetchUser, fetchMultipleUsers } from "../07-fetchMultipleUsers.js";
 import {
   validUserData,
   mockFetchUserSuccess,
@@ -8,7 +8,7 @@ import {
   passingUserIds,
   failingUserIds,
   expectedHeaders,
-} from "../data/07-fetchMultipleUsers.data";
+} from "../data/07-fetchMultipleUsers.data.js";
 
 describe("fetchMultipleUsers", function () {
   this.timeout(10000);

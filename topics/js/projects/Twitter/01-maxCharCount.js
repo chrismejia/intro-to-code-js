@@ -6,12 +6,14 @@
  * @returns {String}
  */
 export default function maxCharCount(text, useCase) {
-  let charLimit;
+  let charLimit = 280;
   switch (useCase) {
     case "bio":
       charLimit = 160;
+      break;
     case "tweet":
       charLimit = 280;
+      break;
   }
 
   if (text.length <= charLimit) {

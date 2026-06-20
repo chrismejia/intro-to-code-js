@@ -1,5 +1,5 @@
 import { expect } from "chai";
-import { mergeConfigs } from "../07-mergeConfigs";
+import { mergeConfigs } from "../07-mergeConfigs.js";
 import {
   defaultThemeConfig,
   userThemeConfig,
@@ -10,7 +10,7 @@ import {
   defaultConfigEmpty,
   userConfigEmpty,
   expectedEmptyMergedConfig,
-} from "../data/07-mergeConfigs.data";
+} from "../data/07-mergeConfigs.data.js";
 
 describe("#7: mergeConfigs", () => {
   it("should correctly merge configurations when both objects have unique properties", () => {

@@ -7,8 +7,8 @@ import {
   cubeNum,
   cubeArr,
   evenCubed,
-} from "../data/everyOtherTime.data";
-import everyOtherTime from "../04-everyOtherTime";
+} from "../data/everyOtherTime.data.js";
+import everyOtherTime from "../04-everyOtherTime.js";
 
 describe("#4: everyOtherTime", () => {
   const capSpy = sinon.spy(capitalize);

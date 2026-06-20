@@ -1,4 +1,4 @@
-import { uppercaseThis } from "../03-uppercaseThis";
+import { uppercaseThis } from "../03-uppercaseThis.js";
 import { expect } from "chai";
 
 describe("#3: uppercaseThis", () => {

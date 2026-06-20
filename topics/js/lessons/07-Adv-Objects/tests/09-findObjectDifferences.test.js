@@ -1,5 +1,5 @@
 import { expect } from "chai";
-import { findObjectDifferences } from "../09-findObjectDifferences";
+import { findObjectDifferences } from "../09-findObjectDifferences.js";
 import {
   objectA,
   objectB,
@@ -10,7 +10,7 @@ import {
   objectEmpty1,
   objectEmpty2,
   expectedDifferencesEmpty,
-} from "../data/09-findObjectDifferences.data";
+} from "../data/09-findObjectDifferences.data.js";
 
 describe("#9: findObjectDifferences", function () {
   it("should find differences between two objects with some differing and some matching properties", function () {

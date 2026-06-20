@@ -1,4 +1,4 @@
-import maxCharCount from "../01-maxCharCount";
+import maxCharCount from "../01-maxCharCount.js";
 import { expect } from "chai";
 
 describe("#1: maxCharCount", () => {

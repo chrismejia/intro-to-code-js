@@ -1,4 +1,4 @@
-import { smallTogetherNow } from "../06-smallTogetherNow";
+import { smallTogetherNow } from "../06-smallTogetherNow.js";
 import { expect } from "chai";
 
 describe("#6: smallTogetherNow", () => {

@@ -1,12 +1,12 @@
 import { expect } from "chai";
 import sinon from "sinon";
-import { deepClone } from "../10-deepClone";
+import { deepClone } from "../10-deepClone.js";
 import {
   objNoDate,
   clonedObjWithoutDate,
   objWithDate,
   clonedObjWithDate,
-} from "../data/10-deepClone.data";
+} from "../data/10-deepClone.data.js";
 
 // Mocking to detect calls to Object.assign and structuredClone
 const objectAssignSpy = sinon.spy(Object, "assign");

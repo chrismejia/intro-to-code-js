@@ -1,5 +1,5 @@
 import { expect } from "chai";
-import { classSorter } from "../08-classSorter";
+import { classSorter } from "../08-classSorter.js";
 import {
   emptyRoster,
   onlyStudentsRoster,
@@ -12,7 +12,7 @@ import {
   twoGradeSaTExpected,
   multipleGradeSaTRoster,
   multipleGradeSaTExpected,
-} from "../data/08-classSorter.data";
+} from "../data/08-classSorter.data.js";
 
 describe("#8: classSorter", () => {
   it("should return an empty object for an empty roster", () => {

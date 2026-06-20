@@ -1,7 +1,7 @@
 import { expect } from "chai";
 import sinon from "sinon";
-import { testNums, correctCounts } from "../data/collatzTripCounter.data";
-import { wrapper } from "../03-collatzTraveler";
+import { testNums, correctCounts } from "../data/03-collatzTraveler.data.js";
+import { wrapper } from "../03-collatzTraveler.js";
 
 xdescribe("#3: collatzTripCounter", () => {
   console.log(typeof wrapper.collatzTripCounter);

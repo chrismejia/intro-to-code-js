@@ -1,6 +1,6 @@
-import { valueLocator } from "../06-valueLocator";
+import { valueLocator } from "../06-valueLocator.js";
 import { expect } from "chai";
-import { arr, foundVals, notFoundVals } from "../data/06-valueLocator.data";
+import { arr, foundVals, notFoundVals } from "../data/06-valueLocator.data.js";
 
 describe("#6: valueLocator", () => {
   expect(valueLocator).to.be.a(

@@ -1,5 +1,5 @@
 import { expect } from "chai";
-import { Car, Owner } from "../02-carAndOwner";
+import { Car, Owner } from "../02-carAndOwner.js";
 
 describe("#2: Car and Owner", () => {
   let myCar, myOwner;

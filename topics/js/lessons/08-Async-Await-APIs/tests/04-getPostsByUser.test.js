@@ -1,5 +1,5 @@
 import { expect } from "chai";
-import { getPostsByUser } from "../04-getPostsByUser";
+import { getPostsByUser } from "../04-getPostsByUser.js";
 import {
   validUser,
   validPosts,
@@ -7,7 +7,7 @@ import {
   fetchUserPostsSuccess,
   fetchUserDataFail,
   fetchUserPostsFail,
-} from "../data/04-getPostsByUser.data";
+} from "../data/04-getPostsByUser.data.js";
 
 describe("getPostsByUser", function () {
   this.timeout(5000);

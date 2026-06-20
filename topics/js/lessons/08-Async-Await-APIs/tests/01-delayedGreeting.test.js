@@ -1,10 +1,10 @@
 import { expect } from "chai";
-import { delayedGreeting } from "../01-delayedGreeting";
+import { delayedGreeting } from "../01-delayedGreeting.js";
 import {
   validGreetingData,
   shorterDelayData,
   immediateGreetingData,
-} from "../data/01-delayedGreeting.data";
+} from "../data/01-delayedGreeting.data.js";
 
 describe("#1: delayedGreeting", function () {
   it("should return a greeting for the given name after the specified delay", function (done) {
