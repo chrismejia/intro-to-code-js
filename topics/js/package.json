@@ -16,7 +16,7 @@
     "test:07": "npm run test:jest -- lessons/07-Adv-Objects/tests",
     "test:08": "mocha './lessons/08-Async-Await-APIs/tests/**.js'",
     "server:08": "mocha './lessons/08-Async-Await-APIs/server/tests/**.js'",
-    "test:09": "mocha './lessons/09-Recursion/tests/**.js'",
+    "test:09": "npm run test:jest -- lessons/09-Recursion/tests",
     "test:10": "npm run test:jest -- lessons/10-Classes/tests",
     "test:11": "npm run test:jest -- lessons/11-Data-Structures/tests",
     "test:projects": "npm run test:jest -- projects",
