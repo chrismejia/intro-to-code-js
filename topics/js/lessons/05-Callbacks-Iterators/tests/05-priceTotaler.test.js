@@ -1,40 +1,34 @@
-import { expect } from "chai";
-import sinon from "sinon";
 import priceTotaler from "../05-priceTotaler.js";
 
 describe("#5: priceTotaler", () => {
-  const nySpy = sinon.spy(priceTotaler);
-  const njSpy = sinon.spy(priceTotaler);
-  const ctSpy = sinon.spy(priceTotaler);
-
-  const nyTotaler = nySpy("NY");
-  const njTotaler = njSpy("NJ");
-  const ctTotaler = ctSpy("CT");
+  const nyTotaler = priceTotaler("NY");
+  const njTotaler = priceTotaler("NJ");
+  const ctTotaler = priceTotaler("CT");
 
   const nyResult = nyTotaler(1000);
   const njResult = njTotaler(1000);
   const ctResult = ctTotaler(1000);
 
   it("returns a function", () => {
-    expect(nyTotaler).to.be.a("function");
-    expect(njTotaler).to.be.a("function");
-    expect(ctTotaler).to.be.a("function");
+    expect(typeof nyTotaler).toBe("function");
+    expect(typeof njTotaler).toBe("function");
+    expect(typeof ctTotaler).toBe("function");
   });
 
   describe("the returned function correctly calculates the final price for", () => {
     it("NY", () => {
-      expect(nyResult).to.be.a("number");
-      expect(nyResult).to.equal(1095.405);
+      expect(typeof nyResult).toBe("number");
+      expect(nyResult).toBe(1095.405);
     });
 
     it("NJ", () => {
-      expect(njResult).to.be.a("number");
-      expect(njResult).to.equal(1109.5625);
+      expect(typeof njResult).toBe("number");
+      expect(njResult).toBe(1109.5625);
     });
 
     it("CT", () => {
-      expect(ctResult).to.be.a("number");
-      expect(ctResult).to.equal(1102.4);
+      expect(typeof ctResult).toBe("number");
+      expect(ctResult).toBe(1102.4);
     });
   });
 });

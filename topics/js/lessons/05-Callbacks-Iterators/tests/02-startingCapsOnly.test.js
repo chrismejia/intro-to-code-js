@@ -1,4 +1,3 @@
-import { expect } from "chai";
 import {
   startCapWords,
   noCapWords,
@@ -9,22 +8,22 @@ import { startingCapsOnly } from "../02-startingCapsOnly.js";
 
 describe("#2: startingCapsOnly", () => {
   it("returns an array", () => {
-    expect(startingCapsOnly(startCapWords)).to.be.an("array");
-    expect(startingCapsOnly(noCapWords)).to.be.an("array");
-    expect(startingCapsOnly(capsNotAtStart)).to.be.an("array");
-    expect(startingCapsOnly(mixedWords)).to.be.an("array");
+    expect(Array.isArray(startingCapsOnly(startCapWords))).toBe(true);
+    expect(Array.isArray(startingCapsOnly(noCapWords))).toBe(true);
+    expect(Array.isArray(startingCapsOnly(capsNotAtStart))).toBe(true);
+    expect(Array.isArray(startingCapsOnly(mixedWords))).toBe(true);
   });
 
   it("removes no words if all words start with a capital letter", () => {
-    expect(startingCapsOnly(startCapWords)).to.eql(startCapWords);
+    expect(startingCapsOnly(startCapWords)).toEqual(startCapWords);
   });
 
   it("removes all words that don't start with a capital letter", () => {
-    expect(startingCapsOnly(noCapWords)).to.eql([]);
-    expect(startingCapsOnly(capsNotAtStart)).to.eql([]);
+    expect(startingCapsOnly(noCapWords)).toEqual([]);
+    expect(startingCapsOnly(capsNotAtStart)).toEqual([]);
   });
 
   it("removes words that don't start with a capital letter from a mixed array", () => {
-    expect(startingCapsOnly(mixedWords)).to.eql(startCapWords);
+    expect(startingCapsOnly(mixedWords)).toEqual(startCapWords);
   });
 });

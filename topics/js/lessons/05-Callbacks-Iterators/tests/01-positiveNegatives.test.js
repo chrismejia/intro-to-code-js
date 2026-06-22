@@ -1,18 +1,44 @@
-import { expect } from "chai";
-import sinon from "sinon";
+import { jest } from "@jest/globals";
 import { a, b, c, d, e, testArr } from "../data/positiveNegatives.data.js";
 import { multiplyNums, numType } from "../01-positivesNegatives.js";
+
+const getNumTypeCases = () => {
+  const abSpy = jest.fn(multiplyNums);
+  const acSpy = jest.fn(multiplyNums);
+  const adSpy = jest.fn(multiplyNums);
+  const aeSpy = jest.fn(multiplyNums);
+  const cbSpy = jest.fn(multiplyNums);
+  const cdSpy = jest.fn(multiplyNums);
+  const ebSpy = jest.fn(multiplyNums);
+
+  return {
+    abSpy,
+    acSpy,
+    adSpy,
+    aeSpy,
+    cbSpy,
+    cdSpy,
+    ebSpy,
+    abMult: numType(a, b, abSpy),
+    acMult: numType(a, c, acSpy),
+    adMult: numType(a, d, adSpy),
+    aeMult: numType(a, e, aeSpy),
+    cbMult: numType(c, b, cbSpy),
+    cdMult: numType(c, d, cdSpy),
+    ebMult: numType(e, b, ebSpy),
+  };
+};
 
 describe("#1: Positives & Negatives", () => {
   describe("multiplyNums", () => {
     it("is a function", () => {
-      expect(multiplyNums).to.be.a("function");
+      expect(typeof multiplyNums).toBe("function");
     });
 
     it("returns a number", () => {
       for (const num1 of testArr) {
         for (const num2 of testArr) {
-          expect(multiplyNums(num1, num2)).to.be.a("number");
+          expect(typeof multiplyNums(num1, num2)).toBe("number");
         }
       }
     });
@@ -20,88 +46,79 @@ describe("#1: Positives & Negatives", () => {
 
   describe("numType", () => {
     it("is a function", () => {
-      expect(numType).to.be.a("function");
+      expect(typeof numType).toBe("function");
     });
 
-    const abSpy = sinon.spy(multiplyNums);
-    const acSpy = sinon.spy(multiplyNums);
-    const adSpy = sinon.spy(multiplyNums);
-    const aeSpy = sinon.spy(multiplyNums);
-    const cbSpy = sinon.spy(multiplyNums);
-    const cdSpy = sinon.spy(multiplyNums);
-    const ebSpy = sinon.spy(multiplyNums);
-
-    const abMult = numType(a, b, abSpy);
-    const acMult = numType(a, c, acSpy);
-    const adMult = numType(a, d, adSpy);
-    const aeMult = numType(a, e, aeSpy);
-    const cbMult = numType(c, b, cbSpy);
-    const cdMult = numType(c, d, cdSpy);
-    const ebMult = numType(e, b, ebSpy);
-
     it("runs the callback function using both of numTypes number inputs", () => {
-      const abInputsCorrect = abSpy.calledWith(a, b);
-      const acInputsCorrect = acSpy.calledWith(a, c);
-      const adInputsCorrect = adSpy.calledWith(a, d);
-      const aeInputsCorrect = aeSpy.calledWith(a, e);
-      const cbInputsCorrect = cbSpy.calledWith(c, b);
-      const cdInputsCorrect = cdSpy.calledWith(c, d);
-      const ebInputsCorrect = ebSpy.calledWith(e, b);
+      const { abSpy, acSpy, adSpy, aeSpy, cbSpy, cdSpy, ebSpy } =
+        getNumTypeCases();
 
-      expect(abInputsCorrect).to.be.true;
-      expect(acInputsCorrect).to.be.true;
-      expect(adInputsCorrect).to.be.true;
-      expect(aeInputsCorrect).to.be.true;
-      expect(cbInputsCorrect).to.be.true;
-      expect(cdInputsCorrect).to.be.true;
-      expect(ebInputsCorrect).to.be.true;
+      expect(abSpy).toHaveBeenCalledWith(a, b);
+      expect(acSpy).toHaveBeenCalledWith(a, c);
+      expect(adSpy).toHaveBeenCalledWith(a, d);
+      expect(aeSpy).toHaveBeenCalledWith(a, e);
+      expect(cbSpy).toHaveBeenCalledWith(c, b);
+      expect(cdSpy).toHaveBeenCalledWith(c, d);
+      expect(ebSpy).toHaveBeenCalledWith(e, b);
     });
 
     describe("when a times b is positive", () => {
       it("runs the multiplyNums callback only once", () => {
-        expect(abSpy.calledOnce).to.be.true;
-        expect(cdSpy.calledOnce).to.be.true;
+        const { abSpy, cdSpy } = getNumTypeCases();
+
+        expect(abSpy).toHaveBeenCalledTimes(1);
+        expect(cdSpy).toHaveBeenCalledTimes(1);
       });
 
       it("returns the correct report string", () => {
-        expect(abMult).to.be.a("string");
-        expect(cdMult).to.be.a("string");
+        const { abMult, cdMult } = getNumTypeCases();
 
-        expect(abMult).to.include(`${a} times ${b}`);
-        expect(cdMult).to.include(`${c} times ${d}`);
+        expect(typeof abMult).toBe("string");
+        expect(typeof cdMult).toBe("string");
+
+        expect(abMult).toContain(`${a} times ${b}`);
+        expect(cdMult).toContain(`${c} times ${d}`);
       });
     });
 
     describe("when a times b is negative", () => {
       it("runs the multiplyNums callback twice", () => {
-        expect(acSpy.calledTwice).to.be.true;
-        expect(adSpy.calledTwice).to.be.true;
-        expect(cbSpy.calledTwice).to.be.true;
+        const { acSpy, adSpy, cbSpy } = getNumTypeCases();
+
+        expect(acSpy).toHaveBeenCalledTimes(2);
+        expect(adSpy).toHaveBeenCalledTimes(2);
+        expect(cbSpy).toHaveBeenCalledTimes(2);
       });
 
       it("returns the correct report string", () => {
-        expect(acMult).to.be.a("string");
-        expect(adMult).to.be.a("string");
-        expect(cbMult).to.be.a("string");
+        const { acMult, adMult, cbMult } = getNumTypeCases();
 
-        expect(acMult).to.include(`${a} times ${c}`);
-        expect(adMult).to.include(`${a} times ${d}`);
-        expect(cbMult).to.include(`${c} times ${b}`);
+        expect(typeof acMult).toBe("string");
+        expect(typeof adMult).toBe("string");
+        expect(typeof cbMult).toBe("string");
+
+        expect(acMult).toContain(`${a} times ${c}`);
+        expect(adMult).toContain(`${a} times ${d}`);
+        expect(cbMult).toContain(`${c} times ${b}`);
       });
     });
 
     describe("when a times b is zero", () => {
       it("runs the multiplyNums callback twice", () => {
-        expect(aeSpy.calledTwice).to.be.true;
-        expect(ebSpy.calledTwice).to.be.true;
+        const { aeSpy, ebSpy } = getNumTypeCases();
+
+        expect(aeSpy).toHaveBeenCalledTimes(2);
+        expect(ebSpy).toHaveBeenCalledTimes(2);
       });
 
       it("returns the correct report string", () => {
-        expect(aeMult).to.be.a("string");
-        expect(ebMult).to.be.a("string");
+        const { aeMult, ebMult } = getNumTypeCases();
 
-        expect(aeMult).to.include(`${a} times ${e} is zero`);
-        expect(ebMult).to.include(`${e} times ${b} is zero`);
+        expect(typeof aeMult).toBe("string");
+        expect(typeof ebMult).toBe("string");
+
+        expect(aeMult).toContain(`${a} times ${e} is zero`);
+        expect(ebMult).toContain(`${e} times ${b} is zero`);
       });
     });
   });
