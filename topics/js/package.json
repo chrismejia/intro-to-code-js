@@ -19,7 +19,7 @@
     "test:09": "mocha './lessons/09-Recursion/tests/**.js'",
     "test:10": "npm run test:jest -- lessons/10-Classes/tests",
     "test:11": "npm run test:jest -- lessons/11-Data-Structures/tests",
-    "test:projects": "mocha './projects/**/tests/**.js'",
-    "test:twitter": "mocha './projects/Twitter/tests/**.js'"
+    "test:projects": "npm run test:jest -- projects",
+    "test:twitter": "npm run test:jest -- projects/Twitter/tests"
   }
 }

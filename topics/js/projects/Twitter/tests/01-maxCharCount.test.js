@@ -1,11 +1,10 @@
 import maxCharCount from "../01-maxCharCount.js";
-import { expect } from "chai";
 
 describe("#1: maxCharCount", () => {
   it("returns a string", () => {
     const testStr = "Test string.";
     const result = maxCharCount(testStr);
-    expect(result).to.be.a("string");
+    expect(typeof result).toBe("string");
   });
 
   describe("returns the string untouched", () => {
@@ -13,7 +12,7 @@ describe("#1: maxCharCount", () => {
       const shortStr = "This is a short test text tweet under 280 characters";
       const result = maxCharCount(shortStr);
 
-      expect(result).to.equal(shortStr);
+      expect(result).toBe(shortStr);
     });
 
     it("if the input is exactly 280 characters", () => {
@@ -21,7 +20,7 @@ describe("#1: maxCharCount", () => {
         "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat mas";
 
       const result = maxCharCount(twoEighty);
-      expect(result).to.equal(twoEighty);
+      expect(result).toBe(twoEighty);
     });
   });
 
@@ -32,6 +31,6 @@ describe("#1: maxCharCount", () => {
       "Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it w";
 
     const result = maxCharCount(fourHundred);
-    expect(result).to.equal(expected);
+    expect(result).toBe(expected);
   });
 });
