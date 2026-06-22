@@ -1,5 +1,4 @@
-import { expect } from "chai";
-import sinon from "sinon";
+import { jest } from "@jest/globals";
 import { deepClone } from "../10-deepClone.js";
 import {
   objNoDate,
@@ -8,35 +7,43 @@ import {
   clonedObjWithDate,
 } from "../data/10-deepClone.data.js";
 
-// Mocking to detect calls to Object.assign and structuredClone
-const objectAssignSpy = sinon.spy(Object, "assign");
-const structuredCloneSpy = sinon.spy(globalThis, "structuredClone");
-
 describe("#10: deepClone", () => {
+  let objectAssignSpy;
+  let structuredCloneSpy;
+
+  beforeEach(() => {
+    objectAssignSpy = jest.spyOn(Object, "assign");
+    structuredCloneSpy = jest.spyOn(globalThis, "structuredClone");
+  });
+
+  afterEach(() => {
+    jest.restoreAllMocks();
+  });
+
   it("should return an object", () => {
     const result = deepClone(objNoDate);
-    expect(result).to.be.an("object");
+    expect(typeof result).toBe("object");
   });
 
   it("should correctly clone objects without Date objects", () => {
     const result = deepClone(objNoDate);
-    expect(result).to.deep.equal(clonedObjWithoutDate);
+    expect(result).toEqual(clonedObjWithoutDate);
   });
 
   it("should not mutate the original object", () => {
     const result = deepClone(objNoDate);
-    expect(result).to.not.equal(objNoDate);
-    expect(result).to.deep.equal(clonedObjWithoutDate);
+    expect(result).not.toBe(objNoDate);
+    expect(result).toEqual(clonedObjWithoutDate);
   });
 
   it("should not call Object.assign()", () => {
     deepClone(objNoDate);
-    expect(objectAssignSpy.called).to.be.false;
+    expect(objectAssignSpy).not.toHaveBeenCalled();
   });
 
   it("should not call structuredClone()", () => {
     deepClone(objNoDate);
-    expect(structuredCloneSpy.called).to.be.false;
+    expect(structuredCloneSpy).not.toHaveBeenCalled();
   });
 
   // Makes problem FAR too difficult to solve without recursion
@@ -47,29 +54,25 @@ describe("#10: deepClone", () => {
   //   const obj2 = deepClone(obj1); // Assuming deepClone function is tested here
 
   //   // Check that obj2 is not the same reference as obj1
-  //   expect(obj2).to.not.equal(obj1);
+  //   expect(obj2).not.toBe(obj1);
 
   //   // Check that obj2 deeply equals obj1 (all values are the same)
-  //   expect(obj2).to.deep.equal(obj1);
+  //   expect(obj2).toEqual(obj1);
 
   //   // Further check that nested objects also don't share the same reference
-  //   expect(obj2.b).to.not.equal(obj1.b);
+  //   expect(obj2.b).not.toBe(obj1.b);
   // });
 
   describe("BONUS", () => {
     it("should correctly clone objects with Date objects", () => {
       const result = deepClone(objWithDate);
-      expect(result).to.deep.equal(clonedObjWithDate);
+      expect(result).toEqual(clonedObjWithDate);
     });
 
     it("should correctly clone Date objects and preserve their functionality", () => {
       const result = deepClone(objWithDate);
-      expect(result.date).to.be.instanceOf(Date);
-      expect(result.date.getTime()).to.equal(objWithDate.date.getTime());
+      expect(result.date).toBeInstanceOf(Date);
+      expect(result.date.getTime()).toBe(objWithDate.date.getTime());
     });
   });
 });
-
-// Restore the original implementations after the test
-objectAssignSpy.restore();
-structuredCloneSpy.restore();
