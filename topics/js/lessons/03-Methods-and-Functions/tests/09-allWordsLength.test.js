@@ -1,5 +1,4 @@
 import { allWordsLength } from "../09-allWordsLength.js";
-import { expect } from "chai";
 
 describe("#9: allWordsLength", () => {
   const testWords = [
@@ -13,7 +12,7 @@ describe("#9: allWordsLength", () => {
     testWords.forEach((array) => {
       const func = (a) => a.join("").length;
       const result = func(array);
-      expect(allWordsLength(array)).to.be.a("number");
+      expect(typeof allWordsLength(array)).toBe("number");
     });
   });
 
@@ -22,7 +21,7 @@ describe("#9: allWordsLength", () => {
       const func = (a) => a.join("").length;
       const result = func(array);
       it(`${JSON.stringify(array)} -> ${result}`, () => {
-        expect(allWordsLength(array)).to.equal(result);
+        expect(allWordsLength(array)).toBe(result);
       });
     });
   });

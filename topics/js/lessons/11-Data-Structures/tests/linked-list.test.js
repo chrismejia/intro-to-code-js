@@ -1,5 +1,4 @@
-/* eslint-env mocha */
-import { expect } from "chai";
+/* eslint-env jest */
 import { LinkedList, Node } from "../linked-list.js";
 
 describe("A linked list implementation", () => {
@@ -12,50 +11,50 @@ describe("A linked list implementation", () => {
   describe("`Node` class", () => {
     it("should take a value argument in the constructor and define next and previous to be null by default", () => {
       const node = new Node("test");
-      expect(node.value).to.equal("test");
-      expect(node.next).to.equal(null);
-      expect(node.previous).to.equal(null);
+      expect(node.value).toBe("test");
+      expect(node.next).toBe(null);
+      expect(node.previous).toBe(null);
     });
   });
 
   describe("`LinkedList` class", () => {
     it("should take no arguments in the constructor and define head and tail to be null", () => {
-      expect(linkedList.head).to.equal(null);
-      expect(linkedList.tail).to.equal(null);
+      expect(linkedList.head).toBe(null);
+      expect(linkedList.tail).toBe(null);
     });
 
     it("has methods `addToTail`, `removeTail`, and `search`", () => {
-      expect(typeof linkedList.addToTail).to.equal("function");
-      expect(typeof linkedList.removeTail).to.equal("function");
-      expect(typeof linkedList.search).to.equal("function");
+      expect(typeof linkedList.addToTail).toBe("function");
+      expect(typeof linkedList.removeTail).toBe("function");
+      expect(typeof linkedList.search).toBe("function");
     });
 
     describe("`addToTail` method", () => {
       it("should take a value as a parameter", () => {
         // the length of a function returns how many parameters it has
-        expect(linkedList.addToTail.length).to.equal(1);
+        expect(linkedList.addToTail.length).toBe(1);
       });
 
       it("should use `Node` class to add nodes", () => {
         linkedList.addToTail("first");
-        expect(linkedList.tail instanceof Node).to.equal(true);
+        expect(linkedList.tail instanceof Node).toBe(true);
       });
 
       it("should be able to add to tail without removing or overwriting existing nodes", () => {
         linkedList.addToTail("first");
-        expect(linkedList.tail.value).to.equal("first");
+        expect(linkedList.tail.value).toBe("first");
 
         linkedList.addToTail("second");
-        expect(linkedList.tail.value).to.equal("second");
-        expect(linkedList.tail.previous.value).to.equal("first");
+        expect(linkedList.tail.value).toBe("second");
+        expect(linkedList.tail.previous.value).toBe("first");
       });
 
       it("if the linked list consists of a single node after adding to tail, that node should be both the head and the tail", () => {
         linkedList.addToTail("only");
-        expect(linkedList.head.value).to.equal("only");
-        expect(linkedList.head).to.equal(linkedList.tail);
-        expect(linkedList.head.next).to.equal(null);
-        expect(linkedList.head.previous).to.equal(null);
+        expect(linkedList.head.value).toBe("only");
+        expect(linkedList.head).toBe(linkedList.tail);
+        expect(linkedList.head.next).toBe(null);
+        expect(linkedList.head.previous).toBe(null);
       });
     });
 
@@ -64,9 +63,9 @@ describe("A linked list implementation", () => {
         linkedList.addToTail("first");
         linkedList.addToTail("second");
         linkedList.addToTail("third");
-        expect(linkedList.removeTail()).to.equal("third");
-        expect(linkedList.removeTail()).to.equal("second");
-        expect(linkedList.removeTail()).to.equal("first");
+        expect(linkedList.removeTail()).toBe("third");
+        expect(linkedList.removeTail()).toBe("second");
+        expect(linkedList.removeTail()).toBe("first");
       });
 
       it("should reassign the `tail` after the current tail node is removed", () => {
@@ -75,10 +74,10 @@ describe("A linked list implementation", () => {
         linkedList.addToTail("third");
 
         linkedList.removeTail(); // remove 'third'
-        expect(linkedList.tail.value).to.equal("second");
+        expect(linkedList.tail.value).toBe("second");
 
         linkedList.removeTail(); // remove 'second'
-        expect(linkedList.tail.value).to.equal("first");
+        expect(linkedList.tail.value).toBe("first");
       });
 
       it("should make sure the `next` of any newly appointed tail is null", () => {
@@ -87,16 +86,16 @@ describe("A linked list implementation", () => {
         linkedList.addToTail("third");
 
         linkedList.removeTail();
-        expect(linkedList.tail.value).to.equal("second");
-        expect(linkedList.tail.next).to.equal(null);
+        expect(linkedList.tail.value).toBe("second");
+        expect(linkedList.tail.next).toBe(null);
 
         linkedList.removeTail();
-        expect(linkedList.tail.value).to.equal("first");
-        expect(linkedList.tail.next).to.equal(null);
+        expect(linkedList.tail.value).toBe("first");
+        expect(linkedList.tail.next).toBe(null);
       });
 
       it("returns null if there is no tail to remove (ie: the list is empty, or all nodes have been removed)", () => {
-        expect(linkedList.removeTail()).to.equal(null);
+        expect(linkedList.removeTail()).toBe(null);
 
         linkedList.addToTail("first");
         linkedList.addToTail("second");
@@ -104,7 +103,7 @@ describe("A linked list implementation", () => {
         linkedList.removeTail();
         linkedList.removeTail();
         linkedList.removeTail();
-        expect(linkedList.removeTail()).to.equal(null);
+        expect(linkedList.removeTail()).toBe(null);
       });
     });
 
@@ -117,9 +116,9 @@ describe("A linked list implementation", () => {
         linkedList.addToTail("one");
         linkedList.addToTail("two");
         linkedList.addToTail("three");
-        expect(linkedList.search("one")).to.equal("one");
-        expect(linkedList.search("sdd")).to.equal(null);
-        expect(linkedList.search("three")).to.equal("three");
+        expect(linkedList.search("one")).toBe("one");
+        expect(linkedList.search("sdd")).toBe(null);
+        expect(linkedList.search("three")).toBe("three");
       });
 
       it("should be able to take functions as search inputs", () => {
@@ -128,7 +127,7 @@ describe("A linked list implementation", () => {
         const foundNode = linkedList.search((nodeValue) => {
           return nodeValue === "two";
         });
-        expect(foundNode).to.equal("two");
+        expect(foundNode).toBe("two");
       });
 
       // This spec demonstrates the utility of the previous spec.
@@ -149,52 +148,52 @@ describe("A linked list implementation", () => {
         const foundNode1 = linkedList.search((userNode) => {
           return userNode.name === "Nimit";
         });
-        expect(foundNode1.email).to.equal("nimit@fs.com");
+        expect(foundNode1.email).toBe("nimit@fs.com");
 
         const foundNode2 = linkedList.search((userNode) => {
           return userNode.email === "david@fs.com";
         });
-        expect(foundNode2.city).to.equal("New York");
+        expect(foundNode2.city).toBe("New York");
 
         const foundNode3 = linkedList.search((userNode) => {
           return userNode.city === "Mountain View";
         });
-        expect(foundNode3.name).to.equal("Paul");
+        expect(foundNode3.name).toBe("Paul");
       });
     });
 
     describe("`head` functionality, (doubly linked)", () => {
       it("has the functions `addToHead`, `removeHead`", () => {
-        expect(typeof linkedList.addToHead).to.equal("function");
-        expect(typeof linkedList.removeHead).to.equal("function");
+        expect(typeof linkedList.addToHead).toBe("function");
+        expect(typeof linkedList.removeHead).toBe("function");
       });
 
       describe("`addToHead` method", () => {
         it("should take a value as a parameter", () => {
           // the length of a function returns how many parameters it has
-          expect(linkedList.addToHead.length).to.equal(1);
+          expect(linkedList.addToHead.length).toBe(1);
         });
 
         it("should use `Node` class to add nodes", () => {
           linkedList.addToHead("first");
-          expect(linkedList.head instanceof Node).to.equal(true);
+          expect(linkedList.head instanceof Node).toBe(true);
         });
 
         it("should be able to add to head without removing or overwriting existing nodes", () => {
           linkedList.addToHead("first");
-          expect(linkedList.head.value).to.equal("first");
+          expect(linkedList.head.value).toBe("first");
 
           linkedList.addToHead("zeroth");
-          expect(linkedList.head.value).to.equal("zeroth");
-          expect(linkedList.head.next.value).to.equal("first");
+          expect(linkedList.head.value).toBe("zeroth");
+          expect(linkedList.head.next.value).toBe("first");
         });
 
         it("if the linked list consists of a single node after adding to head, that node should be both the head and the tail", () => {
           linkedList.addToHead("only");
-          expect(linkedList.head.value).to.equal("only");
-          expect(linkedList.head).to.equal(linkedList.tail);
-          expect(linkedList.head.next).to.equal(null);
-          expect(linkedList.head.previous).to.equal(null);
+          expect(linkedList.head.value).toBe("only");
+          expect(linkedList.head).toBe(linkedList.tail);
+          expect(linkedList.head.next).toBe(null);
+          expect(linkedList.head.previous).toBe(null);
         });
       });
 
@@ -203,9 +202,9 @@ describe("A linked list implementation", () => {
           linkedList.addToTail("first");
           linkedList.addToTail("second");
           linkedList.addToTail("third");
-          expect(linkedList.removeHead()).to.equal("first");
-          expect(linkedList.removeHead()).to.equal("second");
-          expect(linkedList.removeHead()).to.equal("third");
+          expect(linkedList.removeHead()).toBe("first");
+          expect(linkedList.removeHead()).toBe("second");
+          expect(linkedList.removeHead()).toBe("third");
         });
 
         it("should reassign the `head` after the current head node is removed", () => {
@@ -214,10 +213,10 @@ describe("A linked list implementation", () => {
           linkedList.addToTail("third");
 
           linkedList.removeHead(); // remove 'first'
-          expect(linkedList.head.value).to.equal("second");
+          expect(linkedList.head.value).toBe("second");
 
           linkedList.removeHead(); // remove 'second'
-          expect(linkedList.head.value).to.equal("third");
+          expect(linkedList.head.value).toBe("third");
         });
 
         it("should make sure the `previous` of any newly appointed head is null", () => {
@@ -226,16 +225,16 @@ describe("A linked list implementation", () => {
           linkedList.addToTail("third");
 
           linkedList.removeHead();
-          expect(linkedList.head.value).to.equal("second");
-          expect(linkedList.head.previous).to.equal(null);
+          expect(linkedList.head.value).toBe("second");
+          expect(linkedList.head.previous).toBe(null);
 
           linkedList.removeHead();
-          expect(linkedList.head.value).to.equal("third");
-          expect(linkedList.head.previous).to.equal(null);
+          expect(linkedList.head.value).toBe("third");
+          expect(linkedList.head.previous).toBe(null);
         });
 
         it("returns null if there is no head to remove (ie: the list is empty, or all nodes have been removed)", () => {
-          expect(linkedList.removeHead()).to.equal(null);
+          expect(linkedList.removeHead()).toBe(null);
 
           linkedList.addToTail("first");
           linkedList.addToTail("second");
@@ -243,14 +242,14 @@ describe("A linked list implementation", () => {
           linkedList.removeHead();
           linkedList.removeHead();
           linkedList.removeHead();
-          expect(linkedList.removeHead()).to.equal(null);
+          expect(linkedList.removeHead()).toBe(null);
         });
 
         it("should reset head and tail to null when last node is removed", () => {
           linkedList.addToTail("first");
           linkedList.removeHead();
-          expect(linkedList.head).to.equal(null);
-          expect(linkedList.tail).to.equal(null);
+          expect(linkedList.head).toBe(null);
+          expect(linkedList.tail).toBe(null);
         });
       });
     });
