@@ -1,5 +1,4 @@
 import { flipomatic } from "../07-flipomatic.js";
-import { expect } from "chai";
 import {
   flipStart,
   flipEnd,
@@ -16,22 +15,19 @@ import {
 } from "../data/07-flipomatic.data.js";
 
 describe("#7: flipomatic", () => {
-  expect(flipomatic).to.be.a(
-    "function",
-    "No `flipomatic` function found; please check if defined and exported correctly."
-  );
+  expect(typeof flipomatic).toBe("function");
 
   describe("returns an array", () => {
     it("if there's a 'flip'", () => {
       flipArrs.forEach((arr) => {
         const result = flipomatic(arr);
-        expect(result).to.be.an("array");
+        expect(Array.isArray(result)).toBe(true);
       });
     });
     it("if there's no 'flip'", () => {
       noFlipArrs.forEach((arr) => {
         const result = flipomatic(arr);
-        expect(result).to.be.an("array");
+        expect(Array.isArray(result)).toBe(true);
       });
     });
   });
@@ -39,24 +35,24 @@ describe("#7: flipomatic", () => {
   describe("outputs an array of numbers, in the correct order", () => {
     describe("if there's a 'flip'", () => {
       it("at the front of the array", () => {
-        expect(flipomatic(flipStart)).to.deep.equal([5, 4, 3, 2, 1]);
+        expect(flipomatic(flipStart)).toEqual([5, 4, 3, 2, 1]);
       });
 
       it("at the back of the array", () => {
-        expect(flipomatic(flipEnd)).to.deep.equal([1, 2, 3, 4, 5]);
+        expect(flipomatic(flipEnd)).toEqual([1, 2, 3, 4, 5]);
       });
 
       it("somewhere in the middle of the array", () => {
-        expect(flipomatic(hasFlip1)).to.deep.equal([5, 4, 3, 2, 1]);
-        expect(flipomatic(hasFlip2)).to.deep.equal([5, 4, 3, 1, 2]);
-        expect(flipomatic(hasFlip3)).to.deep.equal([5, 4, 1, 2, 3]);
-        expect(flipomatic(hasFlip4)).to.deep.equal([5, 1, 2, 3, 4]);
+        expect(flipomatic(hasFlip1)).toEqual([5, 4, 3, 2, 1]);
+        expect(flipomatic(hasFlip2)).toEqual([5, 4, 3, 1, 2]);
+        expect(flipomatic(hasFlip3)).toEqual([5, 4, 1, 2, 3]);
+        expect(flipomatic(hasFlip4)).toEqual([5, 1, 2, 3, 4]);
       });
     });
 
     it("if there's no 'flip'", () => {
-      expect(flipomatic(noFlip1)).to.deep.equal(noFlip1);
-      expect(flipomatic(noFlip2)).to.deep.equal(noFlip2);
+      expect(flipomatic(noFlip1)).toEqual(noFlip1);
+      expect(flipomatic(noFlip2)).toEqual(noFlip2);
     });
   });
 
@@ -65,7 +61,7 @@ describe("#7: flipomatic", () => {
       twoFlip.forEach(({ val, ans }) => {
         it(`[${val}] => [${ans}]`, () => {
           const result = flipomatic(val);
-          expect(result).to.deep.equal(ans);
+          expect(result).toEqual(ans);
         });
       });
     });
@@ -74,7 +70,7 @@ describe("#7: flipomatic", () => {
       multiFlip.forEach(({ val, ans }) => {
         it(`[${val}] => [${ans}]`, () => {
           const result = flipomatic(val);
-          expect(result).to.deep.equal(ans);
+          expect(result).toEqual(ans);
         });
       });
     });

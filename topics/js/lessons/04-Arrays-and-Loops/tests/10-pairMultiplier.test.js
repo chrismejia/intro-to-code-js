@@ -1,4 +1,3 @@
-import { expect } from "chai";
 import { pairMultiplier } from "../10-pairMultiplier.js";
 import {
   firstArrSmaller,
@@ -7,16 +6,13 @@ import {
 } from "../data/10-pairMultiplier.data.js";
 
 describe("#10: pairMultiplier", () => {
-  expect(pairMultiplier).to.be.a(
-    "function",
-    "No `pairMultiplier` function found; please check if defined and exported correctly."
-  );
+  expect(typeof pairMultiplier).toBe("function");
 
   describe("returns an array of multiplied numbers, in the correct order", () => {
     describe("when both arrays are the same size", () => {
       sameArraySizes.forEach(({ arr1, arr2, result }) => {
         it(`[${arr1}], [${arr2}] -> [${result}]`, () => {
-          expect(pairMultiplier(arr1, arr2)).to.deep.equal(result);
+          expect(pairMultiplier(arr1, arr2)).toEqual(result);
         });
       });
     });
@@ -24,7 +20,7 @@ describe("#10: pairMultiplier", () => {
     describe("first array smaller than second", () => {
       firstArrSmaller.forEach(({ arr1, arr2, result }) => {
         it(`[${arr1}], [${arr2}] -> [${result}]`, () => {
-          expect(pairMultiplier(arr1, arr2)).to.deep.equal(result);
+          expect(pairMultiplier(arr1, arr2)).toEqual(result);
         });
       });
     });
@@ -32,7 +28,7 @@ describe("#10: pairMultiplier", () => {
     describe("second array smaller than first", () => {
       secondArrSmaller.forEach(({ arr1, arr2, result }) => {
         it(`[${arr1}], [${arr2}] -> [${result}]`, () => {
-          expect(pairMultiplier(arr1, arr2)).to.deep.equal(result);
+          expect(pairMultiplier(arr1, arr2)).toEqual(result);
         });
       });
     });

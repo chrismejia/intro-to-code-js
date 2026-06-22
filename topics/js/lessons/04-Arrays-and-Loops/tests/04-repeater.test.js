@@ -1,19 +1,15 @@
 import { repeater } from "../04-repeater.js";
-import { expect } from "chai";
 
 describe("#4: repeater", () => {
-  expect(repeater).to.be.a(
-    "function",
-    "No `repeater` function found; please check if defined and exported correctly."
-  );
+  expect(typeof repeater).toBe("function");
 
   describe("returns a string", () => {
     it("repeated 0 times -> an empty string", () => {
-      expect(repeater("empty string")).to.equal("");
+      expect(repeater("empty string")).toBe("");
     });
 
     it("repeated 1 time -> the input string", () => {
-      expect(repeater("one time only", 1)).to.equal("one time only");
+      expect(repeater("one time only", 1)).toBe("one time only");
     });
 
     describe("repeated multiple times", () => {
@@ -26,7 +22,7 @@ describe("#4: repeater", () => {
 
       strings.forEach(({ str, times, result }) => {
         it(`'${str}', ${times} -> '${result}'`, () => {
-          expect(repeater(str, times)).to.equal(result);
+          expect(repeater(str, times)).toBe(result);
         });
       });
     });
@@ -39,7 +35,7 @@ describe("#4: repeater", () => {
 
       negVals.forEach((val) => {
         const result = repeater(baseStr, val);
-        expect(result).to.equal("");
+        expect(result).toBe("");
       });
     });
   });

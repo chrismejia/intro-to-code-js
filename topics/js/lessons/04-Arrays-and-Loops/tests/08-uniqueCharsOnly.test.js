@@ -1,5 +1,4 @@
 import { uniqueCharsOnly } from "../08-uniqueCharsOnly.js";
-import { expect } from "chai";
 import {
   singleRepeatingStr,
   fewCharRepeats,
@@ -8,17 +7,14 @@ import {
 } from "../data/08-uniqueCharsOnly.data.js";
 
 describe("#8: uniqueCharsOnly", () => {
-  expect(uniqueCharsOnly).to.be.a(
-    "function",
-    "No `uniqueCharsOnly` function found; please check if defined and exported correctly."
-  );
+  expect(typeof uniqueCharsOnly).toBe("function");
 
   describe("returns an array of the unique characters in the string", () => {
     describe("if the string is one repeating character", () => {
       singleRepeatingStr.forEach(({ val, ans }) => {
         it(`"${val}" => ${JSON.stringify(ans)}`, () => {
           const result = uniqueCharsOnly(val);
-          expect(result).to.deep.equal(ans);
+          expect(result).toEqual(ans);
         });
       });
     });
@@ -27,7 +23,7 @@ describe("#8: uniqueCharsOnly", () => {
       fewCharRepeats.forEach(({ val, ans }) => {
         it(`"${val}" => ${JSON.stringify(ans)}`, () => {
           const result = uniqueCharsOnly(val);
-          expect(result).to.deep.equal(ans);
+          expect(result).toEqual(ans);
         });
       });
     });
@@ -36,7 +32,7 @@ describe("#8: uniqueCharsOnly", () => {
       hasDoubleLetters.forEach(({ val, ans }) => {
         it(`"${val}" => ${JSON.stringify(ans)}`, () => {
           const result = uniqueCharsOnly(val);
-          expect(result).to.deep.equal(ans);
+          expect(result).toEqual(ans);
         });
       });
     });
@@ -45,7 +41,7 @@ describe("#8: uniqueCharsOnly", () => {
       allUniqueLetters.forEach(({ val, ans }) => {
         it(`"${val}" => ${JSON.stringify(ans)}`, () => {
           const result = uniqueCharsOnly(val);
-          expect(result).to.deep.equal(ans);
+          expect(result).toEqual(ans);
         });
       });
     });

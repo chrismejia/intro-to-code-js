@@ -1,32 +1,28 @@
 import { valueLocator } from "../06-valueLocator.js";
-import { expect } from "chai";
 import { arr, foundVals, notFoundVals } from "../data/06-valueLocator.data.js";
 
 describe("#6: valueLocator", () => {
-  expect(valueLocator).to.be.a(
-    "function",
-    "No `valueLocator` function found; please check if defined and exported correctly."
-  );
+  expect(typeof valueLocator).toBe("function");
 
   describe("when searchValue is found in the array", () => {
     it("returns phrase containing search term", () => {
       foundVals.forEach(({ val }) => {
         const foundResult = valueLocator(val, arr);
-        expect(foundResult).includes(val);
+        expect(foundResult).toContain(val);
       });
     });
 
     it("returns phrase containing original array", () => {
       foundVals.forEach(({ val }) => {
         const foundResult = valueLocator(val, arr);
-        expect(foundResult).includes(`[${arr}]`);
+        expect(foundResult).toContain(`[${arr}]`);
       });
     });
 
     it("returns phrase containing index of search term", () => {
       foundVals.forEach(({ val, idx }) => {
         const foundResult = valueLocator(val, arr);
-        expect(foundResult).includes(`at index ${idx}`);
+        expect(foundResult).toContain(`at index ${idx}`);
       });
     });
   });
@@ -35,21 +31,21 @@ describe("#6: valueLocator", () => {
     it("returns phrase containing searchTerm", () => {
       notFoundVals.forEach((val) => {
         const absentResult = valueLocator(val, arr);
-        expect(absentResult).includes(val);
+        expect(absentResult).toContain(val);
       });
     });
 
     it("returns phrase detailing the searchTerm is not found", () => {
       notFoundVals.forEach((val) => {
         const absentResult = valueLocator(val, arr);
-        expect(absentResult).includes("cannot be found in the array");
+        expect(absentResult).toContain("cannot be found in the array");
       });
     });
 
     it("returns phrase containing original array", () => {
       notFoundVals.forEach((val) => {
         const absentResult = valueLocator(val, arr);
-        expect(absentResult).includes(`[${arr}]`);
+        expect(absentResult).toContain(`[${arr}]`);
       });
     });
   });
