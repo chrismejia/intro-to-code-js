@@ -12,7 +12,7 @@
     "test:03": "npm run test:jest -- lessons/03-Methods-and-Functions/tests",
     "test:04": "npm run test:jest -- lessons/04-Arrays-and-Loops/tests",
     "test:05": "mocha './lessons/05-Callbacks-Iterators/tests/**.js'",
-    "test:06": "mocha './lessons/06-Objects/tests/**.js'",
+    "test:06": "npm run test:jest -- lessons/06-Objects/tests",
     "test:07": "mocha './lessons/07-Adv-Objects/tests/**.js'",
     "test:08": "mocha './lessons/08-Async-Await-APIs/tests/**.js'",
     "server:08": "mocha './lessons/08-Async-Await-APIs/server/tests/**.js'",
