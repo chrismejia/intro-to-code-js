@@ -1,4 +1,3 @@
-import { expect } from "chai";
 import { objectToString } from "../03-objectToString.js";
 import {
   simpleObj,
@@ -14,31 +13,31 @@ import {
 describe("#3: objectToString", () => {
   it("returns a string", () => {
     const result = objectToString({});
-    expect(result).to.be.a("string");
+    expect(typeof result).toBe("string");
   });
 
   it('should serialize an empty object to "{}"', () => {
     const result = objectToString({});
-    expect(result).to.equal("{}");
+    expect(result).toBe("{}");
   });
 
   it("should serialize a simple object to a JSON string", () => {
     const result = objectToString(simpleObj);
-    expect(result).to.equal(simpleObjAsString);
+    expect(result).toBe(simpleObjAsString);
   });
 
   it("should serialize a nested object to a JSON string", () => {
     const result = objectToString(nestedObj);
-    expect(result).to.equal(nestedObjAsString);
+    expect(result).toBe(nestedObjAsString);
   });
 
   it("should serialize an object with arrays to a JSON string", () => {
     const result = objectToString(arrayWithObjects);
-    expect(result).to.equal(arrayWithObjectsAsString);
+    expect(result).toBe(arrayWithObjectsAsString);
   });
 
   it("should handle an object with special characters correctly", () => {
     const result = objectToString(specialCharsObj);
-    expect(result).to.equal(specialCharsObjAsString);
+    expect(result).toBe(specialCharsObjAsString);
   });
 });

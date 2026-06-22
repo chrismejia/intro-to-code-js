@@ -1,4 +1,3 @@
-import { expect } from "chai";
 import { classSorter } from "../08-classSorter.js";
 import {
   emptyRoster,
@@ -17,38 +16,38 @@ import {
 describe("#8: classSorter", () => {
   it("should return an empty object for an empty roster", () => {
     const sortedClasses = classSorter(emptyRoster);
-    expect(sortedClasses).to.deep.equal({});
+    expect(sortedClasses).toEqual({});
   });
 
   describe("should correctly sort a roster", () => {
     describe("one grade", () => {
       it("only students", () => {
         const sortedClasses = classSorter(onlyStudentsRoster);
-        expect(sortedClasses).to.deep.equal(onlyStudentsExpected);
+        expect(sortedClasses).toEqual(onlyStudentsExpected);
       });
 
       it("only teachers", () => {
         const sortedClasses = classSorter(onlyTeachersRoster);
-        expect(sortedClasses).to.deep.equal(onlyTeachersExpected);
+        expect(sortedClasses).toEqual(onlyTeachersExpected);
       });
 
       it("students and teachers", () => {
         const sortedClasses = classSorter(oneGradeSaTRoster);
-        expect(sortedClasses).to.deep.equal(oneGradeSaTExpected);
+        expect(sortedClasses).toEqual(oneGradeSaTExpected);
       });
     });
 
     describe("two grades", () => {
       it("students and teachers", () => {
         const sortedClasses = classSorter(twoGradeSaTRoster);
-        expect(sortedClasses).to.deep.equal(twoGradeSaTExpected);
+        expect(sortedClasses).toEqual(twoGradeSaTExpected);
       });
     });
 
     describe("multiple grades", () => {
       it("students and teachers", () => {
         const sortedClasses = classSorter(multipleGradeSaTRoster);
-        expect(sortedClasses).to.deep.equal(multipleGradeSaTExpected);
+        expect(sortedClasses).toEqual(multipleGradeSaTExpected);
       });
     });
   });

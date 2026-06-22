@@ -1,4 +1,3 @@
-import { expect } from "chai";
 import { objectFlattener } from "../13-objectFlattener.js";
 import {
   noObjVal,
@@ -14,22 +13,22 @@ describe("#13: objectFlattener", () => {
   describe("objectFlattener", () => {
     it("returns the same object untouched if there are no nested objects", () => {
       const result = objectFlattener(noObjVal);
-      expect(result).to.deep.equal(noObjVal);
+      expect(result).toEqual(noObjVal);
     });
 
     it("flattens a single-nested object", () => {
       const result = objectFlattener(oneObjVal);
-      expect(result).to.deep.equal(oneObjExpected);
+      expect(result).toEqual(oneObjExpected);
     });
 
     it("flattens multiple nested objects", () => {
       const result = objectFlattener(multiObjVal);
-      expect(result).to.deep.equal(multiObjExpected);
+      expect(result).toEqual(multiObjExpected);
     });
 
     it("flattens nested objects with array values", () => {
       const result = objectFlattener(arrayObjVal);
-      expect(result).to.deep.equal(arrayObjExpected);
+      expect(result).toEqual(arrayObjExpected);
     });
   });
 });
