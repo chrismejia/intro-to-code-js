@@ -9,7 +9,7 @@
     "test:jest": "node --experimental-vm-modules ../../node_modules/jest/bin/jest.js --config ./jest.config.cjs --runInBand",
     "test:01": "npm run test:jest -- lessons/01-Values-and-Data-Types/01-valuesTypes.test.js",
     "test:02": "npm run test:jest -- lessons/02-Conditionals/tests",
-    "test:03": "mocha './lessons/03-Methods-and-Functions/tests/**.js'",
+    "test:03": "npm run test:jest -- lessons/03-Methods-and-Functions/tests",
     "test:04": "mocha './lessons/04-Arrays-and-Loops/tests/**.js'",
     "test:05": "mocha './lessons/05-Callbacks-Iterators/tests/**.js'",
     "test:06": "mocha './lessons/06-Objects/tests/**.js'",
