@@ -16,6 +16,7 @@
     "test:06": "npm --workspace @intro-to-code/js run test:06",
     "test:07": "npm --workspace @intro-to-code/js run test:07",
     "test:08": "npm --workspace @intro-to-code/js run test:08",
+    "test:08-server": "npm --workspace @intro-to-code/js run test:08-server",
     "server:08": "npm --workspace @intro-to-code/js run server:08",
     "test:09": "npm --workspace @intro-to-code/js run test:09",
     "test:10": "npm --workspace @intro-to-code/js run test:10",

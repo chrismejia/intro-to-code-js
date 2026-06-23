@@ -58,7 +58,7 @@ jobs:
           - suite: 08 - Async Await APIs
             command: npm run test:08
           - suite: 08 - Async Await APIs Server
-            command: npm run server:08
+            command: npm run test:08-server
           - suite: 09 - Recursion
             command: npm run test:09
           - suite: 10 - Classes
