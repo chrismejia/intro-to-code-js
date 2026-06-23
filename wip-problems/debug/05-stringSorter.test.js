@@ -18,7 +18,7 @@ import {
 } from "./data/stringSorter.data";
 import { stringSorter } from "../05-stringSorter";
 
-describe.only("#5: stringSorter", () => {
+describe("#5: stringSorter", () => {
   describe("accepts two inputs", () => {
     const sortCBSpy = sinon.spy(moreThanFiveChars);
     const sorterSpy = sinon.spy(stringSorter);

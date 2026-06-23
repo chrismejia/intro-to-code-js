@@ -6,7 +6,7 @@ import {
 } from "../data/typeCollector.data";
 import typeCollector from "../05-typeCollector";
 
-describe.only("#5: typeCollector", () => {
+describe("#5: typeCollector", () => {
   describe("returns an object", () => {
     it("when inputObj has only one value of one type", () => {
       oneOfOneType.forEach((obj) =>
