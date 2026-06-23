@@ -22,6 +22,7 @@
     "test:11": "npm --workspace @intro-to-code/js run test:11",
     "test:projects": "npm --workspace @intro-to-code/js run test:projects",
     "test:twitter": "npm --workspace @intro-to-code/js run test:twitter",
+    "check:focused-tests": "node scripts/checkFocusedTests.mjs",
     "test:debug": "mocha './debug/tests/**.test.js'",
     "test:mochawesome": "mocha './**/**.js' --reporter=mochawesome --reporter-options autoOpen=true"
   },
