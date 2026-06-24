@@ -1,20 +1,15 @@
-import { expect } from "chai";
+import { jest } from "@jest/globals";
 import { firstSuccessfulResult } from "../03-firstSuccessfulResult.js";
-import { spy } from "sinon";
 
-describe("firstSuccessfulResult", function () {
-  this.timeout(5000); // Ensures the test has enough time to run all promises
-
+describe("firstSuccessfulResult", () => {
   let consoleLogSpy;
 
   beforeEach(() => {
-    // Create a spy for console.log
-    consoleLogSpy = spy(console, "log");
+    consoleLogSpy = jest.spyOn(console, "log").mockImplementation(() => {});
   });
 
   afterEach(() => {
-    // Restore the original console.log after each test
-    consoleLogSpy.restore();
+    jest.restoreAllMocks();
   });
 
   describe("should return the result of the first successfully resolved task", () => {
@@ -27,7 +22,7 @@ describe("firstSuccessfulResult", function () {
 
       const result = await firstSuccessfulResult(tasks);
 
-      expect(result).to.equal("Success");
+      expect(result).toBe("Success");
     });
 
     it("when that Promise is middle-of-the-pack to resolve", async () => {
@@ -39,7 +34,7 @@ describe("firstSuccessfulResult", function () {
 
       const result = await firstSuccessfulResult(tasks);
 
-      expect(result).to.equal("Success");
+      expect(result).toBe("Success");
     });
 
     it("when that Promise is last to resolve", async () => {
@@ -51,7 +46,7 @@ describe("firstSuccessfulResult", function () {
 
       const result = await firstSuccessfulResult(tasks);
 
-      expect(result).to.equal("Success");
+      expect(result).toBe("Success");
     });
   });
 
@@ -61,11 +56,9 @@ describe("firstSuccessfulResult", function () {
       new Promise((_, reject) => setTimeout(() => reject("Failure 2"), 400)),
     ];
 
-    try {
-      await firstSuccessfulResult(allFailedTasks);
-    } catch (error) {
-      expect(error.message).to.equal("All tasks failed");
-    }
+    await expect(firstSuccessfulResult(allFailedTasks)).rejects.toThrow(
+      "All tasks failed"
+    );
   });
 
   describe('should log "All tasks completed"', () => {
@@ -76,7 +69,7 @@ describe("firstSuccessfulResult", function () {
       ];
 
       await firstSuccessfulResult(tasks);
-      expect(consoleLogSpy.calledWith("All tasks completed")).to.be.true;
+      expect(consoleLogSpy).toHaveBeenCalledWith("All tasks completed");
     });
 
     it("when all tasks fail", async () => {
@@ -85,12 +78,10 @@ describe("firstSuccessfulResult", function () {
         new Promise((_, reject) => setTimeout(() => reject("Failure 2"), 300)),
       ];
 
-      try {
-        await firstSuccessfulResult(tasks);
-      } catch (error) {
-        expect(error.message).to.equal("All tasks failed");
-      }
-      expect(consoleLogSpy.calledWith("All tasks completed")).to.be.true;
+      await expect(firstSuccessfulResult(tasks)).rejects.toThrow(
+        "All tasks failed"
+      );
+      expect(consoleLogSpy).toHaveBeenCalledWith("All tasks completed");
     });
   });
 });
