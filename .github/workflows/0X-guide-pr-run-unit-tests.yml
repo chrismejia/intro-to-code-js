@@ -15,8 +15,27 @@ on:
     types: [opened, synchronize, reopened]
 
 jobs:
+  focused-test-guard:
+    name: Focused test guard
+    runs-on: ubuntu-latest
+    steps:
+      # Checkout the code
+      - name: Checkout repository
+        uses: actions/checkout@v7
+
+      # Set up Node.js
+      - name: Set up Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: "24"
+
+      # Guard against accidentally committed focused tests
+      - name: Check for focused tests
+        run: npm run check:focused-tests
+
   test:
     name: ${{ matrix.suite }}
+    needs: focused-test-guard
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
@@ -39,7 +58,7 @@ jobs:
           - suite: 08 - Async Await APIs
             command: npm run test:08
           - suite: 08 - Async Await APIs Server
-            command: npm run server:08
+            command: npm run test:08-server
           - suite: 09 - Recursion
             command: npm run test:09
           - suite: 10 - Classes
