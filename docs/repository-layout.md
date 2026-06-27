@@ -44,13 +44,16 @@ The topic workspace package should own the real filesystem paths, such as:
 ```json
 {
   "scripts": {
-    "test:09": "mocha './lessons/09-Recursion/tests/**.js'",
-    "test:projects": "mocha './projects/**/tests/**.js'"
+    "test:jest": "node --experimental-vm-modules ../../node_modules/jest/bin/jest.js --config ./jest.config.cjs --runInBand --ci",
+    "test:09": "npm run test:jest -- lessons/09-Recursion/tests",
+    "test:projects": "npm run test:jest -- projects"
   }
 }
 ```
 
 This keeps docs, CI, and muscle memory stable if topic internals move later.
+
+For the JS workspace, Jest configuration lives in `topics/js/jest.config.cjs`. The shared `test:jest` script owns the Jest invocation, native ESM flag, serial execution, and CI mode. Per-lesson scripts should pass only the lesson or project path into that shared runner.
 
 ## Adding Topics
 
@@ -91,6 +94,8 @@ The repo has different audiences across branches:
 - `main`: student-facing release branch. Current files should not contain answers or instructor-only material.
 
 Do not merge answer-rich instructor work directly into `main`.
+
+Testing should follow the same audience split. Pull requests targeting `0X-Guide` should run active guide tests and expect them to pass against answer-bearing files. Student-facing `main` should keep tests pending, skipped, or otherwise safe for starter-code files.
 
 ## Future AGENTS.md Guidance
 
