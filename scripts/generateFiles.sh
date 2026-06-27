@@ -38,25 +38,24 @@ EOL
 
 # Create the test file
 cat <<EOL > "./wip-problems/tests/$BASE_NAME.test.js"
-import { expect } from 'chai';
 import { $FUNCTION_NAME } from '../$BASE_NAME.js';
 import { baseData, baseExpected, caseOne, caseOneExpected } from '../data/$BASE_NAME.data.js';
 
 describe("#XX: $FUNCTION_NAME", () => {
   it('base condition met', () => {
     const result = $FUNCTION_NAME(baseData);
-    expect(result).to.deep.equal(baseExpected);
+    expect(result).toEqual(baseExpected);
   });
 
   describe("nested set of conditions", () => {
     it("nested test condition", () => {
       const result = $FUNCTION_NAME(baseData);
-      expect(result).to.deep.equal(baseExpected);
+      expect(result).toEqual(baseExpected);
     });
 
     it("other nested test condition", () => {
       const result = $FUNCTION_NAME(caseOne);
-      expect(result).to.deep.equal(caseOneExpected);
+      expect(result).toEqual(caseOneExpected);
     });
   });
 });
