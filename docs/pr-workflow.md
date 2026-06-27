@@ -51,6 +51,7 @@ Run the commands that prove the change is wired correctly. Examples:
 
 ```shell
 npm pkg get workspaces scripts.test:js
+npm run check:focused-tests
 npm run test:09
 git diff --check
 ```

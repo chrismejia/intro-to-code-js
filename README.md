@@ -93,7 +93,7 @@ The root `package.json` keeps friendly command names like `npm run test:04`, and
 
 Some lessons use one `index.js` file. Others use one file per problem, with tests in a `tests` folder and test data in a `data` folder.
 
-Some test files may use `xdescribe` or `xit` to keep later tests inactive. When you are ready to work on that problem, remove the leading `x` so it becomes `describe` or `it`, then run the test command again.
+Some test files may use `describe.skip`, `it.skip`, or `test.skip` to keep later tests inactive. When you are ready to work on that problem, remove `.skip`, then run the test command again.
 
 When tests fail, look for the first failing test name and the error message below it. The output often includes a file path and line number to help you find where the test noticed the problem.
 
@@ -112,7 +112,7 @@ From the repo root, type the command exactly as shown. These commands use a colo
 | 06 - Objects                            | `npm run test:06`       |
 | 07 - Advanced Objects                   | `npm run test:07`       |
 | 08 - Async Await APIs                   | `npm run test:08`       |
-| 08 - Async Await APIs server            | `npm run server:08`     |
+| 08 - Async Await APIs server            | `npm run test:08-server` |
 | 09 - Recursion                          | `npm run test:09`       |
 | 10 - Classes                            | `npm run test:10`       |
 | 11 - Data Structures                    | `npm run test:11`       |
@@ -126,6 +126,8 @@ npm --workspace @intro-to-code/js run test:09
 ```
 
 The root commands are preferred for day-to-day use because they stay stable even if lesson folders move inside the workspace.
+
+The legacy alias `npm run server:08` still runs the lesson 08 server tests, but `npm run test:08-server` is the clearer current command.
 
 ## Git Workflow
 
