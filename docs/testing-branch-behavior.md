@@ -74,8 +74,9 @@ for example:
 if: github.repository == 'chrismejia/intro-to-code-js'
 ```
 
-The `Student Main Clean Check` workflow uses that condition so fork-owned repos
-can keep local class material without fighting upstream release rules.
+The `Student Main Clean Check` workflow uses that condition for pull requests
+and pushes to `main`, so fork-owned repos can keep local class material without
+fighting upstream release rules.
 
 Do not block fork-owned `main` pushes just because a student's fork contains a
 `notes/` folder or class material they were given for their own work.
