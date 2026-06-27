@@ -7,6 +7,7 @@ This folder holds maintainer-facing notes for repository organization and curric
 - [Git basics](git-basics.md): beginner-friendly Git commands and expected status messages.
 - [Branching and PR workflow](pr-workflow.md): issue branches, pull requests, and target branch expectations.
 - [Repository layout](repository-layout.md): topic workspace structure, script ownership, branch-audience notes, and future `AGENTS.md` guidance.
+- [Testing branch behavior](testing-branch-behavior.md): Jest expectations for guide, release staging, upstream `main`, and student forks.
 - `chatgpt/`: prompt/support material for generating or revising lesson JSDoc.
 
 Student-facing setup and test instructions belong in the root [README.md](../README.md). Keep this folder focused on how the repository is organized and maintained.
@@ -25,7 +26,7 @@ Generated WIP problem tests come from `scripts/generateFiles.sh` and should use 
 
 The focused-test guard lives at `scripts/checkFocusedTests.mjs` and is exposed as `npm run check:focused-tests`. It should fail if `describe.only`, `it.only`, or `test.only` appears in active curriculum or WIP paths.
 
-For branch expectations, `0X-Guide` should run active guide tests against answer-bearing files. Student-facing `main` should not ship filled answers, and its tests should be pending, skipped, or otherwise safe for starter-code files. Use `dev` as the staging branch for preparing that student-clean state.
+For branch expectations, `0X-Guide` should run active guide tests against answer-bearing files. Student-facing `main` should not ship filled answers, and its tests should be pending, skipped, or otherwise safe for starter-code files. Use `dev` as the staging branch for preparing that student-clean state. See [Testing branch behavior](testing-branch-behavior.md) for the release checklist and fork-specific notes.
 
 ## Future AGENTS.md Note
 
