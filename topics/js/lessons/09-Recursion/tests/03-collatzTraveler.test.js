@@ -2,7 +2,7 @@ import { jest } from "@jest/globals";
 import { testNums, correctCounts } from "../data/03-collatzTraveler.data.js";
 import { wrapper } from "../03-collatzTraveler.js";
 
-xdescribe("#3: collatzTripCounter", () => {
+describe.skip("#3: collatzTripCounter", () => {
   afterEach(() => {
     jest.restoreAllMocks();
   });

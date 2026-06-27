@@ -1,7 +1,7 @@
 import { jest } from "@jest/globals";
 import countToTen from "../01-countToTen.js";
 
-xdescribe("#1: countToTen", () => {
+describe.skip("#1: countToTen", () => {
   const runCountToTen = () => {
     const logSpy = jest.spyOn(console, "log").mockImplementation(() => {});
     const countSpy = jest.fn(countToTen);
