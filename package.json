@@ -23,9 +23,7 @@
     "test:11": "npm --workspace @intro-to-code/js run test:11",
     "test:projects": "npm --workspace @intro-to-code/js run test:projects",
     "test:twitter": "npm --workspace @intro-to-code/js run test:twitter",
-    "check:focused-tests": "node scripts/checkFocusedTests.mjs",
-    "test:debug": "mocha './debug/tests/**.test.js'",
-    "test:mochawesome": "mocha './**/**.js' --reporter=mochawesome --reporter-options autoOpen=true"
+    "check:focused-tests": "node scripts/checkFocusedTests.mjs"
   },
   "repository": {
     "type": "git",
@@ -43,16 +41,13 @@
     "@babel/preset-env": "^7.22.5",
     "@babel/register": "^7.22.5",
     "@faker-js/faker": "^9.4.0",
-    "chai": "^4.5.0",
     "jest": "^30.4.2",
     "jsdoc-to-markdown": "^7.0.1",
     "jsdocs": "^1.0.0",
-    "mocha": "^8.4.0",
     "nodemon": "^2.0.22",
     "supertest": "^7.0.0"
   },
   "dependencies": {
-    "express": "^4.21.2",
-    "sinon": "^18.0.0"
+    "express": "^4.21.2"
   }
 }

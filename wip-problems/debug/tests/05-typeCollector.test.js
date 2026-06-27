@@ -1,4 +1,3 @@
-import { expect } from "chai";
 import {
   oneOfOneType,
   manyOfOneType,
@@ -10,19 +9,19 @@ describe("#5: typeCollector", () => {
   describe("returns an object", () => {
     it("when inputObj has only one value of one type", () => {
       oneOfOneType.forEach((obj) =>
-        expect(typeCollector(obj)).to.be.an("object")
+        expect(typeCollector(obj)).toEqual(expect.any(Object))
       );
     });
 
     it("when inputObj has many values of one type", () => {
       manyOfOneType.forEach((obj) =>
-        expect(typeCollector(obj)).to.be.an("object")
+        expect(typeCollector(obj)).toEqual(expect.any(Object))
       );
     });
 
     it("when inputObj has many values of many types", () => {
       manyOfManyTypes.forEach((obj) =>
-        expect(typeCollector(obj)).to.be.an("object")
+        expect(typeCollector(obj)).toEqual(expect.any(Object))
       );
     });
   });
@@ -34,7 +33,7 @@ describe("#5: typeCollector", () => {
           const testObjKeysCount = Object.keys(obj).length;
           const resultKeysCount = Object.keys(obj).length;
 
-          expect(resultKeysCount).to.equal(testObjKeysCount);
+          expect(resultKeysCount).toBe(testObjKeysCount);
         });
       });
     });
@@ -44,7 +43,7 @@ describe("#5: typeCollector", () => {
         it(`${JSON.stringify(obj)}`, () => {
           const testObjKeysCount = Object.keys(obj).length;
           const resultKeysCount = Object.keys(obj).length;
-          expect(resultKeysCount).to.equal(testObjKeysCount);
+          expect(resultKeysCount).toBe(testObjKeysCount);
         });
       });
     });
@@ -54,7 +53,7 @@ describe("#5: typeCollector", () => {
         it(`${JSON.stringify(obj)}`, () => {
           const testObjKeysCount = Object.keys(obj).length;
           const resultKeysCount = Object.keys(obj).length;
-          expect(resultKeysCount).to.equal(testObjKeysCount);
+          expect(resultKeysCount).toBe(testObjKeysCount);
         });
       });
     });
@@ -79,7 +78,7 @@ describe("#5: typeCollector", () => {
         (key, index) => key === expectedKeys[index]
       );
 
-      expect(keyTester).to.be.true;
+      expect(keyTester).toBe(true);
     });
   });
 
@@ -96,7 +95,7 @@ describe("#5: typeCollector", () => {
   //   const resultKeys = Object.keys(typeCollector(obj));
   //   const typesCheck = types.every((type) => resultKeys.indexOf(type) !== -1);
 
-  //   expect(resultKeys).to.equal(typesCheck);
+  //   expect(resultKeys).toBe(typesCheck);
   // });
   // manyOfManyTypes.forEach((obj) => {
   //   const types = Object.values(obj).map((value) => {
@@ -108,6 +107,6 @@ describe("#5: typeCollector", () => {
   //   const resultKeys = Object.keys(typeCollector(obj));
   //   const typesCheck = types.every((type) => resultKeys.indexOf(type) !== -1);
 
-  //   expect(resultKeys).to.equal(typesCheck);
+  //   expect(resultKeys).toBe(typesCheck);
   // });
 });

@@ -56,12 +56,12 @@ myConcat(firstArray, secondArray);
 // console.log(firstArray)
 // console.log(secondArray)
 
-import { expect } from "chai";
-
-describe("#: myConcat", () => {
+describe.skip("#: myConcat", () => {
   const arr1 = [1, 2, 3];
   const arr2 = [4, 5, 6];
   it("doesn't modify either input array", () => {
-    expect(myConcat.)
+    expect(myConcat(arr1, arr2)).toEqual([1, 2, 3, 4, 5, 6]);
+    expect(arr1).toEqual([1, 2, 3]);
+    expect(arr2).toEqual([4, 5, 6]);
   });
 });

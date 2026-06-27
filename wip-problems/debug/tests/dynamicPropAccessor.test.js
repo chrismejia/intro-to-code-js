@@ -1,4 +1,3 @@
-import { expect } from "chai";
 import { DynamicPropAccessor } from "../dynamicPropAccessor";
 import {
   baseData,
@@ -10,18 +9,18 @@ import {
 describe("#XX: DynamicPropAccessor", () => {
   it("base condition met", () => {
     const result = DynamicPropAccessor(baseData);
-    expect(result).to.deep.equal(baseExpected);
+    expect(result).toEqual(baseExpected);
   });
 
   describe("nested set of conditions", () => {
     it("nested test condition", () => {
       const result = DynamicPropAccessor(baseData);
-      expect(result).to.deep.equal(baseExpected);
+      expect(result).toEqual(baseExpected);
     });
 
     it("other nested test condition", () => {
       const result = DynamicPropAccessor(caseOne);
-      expect(result).to.deep.equal(caseOneExpected);
+      expect(result).toEqual(caseOneExpected);
     });
   });
 });
