@@ -1,0 +1,25 @@
+name: Student Main Clean Check
+
+on:
+  pull_request:
+    branches:
+      - "main"
+    types: [opened, synchronize, reopened]
+
+jobs:
+  student-clean:
+    if: github.repository == 'chrismejia/intro-to-code-js'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: "24"
+
+      - name: Check student-clean tree
+        env:
+          STUDENT_CLEAN_UPSTREAM_ONLY: "true"
+        run: npm run check:student-clean

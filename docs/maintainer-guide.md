@@ -26,6 +26,8 @@ Generated WIP problem tests come from `scripts/generateFiles.sh` and should use 
 
 The focused-test guard lives at `scripts/checkFocusedTests.mjs` and is exposed as `npm run check:focused-tests`. It should fail if `describe.only`, `it.only`, or `test.only` appears in active curriculum or WIP paths.
 
+The student-clean guard lives at `scripts/checkStudentClean.mjs` and is exposed as `npm run check:student-clean`. It should fail if upstream `main` would include top-level instructor-only paths such as `docs/`, `teaching-notes/`, or `wip-problems`.
+
 For branch expectations, `0X-Guide` should run active guide tests against answer-bearing files. Student-facing `main` should not ship filled answers, and its tests should be pending, skipped, or otherwise safe for starter-code files. Use `dev` as the staging branch for preparing that student-clean state. See [Testing branch behavior](testing-branch-behavior.md) for the release checklist and fork-specific notes.
 
 ## Future AGENTS.md Note
