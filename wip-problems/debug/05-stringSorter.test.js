@@ -1,5 +1,4 @@
-import { expect } from "chai";
-import sinon from "sinon";
+import { jest } from "@jest/globals";
 import {
   moreThanFiveChars,
   allLessThanFive,
@@ -20,21 +19,20 @@ import { stringSorter } from "../05-stringSorter";
 
 describe("#5: stringSorter", () => {
   describe("accepts two inputs", () => {
-    const sortCBSpy = sinon.spy(moreThanFiveChars);
-    const sorterSpy = sinon.spy(stringSorter);
+    const sortCBSpy = jest.fn(moreThanFiveChars);
+    const sorterSpy = jest.fn(stringSorter);
     sorterSpy(allLessThanFive, sortCBSpy);
 
     it("a string array", () => {
-      const hasStringArr = sorterSpy.calledWith(allLessThanFive);
-      expect(hasStringArr).to.be.true;
+      expect(sorterSpy).toHaveBeenCalledWith(allLessThanFive, sortCBSpy);
     });
 
     it("a callback function", () => {
-      expect(true).to.be.false;
+      expect(true).toBe(false);
     });
   });
 
   it("returns an object", () => {
-    expect(true).to.be.false;
+    expect(true).toBe(false);
   });
 });

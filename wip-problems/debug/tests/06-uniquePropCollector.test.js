@@ -1,4 +1,3 @@
-import { expect } from "chai";
 import { uniquePropCollector } from "../06-uniquePropCollector";
 import {
   hasAllUnique,
@@ -22,56 +21,56 @@ import {
 describe("uniquePropCollector", () => {
   it("should handle an empty array", () => {
     const result = uniquePropCollector([]);
-    expect(result).to.deep.equal({});
+    expect(result).toEqual({});
   });
 
   describe("array with a single object", () => {
     it("single-key value pair", () => {
       const result = uniquePropCollector(oneObjSingleKV);
-      expect(result).to.deep.equal(oneObjSingleKVExpected);
+      expect(result).toEqual(oneObjSingleKVExpected);
     });
 
     it("multiple key-value pairs", () => {
       const result = uniquePropCollector(oneObjSingleKV);
-      expect(result).to.deep.equal(oneObjSingleKVExpected);
+      expect(result).toEqual(oneObjSingleKVExpected);
     });
   });
 
   describe("array with multiple objects", () => {
     it("multiple identical objects", () => {
       const result = uniquePropCollector(multipleIdentical);
-      expect(result).to.deep.equal(multipleIdenticalExpected);
+      expect(result).toEqual(multipleIdenticalExpected);
     });
 
     it("should handle properties with undefined values", () => {
       const result = uniquePropCollector(hasUndef);
-      expect(result).to.deep.equal(hasUndefExpected);
+      expect(result).toEqual(hasUndefExpected);
     });
 
     it("should handle properties with null values", () => {
       const result = uniquePropCollector(hasNull);
-      expect(result).to.deep.equal(hasNullExpected);
+      expect(result).toEqual(hasNullExpected);
     });
 
     it("should collect unique values for each property", () => {
       const result = uniquePropCollector(hasAllUnique);
-      expect(result).to.deep.equal(hasAllUniqueExpected);
+      expect(result).toEqual(hasAllUniqueExpected);
     });
 
     it("should handle objects with overlapping and unique properties", () => {
       const result = uniquePropCollector(hasOverlapping);
-      expect(result).to.deep.equal(hasOverlappingExpected);
+      expect(result).toEqual(hasOverlappingExpected);
     });
 
     it("should handle different data types", () => {
       const result = uniquePropCollector(hasDiffDataTypes);
-      expect(result).to.deep.equal(hasDiffDataTypesExpected);
+      expect(result).toEqual(hasDiffDataTypesExpected);
     });
 
     it("should not process nested properties", () => {
       const result = uniquePropCollector(hasNested);
       console.log(result);
-      expect(result).to.deep.equal(hasNestedExpected);
+      expect(result).toEqual(hasNestedExpected);
     });
 
     it("should handle objects with large number of properties", () => {
@@ -84,7 +83,7 @@ describe("uniquePropCollector", () => {
       for (let i = 0; i < 1000; i++) {
         expected[`prop${i}`] = new Set([i]);
       }
-      expect(result).to.deep.equal(expected);
+      expect(result).toEqual(expected);
     });
   });
 });
