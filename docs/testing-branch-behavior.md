@@ -1,6 +1,8 @@
 # Testing Branch Behavior
 
-Use this guide when changing tests, release flow, or branch-specific CI.
+Use this guide when changing tests, release flow, or branch-specific CI. For
+test commands, runner flags, package roles, and PR testing-note format, see the
+[JS testing guide](js-testing.md).
 
 ## `0X-Guide` And Feature Branches
 
