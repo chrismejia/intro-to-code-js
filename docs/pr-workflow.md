@@ -129,3 +129,9 @@ Use the target branch that matches the audience:
 - Student-facing final release targets `main`.
 
 Do not open answer-rich instructor work directly into `main`.
+
+Before opening a `dev` to `main` release PR, read
+[Testing branch behavior](testing-branch-behavior.md). The upstream
+`chrismejia/intro-to-code-js` `main` tree should be student-clean, while
+student forks are allowed to keep personal notes or class material on their own
+branches.

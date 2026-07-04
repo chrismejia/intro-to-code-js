@@ -97,6 +97,9 @@ Do not merge answer-rich instructor work directly into `main`.
 
 Testing should follow the same audience split. Pull requests targeting `0X-Guide` should run active guide tests and expect them to pass against answer-bearing files. Student-facing `main` should keep tests pending, skipped, or otherwise safe for starter-code files.
 
+More detailed branch-specific testing and release cleanup expectations live in
+[Testing branch behavior](testing-branch-behavior.md).
+
 ## Future AGENTS.md Guidance
 
 When `AGENTS.md` is committed later, keep it short and point to this file for details. A useful starter note would be:
