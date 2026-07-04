@@ -16,11 +16,14 @@ Student-facing setup and test instructions belong in the root [README.md](../REA
 
 The JS topic workspace owns the real test runner configuration and lesson paths:
 
-- `topics/js/jest.config.cjs`: Jest configuration for the JS workspace.
+- `topics/js/jest.config.js`: Jest configuration for the JS workspace.
+- `topics/js/jest.pathSequencer.js`: path-based Jest test ordering for the JS workspace.
 - `topics/js/package.json`: per-lesson and project test scripts.
 - root `package.json`: stable aliases such as `npm run test:04`, `npm run test:08-server`, and `npm run test:projects`.
 
 The shared JS runner is `npm run test:jest` inside `topics/js`. It runs Jest through Node's native ESM support, uses `--runInBand` to keep test files serial during the migration, and uses `--ci` so local script behavior matches GitHub Actions.
+
+Jest uses `topics/js/jest.pathSequencer.js` to sort test files by normalized path with numeric-aware ordering. This keeps multi-file lesson output in lesson/file order while `--runInBand` keeps execution one file at a time.
 
 Generated WIP problem tests come from `scripts/generateFiles.sh` and should use Jest globals and matchers, not Chai imports. If that script changes, generate a sample problem in a temporary directory and inspect the resulting test file before committing.
 
