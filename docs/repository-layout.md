@@ -44,7 +44,7 @@ The topic workspace package should own the real filesystem paths, such as:
 ```json
 {
   "scripts": {
-    "test:jest": "node --experimental-vm-modules ../../node_modules/jest/bin/jest.js --config ./jest.config.cjs --runInBand --ci",
+    "test:jest": "node --experimental-vm-modules ../../node_modules/jest/bin/jest.js --config ./jest.config.js --runInBand --ci",
     "test:09": "npm run test:jest -- lessons/09-Recursion/tests",
     "test:projects": "npm run test:jest -- projects"
   }
@@ -53,7 +53,7 @@ The topic workspace package should own the real filesystem paths, such as:
 
 This keeps docs, CI, and muscle memory stable if topic internals move later.
 
-For the JS workspace, Jest configuration lives in `topics/js/jest.config.cjs`. The shared `test:jest` script owns the Jest invocation, native ESM flag, serial execution, and CI mode. Per-lesson scripts should pass only the lesson or project path into that shared runner.
+For the JS workspace, Jest configuration lives in `topics/js/jest.config.js`. The shared `test:jest` script owns the Jest invocation, native ESM flag, serial execution, and CI mode. Per-lesson scripts should pass only the lesson or project path into that shared runner.
 
 ## Adding Topics
 
