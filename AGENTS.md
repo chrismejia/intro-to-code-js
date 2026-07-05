@@ -88,6 +88,7 @@ answer files are valid.
 ## Tests And Scripts
 
 For testing structure and script ownership, see
+[JS Testing Guide](docs/js-testing.md),
 [Maintainer Guide](docs/maintainer-guide.md),
 [Repository Layout](docs/repository-layout.md), and
 [Testing Branch Behavior](docs/testing-branch-behavior.md).
@@ -110,6 +111,8 @@ For testing structure and script ownership, see
 - Use Jest-compatible skip APIs such as `describe.skip`, `it.skip`, or
   `test.skip` for intentionally pending student-safe tests. Do not reintroduce
   Mocha-style pending behavior.
+- PR descriptions and testing comments should explain why each command was run,
+  the expected result, and how the received result matched that expectation.
 - If local `node` or `npm` is unavailable in the shell, state that verification
   could not be run locally and rely on static inspection or CI.
 

@@ -6,7 +6,8 @@ This folder holds maintainer-facing notes for repository organization and curric
 
 - [Git basics](git-basics.md): beginner-friendly Git commands and expected status messages.
 - [Branching and PR workflow](pr-workflow.md): issue branches, pull requests, and target branch expectations.
-- [Repository layout](repository-layout.md): topic workspace structure, script ownership, branch-audience notes, and future `AGENTS.md` guidance.
+- [JS testing guide](js-testing.md): Jest setup, test commands, branch expectations, supporting packages, and PR testing-note format.
+- [Repository layout](repository-layout.md): topic workspace structure, script ownership, branch-audience notes, and `AGENTS.md` guidance.
 - [Testing branch behavior](testing-branch-behavior.md): Jest expectations for guide, release staging, upstream `main`, and student forks.
 - `chatgpt/`: prompt/support material for generating or revising lesson JSDoc.
 
@@ -14,25 +15,19 @@ Student-facing setup and test instructions belong in the root [README.md](../REA
 
 ## JS Testing Notes
 
-The JS topic workspace owns the real test runner configuration and lesson paths:
+The [JS testing guide](js-testing.md) is the source of truth for test commands,
+Jest runner setup, branch-specific testing expectations, supporting packages,
+and PR testing-note format.
 
-- `topics/js/jest.config.js`: Jest configuration for the JS workspace.
-- `topics/js/jest.pathSequencer.js`: path-based Jest test ordering for the JS workspace.
-- `topics/js/package.json`: per-lesson and project test scripts.
-- root `package.json`: stable aliases such as `npm run test:04`, `npm run test:08-server`, and `npm run test:projects`.
+Keep this page concise. If a testing detail is large enough to explain flags,
+boilerplate, branch behavior, or package purpose, put it in the JS testing guide
+and link to it from here.
 
-The shared JS runner is `npm run test:jest` inside `topics/js`. It runs Jest through Node's native ESM support, uses `--runInBand` to keep test files serial during the migration, and uses `--ci` so local script behavior matches GitHub Actions.
+## AGENTS.md Notes
 
-Jest uses `topics/js/jest.pathSequencer.js` to sort test files by normalized path with numeric-aware ordering. This keeps multi-file lesson output in lesson/file order while `--runInBand` keeps execution one file at a time.
-
-Generated WIP problem tests come from `scripts/generateFiles.sh` and should use Jest globals and matchers, not Chai imports. If that script changes, generate a sample problem in a temporary directory and inspect the resulting test file before committing.
-
-The focused-test guard lives at `scripts/checkFocusedTests.mjs` and is exposed as `npm run check:focused-tests`. It should fail if `describe.only`, `it.only`, or `test.only` appears in active curriculum or WIP paths.
-
-The student-clean guard lives at `scripts/checkStudentClean.mjs` and is exposed as `npm run check:student-clean`. It should fail if upstream `main` would include top-level instructor-only paths such as `docs/`, `teaching-notes/`, or `wip-problems`.
-
-For branch expectations, `0X-Guide` should run active guide tests against answer-bearing files. Student-facing `main` should not ship filled answers, and its tests should be pending, skipped, or otherwise safe for starter-code files. Use `dev` as the staging branch for preparing that student-clean state. See [Testing branch behavior](testing-branch-behavior.md) for the release checklist and fork-specific notes.
-
-## Future AGENTS.md Note
-
-When `AGENTS.md` is added to the repo, it should point maintainers and coding agents here before they edit layout, scripts, CI, branch flow, or curriculum structure. The root README should remain learner-friendly; branch rules, test expectations, and repo-shape details can live in `AGENTS.md`, `docs/pr-workflow.md`, and `docs/repository-layout.md`.
+`AGENTS.md` should stay high-level and point maintainers and coding agents to
+the detailed docs before they edit layout, scripts, CI, branch flow, or
+curriculum structure. The root README should remain learner-friendly; branch
+rules, test expectations, and repo-shape details can live in `AGENTS.md`,
+`docs/pr-workflow.md`, `docs/repository-layout.md`, and
+`docs/js-testing.md`.
