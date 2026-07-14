@@ -21,10 +21,11 @@ import {
 /**
  * The code below is what tests your answers.
  *
- * To test your answers to one of the problems above:
- * 1. Find the number of the problem you're working on
- * 2. Remove the `x` in `xdescribe` so that it reads `describe`
- * 3. Type `npm run test:01` in the Shell and hit Enter.
+ * To check one exercise at a time with Jest:
+ * 1. Find the exercise you're working on.
+ * 2. Remove the `x` from `xdescribe` or `xit` for that exercise.
+ * 3. Run `npm run test:01` from the repo root.
+ * 4. Read the Jest output for passing and failing checks.
  */
 
 describe("01 - Values and Types", () => {
