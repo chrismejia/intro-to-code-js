@@ -16,7 +16,6 @@
     "test:07": "npm run test:jest -- lessons/07-Adv-Objects/tests",
     "test:08": "npm run test:jest -- lessons/08-Async-Await-APIs/tests",
     "test:08-server": "npm run test:jest -- lessons/08-Async-Await-APIs/server/tests",
-    "server:08": "npm run test:08-server",
     "test:09": "npm run test:jest -- lessons/09-Recursion/tests",
     "test:10": "npm run test:jest -- lessons/10-Classes/tests",
     "test:11": "npm run test:jest -- lessons/11-Data-Structures/tests",
