@@ -5,6 +5,7 @@ import path from "node:path";
 const upstreamRepository = "chrismejia/intro-to-code-js";
 const forbiddenTopLevelPaths = [
   "AGENTS.md",
+  "CLAUDE.md",
   "base",
   "docs",
   "teaching-notes",

@@ -127,8 +127,6 @@ npm --workspace @intro-to-code/js run test:09
 
 The root commands are preferred for day-to-day use because they stay stable even if lesson folders move inside the workspace.
 
-The legacy alias `npm run server:08` still runs the lesson 08 server tests, but `npm run test:08-server` is the clearer current command.
-
 ## Git Workflow
 
 Before starting work, make sure you are on the branch your instructor or issue asks you to use:

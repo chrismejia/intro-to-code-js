@@ -135,3 +135,7 @@ Before opening a `dev` to `main` release PR, read
 `chrismejia/intro-to-code-js` `main` tree should be student-clean, while
 student forks are allowed to keep personal notes or class material on their own
 branches.
+
+Student-clean release PRs should strip maintainer-only files and folders such as
+`docs/`, `base/`, `teaching-notes/`, `wip-problems/`, `AGENTS.md`, and
+`CLAUDE.md`.

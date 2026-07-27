@@ -6,6 +6,8 @@ This repo uses npm workspaces lightly so each curriculum topic can own its lesso
 
 ```text
 .
+|-- AGENTS.md
+|-- CLAUDE.md
 |-- package.json
 |-- topics/
 |   `-- js/
@@ -21,7 +23,10 @@ This repo uses npm workspaces lightly so each curriculum topic can own its lesso
 
 `topics/js` is the JavaScript topic workspace. Lessons live under `topics/js/lessons`, and JavaScript projects live under `topics/js/projects`.
 
-Root-level support folders such as `docs`, `scripts`, `base`, `teaching-notes`, and `wip-problems` are shared repository material rather than student topic content.
+Root-level support folders such as `docs`, `scripts`, `base`,
+`teaching-notes`, and `wip-problems` are shared repository material rather than
+student topic content. `AGENTS.md` and `CLAUDE.md` are maintainer/agent guidance
+files, not student-facing curriculum.
 
 ## Script Ownership
 
@@ -91,7 +96,7 @@ The repo has different audiences across branches:
 
 - `0X-Guide`: instructor source of truth. Guide tests should run real unit tests and pass.
 - `dev`: student-release staging branch. Use it to prepare a clean student version before release.
-- `main`: student-facing release branch. Current files should not contain answers or instructor-only material.
+- `main`: student-facing release branch. Current files should not contain answers, instructor-only material, or maintainer-only agent guidance.
 
 Do not merge answer-rich instructor work directly into `main`.
 
@@ -100,18 +105,20 @@ Testing should follow the same audience split. Pull requests targeting `0X-Guide
 More detailed branch-specific testing and release cleanup expectations live in
 [Testing branch behavior](testing-branch-behavior.md).
 
-## Future AGENTS.md Guidance
+## Agent Guidance Files
 
-When `AGENTS.md` is committed later, keep it short and point to this file for details. A useful starter note would be:
+`AGENTS.md` and `CLAUDE.md` are for maintainers and coding agents working on
+guide/source branches. Keep them short, actionable, and linked to detailed docs
+instead of duplicating every rule inline.
 
-```markdown
-Before editing layout, scripts, CI, lessons, or projects, read:
+Before editing layout, scripts, CI, lessons, tests, or branch/release behavior,
+agents should read:
 
 - docs/maintainer-guide.md
 - docs/pr-workflow.md
 - docs/repository-layout.md
+- docs/js-testing.md
+- docs/testing-branch-behavior.md
 
-Keep root package scripts as stable aliases. Topic workspaces own real lesson and project paths.
-```
-
-That gives coding agents a durable map without making `AGENTS.md` repeat every repo detail.
+Strip `AGENTS.md` and `CLAUDE.md` before releasing to upstream `main`; they are
+not student-facing files.

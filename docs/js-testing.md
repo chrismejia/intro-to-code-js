@@ -8,28 +8,27 @@ converting lesson tests, or deciding which checks belong in a pull request.
 The root package exposes stable aliases, but the JS workspace owns the actual
 Jest configuration and test paths.
 
-| Location | Role |
-| --- | --- |
-| `package.json` | Root aliases such as `test:04`, `test:08-server`, `test:js`, and guard scripts. |
-| `topics/js/package.json` | Workspace lesson, project, and shared Jest runner scripts. |
-| `topics/js/jest.config.js` | Jest config for the JS workspace. |
-| `topics/js/jest.pathSequencer.js` | Deterministic path-based test ordering for JS workspace suites. |
-| `scripts/checkFocusedTests.mjs` | Guard against committed focused tests. |
-| `scripts/checkStudentClean.mjs` | Guard for upstream student-facing `main` tree expectations. |
+| Location                          | Role                                                                            |
+| --------------------------------- | ------------------------------------------------------------------------------- |
+| `package.json`                    | Root aliases such as `test:04`, `test:08-server`, `test:js`, and guard scripts. |
+| `topics/js/package.json`          | Workspace lesson, project, and shared Jest runner scripts.                      |
+| `topics/js/jest.config.js`        | Jest config for the JS workspace.                                               |
+| `topics/js/jest.pathSequencer.js` | Deterministic path-based test ordering for JS workspace suites.                 |
+| `scripts/checkFocusedTests.mjs`   | Guard against committed focused tests.                                          |
+| `scripts/checkStudentClean.mjs`   | Guard for upstream student-facing `main` tree expectations.                     |
 
 ## Command Map
 
 Run commands from the repository root unless noted otherwise.
 
-| Command | Purpose |
-| --- | --- |
-| `npm run test:js` | Run every JS lesson, lesson 08 server suite, and project suite. |
-| `npm run test:01` through `npm run test:11` | Run one lesson's test suite through the JS workspace. |
-| `npm run test:08-server` | Run lesson 08 server-backed route tests. |
-| `npm run server:08` | Alias for `test:08-server`; kept for the existing lesson workflow. |
-| `npm run test:projects` | Run all project tests. |
-| `npm run test:twitter` | Run only the Twitter project tests. |
-| `npm run check:focused-tests` | Fail if active curriculum or WIP paths contain focused Jest tests. |
+| Command                                            | Purpose                                                             |
+| -------------------------------------------------- | ------------------------------------------------------------------- |
+| `npm run test:js`                                  | Run every JS lesson, lesson 08 server suite, and project suite.     |
+| `npm run test:01` through `npm run test:11`        | Run one lesson's test suite through the JS workspace.               |
+| `npm run test:08-server`                           | Run lesson 08 server-backed route tests.                            |
+| `npm run test:projects`                            | Run all project tests.                                              |
+| `npm run test:twitter`                             | Run only the Twitter project tests.                                 |
+| `npm run check:focused-tests`                      | Fail if active curriculum or WIP paths contain focused Jest tests.  |
 | `npm run check:student-clean -- --ref origin/main` | Check the upstream `main` tree for top-level instructor-only paths. |
 
 Inside `topics/js`, `npm run test:jest -- <path>` is the shared lower-level
@@ -66,6 +65,20 @@ and exercise order, such as `01-...`, `02-...`, and `10-...`.
 Keep `--runInBand` and the sequencer in place together. `--runInBand` controls
 concurrency; the sequencer controls ordering.
 
+### Sequencer Verification
+
+When changing Jest config, the test sequencer, or grouped lesson test scripts,
+verify ordering with a lesson that has double-digit test files:
+
+```shell
+npm --workspace @intro-to-code/js run test:jest -- --listTests lessons/04-Arrays-and-Loops/tests
+```
+
+The expected result is a successful command that lists lesson 04 test files in
+numeric path order from `01-measurer.test.js` through
+`12-maxDifference.test.js`. This confirms `topics/js/jest.pathSequencer.js` is
+being applied without running the full lesson suite.
+
 ## Test Boilerplate
 
 Use Jest globals and matchers in converted tests:
@@ -78,17 +91,21 @@ Import `jest` only in files that need Jest-specific helpers such as spies,
 mock functions, fake timers, or module mocking. Basic `describe`, `it`, `test`,
 and `expect` globals are available in Jest test files.
 
-For intentionally inactive tests, use Jest skip APIs:
+For intentionally inactive tests, use Jest-compatible skip APIs:
 
 ```js
 describe.skip("exercise name", () => {});
 it.skip("documents pending behavior", () => {});
 test.skip("documents pending behavior", () => {});
+xdescribe("exercise name", () => {});
+xit("documents pending behavior", () => {});
 ```
 
-Do not reintroduce Mocha-only pending patterns such as `xdescribe` as executable
-test syntax. Some older student-facing comments may still mention historical
-`xdescribe` instructions until those lessons are refreshed.
+Early beginner lessons may intentionally use `xdescribe` or `xit` so students
+can activate one exercise at a time by removing a single `x`. Do not replace
+that teaching workflow with committed focused tests such as `.only`,
+`fdescribe`, or `fit`, and do not use complex Jest CLI filtering in
+student-facing instructions unless an issue explicitly calls for it.
 
 Generated WIP problem tests come from `scripts/generateFiles.sh`. When that
 template changes, generate a sample problem in a temporary directory and inspect
@@ -98,17 +115,32 @@ the emitted test file before committing.
 
 The current testing-related packages are:
 
-| Package | Why it exists |
-| --- | --- |
-| `jest` | Test runner, assertions, spies, mocks, fake timers, and the package tree that provides the sequencer base class. |
-| `@jest/test-sequencer` | Base class imported by `topics/js/jest.pathSequencer.js`. |
-| `supertest` | HTTP assertions for lesson 08 server route tests. |
-| `express` | Lesson 08 sample API server under `topics/js/lessons/08-Async-Await-APIs/server`. |
+| Package                | Why it exists                                                                                                    |
+| ---------------------- | ---------------------------------------------------------------------------------------------------------------- |
+| `jest`                 | Test runner, assertions, spies, mocks, fake timers, and the package tree that provides the sequencer base class. |
+| `@jest/test-sequencer` | Base class imported by `topics/js/jest.pathSequencer.js`.                                                        |
+| `supertest`            | HTTP assertions for lesson 08 server route tests.                                                                |
+| `express`              | Lesson 08 sample API server under `topics/js/lessons/08-Async-Await-APIs/server`.                                |
 
 Packages such as Babel, JSDoc tooling, Faker, and Nodemon may support older
 repository workflows or docs generation, but they are not part of the active JS
 Jest runner. Treat future dependency cleanup as separate from test conversion
 work unless the issue explicitly includes it.
+
+## Migration Audit Notes
+
+The final Jest migration audit found no direct Mocha, Chai, Sinon, or
+Mochawesome dependencies in `package.json`, and no direct legacy
+Mocha/Chai/Sinon/Mochawesome packages in `package-lock.json`.
+
+`@sinonjs/fake-timers` may still appear in `package-lock.json` through Jest's
+own dependency tree. That is expected and is not a reintroduced Sinon test
+dependency.
+
+`xdescribe` and `xit` references can be intentional in early beginner lessons
+when they support the simple "remove the x" activation workflow. Treat those
+separately from committed focused-test patterns such as `.only`, `fdescribe`,
+or `fit`, which should remain blocked.
 
 ## Branch Expectations
 
@@ -141,15 +173,16 @@ separate issue.
 `main`.
 
 Before opening a `dev` to `main` pull request, strip answer-bearing files and
-remove instructor-only material from the current tree. Convert tests so they are
-safe for starter-code files by using `describe.skip`, `it.skip`, `test.skip`, or
-a starter-safe harness.
+remove instructor-only material from the current tree, including `docs/`,
+`base/`, `teaching-notes/`, `wip-problems/`, `AGENTS.md`, and `CLAUDE.md`.
+Convert tests so they are safe for starter-code files by using `describe.skip`,
+`it.skip`, `test.skip`, or a starter-safe harness.
 
 ### `main`
 
 Upstream `main` is student-facing. The current tree should not include filled
-answers, instructor-only folders, or guide-only tests that fail against blank
-starter code.
+answers, instructor-only folders, maintainer-only agent guidance files, or
+guide-only tests that fail against blank starter code.
 
 Check the upstream tree with:
 
@@ -181,6 +214,7 @@ Result match: received `No focused tests found.`
 npm run check:focused-tests
 ...
 ```
+
 </details>
 ````
 
@@ -195,7 +229,6 @@ conversion commits without an explicit issue:
 - Branch-conditional CI that differentiates guide, release-staging, upstream
   `main`, and fork behavior.
 - A broader student-safe test strategy for `main` beyond skipped guide tests.
-- Cleanup of packages that are no longer needed after the Jest migration and
-  docs-generation review.
-- Refreshing older student-facing test comments that still mention historical
-  Mocha patterns.
+- Beginner-friendly lesson test refactors for declaration/function/class
+  gateway checks; see #205.
+- Long-term lint/format coverage for focused tests and style checks; see #3.
