@@ -35,13 +35,15 @@ Before opening a `dev` to `main` pull request:
 2. Remove instructor-only material from the current tree, including
    `docs/`, `base/`, `teaching-notes/`, `wip-problems/`, `AGENTS.md`, and
    `CLAUDE.md`.
-3. Convert guide-only tests so starter code is safe. Prefer Jest APIs such as
-   `describe.skip`, `it.skip`, or `test.skip`, or use a starter-safe harness.
+3. Convert guide-only tests so starter code is safe. Prefer Jest-compatible
+   APIs such as `describe.skip`, `it.skip`, `test.skip`, `xdescribe`, or `xit`,
+   or use a starter-safe harness.
 4. Keep `npm run check:focused-tests` passing.
 5. Run the student-safe test commands that should remain available on `main`.
 
 Skipped or pending student tests should use Jest-compatible APIs. Do not
-reintroduce Mocha-only pending behavior during release cleanup.
+reintroduce Mocha/Chai-era assertion imports, custom pending behavior, or
+committed focused tests during release cleanup.
 
 ## Upstream `main`
 

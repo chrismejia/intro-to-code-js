@@ -113,6 +113,21 @@ repository workflows or docs generation, but they are not part of the active JS
 Jest runner. Treat future dependency cleanup as separate from test conversion
 work unless the issue explicitly includes it.
 
+## Migration Audit Notes
+
+The final Jest migration audit found no direct Mocha, Chai, Sinon, or
+Mochawesome dependencies in `package.json`, and no direct legacy
+Mocha/Chai/Sinon/Mochawesome packages in `package-lock.json`.
+
+`@sinonjs/fake-timers` may still appear in `package-lock.json` through Jest's
+own dependency tree. That is expected and is not a reintroduced Sinon test
+dependency.
+
+`xdescribe` and `xit` references can be intentional in early beginner lessons
+when they support the simple "remove the x" activation workflow. Treat those
+separately from committed focused-test patterns such as `.only`, `fdescribe`,
+or `fit`, which should remain blocked.
+
 ## Branch Expectations
 
 ### `0X-Guide`
@@ -199,7 +214,6 @@ conversion commits without an explicit issue:
 - Branch-conditional CI that differentiates guide, release-staging, upstream
   `main`, and fork behavior.
 - A broader student-safe test strategy for `main` beyond skipped guide tests.
-- Cleanup of packages that are no longer needed after the Jest migration and
-  docs-generation review.
-- Refreshing older student-facing test comments that still mention historical
-  Mocha patterns.
+- Beginner-friendly lesson test refactors for declaration/function/class
+  gateway checks; see #205.
+- Long-term lint/format coverage for focused tests and style checks; see #3.
