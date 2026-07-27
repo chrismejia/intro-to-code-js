@@ -127,8 +127,9 @@ For CI and branch-specific check expectations, see
   are missing or incorrect.
 - PRs into `main` should guard student-clean state. The current
   `check:student-clean` script/workflow fails on top-level instructor-only
-  paths such as `docs/`, `base/`, `AGENTS.md`, and `CLAUDE.md` in the upstream
-  repo while allowing student forks to keep personal notes or class material.
+  paths (`AGENTS.md`, `CLAUDE.md`, `base/`, `docs/`, `teaching-notes/`, and
+  `wip-problems/`) in the upstream repo while allowing student forks to keep
+  personal notes or class material.
 - Keep workflow changes narrowly scoped and avoid creating duplicate workflow
   files that do the same job.
 
