@@ -8,27 +8,27 @@ converting lesson tests, or deciding which checks belong in a pull request.
 The root package exposes stable aliases, but the JS workspace owns the actual
 Jest configuration and test paths.
 
-| Location | Role |
-| --- | --- |
-| `package.json` | Root aliases such as `test:04`, `test:08-server`, `test:js`, and guard scripts. |
-| `topics/js/package.json` | Workspace lesson, project, and shared Jest runner scripts. |
-| `topics/js/jest.config.js` | Jest config for the JS workspace. |
-| `topics/js/jest.pathSequencer.js` | Deterministic path-based test ordering for JS workspace suites. |
-| `scripts/checkFocusedTests.mjs` | Guard against committed focused tests. |
-| `scripts/checkStudentClean.mjs` | Guard for upstream student-facing `main` tree expectations. |
+| Location                          | Role                                                                            |
+| --------------------------------- | ------------------------------------------------------------------------------- |
+| `package.json`                    | Root aliases such as `test:04`, `test:08-server`, `test:js`, and guard scripts. |
+| `topics/js/package.json`          | Workspace lesson, project, and shared Jest runner scripts.                      |
+| `topics/js/jest.config.js`        | Jest config for the JS workspace.                                               |
+| `topics/js/jest.pathSequencer.js` | Deterministic path-based test ordering for JS workspace suites.                 |
+| `scripts/checkFocusedTests.mjs`   | Guard against committed focused tests.                                          |
+| `scripts/checkStudentClean.mjs`   | Guard for upstream student-facing `main` tree expectations.                     |
 
 ## Command Map
 
 Run commands from the repository root unless noted otherwise.
 
-| Command | Purpose |
-| --- | --- |
-| `npm run test:js` | Run every JS lesson, lesson 08 server suite, and project suite. |
-| `npm run test:01` through `npm run test:11` | Run one lesson's test suite through the JS workspace. |
-| `npm run test:08-server` | Run lesson 08 server-backed route tests. |
-| `npm run test:projects` | Run all project tests. |
-| `npm run test:twitter` | Run only the Twitter project tests. |
-| `npm run check:focused-tests` | Fail if active curriculum or WIP paths contain focused Jest tests. |
+| Command                                            | Purpose                                                             |
+| -------------------------------------------------- | ------------------------------------------------------------------- |
+| `npm run test:js`                                  | Run every JS lesson, lesson 08 server suite, and project suite.     |
+| `npm run test:01` through `npm run test:11`        | Run one lesson's test suite through the JS workspace.               |
+| `npm run test:08-server`                           | Run lesson 08 server-backed route tests.                            |
+| `npm run test:projects`                            | Run all project tests.                                              |
+| `npm run test:twitter`                             | Run only the Twitter project tests.                                 |
+| `npm run check:focused-tests`                      | Fail if active curriculum or WIP paths contain focused Jest tests.  |
 | `npm run check:student-clean -- --ref origin/main` | Check the upstream `main` tree for top-level instructor-only paths. |
 
 Inside `topics/js`, `npm run test:jest -- <path>` is the shared lower-level
@@ -64,6 +64,20 @@ and exercise order, such as `01-...`, `02-...`, and `10-...`.
 
 Keep `--runInBand` and the sequencer in place together. `--runInBand` controls
 concurrency; the sequencer controls ordering.
+
+### Sequencer Verification
+
+When changing Jest config, the test sequencer, or grouped lesson test scripts,
+verify ordering with a lesson that has double-digit test files:
+
+```shell
+npm --workspace @intro-to-code/js run test:jest -- --listTests lessons/04-Arrays-and-Loops/tests
+```
+
+The expected result is a successful command that lists lesson 04 test files in
+numeric path order from `01-measurer.test.js` through
+`12-maxDifference.test.js`. This confirms `topics/js/jest.pathSequencer.js` is
+being applied without running the full lesson suite.
 
 ## Test Boilerplate
 
@@ -101,12 +115,12 @@ the emitted test file before committing.
 
 The current testing-related packages are:
 
-| Package | Why it exists |
-| --- | --- |
-| `jest` | Test runner, assertions, spies, mocks, fake timers, and the package tree that provides the sequencer base class. |
-| `@jest/test-sequencer` | Base class imported by `topics/js/jest.pathSequencer.js`. |
-| `supertest` | HTTP assertions for lesson 08 server route tests. |
-| `express` | Lesson 08 sample API server under `topics/js/lessons/08-Async-Await-APIs/server`. |
+| Package                | Why it exists                                                                                                    |
+| ---------------------- | ---------------------------------------------------------------------------------------------------------------- |
+| `jest`                 | Test runner, assertions, spies, mocks, fake timers, and the package tree that provides the sequencer base class. |
+| `@jest/test-sequencer` | Base class imported by `topics/js/jest.pathSequencer.js`.                                                        |
+| `supertest`            | HTTP assertions for lesson 08 server route tests.                                                                |
+| `express`              | Lesson 08 sample API server under `topics/js/lessons/08-Async-Await-APIs/server`.                                |
 
 Packages such as Babel, JSDoc tooling, Faker, and Nodemon may support older
 repository workflows or docs generation, but they are not part of the active JS
@@ -200,6 +214,7 @@ Result match: received `No focused tests found.`
 npm run check:focused-tests
 ...
 ```
+
 </details>
 ````
 
