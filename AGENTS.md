@@ -3,7 +3,7 @@
 ## Project Shape
 
 For supporting detail, see [Maintainer Guide](docs/maintainer-guide.md) and
-[Repository Layout](docs/repository-layout.md).
+[Repository Layout](docs/repository-layout.md). Claude-specific agent guidance lives in [CLAUDE.md](CLAUDE.md).
 
 This repository supports two audiences:
 
@@ -24,7 +24,7 @@ For branch workflow details, see
 - Instructor source of truth.
 - Lesson problem files should have answers filled in.
 - Teaching/support material belongs here, including `teaching-notes/`,
-  `wip-problems/`, `base/`, and internal docs.
+  `wip-problems/`, `base/`, internal docs, `AGENTS.md`, and `CLAUDE.md`.
 - CI for PRs into this branch should run the real unit tests and expect them to
   pass.
 - Feature/content branches for instructor work should branch from `0X-Guide`
@@ -43,8 +43,8 @@ For branch workflow details, see
 
 - Student-facing release branch.
 - Current files must not include answers.
-- Current files must not include instructor-only folders such as
-  `teaching-notes/` or `wip-problems/`.
+- Current files must not include instructor-only folders such as `docs/`, `base/`, `teaching-notes/`, or `wip-problems/`.
+- Current files must not include maintainer-only agent guidance such as `AGENTS.md` or `CLAUDE.md`.
 - Tests should be pending/skipped or otherwise safe for starter-code files.
 - Do not merge answer-rich work directly into `main`.
 
@@ -69,7 +69,8 @@ Before opening or approving a PR into `main`, check the current tree for:
 
 - Filled-in lesson answers.
 - Active tests that fail on blank starter code.
-- `teaching-notes/`, `wip-problems/`, or other instructor-only material.
+- `docs/`, `base/`, `teaching-notes/`, `wip-problems/`, `AGENTS.md`,
+  `CLAUDE.md`, or other instructor-only material.
 
 ## Current Curriculum Context
 
@@ -108,9 +109,9 @@ For testing structure and script ownership, see
 - In particular, workflows that call `npm run test:09` and `npm run test:10`
   require `package.json` to define `test:09` and `test:10`, not `test-09` and
   `test-10`.
-- Use Jest-compatible skip APIs such as `describe.skip`, `it.skip`, or
-  `test.skip` for intentionally pending student-safe tests. Do not reintroduce
-  Mocha-style pending behavior.
+- Use Jest-compatible skip APIs such as `describe.skip`, `it.skip`, `test.skip`,
+  `xdescribe`, or `xit` for intentionally pending student-safe tests. For early
+  lessons, `xdescribe`/`xit` may be part of the beginner activation workflow.
 - PR descriptions and testing comments should explain why each command was run,
   the expected result, and how the received result matched that expectation.
 - If local `node` or `npm` is unavailable in the shell, state that verification
@@ -126,8 +127,8 @@ For CI and branch-specific check expectations, see
   are missing or incorrect.
 - PRs into `main` should guard student-clean state. The current
   `check:student-clean` script/workflow fails on top-level instructor-only
-  paths in the upstream repo while allowing student forks to keep personal notes
-  or class material.
+  paths such as `docs/`, `base/`, `AGENTS.md`, and `CLAUDE.md` in the upstream
+  repo while allowing student forks to keep personal notes or class material.
 - Keep workflow changes narrowly scoped and avoid creating duplicate workflow
   files that do the same job.
 
@@ -141,6 +142,7 @@ command examples, see [Git Basics](docs/git-basics.md).
 - Preserve user changes already present in the worktree.
 - Do not remove `teaching-notes/`, `wip-problems/`, or filled answers when
   working on `0X-Guide` unless explicitly asked.
-- Do not add answers, teaching notes, or wip material to `main`.
+- Do not add answers, teaching notes, wip material, maintainer docs, or agent
+  guidance files to `main`.
 - When in doubt about audience, ask which branch target the work is for:
   instructor/guide or student/release.

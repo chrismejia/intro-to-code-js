@@ -26,7 +26,6 @@ Run commands from the repository root unless noted otherwise.
 | `npm run test:js` | Run every JS lesson, lesson 08 server suite, and project suite. |
 | `npm run test:01` through `npm run test:11` | Run one lesson's test suite through the JS workspace. |
 | `npm run test:08-server` | Run lesson 08 server-backed route tests. |
-| `npm run server:08` | Alias for `test:08-server`; kept for the existing lesson workflow. |
 | `npm run test:projects` | Run all project tests. |
 | `npm run test:twitter` | Run only the Twitter project tests. |
 | `npm run check:focused-tests` | Fail if active curriculum or WIP paths contain focused Jest tests. |
@@ -78,17 +77,21 @@ Import `jest` only in files that need Jest-specific helpers such as spies,
 mock functions, fake timers, or module mocking. Basic `describe`, `it`, `test`,
 and `expect` globals are available in Jest test files.
 
-For intentionally inactive tests, use Jest skip APIs:
+For intentionally inactive tests, use Jest-compatible skip APIs:
 
 ```js
 describe.skip("exercise name", () => {});
 it.skip("documents pending behavior", () => {});
 test.skip("documents pending behavior", () => {});
+xdescribe("exercise name", () => {});
+xit("documents pending behavior", () => {});
 ```
 
-Do not reintroduce Mocha-only pending patterns such as `xdescribe` as executable
-test syntax. Some older student-facing comments may still mention historical
-`xdescribe` instructions until those lessons are refreshed.
+Early beginner lessons may intentionally use `xdescribe` or `xit` so students
+can activate one exercise at a time by removing a single `x`. Do not replace
+that teaching workflow with committed focused tests such as `.only`,
+`fdescribe`, or `fit`, and do not use complex Jest CLI filtering in
+student-facing instructions unless an issue explicitly calls for it.
 
 Generated WIP problem tests come from `scripts/generateFiles.sh`. When that
 template changes, generate a sample problem in a temporary directory and inspect
@@ -141,15 +144,16 @@ separate issue.
 `main`.
 
 Before opening a `dev` to `main` pull request, strip answer-bearing files and
-remove instructor-only material from the current tree. Convert tests so they are
-safe for starter-code files by using `describe.skip`, `it.skip`, `test.skip`, or
-a starter-safe harness.
+remove instructor-only material from the current tree, including `docs/`,
+`base/`, `teaching-notes/`, `wip-problems/`, `AGENTS.md`, and `CLAUDE.md`.
+Convert tests so they are safe for starter-code files by using `describe.skip`,
+`it.skip`, `test.skip`, or a starter-safe harness.
 
 ### `main`
 
 Upstream `main` is student-facing. The current tree should not include filled
-answers, instructor-only folders, or guide-only tests that fail against blank
-starter code.
+answers, instructor-only folders, maintainer-only agent guidance files, or
+guide-only tests that fail against blank starter code.
 
 Check the upstream tree with:
 
