@@ -3,7 +3,8 @@ import path from "node:path";
 
 const roots = ["topics/js", "wip-problems"];
 const testFilePattern = /\.(?:c|m)?jsx?$/;
-const focusedTestPattern = /\b(?:describe|it|test)\s*\.\s*only\s*\(/g;
+const focusedTestPattern =
+  /\b(?:(?:describe|it|test)\s*\.\s*only|fdescribe|fit)\s*\(/g;
 
 const fileExists = async (filePath) => {
   try {
