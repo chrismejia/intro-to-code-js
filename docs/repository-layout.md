@@ -6,6 +6,8 @@ This repo uses npm workspaces lightly so each curriculum topic can own its lesso
 
 ```text
 .
+|-- AGENTS.md
+|-- CLAUDE.md
 |-- package.json
 |-- topics/
 |   `-- js/
@@ -21,7 +23,10 @@ This repo uses npm workspaces lightly so each curriculum topic can own its lesso
 
 `topics/js` is the JavaScript topic workspace. Lessons live under `topics/js/lessons`, and JavaScript projects live under `topics/js/projects`.
 
-Root-level support folders such as `docs`, `scripts`, `base`, `teaching-notes`, and `wip-problems` are shared repository material rather than student topic content.
+Root-level support folders such as `docs`, `scripts`, `base`,
+`teaching-notes`, and `wip-problems` are shared repository material rather than
+student topic content. `AGENTS.md` and `CLAUDE.md` are maintainer/agent guidance
+files, not student-facing curriculum.
 
 ## Script Ownership
 
@@ -44,13 +49,16 @@ The topic workspace package should own the real filesystem paths, such as:
 ```json
 {
   "scripts": {
-    "test:09": "mocha './lessons/09-Recursion/tests/**.js'",
-    "test:projects": "mocha './projects/**/tests/**.js'"
+    "test:jest": "node --experimental-vm-modules ../../node_modules/jest/bin/jest.js --config ./jest.config.js --runInBand --ci",
+    "test:09": "npm run test:jest -- lessons/09-Recursion/tests",
+    "test:projects": "npm run test:jest -- projects"
   }
 }
 ```
 
 This keeps docs, CI, and muscle memory stable if topic internals move later.
+
+For the JS workspace, Jest configuration lives in `topics/js/jest.config.js`. The shared `test:jest` script owns the Jest invocation, native ESM flag, serial execution, and CI mode. Per-lesson scripts should pass only the lesson or project path into that shared runner.
 
 ## Adding Topics
 
@@ -88,22 +96,29 @@ The repo has different audiences across branches:
 
 - `0X-Guide`: instructor source of truth. Guide tests should run real unit tests and pass.
 - `dev`: student-release staging branch. Use it to prepare a clean student version before release.
-- `main`: student-facing release branch. Current files should not contain answers or instructor-only material.
+- `main`: student-facing release branch. Current files should not contain answers, instructor-only material, or maintainer-only agent guidance.
 
 Do not merge answer-rich instructor work directly into `main`.
 
-## Future AGENTS.md Guidance
+Testing should follow the same audience split. Pull requests targeting `0X-Guide` should run active guide tests and expect them to pass against answer-bearing files. Student-facing `main` should keep tests pending, skipped, or otherwise safe for starter-code files.
 
-When `AGENTS.md` is committed later, keep it short and point to this file for details. A useful starter note would be:
+More detailed branch-specific testing and release cleanup expectations live in
+[Testing branch behavior](testing-branch-behavior.md).
 
-```markdown
-Before editing layout, scripts, CI, lessons, or projects, read:
+## Agent Guidance Files
+
+`AGENTS.md` and `CLAUDE.md` are for maintainers and coding agents working on
+guide/source branches. Keep them short, actionable, and linked to detailed docs
+instead of duplicating every rule inline.
+
+Before editing layout, scripts, CI, lessons, tests, or branch/release behavior,
+agents should read:
 
 - docs/maintainer-guide.md
 - docs/pr-workflow.md
 - docs/repository-layout.md
+- docs/js-testing.md
+- docs/testing-branch-behavior.md
 
-Keep root package scripts as stable aliases. Topic workspaces own real lesson and project paths.
-```
-
-That gives coding agents a durable map without making `AGENTS.md` repeat every repo detail.
+Strip `AGENTS.md` and `CLAUDE.md` before releasing to upstream `main`; they are
+not student-facing files.

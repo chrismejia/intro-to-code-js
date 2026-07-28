@@ -1,5 +1,4 @@
 import { disemvoweler } from "../05-disemvoweler.js";
-import { expect } from "chai";
 import {
   noVowels,
   oneVowel,
@@ -8,16 +7,13 @@ import {
 } from "../data/05-disemvoweler.data.js";
 
 describe("#5: disemvoweler", () => {
-  expect(disemvoweler).to.be.a(
-    "function",
-    "No `disemvoweler` function found; please check if defined and exported correctly."
-  );
+  expect(typeof disemvoweler).toBe("function");
   describe("returns a string", () => {
     describe("no vowels -> same as the input string", () => {
       noVowels.forEach(({ str }) => {
         it(`'${str}' -> '${str}'`, () => {
           const testResult = disemvoweler(str);
-          expect(testResult).to.equal(str);
+          expect(testResult).toBe(str);
         });
       });
     });
@@ -27,7 +23,7 @@ describe("#5: disemvoweler", () => {
         oneVowel.forEach(({ str, result }) => {
           it(`'${str}' -> '${result}'`, () => {
             const testResult = disemvoweler(str);
-            expect(testResult).to.equal(result);
+            expect(testResult).toBe(result);
           });
         });
       });
@@ -36,7 +32,7 @@ describe("#5: disemvoweler", () => {
         multiVowels.forEach(({ str, result }) => {
           it(`'${str}' -> '${result}'`, () => {
             const testResult = disemvoweler(str);
-            expect(testResult).to.equal(result);
+            expect(testResult).toBe(result);
           });
         });
       });
@@ -47,7 +43,7 @@ describe("#5: disemvoweler", () => {
     hasUppercase.forEach(({ str, result }) => {
       it(`'${str}' -> '${result}'`, () => {
         const testResult = disemvoweler(str);
-        expect(testResult).to.equal(result);
+        expect(testResult).toBe(result);
       });
     });
   });

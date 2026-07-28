@@ -1,5 +1,3 @@
-import { expect } from "chai";
-import sinon from "sinon";
 import { allCool, allUncool, mixedCool } from "../data/coolNumbersClub.data";
 import { coolNumbersClub } from "../03-coolNumbersClub";
 
@@ -8,19 +6,19 @@ describe("#3: coolNumbersClub", () => {
     it("when all the numbers are cool", () => {
       expect(
         coolNumbersClub(allCool, isNumberCool, coolSquaredNumbers)
-      ).to.be.an("array");
+      ).toEqual(expect.any(Array));
     });
 
     it("when all the numbers are uncool", () => {
       expect(
         coolNumbersClub(allUncool, isNumberCool, coolSquaredNumbers)
-      ).to.be.an("array");
+      ).toEqual(expect.any(Array));
     });
 
     it("when there's a mix of cool and uncool numbers", () => {
       expect(
         coolNumbersClub(mixedCool, isNumberCool, coolSquaredNumbers)
-      ).to.be.an("array");
+      ).toEqual(expect.any(Array));
     });
   });
 
@@ -28,6 +26,6 @@ describe("#3: coolNumbersClub", () => {
     console.log(allUncool.filter(isNumberCool));
     expect(
       coolNumbersClub(allUncool, isNumberCool, coolSquaredNumbers)
-    ).to.deep.equal([]);
+    ).toEqual([]);
   });
 });

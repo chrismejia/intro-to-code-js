@@ -51,6 +51,7 @@ Run the commands that prove the change is wired correctly. Examples:
 
 ```shell
 npm pkg get workspaces scripts.test:js
+npm run check:focused-tests
 npm run test:09
 git diff --check
 ```
@@ -128,3 +129,13 @@ Use the target branch that matches the audience:
 - Student-facing final release targets `main`.
 
 Do not open answer-rich instructor work directly into `main`.
+
+Before opening a `dev` to `main` release PR, read
+[Testing branch behavior](testing-branch-behavior.md). The upstream
+`chrismejia/intro-to-code-js` `main` tree should be student-clean, while
+student forks are allowed to keep personal notes or class material on their own
+branches.
+
+Student-clean release PRs should strip maintainer-only files and folders such as
+`docs/`, `base/`, `teaching-notes/`, `wip-problems/`, `AGENTS.md`, and
+`CLAUDE.md`.

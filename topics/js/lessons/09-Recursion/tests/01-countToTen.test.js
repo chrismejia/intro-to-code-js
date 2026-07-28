@@ -1,42 +1,52 @@
-import { expect } from "chai";
-import sinon from "sinon";
+import { jest } from "@jest/globals";
 import countToTen from "../01-countToTen.js";
 
-xdescribe("#1: countToTen", () => {
-  const logSpy = sinon.spy(console, "log");
-  const countSpy = sinon.spy(countToTen);
-  const oneRun = countSpy(1);
-  const countSpyCalls = logSpy.getCalls();
+describe.skip("#1: countToTen", () => {
+  const runCountToTen = () => {
+    const logSpy = jest.spyOn(console, "log").mockImplementation(() => {});
+    const countSpy = jest.fn(countToTen);
+    const oneRun = countSpy(1);
+
+    return {
+      oneRun,
+      countSpyCalls: logSpy.mock.calls,
+    };
+  };
+
+  afterEach(() => {
+    jest.restoreAllMocks();
+  });
 
   it("returns undefined", () => {
-    expect(oneRun).to.be.undefined;
+    const { oneRun } = runCountToTen();
+    expect(oneRun).toBeUndefined();
   });
 
   describe("for numbers less than 10", () => {
     it("logs startNum first", () => {
-      const firstLogNum = countSpyCalls[0].args[0];
-      expect(firstLogNum).to.equal(1);
+      const { countSpyCalls } = runCountToTen();
+      const firstLogNum = countSpyCalls[0][0];
+      expect(firstLogNum).toBe(1);
     });
 
     it("logs each number between startNum and 10, inclusive", () => {
+      const { countSpyCalls } = runCountToTen();
+
       if (countSpyCalls.length === 0) {
         expect.fail("No numbers have been logged.");
       } else {
         const twoToTenCalls = countSpyCalls.slice(1);
 
-        twoToTenCalls.forEach(({ args }, index) => {
+        twoToTenCalls.forEach(([currentLogVal], index) => {
           const indexMatchToTotal = index + 2; // 0 becomes 2, etc
-          const currentLogVal = args[0]; // compare to matchedIndex
-          expect(indexMatchToTotal).to.equal(currentLogVal);
+          expect(indexMatchToTotal).toBe(currentLogVal);
         });
       }
     });
 
     it("recursively calls itself the correct number of times", () => {
-      expect(countSpyCalls.length).to.equal(10);
+      const { countSpyCalls } = runCountToTen();
+      expect(countSpyCalls).toHaveLength(10);
     });
   });
-
-  // needed as log
-  logSpy.restore();
 });

@@ -1,5 +1,4 @@
 import { wordCalculator } from "../09-wordCalculator.js";
-import { expect } from "chai";
 import {
   zeroStarts,
   oneCalcs,
@@ -10,26 +9,23 @@ import {
 } from "../data/09-wordCalculator.data.js";
 
 describe("#9: wordCalculator", () => {
-  expect(wordCalculator).to.be.a(
-    "function",
-    "No `wordCalculator` function found; please check if defined and exported correctly."
-  );
+  expect(typeof wordCalculator).toBe("function");
 
   it("returns a number", () => {
     allCalcs.forEach(({ nums, ops }) => {
-      expect(wordCalculator(nums, ops)).to.be.a("number");
+      expect(typeof wordCalculator(nums, ops)).toBe("number");
     });
   });
 
   it("has an initial value of 0", () => {
     zeroStarts.forEach(({ nums, ops }) => {
-      expect(wordCalculator(nums, ops)).to.equal(0);
+      expect(wordCalculator(nums, ops)).toBe(0);
     });
   });
 
   it("returns 0 if the operations are invalid", () => {
     invalidCalcs.forEach(({ nums, ops }) => {
-      expect(wordCalculator(nums, ops)).to.equal(0);
+      expect(wordCalculator(nums, ops)).toBe(0);
     });
   });
 
@@ -37,7 +33,7 @@ describe("#9: wordCalculator", () => {
     describe("when there's only one operation", () => {
       oneCalcs.forEach(({ nums, ops, result }) => {
         it(`[${nums}], [${ops}] -> ${result}`, () => {
-          expect(wordCalculator(nums, ops)).to.equal(result);
+          expect(wordCalculator(nums, ops)).toBe(result);
         });
       });
     });
@@ -45,7 +41,7 @@ describe("#9: wordCalculator", () => {
     describe("when there are two operations", () => {
       twoCalcs.forEach(({ nums, ops, result }) => {
         it(`[${nums}], [${ops}] -> ${result}`, () => {
-          expect(wordCalculator(nums, ops)).to.equal(result);
+          expect(wordCalculator(nums, ops)).toBe(result);
         });
       });
     });
@@ -53,7 +49,7 @@ describe("#9: wordCalculator", () => {
     describe("when there are three or more operations", () => {
       multiCalcs.forEach(({ nums, ops, result }) => {
         it(`[${nums}], [${ops}] -> ${result}`, () => {
-          expect(wordCalculator(nums, ops)).to.equal(result);
+          expect(wordCalculator(nums, ops)).toBe(result);
         });
       });
     });

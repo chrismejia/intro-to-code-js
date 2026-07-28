@@ -1,5 +1,4 @@
-import { expect } from "chai";
-import sinon from "sinon";
+import { jest } from "@jest/globals";
 import { fetchUser, fetchMultipleUsers } from "../07-fetchMultipleUsers.js";
 import {
   validUserData,
@@ -10,19 +9,17 @@ import {
   expectedHeaders,
 } from "../data/07-fetchMultipleUsers.data.js";
 
-describe("fetchMultipleUsers", function () {
-  this.timeout(10000);
+const userIdFromUrl = (url) => Number(url.split("/").pop());
 
-  let fetchStub;
+describe("fetchMultipleUsers", () => {
+  let fetchMock;
 
   beforeEach(() => {
-    // Create a fetch stub using sinon
-    fetchStub = sinon.stub(global, "fetch");
+    fetchMock = jest.spyOn(globalThis, "fetch");
   });
 
   afterEach(() => {
-    // Restore the fetch function after each test
-    fetchStub.restore();
+    jest.restoreAllMocks();
   });
 
   describe("fetchUser helper function", () => {
@@ -30,36 +27,32 @@ describe("fetchMultipleUsers", function () {
       it("should use the GET method explicitly", async () => {
         const userId = 1;
 
-        // Stub the successful fetch call
-        fetchStub
-          .withArgs(sinon.match.string, sinon.match.object) // Match any URL and an options object, since this test is just checking the method
-          .callsFake((_, options) => {
-            // Ensure that the method is explicitly set to 'GET'
-            expect(options.method).to.equal("GET");
-            return mockFetchUserSuccess(userId, options.headers);
-          });
+        fetchMock.mockImplementation((_, options) =>
+          mockFetchUserSuccess(userId, options.headers)
+        );
 
-        // Call the function
         await fetchUser(userId);
+
+        expect(fetchMock).toHaveBeenCalledWith(
+          expect.any(String),
+          expect.objectContaining({ method: "GET" })
+        );
       });
 
       it("should pass the correct headers", async () => {
         const userId = 1;
+        const testUrl = `https://jsonplaceholder.typicode.com/users/${userId}`;
 
-        // Stub the successful fetch call
-        fetchStub
-          .withArgs(
-            `https://jsonplaceholder.typicode.com/users/${userId}`,
-            sinon.match.object
-          )
-          .callsFake((_, options) => {
-            // Verify the headers being passed
-            expect(options.headers).to.deep.equal(expectedHeaders);
-            return mockFetchUserSuccess(userId, options.headers);
-          });
+        fetchMock.mockImplementation((_, options) =>
+          mockFetchUserSuccess(userId, options.headers)
+        );
 
-        // Call the function
         await fetchUser(userId);
+
+        expect(fetchMock).toHaveBeenCalledWith(
+          testUrl,
+          expect.objectContaining({ headers: expectedHeaders })
+        );
       });
     });
 
@@ -68,102 +61,66 @@ describe("fetchMultipleUsers", function () {
         const userId = 1;
         const testUrl = `https://jsonplaceholder.typicode.com/users/${userId}`;
 
-        // The options parameter in the stub is the same options object that the student provides when calling fetch in their implementation.
-        /// When the fetch function is called within fetchUser, it sends this options object along with the URL.
-        fetchStub
-          .withArgs(testUrl)
-          .callsFake((_, options) =>
-            mockFetchUserSuccess(userId, options.headers)
-          );
+        fetchMock.mockImplementation((_, options) =>
+          mockFetchUserSuccess(userId, options.headers)
+        );
 
         const userData = await fetchUser(userId);
 
-        expect(userData).to.deep.equal(validUserData[0]);
+        expect(fetchMock).toHaveBeenCalledWith(testUrl, expect.any(Object));
+        expect(userData).toEqual(validUserData[0]);
       });
 
       it("should throw an error for an invalid user ID", async () => {
         const userId = 9999;
         const testUrl = `https://jsonplaceholder.typicode.com/users/${userId}`;
 
-        // The options parameter in the stub is the same options object that the student provides when calling fetch in their implementation.
-        /// When the fetch function is called within fetchUser, it sends this options object along with the URL.
-        fetchStub
-          .withArgs(testUrl)
-          .callsFake((_, options) =>
-            mockFetchUserFailure(userId, options.headers)
-          );
+        fetchMock.mockImplementation((_, options) =>
+          mockFetchUserFailure(userId, options.headers)
+        );
 
-        try {
-          await fetchUser(userId);
-        } catch (error) {
-          expect(error.message).to.equal(
-            `Failed to fetch user with ID: ${userId}`
-          );
-        }
+        await expect(fetchUser(userId)).rejects.toThrow(
+          `Failed to fetch user with ID: ${userId}`
+        );
+        expect(fetchMock).toHaveBeenCalledWith(testUrl, expect.any(Object));
       });
     });
   });
 
   describe("fetchMultipleUsers function implementation", () => {
     it("should return all user's data if all fetches succeed", async () => {
-      // Stub the successful fetch calls
-      passingUserIds.forEach((id) => {
-        const testUrl = `https://jsonplaceholder.typicode.com/users/${id}`;
+      fetchMock.mockImplementation((url, options) =>
+        mockFetchUserSuccess(userIdFromUrl(url), options.headers)
+      );
 
-        fetchStub
-          .withArgs(testUrl)
-          .callsFake((_, options) => mockFetchUserSuccess(id, options.headers));
-      });
-
-      // Call the function and check the result
       const result = await fetchMultipleUsers(passingUserIds);
-      expect(result.successful).to.deep.equal(validUserData);
-      expect(result.failed).to.deep.equal([]);
+      expect(result.successful).toEqual(validUserData);
+      expect(result.failed).toEqual([]);
     });
 
     it("should return only failed user IDs if all fetches fail", async () => {
-      // Stub the failed fetch calls
-      failingUserIds.forEach((id) => {
-        const testUrl = `https://jsonplaceholder.typicode.com/users/${id}`;
+      fetchMock.mockImplementation((url, options) =>
+        mockFetchUserFailure(userIdFromUrl(url), options.headers)
+      );
 
-        fetchStub
-          .withArgs(testUrl)
-          .callsFake((_, options) => mockFetchUserFailure(id, options.headers));
-      });
-
-      // Call the function and check the result
       const result = await fetchMultipleUsers(failingUserIds);
-      expect(result.successful).to.deep.equal([]);
-      expect(result.failed).to.deep.equal(failingUserIds);
+      expect(result.successful).toEqual([]);
+      expect(result.failed).toEqual(failingUserIds);
     });
 
     it("should return correct data for a mix of successes and failures", async () => {
       const mixedIds = [...passingUserIds, ...failingUserIds];
 
-      // Stub success calls
-      passingUserIds.forEach((id) => {
-        const testUrl = `https://jsonplaceholder.typicode.com/users/${id}`;
-
-        fetchStub
-          .withArgs(testUrl)
-          .callsFake((url, options) =>
-            mockFetchUserSuccess(id, options.headers)
-          );
+      fetchMock.mockImplementation((url, options) => {
+        const userId = userIdFromUrl(url);
+        return passingUserIds.includes(userId)
+          ? mockFetchUserSuccess(userId, options.headers)
+          : mockFetchUserFailure(userId, options.headers);
       });
 
-      // Stub failure calls
-      failingUserIds.forEach((id) => {
-        const testUrl = `https://jsonplaceholder.typicode.com/users/${id}`;
-
-        fetchStub
-          .withArgs(testUrl)
-          .callsFake((_, options) => mockFetchUserFailure(id, options.headers));
-      });
-
-      // Call the function and check the result
       const result = await fetchMultipleUsers(mixedIds);
-      expect(result.successful).to.deep.equal(validUserData);
-      expect(result.failed).to.deep.equal(failingUserIds);
+      expect(result.successful).toEqual(validUserData);
+      expect(result.failed).toEqual(failingUserIds);
     });
   });
 });

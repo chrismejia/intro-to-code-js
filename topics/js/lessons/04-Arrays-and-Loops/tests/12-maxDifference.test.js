@@ -1,5 +1,3 @@
-import { expect } from "chai";
-import { describe } from "mocha";
 import { maxDifference } from "../12-maxDifference.js";
 import {
   oneNum,
@@ -15,40 +13,40 @@ describe("#12: maxDifference", () => {
 
     allArrs.forEach((arr) => {
       const result = maxDifference(arr);
-      expect(result).to.be.a("number");
+      expect(typeof result).toBe("number");
     });
   });
 
   describe("returns the max difference of values", () => {
     it("for a 1 number array", () => {
       const result = maxDifference(oneNum);
-      expect(result).to.equal(0);
+      expect(result).toBe(0);
     });
 
     describe("for a multi number array", () => {
       it("of all the same number", () => {
         allSameNums.forEach((arr) => {
           const result = maxDifference(arr);
-          expect(result).to.equal(0);
+          expect(result).toBe(0);
         });
       });
 
       it("of all different numbers", () => {
         twoNums.forEach((arr) => {
           const result = maxDifference(arr);
-          expect(result).to.equal(1);
+          expect(result).toBe(1);
         });
 
         threeNums.forEach((arr) => {
           const result = maxDifference(arr);
-          expect(result).to.equal(2);
+          expect(result).toBe(2);
         });
       });
 
       it("with some repeats", () => {
         withRepeats.forEach((arr) => {
           const result = maxDifference(arr);
-          expect(result).to.equal(4);
+          expect(result).toBe(4);
         });
       });
     });

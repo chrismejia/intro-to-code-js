@@ -183,13 +183,13 @@ describe("#: groceryRegister", () => {
   const baseGroceryLists = Array.of(orderOne, orderTwo);
   it("returns a number representing the total price", () => {
     baseGroceryLists.map((list) => {
-      expect(groceryRegister(list)).to.be.a("number");
+      expect(groceryRegister(list)).toEqual(expect.any(Number));
     });
   });
 
   it("returns", () => {
-    expect(groceryRegister(orderOne)).to.equal(11.49);
-    expect(groceryRegister(orderTwo)).to.equal(39.45);
+    expect(groceryRegister(orderOne)).toBe(11.49);
+    expect(groceryRegister(orderTwo)).toBe(39.45);
   });
 
   describe("BONUS: can handle orders where items are out of stock", () => {

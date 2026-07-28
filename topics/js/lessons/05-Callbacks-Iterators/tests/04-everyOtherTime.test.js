@@ -1,5 +1,4 @@
-import { expect } from "chai";
-import sinon from "sinon";
+import { jest } from "@jest/globals";
 import {
   capitalize,
   wordsArr,
@@ -11,19 +10,19 @@ import {
 import everyOtherTime from "../04-everyOtherTime.js";
 
 describe("#4: everyOtherTime", () => {
-  const capSpy = sinon.spy(capitalize);
-  const cubeSpy = sinon.spy(cubeNum);
-
-  const capResult = everyOtherTime(wordsArr, capSpy);
-  const cubeResult = everyOtherTime(cubeArr, cubeSpy);
-
   it("runs the callback the correct number of times", () => {
-    expect(capSpy.callCount).to.equal(3);
-    expect(cubeSpy.callCount).to.equal(2);
+    const capSpy = jest.fn(capitalize);
+    const cubeSpy = jest.fn(cubeNum);
+
+    everyOtherTime(wordsArr, capSpy);
+    everyOtherTime(cubeArr, cubeSpy);
+
+    expect(capSpy).toHaveBeenCalledTimes(3);
+    expect(cubeSpy).toHaveBeenCalledTimes(2);
   });
 
   it("returns the correct value", () => {
-    expect(capResult).to.eql(cappedArr);
-    expect(cubeResult).to.eql(evenCubed);
+    expect(everyOtherTime(wordsArr, capitalize)).toEqual(cappedArr);
+    expect(everyOtherTime(cubeArr, cubeNum)).toEqual(evenCubed);
   });
 });

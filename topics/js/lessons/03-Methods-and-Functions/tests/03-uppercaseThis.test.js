@@ -1,27 +1,26 @@
 import { uppercaseThis } from "../03-uppercaseThis.js";
-import { expect } from "chai";
 
 describe("#3: uppercaseThis", () => {
   it("returns a string", () => {
-    expect(uppercaseThis("zzzz")).to.be.a("string");
-    expect(uppercaseThis("aaaa")).to.be.a("string");
-    expect(uppercaseThis("BBBB")).to.be.a("string");
-    expect(uppercaseThis("cCcC")).to.be.a("string");
-    expect(uppercaseThis("d1D2d3")).to.be.a("string");
+    expect(typeof uppercaseThis("zzzz")).toBe("string");
+    expect(typeof uppercaseThis("aaaa")).toBe("string");
+    expect(typeof uppercaseThis("BBBB")).toBe("string");
+    expect(typeof uppercaseThis("cCcC")).toBe("string");
+    expect(typeof uppercaseThis("d1D2d3")).toBe("string");
   });
 
   describe("returns the phrase completely capitalized", () => {
     it("when the phrase is all lowercase", () => {
-      expect(uppercaseThis("aaaa")).to.equal("AAAA");
+      expect(uppercaseThis("aaaa")).toBe("AAAA");
     });
 
     it("when the phrase is already all capitalized", () => {
-      expect(uppercaseThis("BBBB")).to.equal("BBBB");
+      expect(uppercaseThis("BBBB")).toBe("BBBB");
     });
 
     it("when the phrase has mixed capitals", () => {
-      expect(uppercaseThis("cCcC")).to.equal("CCCC");
-      expect(uppercaseThis("d1D2d3")).to.equal("D1D2D3");
+      expect(uppercaseThis("cCcC")).toBe("CCCC");
+      expect(uppercaseThis("d1D2d3")).toBe("D1D2D3");
     });
   });
 });

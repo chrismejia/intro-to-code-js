@@ -1,29 +1,31 @@
-import { expect } from "chai";
-import sinon from "sinon";
+import { jest } from "@jest/globals";
 import { getRandomJoke } from "../06-getRandomJoke.js";
 
+const JOKE_URL = "https://official-joke-api.appspot.com/random_joke";
+
 describe("getRandomJoke", () => {
-  let fetchStub;
+  let fetchMock;
 
   beforeEach(() => {
-    fetchStub = sinon.stub(global, "fetch");
+    fetchMock = jest.spyOn(globalThis, "fetch");
   });
 
   afterEach(() => {
-    fetchStub.restore();
+    jest.restoreAllMocks();
   });
 
-  it("should call fetch with the correct URL", () => {
-    fetchStub.resolves(
-      new Response(JSON.stringify({ setup: "Why...", punchline: "Because..." }))
-    );
+  it("should call fetch with the correct URL", async () => {
+    fetchMock.mockResolvedValue({
+      ok: true,
+      json: jest.fn().mockResolvedValue({
+        setup: "Why...",
+        punchline: "Because...",
+      }),
+    });
 
-    // Can be synchronous b/c just a simple check to ensure fetch called correctly.
-    getRandomJoke();
+    await getRandomJoke();
 
-    expect(
-      fetchStub.calledWith("https://official-joke-api.appspot.com/random_joke")
-    ).to.be.true;
+    expect(fetchMock).toHaveBeenCalledWith(JOKE_URL);
   });
 
   it("should return a joke object when fetch is successful", async () => {
@@ -31,16 +33,19 @@ describe("getRandomJoke", () => {
       setup: "Why don't skeletons fight?",
       punchline: "They don't have the guts.",
     };
-    fetchStub.resolves(new Response(JSON.stringify(mockJoke)));
+    fetchMock.mockResolvedValue({
+      ok: true,
+      json: jest.fn().mockResolvedValue(mockJoke),
+    });
 
     const result = await getRandomJoke();
-    expect(result).to.deep.equal(mockJoke);
+    expect(result).toEqual(mockJoke);
   });
 
   it("should return an error message if fetch fails", async () => {
-    fetchStub.rejects(new Error("Fetch failed"));
+    fetchMock.mockRejectedValue(new Error("Fetch failed"));
 
     const result = await getRandomJoke();
-    expect(result).to.equal("Failed to fetch joke");
+    expect(result).toBe("Failed to fetch joke");
   });
 });
