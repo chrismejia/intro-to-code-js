@@ -19,19 +19,19 @@ xdescribe("#5: letsGoParty", () => {
   describe("rejects person if just one condition fails", () => {
     it("legalAge less than 25", () => {
       expect(letsGoParty(invalidAge, validOutfit, validCover)).toBe(
-        invalidResult
+        invalidResult,
       );
     });
 
     it("outfitType is not correct", () => {
       expect(letsGoParty(validAge, invalidOutfit, validCover)).toBe(
-        invalidResult
+        invalidResult,
       );
     });
 
     it("doesn't have the money to pay the cover charge", () => {
       expect(letsGoParty(validAge, validOutfit, invalidCover)).toBe(
-        invalidResult
+        invalidResult,
       );
     });
   });
@@ -39,19 +39,19 @@ xdescribe("#5: letsGoParty", () => {
   describe("rejects person if two conditions fail", () => {
     it("age + outfit", () => {
       expect(letsGoParty(invalidAge, invalidOutfit, validCover)).toBe(
-        invalidResult
+        invalidResult,
       );
     });
 
     it("age + cover", () => {
-      expect(letsGoParty(invalidAge, invalidOutfit, validCover)).toBe(
-        invalidResult
+      expect(letsGoParty(invalidAge, validOutfit, invalidCover)).toBe(
+        invalidResult,
       );
     });
 
     it("outfit + cover", () => {
       expect(letsGoParty(validAge, invalidOutfit, invalidCover)).toBe(
-        invalidResult
+        invalidResult,
       );
     });
   });
@@ -59,7 +59,7 @@ xdescribe("#5: letsGoParty", () => {
   describe("rejects person if all three conditions fail", () => {
     it("age + outfit + cover", () => {
       expect(letsGoParty(invalidAge, invalidOutfit, invalidCover)).toBe(
-        invalidResult
+        invalidResult,
       );
     });
   });

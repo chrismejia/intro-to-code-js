@@ -38,10 +38,10 @@ xdescribe("#6: testGrader", () => {
     });
 
     it("when grade is between 0 and 60", () => {
-      for (let i = 0; i < 60; i++) {
-        let gradeUnder60 = Math.ceil(Math.random() * 59);
-        expect(testGrader(gradeUnder60)).toBe("F");
-      }
+      expect(testGrader(59)).toBe("F");
+      expect(testGrader(30)).toBe("F");
+      expect(testGrader(1)).toBe("F");
+      expect(testGrader(0)).toBe("F");
     });
   });
 

@@ -24,13 +24,13 @@ xdescribe("#4: truthyFalsy", () => {
     it("value -> undefined", () => {
       expect(truthyFalsy(undefined)).toBe(false);
     });
-  });
 
-  describe("returns true", () => {
     it("value -> false", () => {
       expect(truthyFalsy(false)).toBe(false);
     });
+  });
 
+  describe("returns true", () => {
     it("value -> any other number", () => {
       expect(truthyFalsy(1)).toBe(true);
       expect(truthyFalsy(Math.PI)).toBe(true);

@@ -18,17 +18,19 @@ xdescribe("#3: numberOrString", () => {
     });
 
     it("number input -> 'This is a number'", () => {
-      for (let i = 1; i <= 100; i++) {
-        let num = i * Math.ceil(Math.random() * 99);
-        expect(numberOrString(num)).toBe("This is a number");
-      }
+      expect(numberOrString(0)).toBe("This is a number");
+      expect(numberOrString(42)).toBe("This is a number");
+      expect(numberOrString(-12)).toBe("This is a number");
+      expect(numberOrString(3.14)).toBe("This is a number");
     });
 
     it("any other input -> 'This is not a string nor a number'", () => {
-      let types = [{ a: 1 }, [1, 2, 3], false];
+      const types = [{ a: 1 }, [1, 2, 3], false, null, undefined];
 
       types.forEach((type) => {
-        expect(typeof numberOrString(type)).toBe("string");
+        expect(numberOrString(type)).toBe(
+          "This is not a string nor a number",
+        );
       });
     });
   });

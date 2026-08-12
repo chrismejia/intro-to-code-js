@@ -22,7 +22,7 @@ xdescribe("#2: 5 characters", () => {
       expect(isItFiveChars).not.toBeUndefined();
     });
 
-    it("resolves to the String `it's 5 characters`", () => {
+    it("resolves to the string `not 5 characters`", () => {
       expect(isItFiveChars).toBe("not 5 characters");
     });
   });
