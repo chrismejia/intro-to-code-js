@@ -4,10 +4,11 @@ import { andTrue, andFalse, orTrue, orFalse } from "../index.js";
  * The code below is what tests your answers.
  *
  * To check one exercise at a time with Jest:
- * 1. Find the exercise you're working on.
- * 2. Remove the `x` from `xdescribe` or `xit` for that exercise.
- * 3. Run `npm run test:02` from the repo root.
- * 4. Read the Jest output for passing and failing checks.
+ * 1. Start with this first active exercise.
+ * 2. Run `npm run test:02` from the repo root.
+ * 3. Read the Jest output and update your answer until its tests pass.
+ * 4. Open the next numbered test file and remove the `x` from `xdescribe`.
+ * 5. Repeat until every exercise is active and passing.
  */
 
 describe("#1: Logically speaking", () => {
