@@ -1,5 +1,9 @@
 import express from "express";
+<<<<<<< HEAD:topics/js/lessons/08-Async-Await-APIs/server/routes/college.js
 import { courses, students } from "../../data/08-fetchCourseEnrollments.data.js";
+=======
+import { courses, students } from "../../data/08-fetchCourseEnrollments.data";
+>>>>>>> dev:lessons/08-Async-Await-APIs/server/routes/college.js
 
 const collegeRouter = express.Router();
 

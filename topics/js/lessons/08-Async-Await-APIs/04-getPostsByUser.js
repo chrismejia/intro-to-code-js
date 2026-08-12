@@ -26,24 +26,5 @@
  * // If an error occurs during fetching:
  * // Returns: { error: "Failed to fetch data" }
  */
-export const getPostsByUser = async (fetchUserData, fetchUserPosts) => {
-  try {
-    const user = await fetchUserData();
-    const posts = await fetchUserPosts(user.id);
-    return { user, posts };
-  } catch (error) {
-    return { error: "Failed to fetch data" };
-  }
-};
 
-// One-liner version:
-// export const convertToAsyncOneLiner = async (fetchUserData, fetchUserPosts) =>
-//   await (async () => {
-//     try {
-//       const user = await fetchUserData();
-//       const posts = await fetchUserPosts(user.id);
-//       return { user, posts };
-//     } catch {
-//       return { error: "Failed to fetch data" };
-//     }
-//   })();
+export const getPostsByUser = () => {};

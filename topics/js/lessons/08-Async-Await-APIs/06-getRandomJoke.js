@@ -23,19 +23,5 @@
  * const joke = await getRandomJoke();
  * // joke: "Failed to fetch joke"
  */
-export const getRandomJoke = async () => {
-  try {
-    const response = await fetch(
-      "https://official-joke-api.appspot.com/random_joke"
-    );
 
-    if (!response.ok) {
-      return "Failed to fetch joke";
-    }
-
-    const joke = await response.json();
-    return joke;
-  } catch (error) {
-    return "Failed to fetch joke";
-  }
-};
+export const getRandomJoke = () => {};

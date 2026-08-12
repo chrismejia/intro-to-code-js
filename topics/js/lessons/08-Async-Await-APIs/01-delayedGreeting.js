@@ -29,13 +29,4 @@
  * delayedGreeting('Bob', 1000, (greeting) => console.log(greeting));
  * // After 1 second, logs: "Hello, Bob!"
  */
-export function delayedGreeting(name, delay, callback) {
-  setTimeout(() => {
-    const greeting = `Hello, ${name}!`;
-    callback(greeting);
-  }, delay);
-}
-
-// One-liner
-export const delayedGreetingOneLiner = (name, delay, callback) =>
-  setTimeout(() => callback(`Hello, ${name}!`), delay);
+export function delayedGreeting() {}

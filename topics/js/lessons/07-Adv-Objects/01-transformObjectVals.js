@@ -24,16 +24,4 @@
  * const uppercased = transformObjectVals(words, x => x.toUpperCase());
  * // uppercased: { x: "HELLO", y: "WORLD" }
  */
-export function transformObjectVals(inputObj, transformFn) {
-  const result = {};
-  for (const key in inputObj) {
-    result[key] = transformFn(inputObj[key]);
-  }
-  return result;
-}
-
-// One-liner version:
-// export const transformObjectVals = (inputObj, transformFn) =>
-//   Object.fromEntries(
-//     Object.entries(inputObj).map(([key, value]) => [key, transformFn(value)])
-//   );
+export function transformObjectVals() {}

@@ -26,22 +26,4 @@
  * keyValidator(o3, o1) => [ "b" ] // o3 is missing the "b" key-value pair that o1 has; return missing key
  */
 
-// // Simple loop
-// export function keyValidator(baseObj, testObj) {
-//   let missingKeys = [];
-//   const baseKeys = Object.keys(baseObj);
-//   const testKeys = Object.keys(testObj);
-//
-//   for (const testKey of testKeys) {
-//     if (!baseKeys.includes(testKey)) {
-//       missingKeys.push(testKey);
-//     }
-//   }
-//   return missingKeys;
-// }
-
-// One-line
-export const keyValidator = (baseObj, testObj) =>
-  Object.keys(testObj).filter(
-    (testKey) => !Object.keys(baseObj).includes(testKey)
-  );
+export function keyValidator() {}

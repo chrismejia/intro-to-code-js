@@ -53,7 +53,7 @@ describe("#5: nullDeleter", () => {
     });
   });
 
-  describe("BONUS", () => {
+  xdescribe("BONUS", () => {
     it("should handle nested objects with no null values", () => {
       const result = nullDeleter(noNullsNested);
       expect(result).toEqual(noNullsNested);

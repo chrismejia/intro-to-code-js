@@ -41,29 +41,4 @@
  * // Returns: "Failed to fetch weather data for all cities"
  */
 
-export async function getForecastsForCities(cities, fetchForecast) {
-  const weatherPromises = cities.map((city) => fetchForecast(city));
-
-  const results = await Promise.allSettled(weatherPromises);
-
-  const successful = [];
-  const failed = [];
-
-  results.forEach((result, index) => {
-    const city = cities[index];
-
-    if (result.status === "fulfilled") {
-      successful.push({ city, data: result.value });
-    } else {
-      failed.push(city);
-    }
-  });
-
-  if (successful.length === 0) {
-    return "Failed to fetch weather data for all cities";
-  }
-
-  console.log("All available forecasts fetched");
-
-  return { successful, failed };
-}
+export async function getForecastsForCities() {}

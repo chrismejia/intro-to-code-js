@@ -27,35 +27,4 @@
  * findObjectDifferences(objX, objY);
  * // Returns: { color: ['red', 'blue'], material: [undefined, 'cotton'] }
  */
-export function findObjectDifferences(obj1, obj2) {
-  const result = {};
-
-  const allKeys = [...Object.keys(obj1), ...Object.keys(obj2)];
-
-  //
-  const allUniqueKeys = new Set(allKeys);
-
-  allUniqueKeys.forEach((key) => {
-    if (obj1[key] !== obj2[key]) {
-      result[key] = [obj1[key], obj2[key]];
-    }
-  });
-
-  return result;
-}
-
-// export const findObjectDifferences = (obj1, obj2) =>
-//   Object.keys({ ...obj1, ...obj2 }).reduce(
-//     (diffs, key) =>
-//       obj1[key] !== obj2[key] && ((diffs[key] = [obj1[key], obj2[key]]), diffs),
-//     {}
-//   );
-
-/**
- * Explanation
- * This one-liner does the following:
- * - Merges the keys from both obj1 and obj2 into a single array.
- * - Uses reduce to accumulate the differences between the two objects.
- * - If a difference is found (i.e., obj1[key] !== obj2[key]), it adds the key to the diffs object with its values from both objects.
- * - Returns the diffs object containing the differences.
- */
+export function findObjectDifferences() {}

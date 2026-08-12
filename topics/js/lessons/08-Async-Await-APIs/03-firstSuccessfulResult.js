@@ -20,21 +20,5 @@
  *   .then(result => console.log(result)) // Outputs: 'Success 2'
  *   .catch(error => console.error(error));
  */
-export const firstSuccessfulResult = async (tasks) => {
-  try {
-    const result = await Promise.any(tasks);
-    return result;
-  } catch (error) {
-    throw new Error("All tasks failed");
-  } finally {
-    console.log("All tasks completed");
-  }
-};
 
-// one-liner
-// export const firstSuccessfulResult = async (tasks) =>
-//   Promise.any(tasks)
-//     .finally(() => console.log("All tasks completed"))
-//     .catch(() => {
-//       throw new Error("All tasks failed");
-//     });
+export const firstSuccessfulResult = () => {};

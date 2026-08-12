@@ -24,29 +24,4 @@ import { quotes } from "./data/02-fetchQuotes.data.js";
  *   console.log(error); // "Failed to fetch quote"
  * });
  */
-export const fetchQuote = () => {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      const successRate = Math.random();
-      if (successRate > 0.1) {
-        const randomIdx = Math.floor(Math.random() * quotes.length);
-        const randomQuote = quotes[randomIdx];
-        resolve(randomQuote);
-      } else {
-        reject("Failed to fetch quote");
-      }
-    }, 350);
-  });
-};
-
-// One-liner alternative:
-// export const fetchQuote = () =>
-//   new Promise((resolve, reject) =>
-//     setTimeout(
-//       () =>
-//         Math.random() > 0.1
-//           ? resolve(quotes[Math.floor(Math.random() * 4)])
-//           : reject("Failed to fetch quote"),
-//       350
-//     )
-//   );
+export const fetchQuote = () => {};
