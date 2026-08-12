@@ -1,4 +1,19 @@
 /**
+ * HOW TO WORK THROUGH THIS LESSON
+ *
+ * 1. Complete the first active exercise, then run `npm run test:01` from the
+ *    repo root.
+ * 2. If Jest says the test suite failed to run or an export was not found,
+ *    check the variable name and its `export` keyword.
+ * 3. If Jest shows `Expected` and `Received`, the test loaded successfully.
+ *    Compare those values and revise your answer.
+ * 4. After the exercise passes, open this `01-valuesTypes.test.js` file, remove the `x`
+ *    from the next `xdescribe`, and repeat.
+ *
+ * Read Jest's error message throughly, it will tell you what to fix.
+ */
+
+/**
  * #1: What's your name?
  *
  * Define and export the variable myFirstName.
