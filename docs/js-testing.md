@@ -13,7 +13,7 @@ Jest configuration and test paths.
 | `package.json`                    | Root aliases such as `test:04`, `test:08-server`, `test:js`, and guard scripts. |
 | `topics/js/package.json`          | Workspace lesson, project, and shared Jest runner scripts.                      |
 | `topics/js/jest.config.js`        | Jest config for the JS workspace.                                               |
-| `topics/js/jest.pathSequencer.js` | Deterministic path-based test ordering for JS workspace suites.                 |
+| `topics/js/test-support/jest-test-sequencer.js` | Deterministic path-based test ordering for JS workspace suites.                 |
 | `scripts/checkFocusedTests.mjs`   | Guard against committed focused tests.                                          |
 | `scripts/checkStudentClean.mjs`   | Guard for upstream student-facing `main` tree expectations.                     |
 
@@ -58,7 +58,7 @@ The flags have distinct responsibilities:
   does not choose file order.
 - `--ci` keeps local script behavior close to GitHub Actions behavior.
 
-`topics/js/jest.pathSequencer.js` chooses file order. It sorts by normalized
+`topics/js/test-support/jest-test-sequencer.js` chooses file order. It sorts by normalized
 path with numeric-aware comparison, so grouped lesson runs list files in lesson
 and exercise order, such as `01-...`, `02-...`, and `10-...`.
 
@@ -76,7 +76,7 @@ npm --workspace @intro-to-code/js run test:jest -- --listTests lessons/04-Arrays
 
 The expected result is a successful command that lists lesson 04 test files in
 numeric path order from `01-measurer.test.js` through
-`12-maxDifference.test.js`. This confirms `topics/js/jest.pathSequencer.js` is
+`12-maxDifference.test.js`. This confirms `topics/js/test-support/jest-test-sequencer.js` is
 being applied without running the full lesson suite.
 
 ## Test Boilerplate
@@ -118,7 +118,7 @@ The current testing-related packages are:
 | Package                | Why it exists                                                                                                    |
 | ---------------------- | ---------------------------------------------------------------------------------------------------------------- |
 | `jest`                 | Test runner, assertions, spies, mocks, fake timers, and the package tree that provides the sequencer base class. |
-| `@jest/test-sequencer` | Base class imported by `topics/js/jest.pathSequencer.js`.                                                        |
+| `@jest/test-sequencer` | Base class imported by `topics/js/test-support/jest-test-sequencer.js`.                                                        |
 | `supertest`            | HTTP assertions for lesson 08 server route tests.                                                                |
 | `express`              | Lesson 08 sample API server under `topics/js/lessons/08-Async-Await-APIs/server`.                                |
 

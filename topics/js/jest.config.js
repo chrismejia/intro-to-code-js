@@ -6,6 +6,6 @@ export default {
   restoreMocks: true,
   testEnvironment: "node",
   testMatch: ["<rootDir>/**/*.test.js"],
-  testSequencer: "<rootDir>/jest.pathSequencer.js",
+  testSequencer: "<rootDir>/test-support/jest-test-sequencer.js",
   transform: {},
 };

@@ -6,7 +6,7 @@ const pathCollator = new Intl.Collator("en", {
   sensitivity: "base",
 });
 
-export default class PathSequencer extends TestSequencer {
+export default class JestTestSequencer extends TestSequencer {
   sort(tests) {
     return [...tests].sort((testA, testB) =>
       pathCollator.compare(normalizeTestPath(testA), normalizeTestPath(testB)),

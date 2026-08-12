@@ -98,10 +98,10 @@ For testing structure and script ownership, see
 - Root test aliases delegate into the JS workspace. The JS workspace owns the
   real Jest paths in `topics/js/package.json`.
 - `topics/js/jest.config.js` is the JS workspace Jest config and should stay
-  ESM. It points at `topics/js/jest.pathSequencer.js`.
-- `topics/js/jest.pathSequencer.js` sorts test files by normalized path with
-  numeric-aware ordering. Keep this in place so grouped lesson commands run and
-  report in lesson/file order.
+  ESM. It points at `topics/js/test-support/jest-test-sequencer.js`.
+- `topics/js/test-support/jest-test-sequencer.js` sorts test files by normalized
+  path with numeric-aware ordering. Keep this in place so grouped lesson
+  commands run and report in lesson/file order.
 - `npm run test:jest` inside `topics/js` uses `--runInBand` for one-file-at-a-
   time execution and the custom sequencer for deterministic file order. Do not
   replace one with the other; they solve different problems.

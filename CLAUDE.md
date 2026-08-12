@@ -45,7 +45,7 @@ Before changing layout, scripts, CI, lessons, tests, or branch/release behavior,
 - Use `npm run test:08-server` for the lesson 08 server suite.
 - Use `npm run check:focused-tests` before PRs that touch tests.
 - `topics/js/jest.config.js` is ESM and points at
-  `topics/js/jest.pathSequencer.js`.
+  `topics/js/test-support/jest-test-sequencer.js`.
 - `--runInBand` controls concurrency; the custom sequencer controls file order.
 - Do not introduce Mocha/Chai patterns or committed focused tests.
 
