@@ -14,7 +14,7 @@ This repo is organized by topic so it can grow beyond JavaScript over time. The 
 
 ## Repo Setup
 
-This repo assumes you have Git, Node.js, npm, and a code editor installed. If you are using VS Code, its built-in terminal is a good place to run these commands.
+This repo assumes you have Git, Node.js 24, npm, and a code editor installed. If you are using VS Code, its built-in terminal is a good place to run these commands.
 
 1. Fork this repo using the GitHub **Fork** button.
 2. On your fork, click the green **Code** button and copy the HTTPS URL.
@@ -44,13 +44,14 @@ This repo assumes you have Git, Node.js, npm, and a code editor installed. If yo
    code .
    ```
 
-8. Install dependencies:
+8. Use Node 24, then install the locked dependencies:
 
    ```shell
-   npm install
+   nvm use
+   npm ci
    ```
 
-You are in the right folder when you can see `package.json` and `topics/` in your editor. You only need to reinstall dependencies if you delete `node_modules`, update dependencies, or clone the repo again.
+You are in the right folder when you can see `package.json` and `topics/` in your editor. You only need to reinstall dependencies if you delete `node_modules`, update dependencies, or clone the repo again. For the longer Windows-oriented setup notes, see [first-time setup](first-time-setup.md).
 
 ## Project Layout
 
@@ -157,6 +158,7 @@ After that first push, `git push` is usually enough.
 
 ## More Help
 
-- [Git basics](docs/git-basics.md): saving work, checking status, switching branches, and pushing commits.
-- [Branching and PR workflow](docs/pr-workflow.md): issue branches, pull requests, and target branches for contributor work.
-- [Maintainer guide](docs/maintainer-guide.md): repo organization notes for adding topics, moving lessons or projects, updating scripts, or writing future contributor/agent instructions.
+- [Git basics](docs/maintainer/git-basics.md): saving work, checking status, switching branches, and pushing commits.
+- [Branching and PR workflow](docs/maintainer/pr-workflow.md): issue branches, pull requests, and target branches for contributor work.
+- [Maintainer guide](docs/maintainer/maintainer-guide.md): repo organization notes for adding topics, moving lessons or projects, updating scripts, or writing future contributor/agent instructions.
+- [First-time setup](first-time-setup.md): expanded Git, Node, editor, and Windows setup notes.

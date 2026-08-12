@@ -8,9 +8,7 @@ on:
       - "0X-Guide"
     paths-ignore:
       - "**/README.md"
-      - "base/**" # Ignore any changes in the base folder
       - "docs/**" # Ignore any changes in the docs folder
-      - "scripts/**" # Ignore any changes in the scripts folder
       - "teaching-notes/**"
     types: [opened, synchronize, reopened]
 
