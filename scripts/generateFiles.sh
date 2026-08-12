@@ -1,13 +1,20 @@
-#!/bin/bash
+#!/usr/bin/env bash
+
+set -euo pipefail
 
 # Check if an argument is provided
-if [ -z "$1" ]; then
+if [ "$#" -ne 1 ]; then
   echo "Usage: $0 <file_name_base>"
   exit 1
 fi
 
 # Set the base name from the first argument
 BASE_NAME="$1"
+
+if [[ ! "$BASE_NAME" =~ ^[A-Za-z0-9][A-Za-z0-9_-]*$ ]]; then
+  echo "File name must contain only letters, numbers, underscores, and hyphens."
+  exit 1
+fi
 
 # Convert the base name to a valid JavaScript function name (camelCase)
 # This line converts "file-name" or "file_name" to "fileName"
@@ -17,12 +24,15 @@ if [ -z "$FUNCTION_NAME" ]; then
   FUNCTION_NAME="generatedProblem"
 fi
 
-# Create the wip-problems directories if they don't exist
-mkdir -p "./wip-problems/tests"
-mkdir -p "./wip-problems/data"
+PROBLEM_PATH="./wip-problems/candidates/$BASE_NAME.js"
+TEST_PATH="./wip-problems/candidates/tests/$BASE_NAME.test.js"
+DATA_PATH="./wip-problems/candidates/data/$BASE_NAME.data.js"
+
+mkdir -p "./wip-problems/candidates/tests"
+mkdir -p "./wip-problems/candidates/data"
 
 # Create the main JavaScript file with a JSDoc boilerplate and function
-cat <<EOL > "./wip-problems/$BASE_NAME.js"
+cat <<EOL > "$PROBLEM_PATH"
 /**
  * $FUNCTION_NAME
  *
@@ -37,7 +47,7 @@ export function $FUNCTION_NAME(param1) {
 EOL
 
 # Create the test file
-cat <<EOL > "./wip-problems/tests/$BASE_NAME.test.js"
+cat <<EOL > "$TEST_PATH"
 import { $FUNCTION_NAME } from '../$BASE_NAME.js';
 import { baseData, baseExpected, caseOne, caseOneExpected } from '../data/$BASE_NAME.data.js';
 
@@ -62,7 +72,7 @@ describe("#XX: $FUNCTION_NAME", () => {
 EOL
 
 # Create the data file
-cat <<EOL > "./wip-problems/data/$BASE_NAME.data.js"
+cat <<EOL > "$DATA_PATH"
 export const baseData = {};
 export const baseExpected = {};
 
@@ -70,7 +80,10 @@ export const caseOne = [];
 export const caseOneExpected = [];
 EOL
 
-echo "Files created:"
-echo "./wip-problems/$BASE_NAME.js"
-echo "./wip-problems/tests/$BASE_NAME.test.js"
-echo "./wip-problems/data/$BASE_NAME.data.js"
+npm run check:jsdoc -- "$PROBLEM_PATH" >/dev/null
+
+echo "Files created and JSDoc validated:"
+
+echo "$PROBLEM_PATH"
+echo "$TEST_PATH"
+echo "$DATA_PATH"

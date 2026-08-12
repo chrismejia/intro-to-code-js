@@ -33,7 +33,7 @@ Before opening a `dev` to `main` pull request:
 
 1. Remove filled answers from lesson and project starter files.
 2. Remove instructor-only material from the current tree, including
-   `docs/`, `base/`, `teaching-notes/`, `wip-problems/`, `AGENTS.md`, and
+   `docs/`, `teaching-notes/`, `wip-problems/`, `AGENTS.md`, and
    `CLAUDE.md`.
 3. Convert guide-only tests so starter code is safe. Prefer Jest-compatible
    APIs such as `describe.skip`, `it.skip`, `test.skip`, `xdescribe`, or `xit`,
@@ -51,7 +51,7 @@ committed focused tests during release cleanup.
 The current tree should stay student-clean:
 
 - no filled answers in lesson or project starter files
-- no instructor-only folders such as `docs/`, `base/`, `teaching-notes/`, or
+- no instructor-only folders such as `docs/`, `teaching-notes/`, or
   `wip-problems/`
 - no maintainer-only agent instructions such as `AGENTS.md` or `CLAUDE.md`
 - no guide-only tests that fail against blank starter files

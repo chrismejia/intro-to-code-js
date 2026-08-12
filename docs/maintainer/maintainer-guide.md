@@ -9,9 +9,10 @@ This folder holds maintainer-facing notes for repository organization and curric
 - [JS testing guide](js-testing.md): Jest setup, test commands, branch expectations, supporting packages, and PR testing-note format.
 - [Repository layout](repository-layout.md): topic workspace structure, script ownership, branch-audience notes, and agent guidance files.
 - [Testing branch behavior](testing-branch-behavior.md): Jest expectations for guide, release staging, upstream `main`, and student forks.
-- `chatgpt/`: prompt/support material for generating or revising lesson JSDoc.
+- [Authoring prompts](../authoring/jsdoc-prompts/): prompt/support material for generating or revising lesson JSDoc.
+- [Release/versioning plan](../planning/release-versioning-strategy.md): versioning automation remains a future decision.
 
-Student-facing setup and test instructions belong in the root [README.md](../README.md). Keep this folder focused on how the repository is organized and maintained.
+Student-facing setup and test instructions belong in the root [README.md](../../README.md). Keep this folder focused on how the repository is organized and maintained.
 
 ## JS Testing Notes
 
@@ -29,5 +30,5 @@ and link to it from here.
 coding agents to the detailed docs before they edit layout, scripts, CI, branch
 flow, or curriculum structure. The root README should remain learner-friendly;
 branch rules, test expectations, and repo-shape details can live in
-`AGENTS.md`, `CLAUDE.md`, `docs/pr-workflow.md`,
-`docs/repository-layout.md`, and `docs/js-testing.md`.
+`AGENTS.md`, `CLAUDE.md`, `docs/maintainer/pr-workflow.md`,
+`docs/maintainer/repository-layout.md`, and `docs/maintainer/js-testing.md`.
