@@ -193,7 +193,41 @@ export function truthyFalsy(value) {
 // }
 
 /**
- * #6: letsGoParty
+ * #6: waterState
+ *
+ * waterState accepts a temperature in degrees Celsius and returns the state of
+ * water at that temperature.
+ *
+ * - Return "solid" when the temperature is 0 or below.
+ * - Return "gas" when the temperature is 100 or above.
+ * - Return "liquid" for temperatures between those boundaries.
+ *
+ * Pay close attention to which comparisons include the boundary value.
+ *
+ * CHALLENGE:
+ * Add a guard clause that returns "Not a valid temperature." when the input is
+ * not a number or is JavaScript's special `NaN` value. Research why `typeof`
+ * alone cannot identify `NaN`.
+ *
+ * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Less_than_or_equal
+ * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Greater_than_or_equal
+ * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/isNaN
+ */
+
+export function waterState(temperature) {
+  if (temperature <= 0) {
+    return "solid";
+  }
+
+  if (temperature >= 100) {
+    return "gas";
+  }
+
+  return "liquid";
+}
+
+/**
+ * #7: letsGoParty
  *
  * letsGoParty is a function that accepts three inputs: legalAge, outfitType, hasCoverCharge.
  * letsGoParty reads these three inputs and tests them to see if a person should be allowed in to party.
@@ -224,7 +258,7 @@ export function letsGoParty(legalAge, outfitType, hasCoverCharge) {
 }
 
 /**
- * #7: testGrader
+ * #8: testGrader
  *
  * testGrader is a function that accepts one input: a grade that is between 0 and 100. testGrader returns a letter grade based of the range the input grade falls into.
  * Complete the function testGrader given below by writing condtional statements that fulfill the following.
@@ -267,7 +301,7 @@ export function testGrader(grade) {
 }
 
 /**
- * #8: daysInTheMonth
+ * #9: daysInTheMonth
  *
  * daysInTheMonth is a function that accepts one input: a monthNum that is between 1 and 12, inclusive.
  *

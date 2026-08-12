@@ -5,7 +5,7 @@ import { letsGoParty } from "../index.js";
  * Run `npm run test:02` from the repo root after each change.
  */
 
-xdescribe("#6: letsGoParty", () => {
+xdescribe("#7: letsGoParty", () => {
   const validAge = 32;
   const validOutfit = "pool party";
   const validCover = true;
