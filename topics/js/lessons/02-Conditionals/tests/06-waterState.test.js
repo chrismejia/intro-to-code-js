@@ -10,7 +10,7 @@ import {
  * Run `npm run test:02` from the repo root after each change.
  */
 
-xdescribe("#6: waterState", () => {
+describe("#6: waterState", () => {
   it("returns `solid` at and below the freezing boundary", () => {
     solidTemperatures.forEach((temperature) => {
       expect(waterState(temperature)).toBe("solid");

@@ -9,7 +9,7 @@ import {
  * Run `npm run test:02` from the repo root after each change.
  */
 
-xdescribe("#10: getUserGreeting", () => {
+describe("#10: getUserGreeting", () => {
   it("uses the first available name for logged-in users", () => {
     loggedInUsers.forEach(
       ({ isLoggedIn, preferredName, username, expected }) => {

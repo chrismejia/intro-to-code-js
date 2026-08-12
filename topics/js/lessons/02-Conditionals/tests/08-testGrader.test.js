@@ -7,7 +7,7 @@ import { testGrader } from "../index.js";
  * Run `npm run test:02` from the repo root after each change.
  */
 
-xdescribe("#8: testGrader", () => {
+describe("#8: testGrader", () => {
   describe("returns the correct grade", () => {
     it("when grade is between 90 and 100", () => {
       expect(testGrader(100)).toBe("A");

@@ -7,7 +7,7 @@ import { numberOrString } from "../index.js";
  * Run `npm run test:02` from the repo root after each change.
  */
 
-xdescribe("#4: numberOrString", () => {
+describe("#4: numberOrString", () => {
   describe("returns the correct output", () => {
     it("string input -> 'This is a string'", () => {
       expect(numberOrString("")).toBe("This is a string");
