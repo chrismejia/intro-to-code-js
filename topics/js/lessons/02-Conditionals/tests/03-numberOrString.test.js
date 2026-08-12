@@ -3,14 +3,11 @@ import { numberOrString } from "../index.js";
 /**
  * The code below is what tests your answers.
  *
- * To check one exercise at a time with Jest:
- * 1. Find the exercise you're working on.
- * 2. Remove the `x` from `xdescribe` or `xit` for that exercise.
- * 3. Run `npm run test:02` from the repo root.
- * 4. Read the Jest output for passing and failing checks.
+ * Remove the `x` from `xdescribe` after the previous exercise passes.
+ * Run `npm run test:02` from the repo root after each change.
  */
 
-describe("#3: numberOrString", () => {
+xdescribe("#3: numberOrString", () => {
   describe("returns the correct output", () => {
     it("string input -> 'This is a string'", () => {
       expect(numberOrString("")).toBe("This is a string");

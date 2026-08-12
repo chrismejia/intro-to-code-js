@@ -1,6 +1,11 @@
 import { letsGoParty } from "../index.js";
 
-describe("#5: letsGoParty", () => {
+/**
+ * Remove the `x` from `xdescribe` after the previous exercise passes.
+ * Run `npm run test:02` from the repo root after each change.
+ */
+
+xdescribe("#5: letsGoParty", () => {
   const validAge = 32;
   const validOutfit = "pool party";
   const validCover = true;
