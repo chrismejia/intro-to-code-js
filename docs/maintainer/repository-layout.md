@@ -15,16 +15,27 @@ This repo uses npm workspaces lightly so each curriculum topic can own its lesso
 |       |-- projects/
 |       `-- package.json
 |-- docs/
+|   |-- agent-guidance/
+|   |-- authoring/jsdoc-prompts/
+|   |-- curriculum/
+|   |-- maintainer/
+|   `-- planning/
 |-- scripts/
-|-- base/
 |-- teaching-notes/
 `-- wip-problems/
+    |-- candidates/
+    |   |-- data/
+    |   `-- tests/
+    |-- debug/
+    |   |-- data/
+    |   `-- tests/
+    `-- ideas/
 ```
 
 `topics/js` is the JavaScript topic workspace. Lessons live under `topics/js/lessons`, and JavaScript projects live under `topics/js/projects`.
 
-Root-level support folders such as `docs`, `scripts`, `base`,
-`teaching-notes`, and `wip-problems` are shared repository material rather than
+Root-level support folders such as `docs`, `scripts`, `teaching-notes`, and
+`wip-problems` are shared repository material rather than
 student topic content. `AGENTS.md` and `CLAUDE.md` are maintainer/agent guidance
 files, not student-facing curriculum.
 
@@ -105,6 +116,18 @@ Testing should follow the same audience split. Pull requests targeting `0X-Guide
 More detailed branch-specific testing and release cleanup expectations live in
 [Testing branch behavior](testing-branch-behavior.md).
 
+## WIP Problem Areas
+
+Keep unfinished problem work under `wip-problems/` and classify it by purpose:
+
+- `candidates/`: new problem source files, test files, and reusable fixture data. `scripts/generateFiles.sh` creates its three-file starter set here.
+- `debug/`: temporary debugging exercises and their local data/tests.
+- `ideas/`: problem ideas and organization notes that are not executable work.
+
+WIP files are instructor-only and are intentionally removed before a student
+release. Do not create a generic shared `common/` folder for helpers; keep
+helpers scoped to the topic or test-support area that owns them.
+
 ## Agent Guidance Files
 
 `AGENTS.md` and `CLAUDE.md` are for maintainers and coding agents working on
@@ -114,11 +137,66 @@ instead of duplicating every rule inline.
 Before editing layout, scripts, CI, lessons, tests, or branch/release behavior,
 agents should read:
 
-- docs/maintainer-guide.md
-- docs/pr-workflow.md
-- docs/repository-layout.md
-- docs/js-testing.md
-- docs/testing-branch-behavior.md
+- docs/maintainer/maintainer-guide.md
+- docs/maintainer/pr-workflow.md
+- docs/maintainer/repository-layout.md
+- docs/maintainer/js-testing.md
+- docs/maintainer/testing-branch-behavior.md
 
 Strip `AGENTS.md` and `CLAUDE.md` before releasing to upstream `main`; they are
 not student-facing files.
+
+## Deliberate file scaffolding ramp
+
+There's one important note about the first 3 folders of the `topics/js/lessons`: `01-Values-and-Data-Types`, `02-Conditionals`, `03-Methods-and-Functions`. The agent should keep the scaffolding consistent when adding/updating lessons in this sequence.
+
+### `01-Values-and-Data-Types`
+
+The first lesson folder is deliberately made up of:
+
+- the single `index.js` file, which contains all of the lesson's problems and starter code
+- the single `01-valuesTypes.test.js` file, which contains the tests for the lesson content
+
+```
+topics/js/lessons/01-Values-and-Data-Types/
+├── index.js                  # single file for all lesson problems and starter code
+└── 01-valuesTypes.test.js    # single test file for all lesson problems
+```
+
+This structure is intentionally simple and flat, so that the student can focus on the lesson content and not be distracted by a complex file structure.
+
+### `02-Conditionals`
+
+The second lesson folder expands the scaffolding slightly to include:
+
+- the single `index.js` file, which contains all of the lesson's problems and starter code
+- a tests folder, which contains individual test files for each problem in the lesson, like `01-logicallySpeaking.test.js`, `02-fiveCharacters.test.js`, `03-numberOrString.test.js`, etc.
+
+```
+topics/js/lessons/02-Conditionals/
+├── index.js                          # single file for all lesson problems and starter code
+└── tests/                            # folder with individual test files for each problem in index
+    ├── 01-logicallySpeaking.test.js
+    ├── 02-fiveCharacters.test.js
+    ├── 03-numberOrString.test.js
+    └── ...
+```
+
+This structure is still relatively simple, but it introduces the idea of organizing tests into separate files for each problem, which is a common practice in larger projects.
+
+### `03-Methods-and-Functions` and further lessons
+
+From this third lesson folder onward, the scaffolding is more complex and includes:
+
+```
+topics/js/lessons/03-Methods-and-Functions/
+├── 01-helloWorld.js                  # each problem has its own file for starter code
+├── 02-helloWorldRedux.js
+├── ...
+└── tests/                            # folder with individual test files for each problem in the lesson
+    ├── 01-helloWorld.test.js
+    ├── 02-helloWorldRedux.test.js
+    └── ...
+```
+
+This structure is more representative of real-world projects, where each function or module has its own file, and tests are organized in a parallel structure.

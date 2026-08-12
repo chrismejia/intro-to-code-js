@@ -20,7 +20,7 @@ git status
 
 You should see something like:
 
-```text
+```shell
 On branch branch-name
 nothing to commit, working tree clean
 ```
@@ -44,7 +44,7 @@ git branch --show-current
 
 3. If a file changed, Git may show:
 
-   ```text
+   ```shell
    Changes not staged for commit:
      modified:   topics/js/lessons/04-Arrays-and-Loops/01-measurer.js
    ```
@@ -63,7 +63,7 @@ git branch --show-current
 
 6. Git should now show:
 
-   ```text
+   ```shell
    Changes to be committed:
      modified:   topics/js/lessons/04-Arrays-and-Loops/01-measurer.js
    ```

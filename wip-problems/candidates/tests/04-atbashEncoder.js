@@ -1,4 +1,4 @@
-import { characters } from "./data/atbashEncoder.data";
+import { characters } from "../data/atbashEncoder.data";
 
 /**
  * atbashEncoder accepts no parameters and returns and object with 26 key-value pairs.

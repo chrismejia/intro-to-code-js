@@ -80,8 +80,9 @@ export const caseOne = [];
 export const caseOneExpected = [];
 EOL
 
-echo "Files created and JSDoc validated:"
 npm run check:jsdoc -- "$PROBLEM_PATH" >/dev/null
+
+echo "Files created and JSDoc validated:"
 
 echo "$PROBLEM_PATH"
 echo "$TEST_PATH"

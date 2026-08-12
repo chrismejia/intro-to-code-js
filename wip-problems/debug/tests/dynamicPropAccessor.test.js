@@ -4,7 +4,7 @@ import {
   baseExpected,
   caseOne,
   caseOneExpected,
-} from "../../../wip-problems/data/dynamicPropAccessor.data";
+} from "../data/dynamicPropAccessor.data";
 
 describe("#XX: DynamicPropAccessor", () => {
   it("base condition met", () => {

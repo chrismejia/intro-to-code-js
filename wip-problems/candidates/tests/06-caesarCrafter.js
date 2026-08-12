@@ -1,4 +1,4 @@
-import { baseCaesar } from "./data/caesarCrafter.data";
+import { baseCaesar } from "../data/caesarCrafter.data";
 
 /**
  * caesarCrafter accepts two inputs, an object param called data, and a string the number shiftAmount.

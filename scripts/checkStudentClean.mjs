@@ -6,7 +6,6 @@ const upstreamRepository = "chrismejia/intro-to-code-js";
 const forbiddenTopLevelPaths = [
   "AGENTS.md",
   "CLAUDE.md",
-  "base",
   "docs",
   "teaching-notes",
   "wip-problems",

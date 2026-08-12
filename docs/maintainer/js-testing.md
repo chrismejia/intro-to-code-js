@@ -111,6 +111,18 @@ Generated WIP problem tests come from `scripts/generateFiles.sh`. When that
 template changes, generate a sample problem in a temporary directory and inspect
 the emitted test file before committing.
 
+## JSDoc Validation
+
+JSDoc is kept as offline developer tooling for JavaScript source comments. It
+parses the selected file and emits doclet JSON; it does not generate HTML or
+write documentation files:
+
+```shell
+npm run check:jsdoc -- topics/js/lessons/03-Methods-and-Functions/01-helloWorld.js
+```
+
+The WIP generator runs the same check for each new problem source file.
+
 ## Supporting Packages
 
 The current testing-related packages are:
@@ -119,13 +131,13 @@ The current testing-related packages are:
 | ---------------------- | ---------------------------------------------------------------------------------------------------------------- |
 | `jest`                 | Test runner, assertions, spies, mocks, fake timers, and the package tree that provides the sequencer base class. |
 | `@jest/test-sequencer` | Base class imported by `topics/js/test-support/jest-test-sequencer.js`.                                                        |
+| `jsdoc`                | Offline parsing/validation of JSDoc comments in generated or selected JavaScript files; it does not write HTML. |
 | `supertest`            | HTTP assertions for lesson 08 server route tests.                                                                |
 | `express`              | Lesson 08 sample API server under `topics/js/lessons/08-Async-Await-APIs/server`.                                |
 
-Packages such as Babel, JSDoc tooling, Faker, and Nodemon may support older
-repository workflows or docs generation, but they are not part of the active JS
-Jest runner. Treat future dependency cleanup as separate from test conversion
-work unless the issue explicitly includes it.
+The repository no longer carries the retired Babel, Faker, Nodemon,
+`jsdocs`, or `jsdoc-to-markdown` tooling. JSDoc remains only as an offline
+parser/validation tool for source comments; no generated HTML is committed.
 
 ## Migration Audit Notes
 
@@ -174,7 +186,7 @@ separate issue.
 
 Before opening a `dev` to `main` pull request, strip answer-bearing files and
 remove instructor-only material from the current tree, including `docs/`,
-`base/`, `teaching-notes/`, `wip-problems/`, `AGENTS.md`, and `CLAUDE.md`.
+`teaching-notes/`, `wip-problems/`, `AGENTS.md`, and `CLAUDE.md`.
 Convert tests so they are safe for starter-code files by using `describe.skip`,
 `it.skip`, `test.skip`, or a starter-safe harness.
 

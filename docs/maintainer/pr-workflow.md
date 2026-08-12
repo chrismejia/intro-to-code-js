@@ -5,15 +5,15 @@ Use this guide when working on issue branches and pull requests for this repo. T
 ## Branch Roles
 
 - `0X-Guide`: instructor source of truth.
-- Feature branch, such as `feat/142`: groups related issue work before it returns to `0X-Guide`.
-- Issue branch, such as `CODE-164-update-readme-and-docs-for-topics-layout`: handles one focused issue.
+- Feature branch: groups related issue work before it returns to `0X-Guide`.
+- Issue branch, such as `CODE-###-short-description`: handles one focused issue.
 - `dev`: staging branch for preparing student-facing releases.
 - `main`: student-facing release branch.
 
-For the current #142/#152 organization work, the normal flow is:
+For feature work, the normal flow is:
 
 ```text
-0X-Guide -> feat/142 -> CODE-### issue branch -> PR back to feat/142 -> final PR to 0X-Guide
+0X-Guide -> feature branch -> CODE-### issue branch -> PR back to feature branch -> final PR to 0X-Guide
 ```
 
 ## Start An Issue Branch
@@ -21,14 +21,14 @@ For the current #142/#152 organization work, the normal flow is:
 Begin from an updated feature branch:
 
 ```shell
-git checkout feat/142
+git checkout feature-branch
 git pull
 ```
 
 Create the issue branch:
 
 ```shell
-git checkout -b CODE-164-update-readme-and-docs-for-topics-layout
+git checkout -b CODE-###-short-description
 ```
 
 Use a branch name that includes the issue number and a short description. Keep the work scoped to that issue.
@@ -77,7 +77,7 @@ git commit -m "update README and docs for topic layout"
 Push the issue branch:
 
 ```shell
-git push -u origin CODE-164-update-readme-and-docs-for-topics-layout
+git push -u origin CODE-###-short-description
 ```
 
 ## Open The PR
@@ -85,8 +85,8 @@ git push -u origin CODE-164-update-readme-and-docs-for-topics-layout
 For issue branches under the feature branch, open the PR into the feature branch, not directly into `0X-Guide`:
 
 ```text
-base: feat/142
-compare: CODE-164-update-readme-and-docs-for-topics-layout
+base: feature-branch
+compare: CODE-###-short-description
 ```
 
 Use this PR description shape:
@@ -104,9 +104,7 @@ Use this PR description shape:
 
 ### Issues:
 
-Closes #164
-Parent #152
-Epic #142
+Closes #<issue-number>
 ```
 
 ## After Merge
@@ -114,7 +112,7 @@ Epic #142
 After the PR merges, update the feature branch locally:
 
 ```shell
-git checkout feat/142
+git checkout feature-branch
 git pull
 ```
 
@@ -137,5 +135,5 @@ student forks are allowed to keep personal notes or class material on their own
 branches.
 
 Student-clean release PRs should strip maintainer-only files and folders such as
-`docs/`, `base/`, `teaching-notes/`, `wip-problems/`, `AGENTS.md`, and
+`docs/`, `teaching-notes/`, `wip-problems/`, `AGENTS.md`, and
 `CLAUDE.md`.

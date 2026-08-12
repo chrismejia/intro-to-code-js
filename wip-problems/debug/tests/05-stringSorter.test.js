@@ -14,7 +14,7 @@ import {
   scsResult,
   noCapStart,
   ncsResult,
-} from "./data/stringSorter.data";
+} from "../data/stringSorter.data";
 import { stringSorter } from "../05-stringSorter";
 
 describe("#5: stringSorter", () => {
