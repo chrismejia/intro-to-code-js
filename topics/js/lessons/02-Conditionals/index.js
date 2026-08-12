@@ -176,6 +176,39 @@ export function truthyFalsy(value) {
 // }
 
 /**
+ * #10: getUserGreeting
+ *
+ * getUserGreeting accepts a login status, a preferred name, and a username.
+ *
+ * - Return "Please log in." when the user is not logged in.
+ * - When logged in, use the preferred name when it has a value.
+ * - Otherwise, use the username when it has a value.
+ * - Use "Guest" when neither name has a value.
+ * - Return the selected name in the message "Welcome, NAME!".
+ *
+ * Use `||` to select the first available display name.
+ *
+ * CHALLENGE:
+ * Rewrite the function as one return expression that uses both `&&` and `||`
+ * for control flow. Compare it with the original and decide which version makes
+ * the login requirement and fallback order easier to understand.
+ *
+ * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_OR
+ * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_AND
+ * @see https://developer.mozilla.org/en-US/docs/Glossary/Truthy
+ * @see https://developer.mozilla.org/en-US/docs/Glossary/Falsy
+ */
+
+export function getUserGreeting(isLoggedIn, preferredName, username) {
+  if (!isLoggedIn) {
+    return "Please log in.";
+  }
+
+  const displayName = preferredName || username || "Guest";
+  return `Welcome, ${displayName}!`;
+}
+
+/**
  * CHALLENGE ANSWER:
  * Using ! to negate the incoming value forces the value into a Boolean and negates it.
  * This is done to force a value to work in a Boolean context.
