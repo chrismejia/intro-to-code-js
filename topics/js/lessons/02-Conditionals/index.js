@@ -63,7 +63,40 @@ export const isItFiveChars =
   notFiveChars.length === 5 ? "it's 5 characters" : "not 5 characters";
 
 /**
- * #3: numberOrString
+ * #3: compareValues
+ *
+ * compareValues accepts two values and describes how JavaScript compares them.
+ * Return "strictly equal" when both values and types match.
+ * Return "loosely equal" when JavaScript considers the values equal only after
+ * converting one or both types.
+ * Return "not equal" when neither comparison matches.
+ *
+ * Use strict equality first. Strict equality is the preferred default in
+ * application code. This exercise includes loose equality so you can recognize
+ * and understand type conversion in code you encounter.
+ *
+ * CHALLENGE:
+ * Rewrite this function with nested ternary expressions. Compare both versions
+ * and decide which one communicates the ordered comparisons more clearly.
+ *
+ * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Strict_equality
+ * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Equality
+ */
+
+export function compareValues(valueA, valueB) {
+  if (valueA === valueB) {
+    return "strictly equal";
+  }
+
+  if (valueA == valueB) {
+    return "loosely equal";
+  }
+
+  return "not equal";
+}
+
+/**
+ * #4: numberOrString
  *
  * numberOrString is a function that accepts one input, a value of any type.
  * numberOrString returns the following based on these conditions:
@@ -87,7 +120,7 @@ export function numberOrString(value) {
 }
 
 /**
- * #4: truthyFalsy
+ * #5: truthyFalsy
  *
  * truthyFalsy is a function that accepts one input, a value of any type.
  * Complete the function truthyFalsy given below by writing conditional statements in the function block that fulfill the following.
@@ -160,7 +193,7 @@ export function truthyFalsy(value) {
 // }
 
 /**
- * #5: letsGoParty
+ * #6: letsGoParty
  *
  * letsGoParty is a function that accepts three inputs: legalAge, outfitType, hasCoverCharge.
  * letsGoParty reads these three inputs and tests them to see if a person should be allowed in to party.
@@ -191,7 +224,7 @@ export function letsGoParty(legalAge, outfitType, hasCoverCharge) {
 }
 
 /**
- * #6: testGrader
+ * #7: testGrader
  *
  * testGrader is a function that accepts one input: a grade that is between 0 and 100. testGrader returns a letter grade based of the range the input grade falls into.
  * Complete the function testGrader given below by writing condtional statements that fulfill the following.
@@ -234,7 +267,7 @@ export function testGrader(grade) {
 }
 
 /**
- * #7: daysInTheMonth
+ * #8: daysInTheMonth
  *
  * daysInTheMonth is a function that accepts one input: a monthNum that is between 1 and 12, inclusive.
  *

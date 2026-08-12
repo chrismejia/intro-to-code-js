@@ -7,7 +7,7 @@ import { truthyFalsy } from "../index.js";
  * Run `npm run test:02` from the repo root after each change.
  */
 
-xdescribe("#4: truthyFalsy", () => {
+xdescribe("#5: truthyFalsy", () => {
   describe("returns false", () => {
     it("value -> 0", () => {
       expect(truthyFalsy(0)).toBe(false);
