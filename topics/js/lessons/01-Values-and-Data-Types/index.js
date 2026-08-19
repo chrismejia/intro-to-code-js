@@ -23,7 +23,7 @@
  * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Grammar_and_types#string_literals
  */
 
-export const myFirstName = "name";
+// Replace this comment with your code.
 
 /**
  * #2: What's your age?
@@ -35,7 +35,7 @@ export const myFirstName = "name";
  * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Grammar_and_types#numeric_literals
  */
 
-export const myAge = 40;
+// Replace this comment with your code.
 
 /**
  * #3: In fact, it's super fun.
@@ -46,7 +46,7 @@ export const myAge = 40;
  * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Grammar_and_types#boolean_literals
  */
 
-export const codingIsFun = true;
+// Replace this comment with your code.
 
 /**
  * #4: Null and undefined
@@ -61,8 +61,7 @@ export const codingIsFun = true;
  * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Data_structures#undefined_type
  */
 
-export const isNull = null;
-export const isUndefined = undefined;
+// Replace this comment with your code.
 
 /**
  * #5: Quickest math class ever
@@ -86,15 +85,7 @@ export const isUndefined = undefined;
  * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Operator_precedence
  */
 
-export let numA = 15;
-export let numB = 3;
-
-export let addedTo = numA + numB;
-export let subtractedBy = numA - numB;
-export let multipliedBy = numA * numB;
-export let dividedBy = numA / numB;
-export let remainderOf = numA % numB;
-export let exponentiatedTo = numA ** numB;
+// Replace this comment with your code.
 
 /**
  * #6: Values are more than values
@@ -106,9 +97,7 @@ export let exponentiatedTo = numA ** numB;
  * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/typeof
  */
 
-export let nameType = typeof myFirstName;
-export let ageType = typeof myAge;
-export let funType = typeof codingIsFun;
+// Replace this comment with your code.
 
 /**
  * #7: Numbers and Words, all together
@@ -122,4 +111,4 @@ export let funType = typeof codingIsFun;
  * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals#string_interpolation
  */
 
-export const myDetails = `My name is ${myFirstName} and I'm ${myAge} years old.`;
+// Replace this comment with your code.
