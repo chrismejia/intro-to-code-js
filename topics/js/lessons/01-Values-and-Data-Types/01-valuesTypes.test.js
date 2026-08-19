@@ -22,10 +22,11 @@ import {
  * The code below is what tests your answers.
  *
  * To check one exercise at a time with Jest:
- * 1. Find the exercise you're working on.
- * 2. Remove the `x` from `xdescribe` or `xit` for that exercise.
- * 3. Run `npm run test:01` from the repo root.
- * 4. Read the Jest output for passing and failing checks.
+ * 1. Start with the first active exercise.
+ * 2. Run `npm run test:01` from the repo root.
+ * 3. Read the Jest output and update your answer until its tests pass.
+ * 4. Remove the `x` from the next `xdescribe` to activate that exercise.
+ * 5. Repeat until every exercise is active and passing.
  */
 
 describe("01 - Values and Types", () => {
@@ -41,7 +42,7 @@ describe("01 - Values and Types", () => {
     });
   });
 
-  describe("#2: What's your age?", () => {
+  xdescribe("#2: What's your age?", () => {
     describe("The variable myAge", () => {
       it("should be a number", () => {
         expect(typeof myAge).toBe("number");
@@ -49,7 +50,7 @@ describe("01 - Values and Types", () => {
     });
   });
 
-  describe("#3: In fact, it's super fun", () => {
+  xdescribe("#3: In fact, it's super fun", () => {
     describe("The variable codingIsFun", () => {
       it("should be a boolean value", () => {
         expect(typeof codingIsFun).toBe("boolean");
@@ -61,7 +62,7 @@ describe("01 - Values and Types", () => {
     });
   });
 
-  describe("#4: Null and undefined", () => {
+  xdescribe("#4: Null and undefined", () => {
     it("isNull -> should have a `null` value", () => {
       expect(isNull).toBeNull();
     });
@@ -71,12 +72,13 @@ describe("01 - Values and Types", () => {
     });
   });
 
-  describe("#5: Quickest Math Class Ever", () => {
-    describe("Variable declarations and value assignements", () => {
+  xdescribe("#5: Quickest Math Class Ever", () => {
+    describe("Variable declarations and value assignments", () => {
       it("numA -> assigned a number value of 15", () => {
         expect(typeof numA).toBe("number");
         expect(numA).toBe(15);
       });
+
       it("numB -> assigned a number value of 3", () => {
         expect(typeof numB).toBe("number");
         expect(numB).toBe(3);
@@ -87,40 +89,47 @@ describe("01 - Values and Types", () => {
       it("addedTo -> expression assignment evaluates to 18", () => {
         expect(addedTo).toBe(18);
       });
+
       it("subtractedBy -> expression assignment evaluates to 12", () => {
         expect(subtractedBy).toBe(12);
       });
+
       it("multipliedBy -> expression assignment evaluates to 45", () => {
         expect(multipliedBy).toBe(45);
       });
+
       it("dividedBy -> expression assignment evaluates to 5", () => {
         expect(dividedBy).toBe(5);
       });
+
       it("remainderOf -> expression assignment evaluates to 0", () => {
         expect(remainderOf).toBe(0);
       });
+
       it("exponentiatedTo -> expression assignment evaluates to 3375", () => {
         expect(exponentiatedTo).toBe(3375);
       });
     });
   });
 
-  describe("#6: Values are more than values", () => {
+  xdescribe("#6: Values are more than values", () => {
     it("nameType -> correctly evaluates type", () => {
       expect(typeof nameType).toBe("string");
       expect(nameType).toBe("string");
     });
+
     it("ageType -> correctly evaluates type", () => {
       expect(typeof ageType).toBe("string");
       expect(ageType).toBe("number");
     });
+
     it("funType -> correctly evaluates type", () => {
       expect(typeof funType).toBe("string");
       expect(funType).toBe("boolean");
     });
   });
 
-  describe("#7: Numbers and words, all together", () => {
+  xdescribe("#7: Numbers and words, all together", () => {
     it("myDetails -> is a string", () => {
       expect(typeof myDetails).toBe("string");
     });
