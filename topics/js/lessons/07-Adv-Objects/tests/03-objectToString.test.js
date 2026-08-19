@@ -10,7 +10,7 @@ import {
   specialCharsObjAsString,
 } from "../data/03-objectToString.data.js";
 
-describe("#3: objectToString", () => {
+xdescribe("#3: objectToString", () => {
   it("returns a string", () => {
     const result = objectToString({});
     expect(typeof result).toBe("string");

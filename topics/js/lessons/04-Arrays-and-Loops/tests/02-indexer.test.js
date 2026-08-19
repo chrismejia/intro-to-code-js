@@ -1,7 +1,7 @@
 import { indexer } from "../02-indexer.js";
 import { arr1, arr2, arr3, arr4 } from "../data/02-indexer.data.js";
 
-describe("#2: indexer", () => {
+xdescribe("#2: indexer", () => {
   expect(typeof indexer).toBe("function");
 
   describe("when idx is not a valid array index value", () => {

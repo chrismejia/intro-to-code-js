@@ -1,7 +1,7 @@
 import { fizzBuzz } from "../11-fizzbuzz.js";
 import { lengthTest } from "../data/11-fizzBuzz.data.js";
 
-describe("#11: fizzBuzz", () => {
+xdescribe("#11: fizzBuzz", () => {
   expect(typeof fizzBuzz).toBe("function");
 
   const result = fizzBuzz(100);

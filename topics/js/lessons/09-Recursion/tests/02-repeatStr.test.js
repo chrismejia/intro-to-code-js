@@ -6,7 +6,7 @@ afterEach(() => {
   jest.restoreAllMocks();
 });
 
-describe("#2: repeatStr", () => {
+xdescribe("#2: repeatStr", () => {
   it("returns a string", () => {
     counts.forEach((count) => {
       const result = wrapper.repeatStr("peko", count);

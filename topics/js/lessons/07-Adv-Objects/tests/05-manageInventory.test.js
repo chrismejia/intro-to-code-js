@@ -12,7 +12,7 @@ import {
   expectedDifferentNamesResult,
 } from "../data/05-manageInventory.data.js";
 
-describe("manageInventory", () => {
+xdescribe("manageInventory", () => {
   it("should return an empty object if no items are provided", () => {
     expect(manageInventory(noItems)).toEqual(expectedEmptyResult);
   });

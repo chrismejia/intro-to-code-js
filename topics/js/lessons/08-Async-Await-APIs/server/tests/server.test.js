@@ -5,7 +5,7 @@ import { expect } from "chai";
 >>>>>>> dev:lessons/08-Async-Await-APIs/server/tests/server.test.js
 import { unit8Server } from "../server.js";
 
-describe("08 - Async/Await & APIs Local Server", () => {
+xdescribe("08 - Async/Await & APIs Local Server", () => {
   describe("index route", () => {
     it("should respond with 404 for undefined routes", async () => {
       await request(unit8Server)

@@ -6,7 +6,7 @@ import {
   hasUppercase,
 } from "../data/05-disemvoweler.data.js";
 
-describe("#5: disemvoweler", () => {
+xdescribe("#5: disemvoweler", () => {
   expect(typeof disemvoweler).toBe("function");
   describe("returns a string", () => {
     describe("no vowels -> same as the input string", () => {

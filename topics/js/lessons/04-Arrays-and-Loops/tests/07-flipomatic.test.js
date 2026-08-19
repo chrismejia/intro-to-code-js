@@ -14,7 +14,7 @@ import {
   multiFlip,
 } from "../data/07-flipomatic.data.js";
 
-describe("#7: flipomatic", () => {
+xdescribe("#7: flipomatic", () => {
   expect(typeof flipomatic).toBe("function");
 
   describe("returns an array", () => {

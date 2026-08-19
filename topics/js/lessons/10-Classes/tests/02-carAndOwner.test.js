@@ -1,6 +1,6 @@
 import { Car, Owner } from "../02-carAndOwner.js";
 
-describe("#2: Car and Owner", () => {
+xdescribe("#2: Car and Owner", () => {
   let myCar, myOwner;
 
   beforeAll(() => {

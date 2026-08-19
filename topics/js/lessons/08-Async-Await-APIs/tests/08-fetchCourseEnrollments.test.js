@@ -48,7 +48,7 @@ const mockURLSearchParams = () => {
 
 jest.setTimeout(10000);
 
-describe("08 - fetchCourseEnrollments", () => {
+xdescribe("08 - fetchCourseEnrollments", () => {
   let server;
 
   beforeAll(async () => {

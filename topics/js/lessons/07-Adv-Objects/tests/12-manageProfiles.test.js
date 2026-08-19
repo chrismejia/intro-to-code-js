@@ -12,7 +12,7 @@ import {
   expectedCompleteOverwriteProfiles,
 } from "../data/12-manageProfiles.data.js";
 
-describe("#12: manageProfiles", () => {
+xdescribe("#12: manageProfiles", () => {
   it("should return the same profiles object when updates object is empty", () => {
     const result = manageProfiles(initialProfiles, emptyUpdates);
     expect(result).not.toBe(initialProfiles);

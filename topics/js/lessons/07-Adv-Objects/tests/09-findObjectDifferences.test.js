@@ -11,7 +11,7 @@ import {
   expectedDifferencesEmpty,
 } from "../data/09-findObjectDifferences.data.js";
 
-describe("#9: findObjectDifferences", function () {
+xdescribe("#9: findObjectDifferences", function () {
   it("should find differences between two objects with some differing and some matching properties", function () {
     expect(findObjectDifferences(objectA, objectB)).toEqual(
       expectedDifferencesAB

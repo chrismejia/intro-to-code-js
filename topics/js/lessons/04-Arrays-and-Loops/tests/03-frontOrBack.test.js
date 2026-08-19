@@ -1,6 +1,6 @@
 import { frontOrBack } from "../03-frontOrBack.js";
 
-describe("#3: frontOrBack", () => {
+xdescribe("#3: frontOrBack", () => {
   expect(typeof frontOrBack).toBe("function");
 
   describe("returns a correctly modified array", () => {

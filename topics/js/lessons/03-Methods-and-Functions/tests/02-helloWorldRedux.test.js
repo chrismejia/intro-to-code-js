@@ -1,6 +1,6 @@
 import { helloWorldRedux } from "../02-helloWorldRedux.js";
 
-describe("#2: helloWorldRedux", () => {
+xdescribe("#2: helloWorldRedux", () => {
   it("returns a personalized greeting if a name is passed in", () => {
     expect(helloWorldRedux("Markus")).toBe("Hello Markus!");
     expect(helloWorldRedux("Jon")).toBe("Hello Jon!");

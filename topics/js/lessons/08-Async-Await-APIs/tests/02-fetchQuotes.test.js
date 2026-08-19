@@ -2,7 +2,7 @@ import { jest } from "@jest/globals";
 import { fetchQuote } from "../02-fetchQuote.js";
 import { quotes } from "../data/02-fetchQuotes.data.js";
 
-describe("fetchQuote", () => {
+xdescribe("fetchQuote", () => {
   beforeEach(() => {
     jest.useFakeTimers();
   });

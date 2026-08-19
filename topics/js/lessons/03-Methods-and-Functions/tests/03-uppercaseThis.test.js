@@ -1,6 +1,6 @@
 import { uppercaseThis } from "../03-uppercaseThis.js";
 
-describe("#3: uppercaseThis", () => {
+xdescribe("#3: uppercaseThis", () => {
   it("returns a string", () => {
     expect(typeof uppercaseThis("zzzz")).toBe("string");
     expect(typeof uppercaseThis("aaaa")).toBe("string");

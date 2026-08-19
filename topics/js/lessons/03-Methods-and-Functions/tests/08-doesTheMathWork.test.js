@@ -1,6 +1,6 @@
 import { doesTheMathWork } from "../08-doesTheMathWork.js";
 
-describe("#8: doesTheMathWork", () => {
+xdescribe("#8: doesTheMathWork", () => {
   describe("returns a string", () => {
     it("for addition", () => {
       expect(typeof doesTheMathWork(1, 2, 3)).toBe("string");

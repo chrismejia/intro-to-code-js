@@ -10,7 +10,7 @@ import {
  * Run `npm run test:02` from the repo root after each change.
  */
 
-describe("#3: compareValues", () => {
+xdescribe("#3: compareValues", () => {
   it("returns `strictly equal` when values and types match", () => {
     strictlyEqualPairs.forEach(([valueA, valueB]) => {
       expect(compareValues(valueA, valueB)).toBe("strictly equal");

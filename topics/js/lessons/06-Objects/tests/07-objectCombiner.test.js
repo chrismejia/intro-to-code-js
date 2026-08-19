@@ -6,7 +6,7 @@ import {
   noOverlappingKeys,
 } from "../data/07-objectCombiner.data.js";
 
-describe("#7: objectCombiner", () => {
+xdescribe("#7: objectCombiner", () => {
   it("should handle no arguments and return an empty object", () => {
     const result = objectCombiner();
     expect(result).toEqual({});

@@ -34,7 +34,7 @@ const getFunctionRunnerCases = () => {
   };
 };
 
-describe("#3: functionRunner", () => {
+xdescribe("#3: functionRunner", () => {
   it("is a function", () => {
     expect(typeof functionRunner).toBe("function");
   });

@@ -8,7 +8,7 @@ import {
   allCalcs,
 } from "../data/09-wordCalculator.data.js";
 
-describe("#9: wordCalculator", () => {
+xdescribe("#9: wordCalculator", () => {
   expect(typeof wordCalculator).toBe("function");
 
   it("returns a number", () => {

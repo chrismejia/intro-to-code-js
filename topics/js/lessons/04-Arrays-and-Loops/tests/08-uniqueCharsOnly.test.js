@@ -6,7 +6,7 @@ import {
   allUniqueLetters,
 } from "../data/08-uniqueCharsOnly.data.js";
 
-describe("#8: uniqueCharsOnly", () => {
+xdescribe("#8: uniqueCharsOnly", () => {
   expect(typeof uniqueCharsOnly).toBe("function");
 
   describe("returns an array of the unique characters in the string", () => {

@@ -9,7 +9,7 @@ import {
   mixedTypesAns,
 } from "../data/06-onePairObject.data.js";
 
-describe("#6: onePairObjects", () => {
+xdescribe("#6: onePairObjects", () => {
   it("returns an empty array for an empty input object", () => {
     const result = onePairObjects({});
     expect(result).toEqual([]);

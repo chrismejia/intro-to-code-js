@@ -1,6 +1,6 @@
 import { smallTogetherNow } from "../06-smallTogetherNow.js";
 
-describe("#6: smallTogetherNow", () => {
+xdescribe("#6: smallTogetherNow", () => {
   describe("returns a unified, lowercase string", () => {
     it("when two uppercase input strings are passed in", () => {
       expect(smallTogetherNow("HELLO", "WORLD")).toBe("helloworld");

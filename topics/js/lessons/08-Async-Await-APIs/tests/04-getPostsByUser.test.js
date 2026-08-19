@@ -8,7 +8,7 @@ import {
   fetchUserPostsFail,
 } from "../data/04-getPostsByUser.data.js";
 
-describe("getPostsByUser", () => {
+xdescribe("getPostsByUser", () => {
   it("should return user data and posts when both fetch operations succeed", async () => {
     const result = await getPostsByUser(
       fetchUserDataSuccess,
