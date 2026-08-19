@@ -10,7 +10,6 @@
     "topics/*"
   ],
   "scripts": {
-<<<<<<< HEAD
     "test:js": "npm --workspace @intro-to-code/js test",
     "test:01": "npm --workspace @intro-to-code/js run test:01",
     "test:02": "npm --workspace @intro-to-code/js run test:02",
@@ -29,17 +28,6 @@
     "check:jsdoc": "jsdoc --configure jsdoc.config.json --explain",
     "check:focused-tests": "node scripts/checkFocusedTests.mjs",
     "check:student-clean": "node scripts/checkStudentClean.mjs"
-=======
-    "test:01": "mocha './lessons/01-Values-and-Data-Types/**.js'",
-    "test:02": "mocha './lessons/02-Conditionals/tests/**.js'",
-    "test:03": "mocha './lessons/03-Methods-and-Functions/tests/**.js'",
-    "test:04": "mocha './lessons/04-Arrays-and-Loops/tests/**.js'",
-    "test:05": "mocha './lessons/05-Callbacks-Iterators/tests/**.js'",
-    "test:06": "mocha './lessons/06-Objects/tests/**.js'",
-    "test:07": "mocha './lessons/07-Adv-Objects/tests/**.js'",
-    "test:08": "mocha './lessons/08-Async-Await-APIs/tests/**.js'",
-    "server:08": "mocha './lessons/08-Async-Await-APIs/server/tests/**.js'"
->>>>>>> dev
   },
   "repository": {
     "type": "git",
@@ -52,7 +40,6 @@
   },
   "homepage": "https://github.com/chrismejia/intro-to-code-js#readme",
   "devDependencies": {
-<<<<<<< HEAD
     "@jest/test-sequencer": "^30.4.1",
     "jest": "^30.4.2",
     "jsdoc": "^4.0.5",
@@ -60,22 +47,5 @@
   },
   "dependencies": {
     "express": "^4.21.2"
-=======
-    "@babel/cli": "^7.22.5",
-    "@babel/core": "^7.22.5",
-    "@babel/preset-env": "^7.22.5",
-    "@babel/register": "^7.22.5",
-    "@faker-js/faker": "^9.4.0",
-    "chai": "^4.5.0",
-    "jsdoc-to-markdown": "^7.0.1",
-    "jsdocs": "^1.0.0",
-    "mocha": "^8.4.0",
-    "nodemon": "^2.0.22",
-    "supertest": "^7.0.0"
-  },
-  "dependencies": {
-    "express": "^4.21.2",
-    "sinon": "^18.0.0"
->>>>>>> dev
   }
 }
