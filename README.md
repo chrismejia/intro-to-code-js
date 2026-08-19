@@ -158,7 +158,4 @@ After that first push, `git push` is usually enough.
 
 ## More Help
 
-- [Git basics](docs/maintainer/git-basics.md): saving work, checking status, switching branches, and pushing commits.
-- [Branching and PR workflow](docs/maintainer/pr-workflow.md): issue branches, pull requests, and target branches for contributor work.
-- [Maintainer guide](docs/maintainer/maintainer-guide.md): repo organization notes for adding topics, moving lessons or projects, updating scripts, or writing future contributor/agent instructions.
 - [First-time setup](first-time-setup.md): expanded Git, Node, editor, and Windows setup notes.
