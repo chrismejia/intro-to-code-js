@@ -85,3 +85,73 @@ fighting upstream release rules.
 
 Do not block fork-owned `main` pushes just because a student's fork contains a
 `notes/` folder or class material they were given for their own work.
+
+## Lesson Documentation Flow
+
+Use this policy for learner-facing lesson notes and the instructor material
+that supports them. The branch determines which audience owns the current
+version of a note.
+
+### `0X-Guide`
+
+`0X-Guide` is the source of truth for lesson content. Instructors may update
+learner-facing notes alongside answer-bearing lesson files and may keep
+instructor-only explanations in `docs/`, `teaching-notes/`, or `wip-problems/`.
+
+Keep the learner-facing note complete enough to use without the instructor
+material. Link to related lesson files, exercises, or public setup guidance
+when that helps a student follow the lesson.
+
+### `dev`
+
+`dev` stages the next student release. Bring the intended note changes from
+`0X-Guide` into `dev`, then review the resulting tree as a student would see
+it. During this review:
+
+1. Keep learner-facing notes that explain the released starter code.
+2. Remove instructor-only notes and references to files that will be removed.
+3. Rewrite links, examples, and commands that depend on answer-bearing or
+   instructor-only material.
+4. Confirm the note describes the student version, including any skipped or
+   starter-safe tests.
+
+Resolve documentation drift in the staging branch before the release pull
+request. Do not use release cleanup to hide missing guide content; restore the
+source note on `0X-Guide` when the guide is incomplete.
+
+### Upstream `main`
+
+`main` contains the student-facing release. It must not contain instructor-only
+paths such as `docs/`, `teaching-notes/`, `wip-problems/`, `AGENTS.md`, or
+`CLAUDE.md`. Therefore, a note stored in one of those paths is guide material,
+not a student-facing note, even if it discusses a lesson.
+
+Before merging `dev` into upstream `main`, check that learner-facing notes:
+
+- link only to files and commands present in the student release;
+- do not reveal answers or rely on instructor-only explanations;
+- use the same lesson names, paths, and test commands as the release; and
+- remain readable without repository-maintainer context.
+
+The existing `check:student-clean` guard verifies the top-level instructor-only
+paths. It does not decide whether prose is instructional or whether a link is
+correct, so the release review must perform those content checks as well.
+
+### Documentation validation
+
+Lesson notes are Markdown content, not executable lesson answers. Validate them
+at the boundary where they change:
+
+- Use `git diff --check` for whitespace errors.
+- Review every relative link and command against the target branch's current
+  tree.
+- Run the affected lesson test command when a note changes its instructions or
+  examples. On `0X-Guide`, active guide tests should pass; on `dev`, tests must
+  be starter-safe before release.
+- Run `npm run check:student-clean` for the upstream release tree. This is a
+  path guard and does not replace the note review above.
+
+Do not add a documentation-only lint requirement that would reject valid
+student-authored notes in fork-owned branches. If a future automated Markdown
+check is introduced, scope it to the upstream release workflow and keep content
+that is intentionally local to student forks out of that check.
