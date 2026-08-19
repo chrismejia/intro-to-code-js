@@ -1,0 +1,26 @@
+import { DynamicPropAccessor } from "../dynamicPropAccessor";
+import {
+  baseData,
+  baseExpected,
+  caseOne,
+  caseOneExpected,
+} from "../data/dynamicPropAccessor.data";
+
+describe("#XX: DynamicPropAccessor", () => {
+  it("base condition met", () => {
+    const result = DynamicPropAccessor(baseData);
+    expect(result).toEqual(baseExpected);
+  });
+
+  describe("nested set of conditions", () => {
+    it("nested test condition", () => {
+      const result = DynamicPropAccessor(baseData);
+      expect(result).toEqual(baseExpected);
+    });
+
+    it("other nested test condition", () => {
+      const result = DynamicPropAccessor(caseOne);
+      expect(result).toEqual(caseOneExpected);
+    });
+  });
+});

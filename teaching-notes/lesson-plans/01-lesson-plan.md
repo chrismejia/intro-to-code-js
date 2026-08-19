@@ -2,18 +2,24 @@
 
 ## Overview
 
-In this lesson, students will learn the fundamental concepts of JavaScript, focusing on values, data types, and basic variable manipulation. They will gain an understanding of different data types, how to declare and assign variables, and the importance of expressions and types in JavaScript.
+In this lesson, students learn foundational JavaScript values, data types,
+variables, expressions, and exports. They also begin reading Jest output and
+activating one supplied test suite at a time.
 
 ### Learning Objectives
 
 By the end of this lesson, students should be able to:
 
-- Define and assign values to variables.
-- Differentiate between various data types in JavaScript.
+- Declare and export variables with `const` or `let`.
+- Assign string, number, boolean, `null`, and `undefined` values.
+- Write a JavaScript comment.
+- Log one or more values to the console.
 - Understand and use `null` and `undefined`.
-- Work with basic arithmetic expressions without solving them.
-- Determine the type of a given variable.
+- Build arithmetic expressions with variables and arithmetic operators.
+- Determine the runtime type of a value with `typeof`.
 - Use template literals for string interpolation.
+- Run the lesson test command, distinguish setup failures from assertion
+  failures, and activate one test suite at a time.
 
 ## Lesson Structure
 
@@ -22,26 +28,28 @@ By the end of this lesson, students should be able to:
 #### Problem #1: What's your name?
 
 - **Objective**: Introduce students to variable declaration and assignment.
-- **Task**: Define the variable `myFirstName` and assign it the string of their name.
+- **Task**: Define and export `myFirstName`, then assign it the string of their
+  name.
 - **Example**:
 
   ```javascript
-  let myFirstName = "Alex";
+  export const myFirstName = "Alex";
   ```
 
 - **Discussion**:
   - Explain what a variable is in JavaScript.
-  - Discuss the let and const keywords briefly.
+  - Discuss the `let`, `const`, and `export` keywords briefly.
   - Show how to assign a string value to a variable.
 
 #### Problem #2: What's your age?
 
 - **Objective**: Reinforce the concept of variable assignment.
-- **Task**: Define the variable `myAge` and assign it the value of their age.
+- **Task**: Define and export `myAge`, then assign it the number value of their
+  age.
 - **Example**:
 
   ```js
-  let myAge = 25;
+  export const myAge = 25;
   ```
 
 - **Discussion**:
@@ -53,9 +61,8 @@ By the end of this lesson, students should be able to:
 #### Problem #3: In fact, it's super fun.
 
 - **Objective**: Introduce boolean values.
-- **Task**: Define the variable `codingIsFun` and assign it a boolean value.
+- **Task**: Define and export `codingIsFun`, then assign it a boolean value.
 - **Discussion**:
-
   - Explain what boolean values are (`true` and `false`).
   - Discuss scenarios where boolean values are used (e.g., conditions).
 
@@ -72,9 +79,9 @@ By the end of this lesson, students should be able to:
 #### Problem #4: Null and undefined
 
 - **Objective**: Understand `null` and `undefined` values.
-- **Task**: Define two variables: `isNull` and `isUndefined`. Assign the value `null` to `isNull` and the value `undefined` to `isUndefined`.
+- **Task**: Define and export `isNull` and `isUndefined`. Assign `null` to
+  `isNull` and `undefined` to `isUndefined`.
 - **Discussion**:
-
   - Explain `null` as an intentional absence of value.
   - Explain `undefined` as a lack of a defined value.
 
@@ -90,9 +97,10 @@ By the end of this lesson, students should be able to:
 #### Problem #5: Quickest math class ever
 
 - **Objective**: Work with basic arithmetic expressions without solving them.
-- **Task**: Define variables to hold the expressions for addition, subtraction, multiplication, division, modulus, and exponentiation of two numbers.
+- **Task**: Define and export variables that hold expressions for addition,
+  subtraction, multiplication, division, remainder, and exponentiation of two
+  numbers.
 - **Discussion**:
-
   - Explain the concept of expressions and how they differ from statements.
   - Introduce operator precedence and the importance of parentheses in complex expressions.
   - Reinforce the idea of keeping expressions dynamic by using variables rather than direct values.
@@ -107,9 +115,9 @@ By the end of this lesson, students should be able to:
 #### Problem #6: Values are more than values
 
 - **Objective**: Determine the type of a variable using `typeof`.
-- **Task**: Define variables that hold the expressions to determine the types of `myFirstName`, `myAge`, and `codingIsFun`.
+- **Task**: Define and export variables that use `typeof` to determine the types
+  of `myFirstName`, `myAge`, and `codingIsFun`.
 - **Discussion**:
-
   - Explain the `typeof` operator and its importance in a dynamically typed language like JavaScript.
   - Discuss common types (`string`, `number`, `boolean`, `object`, `undefined`).
 
@@ -126,9 +134,9 @@ By the end of this lesson, students should be able to:
 #### Problem #7: Numbers and Words, all together
 
 - **Objective**: Combine variables into a string using template literals.
-- **Task**: Define the variable `myDetails` and assign it a template literal that incorporates `myFirstName` and `myAge`.
+- **Task**: Define and export `myDetails`, then assign it a template literal that
+  incorporates `myFirstName` and `myAge`.
 - **Discussion**:
-
   - Introduce template literals and how they differ from traditional string concatenation.
   - Show examples of template literals and discuss their advantages, such as readability and ease of use.
 
@@ -137,26 +145,18 @@ By the end of this lesson, students should be able to:
   console.log(greeting); // "Hello, Alex! Welcome to JavaScript."
   ```
 
-### 7. Optional Challenge
+### 7. Reading and Activating Tests
 
-#### Extension: Combining Concepts
-
-- **Objective**: Apply all learned concepts in a single task.
-- **Task**: Create a function that takes `myFirstName`, `myAge`, and `codingIsFun` as inputs and returns a formatted string that includes all three values. This will require using variables, boolean logic, type determination, and template literals.
-- **Discussion**:
-
-  - This challenge reinforces the material by requiring students to synthesize their knowledge in a practical scenario.
-  - Provide hints or partial code if students struggle with this task.
-
-  ```js
-  function createProfile(name, age, fun) {
-    let funText = fun ? "I love coding!" : "Coding is tough!";
-    return `Hi, my name is ${name}, I'm ${age} years old. ${funText}`;
-  }
-
-  console.log(createProfile(myFirstName, myAge, codingIsFun));
-  // Output: "Hi, my name is Alex, I'm 25 years old. I love coding!"
-  ```
+- Start with problem 1 active and leave problems 2-7 marked with `xdescribe`.
+- Run `npm run test:01` from the repository root.
+- If Jest reports that the suite failed to run or an export was not found,
+  check the declaration name and `export` keyword.
+- If Jest displays `Expected` and `Received`, the test loaded successfully;
+  compare the values and revise the active answer.
+- After the active problem passes, remove the `x` from the next `xdescribe` and
+  run the command again.
+- Let students read Jest's original output before interpreting it for them.
+  The goal is to make ordinary test feedback familiar.
 
 ### 8. Summary and Recap
 
@@ -166,6 +166,7 @@ By the end of this lesson, students should be able to:
   - Working with expressions without solving them.
   - Using `typeof` to determine variable types.
   - Creating strings with template literals.
+  - Reading Jest output and activating tests sequentially.
 - Encourage students to ask questions and clarify any doubts.
 
 ### Additional Resources
@@ -176,5 +177,6 @@ By the end of this lesson, students should be able to:
 
 ## Homework
 
-- Complete the optional challenge problem.
-- Practice by writing small scripts that use different data types and template literals.
+- Finish activating and passing all seven problem suites.
+- Practice by writing small scripts that use different data types, arithmetic
+  expressions, and template literals.

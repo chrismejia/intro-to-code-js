@@ -33,10 +33,15 @@ git config --global --list
 
 - https://github.com/coreybutler/nvm-windows/releases
 
-### Install LTS
+### Install Node 24
 
-- `nvm install lts`
+- `nvm install 24`
+- `nvm use 24`
 - `nvm list`
+
+From the repository root, install the locked project dependencies:
+
+- `npm ci`
 
 ## Windows Terminal
 
