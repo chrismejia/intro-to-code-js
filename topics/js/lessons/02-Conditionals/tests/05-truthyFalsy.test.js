@@ -3,14 +3,11 @@ import { truthyFalsy } from "../index.js";
 /**
  * The code below is what tests your answers.
  *
- * To check one exercise at a time with Jest:
- * 1. Find the exercise you're working on.
- * 2. Remove the `x` from `xdescribe` or `xit` for that exercise.
- * 3. Run `npm run test:02` from the repo root.
- * 4. Read the Jest output for passing and failing checks.
+ * Remove the `x` from `xdescribe` after the previous exercise passes.
+ * Run `npm run test:02` from the repo root after each change.
  */
 
-describe("#4: truthyFalsy", () => {
+describe("#5: truthyFalsy", () => {
   describe("returns false", () => {
     it("value -> 0", () => {
       expect(truthyFalsy(0)).toBe(false);
@@ -27,13 +24,13 @@ describe("#4: truthyFalsy", () => {
     it("value -> undefined", () => {
       expect(truthyFalsy(undefined)).toBe(false);
     });
-  });
 
-  describe("returns true", () => {
     it("value -> false", () => {
       expect(truthyFalsy(false)).toBe(false);
     });
+  });
 
+  describe("returns true", () => {
     it("value -> any other number", () => {
       expect(truthyFalsy(1)).toBe(true);
       expect(truthyFalsy(Math.PI)).toBe(true);

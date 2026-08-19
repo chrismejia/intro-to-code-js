@@ -1,4 +1,19 @@
 /**
+ * HOW TO WORK THROUGH THIS LESSON
+ *
+ * 1. Complete the first active exercise, then run `npm run test:02` from the
+ *    repo root.
+ * 2. If Jest says the test suite failed to run or an export was not found,
+ *    check the variable or function name and its `export` keyword.
+ * 3. If Jest shows `Expected` and `Received`, the test loaded successfully.
+ *    Compare those values and revise your answer.
+ * 4. After the exercise passes, open the next numbered test file, remove the
+ *    `x` from `xdescribe`, and repeat.
+ *
+ * Read Jest's error message carefully; it will help you identify what to fix.
+ */
+
+/**
  * #1: Logically speaking
  *
  * Using the four given variables below, define four new variables and assign their values as follows:
@@ -9,11 +24,10 @@
  *
  * OR (||)
  * c) Define orTrue. Use two of the givens and the || operator so that the evaluated value is true. Make sure to export it.
- * d) Define orFalse. Use two of the givens and the || operator so that the evaluated value is true. Make sure to export it.
+ * d) Define orFalse. Use two of the givens and the || operator so that the evaluated value is false. Make sure to export it.
  *
- * See:
- * AND: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_AND
- * OR: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_OR
+ * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_AND
+ * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_OR
  */
 
 const givenOne = 64 < 2; // false
@@ -38,9 +52,8 @@ export const orFalse = givenOne || givenFour; // false || false
  * - True output: "it's 5 characters"
  * - False output: "not 5 characters"
  *
- * See:
- * String length: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/length
- * Ternary: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator
+ * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/length
+ * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_operator
  */
 
 // Ternary helper: (true/false expression to test) ? true value : false value
@@ -50,7 +63,40 @@ export const isItFiveChars =
   notFiveChars.length === 5 ? "it's 5 characters" : "not 5 characters";
 
 /**
- * #3: numberOrString
+ * #3: compareValues
+ *
+ * compareValues accepts two values and describes how JavaScript compares them.
+ * Return "strictly equal" when both values and types match.
+ * Return "loosely equal" when JavaScript considers the values equal only after
+ * converting one or both types.
+ * Return "not equal" when neither comparison matches.
+ *
+ * Use strict equality first. Strict equality is the preferred default in
+ * application code. This exercise includes loose equality so you can recognize
+ * and understand type conversion in code you encounter.
+ *
+ * CHALLENGE:
+ * Rewrite this function with nested ternary expressions. Compare both versions
+ * and decide which one communicates the ordered comparisons more clearly.
+ *
+ * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Strict_equality
+ * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Equality
+ */
+
+export function compareValues(valueA, valueB) {
+  if (valueA === valueB) {
+    return "strictly equal";
+  }
+
+  if (valueA == valueB) {
+    return "loosely equal";
+  }
+
+  return "not equal";
+}
+
+/**
+ * #4: numberOrString
  *
  * numberOrString is a function that accepts one input, a value of any type.
  * numberOrString returns the following based on these conditions:
@@ -59,11 +105,12 @@ export const isItFiveChars =
  * - "This is a number" if the value is a number
  * - "This is not a string nor a number" if it's neither
  *
- * SEE:
- * - return statement: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/return
+ * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/return
+ * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/if...else
+ * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/typeof
  */
 
-function numberOrString(value) {
+export function numberOrString(value) {
   if (typeof value === "string") {
     return "This is a string";
   } else if (typeof value === "number") {
@@ -73,7 +120,7 @@ function numberOrString(value) {
 }
 
 /**
- * #4: truthyFalsy
+ * #5: truthyFalsy
  *
  * truthyFalsy is a function that accepts one input, a value of any type.
  * Complete the function truthyFalsy given below by writing conditional statements in the function block that fulfill the following.
@@ -90,16 +137,15 @@ function numberOrString(value) {
  * Can you use the logical NOT (!) operator to make this function work?
  * See the link below for more on the logical NOT (!).
  *
- * See:
- * Logical NOT (!): https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_NOT
- * Falsy: https://developer.mozilla.org/en-US/docs/Glossary/Falsy
- * Truthy: https://developer.mozilla.org/en-US/docs/Glossary/Truthy
+ * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_NOT
+ * @see https://developer.mozilla.org/en-US/docs/Glossary/Falsy
+ * @see https://developer.mozilla.org/en-US/docs/Glossary/Truthy
  */
 
 // There are a number of ways to complete this function, one of which combines different expressions to test using the Logical OR (||) to create a single case that'll return false on ANY of the matching expressions.
 // You don't need an `else` to go with the if-statement because you simply `return true` if you don't enter the if code block. If there were more instructions to be run after that if-statement, then an `else` might be needed.
 
-function truthyFalsy(value) {
+export function truthyFalsy(value) {
   if (
     value === 0 ||
     value === "" ||
@@ -130,6 +176,39 @@ function truthyFalsy(value) {
 // }
 
 /**
+ * #10: getUserGreeting
+ *
+ * getUserGreeting accepts a login status, a preferred name, and a username.
+ *
+ * - Return "Please log in." when the user is not logged in.
+ * - When logged in, use the preferred name when it has a value.
+ * - Otherwise, use the username when it has a value.
+ * - Use "Guest" when neither name has a value.
+ * - Return the selected name in the message "Welcome, NAME!".
+ *
+ * Use `||` to select the first available display name.
+ *
+ * CHALLENGE:
+ * Rewrite the function as one return expression that uses both `&&` and `||`
+ * for control flow. Compare it with the original and decide which version makes
+ * the login requirement and fallback order easier to understand.
+ *
+ * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_OR
+ * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_AND
+ * @see https://developer.mozilla.org/en-US/docs/Glossary/Truthy
+ * @see https://developer.mozilla.org/en-US/docs/Glossary/Falsy
+ */
+
+export function getUserGreeting(isLoggedIn, preferredName, username) {
+  if (!isLoggedIn) {
+    return "Please log in.";
+  }
+
+  const displayName = preferredName || username || "Guest";
+  return `Welcome, ${displayName}!`;
+}
+
+/**
  * CHALLENGE ANSWER:
  * Using ! to negate the incoming value forces the value into a Boolean and negates it.
  * This is done to force a value to work in a Boolean context.
@@ -147,7 +226,41 @@ function truthyFalsy(value) {
 // }
 
 /**
- * #5: letsGoParty
+ * #6: waterState
+ *
+ * waterState accepts a temperature in degrees Celsius and returns the state of
+ * water at that temperature.
+ *
+ * - Return "solid" when the temperature is 0 or below.
+ * - Return "gas" when the temperature is 100 or above.
+ * - Return "liquid" for temperatures between those boundaries.
+ *
+ * Pay close attention to which comparisons include the boundary value.
+ *
+ * CHALLENGE:
+ * Add a guard clause that returns "Not a valid temperature." when the input is
+ * not a number or is JavaScript's special `NaN` value. Research why `typeof`
+ * alone cannot identify `NaN`.
+ *
+ * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Less_than_or_equal
+ * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Greater_than_or_equal
+ * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/isNaN
+ */
+
+export function waterState(temperature) {
+  if (temperature <= 0) {
+    return "solid";
+  }
+
+  if (temperature >= 100) {
+    return "gas";
+  }
+
+  return "liquid";
+}
+
+/**
+ * #7: letsGoParty
  *
  * letsGoParty is a function that accepts three inputs: legalAge, outfitType, hasCoverCharge.
  * letsGoParty reads these three inputs and tests them to see if a person should be allowed in to party.
@@ -165,18 +278,20 @@ function truthyFalsy(value) {
  * @param {string} outfitType
  * @param {boolean} hasCoverCharge
  * @returns {string}
+ *
+ * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_OR
+ * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_NOT
  */
 
-function letsGoParty(legalAge, outfitType, hasCoverCharge) {
+export function letsGoParty(legalAge, outfitType, hasCoverCharge) {
   if (legalAge < 25 || outfitType !== "pool party" || !hasCoverCharge) {
     return "Go home, no partying for you tonight.";
   }
-
   return "Let's go party!";
 }
 
 /**
- * #6: testGrader
+ * #8: testGrader
  *
  * testGrader is a function that accepts one input: a grade that is between 0 and 100. testGrader returns a letter grade based of the range the input grade falls into.
  * Complete the function testGrader given below by writing condtional statements that fulfill the following.
@@ -193,11 +308,14 @@ function letsGoParty(legalAge, outfitType, hasCoverCharge) {
  *    -> return 'F'
  *
  * Make sure to handle invalid inputs by returning "Not a valid grade."
+ *
+ * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/if...else
+ * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Greater_than_or_equal
  */
 
 // First we need a guard clause to filter out invalid values and return the appropriate error.
 // Then, we connect various if and else-if statements with a final else because we have multiple different conditions to test, each with their own return statement.
-function testGrader(grade) {
+export function testGrader(grade) {
   if (grade < 0 || grade > 100 || typeof grade !== "number") {
     return "Not a valid grade.";
   }
@@ -216,7 +334,7 @@ function testGrader(grade) {
 }
 
 /**
- * #7: daysInTheMonth
+ * #9: daysInTheMonth
  *
  * daysInTheMonth is a function that accepts one input: a monthNum that is between 1 and 12, inclusive.
  *
@@ -230,40 +348,56 @@ function testGrader(grade) {
  *    -> return 28
  *
  * Make sure to also handle invalid inputs by returning "Not a valid month."
+ *
+ * CHALLENGE:
+ * Is there a better way to do this than a long chain of if-else statements?
  */
 
-// This is a problem where many different conditions resolve to the same result. We have many possible results so this is a great place to use a switch statement.
-
-function daysInTheMonth(month) {
-  switch (month) {
-    case 1:
-    case 3:
-    case 5:
-    case 7:
-    case 8:
-    case 10:
-    case 12:
-      return 31;
-    case 4:
-    case 6:
-    case 9:
-    case 11:
-      return 30;
-    case 2:
-      return 28;
-    default:
-      return "Not a valid month.";
+// Naive chained conditional approach
+export function daysInTheMonth(month) {
+  if (
+    month === 1 ||
+    month === 3 ||
+    month === 5 ||
+    month === 7 ||
+    month === 8 ||
+    month === 10 ||
+    month === 12
+  ) {
+    return 31;
+  } else if (month === 4 || month === 6 || month === 9 || month === 11) {
+    return 30;
+  } else if (month === 2) {
+    return 28;
+  } else {
+    return "Not a valid month.";
   }
 }
 
-export {
-  givenOne,
-  givenTwo,
-  givenThree,
-  givenFour,
-  numberOrString,
-  truthyFalsy,
-  letsGoParty,
-  testGrader,
-  daysInTheMonth,
-};
+/**
+ * CHALLENGE ANSWER:
+ * A switch statement is a better way to do this than a long chain of if-else statements.
+ * The switch statement is a control flow statement that allows you to test a value against multiple cases and execute different code based on which case matches.
+ * In this case, we can use a switch statement to test the monthNum against the different cases for each month and return the appropriate number of days.
+ */
+// export function daysInTheMonth(month) {
+//   switch (month) {
+//     case 1:
+//     case 3:
+//     case 5:
+//     case 7:
+//     case 8:
+//     case 10:
+//     case 12:
+//       return 31;
+//     case 4:
+//     case 6:
+//     case 9:
+//     case 11:
+//       return 30;
+//     case 2:
+//       return 28;
+//     default:
+//       return "Not a valid month.";
+//   }
+// }

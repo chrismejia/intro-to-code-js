@@ -3,14 +3,11 @@ import { testGrader } from "../index.js";
 /**
  * The code below is what tests your answers.
  *
- * To check one exercise at a time with Jest:
- * 1. Find the exercise you're working on.
- * 2. Remove the `x` from `xdescribe` or `xit` for that exercise.
- * 3. Run `npm run test:02` from the repo root.
- * 4. Read the Jest output for passing and failing checks.
+ * Remove the `x` from `xdescribe` after the previous exercise passes.
+ * Run `npm run test:02` from the repo root after each change.
  */
 
-describe("#6: testGrader", () => {
+describe("#8: testGrader", () => {
   describe("returns the correct grade", () => {
     it("when grade is between 90 and 100", () => {
       expect(testGrader(100)).toBe("A");
@@ -41,10 +38,10 @@ describe("#6: testGrader", () => {
     });
 
     it("when grade is between 0 and 60", () => {
-      for (let i = 0; i < 60; i++) {
-        let gradeUnder60 = Math.ceil(Math.random() * 59);
-        expect(testGrader(gradeUnder60)).toBe("F");
-      }
+      expect(testGrader(59)).toBe("F");
+      expect(testGrader(30)).toBe("F");
+      expect(testGrader(1)).toBe("F");
+      expect(testGrader(0)).toBe("F");
     });
   });
 
