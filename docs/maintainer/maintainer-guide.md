@@ -8,7 +8,7 @@ This folder holds maintainer-facing notes for repository organization and curric
 - [Branching and PR workflow](pr-workflow.md): issue branches, pull requests, and target branch expectations.
 - [JS testing guide](js-testing.md): Jest setup, test commands, branch expectations, supporting packages, and PR testing-note format.
 - [Repository layout](repository-layout.md): topic workspace structure, script ownership, branch-audience notes, and agent guidance files.
-- [Testing branch behavior](testing-branch-behavior.md): Jest expectations for guide, release staging, upstream `main`, and student forks.
+- [Testing branch behavior](testing-branch-behavior.md): Jest expectations and lesson-documentation flow for guide, release staging, upstream `main`, and student forks.
 - [Authoring prompts](../authoring/jsdoc-prompts/): prompt/support material for generating or revising lesson JSDoc.
 - [Release/versioning plan](../planning/release-versioning-strategy.md): versioning automation remains a future decision.
 
