@@ -1,9 +1,8 @@
 import express from "express";
-<<<<<<< HEAD:topics/js/lessons/08-Async-Await-APIs/server/routes/college.js
-import { courses, students } from "../../data/08-fetchCourseEnrollments.data.js";
-=======
-import { courses, students } from "../../data/08-fetchCourseEnrollments.data";
->>>>>>> dev:lessons/08-Async-Await-APIs/server/routes/college.js
+import {
+  courses,
+  students,
+} from "../../data/08-fetchCourseEnrollments.data.js";
 
 const collegeRouter = express.Router();
 
@@ -25,7 +24,7 @@ collegeRouter.get("/courses", (req, res) => {
 
   // Filter courses by courseType
   const filteredCourses = courses.filter(
-    (course) => course.type === courseType
+    (course) => course.type === courseType,
   );
 
   if (filteredCourses.length === 0) {

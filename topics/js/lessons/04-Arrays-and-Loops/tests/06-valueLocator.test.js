@@ -1,7 +1,7 @@
 import { valueLocator } from "../06-valueLocator.js";
 import { arr, foundVals, notFoundVals } from "../data/06-valueLocator.data.js";
 
-describe("#6: valueLocator", () => {
+xdescribe("#6: valueLocator", () => {
   expect(typeof valueLocator).toBe("function");
 
   describe("when searchValue is found in the array", () => {

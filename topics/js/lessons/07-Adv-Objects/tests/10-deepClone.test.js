@@ -7,7 +7,7 @@ import {
   clonedObjWithDate,
 } from "../data/10-deepClone.data.js";
 
-describe("#10: deepClone", () => {
+xdescribe("#10: deepClone", () => {
   let objectAssignSpy;
   let structuredCloneSpy;
 

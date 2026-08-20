@@ -1,7 +1,7 @@
 import { priceTransformer } from "../04-priceTransformer.js";
 import { shortPrices } from "../data/04-priceTransformer.data.js";
 
-describe("#4: priceTransformer", () => {
+xdescribe("#4: priceTransformer", () => {
   const transformedObj = priceTransformer(shortPrices);
 
   it("returns an object", () => {

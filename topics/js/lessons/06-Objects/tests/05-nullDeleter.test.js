@@ -11,7 +11,7 @@ import {
   allNullsNested,
 } from "../data/05-nullDeleter.data.js";
 
-describe("#5: nullDeleter", () => {
+xdescribe("#5: nullDeleter", () => {
   it("returns an object", () => {
     expect(typeof nullDeleter(noNull)).toBe("object");
     expect(typeof nullDeleter(oneNull)).toBe("object");

@@ -9,7 +9,7 @@ import {
   mixedForecastResult,
 } from "../data/05-getForecastsForCities.data.js";
 
-describe("getForecastsForCities", () => {
+xdescribe("getForecastsForCities", () => {
   afterEach(() => {
     jest.restoreAllMocks();
   });

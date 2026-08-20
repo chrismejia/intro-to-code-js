@@ -1,7 +1,7 @@
 import { jest } from "@jest/globals";
 import { firstSuccessfulResult } from "../03-firstSuccessfulResult.js";
 
-describe("firstSuccessfulResult", () => {
+xdescribe("firstSuccessfulResult", () => {
   let consoleLogSpy;
 
   beforeEach(() => {

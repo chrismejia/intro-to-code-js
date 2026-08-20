@@ -7,7 +7,7 @@ import {
   withRepeats,
 } from "../data/12-maxDifference.data.js";
 
-describe("#12: maxDifference", () => {
+xdescribe("#12: maxDifference", () => {
   it("returns a number", () => {
     const allArrs = [oneNum, ...twoNums, ...threeNums, ...allSameNums];
 

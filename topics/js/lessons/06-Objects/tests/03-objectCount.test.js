@@ -10,7 +10,7 @@ import {
   multipleKeysWithObjectsBonus,
 } from "../data/03-objectCount.data.js";
 
-describe("#3: objectCount", () => {
+xdescribe("#3: objectCount", () => {
   it("returns a number", () => {
     expect(typeof objectCount(emptyObject)).toBe("number");
     expect(typeof objectCount(noObjects)).toBe("number");

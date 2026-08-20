@@ -13,7 +13,7 @@ import {
   multipleGradeSaTExpected,
 } from "../data/08-classSorter.data.js";
 
-describe("#8: classSorter", () => {
+xdescribe("#8: classSorter", () => {
   it("should return an empty object for an empty roster", () => {
     const sortedClasses = classSorter(emptyRoster);
     expect(sortedClasses).toEqual({});

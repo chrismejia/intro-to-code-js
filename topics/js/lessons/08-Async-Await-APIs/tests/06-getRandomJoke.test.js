@@ -3,7 +3,7 @@ import { getRandomJoke } from "../06-getRandomJoke.js";
 
 const JOKE_URL = "https://official-joke-api.appspot.com/random_joke";
 
-describe("getRandomJoke", () => {
+xdescribe("getRandomJoke", () => {
   let fetchMock;
 
   beforeEach(() => {

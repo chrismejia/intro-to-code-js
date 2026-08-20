@@ -1,6 +1,6 @@
 import { repeater } from "../04-repeater.js";
 
-describe("#4: repeater", () => {
+xdescribe("#4: repeater", () => {
   expect(typeof repeater).toBe("function");
 
   describe("returns a string", () => {

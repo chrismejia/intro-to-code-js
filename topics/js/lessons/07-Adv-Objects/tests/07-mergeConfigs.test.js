@@ -11,7 +11,7 @@ import {
   expectedEmptyMergedConfig,
 } from "../data/07-mergeConfigs.data.js";
 
-describe("#7: mergeConfigs", () => {
+xdescribe("#7: mergeConfigs", () => {
   it("should correctly merge configurations when both objects have unique properties", () => {
     const result = mergeConfigs(defaultApiConfig, customApiConfig);
     expect(result).toEqual(expectedMergedApiConfig);

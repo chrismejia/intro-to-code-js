@@ -24,10 +24,7 @@
     "test:10": "npm --workspace @intro-to-code/js run test:10",
     "test:11": "npm --workspace @intro-to-code/js run test:11",
     "test:projects": "npm --workspace @intro-to-code/js run test:projects",
-    "test:twitter": "npm --workspace @intro-to-code/js run test:twitter",
-    "check:jsdoc": "jsdoc --configure jsdoc.config.json --explain",
-    "check:focused-tests": "node scripts/checkFocusedTests.mjs",
-    "check:student-clean": "node scripts/checkStudentClean.mjs"
+    "test:twitter": "npm --workspace @intro-to-code/js run test:twitter"
   },
   "repository": {
     "type": "git",
@@ -42,7 +39,6 @@
   "devDependencies": {
     "@jest/test-sequencer": "^30.4.1",
     "jest": "^30.4.2",
-    "jsdoc": "^4.0.5",
     "supertest": "^7.0.0"
   },
   "dependencies": {

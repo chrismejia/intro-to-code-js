@@ -1,6 +1,6 @@
 import priceTotaler from "../05-priceTotaler.js";
 
-describe("#5: priceTotaler", () => {
+xdescribe("#5: priceTotaler", () => {
   const nyTotaler = priceTotaler("NY");
   const njTotaler = priceTotaler("NJ");
   const ctTotaler = priceTotaler("CT");

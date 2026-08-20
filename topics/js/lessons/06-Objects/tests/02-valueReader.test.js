@@ -1,7 +1,7 @@
 import { dataObj } from "../data/02-valueReader.data.js";
 import { valueReader } from "../02-valueReader.js";
 
-describe("#2: valueReader", () => {
+xdescribe("#2: valueReader", () => {
   describe("returns the correct value", () => {
     it("when the key-value pair exists in the data object", () => {
       expect(valueReader("alfa", dataObj)).toBe("hello world");

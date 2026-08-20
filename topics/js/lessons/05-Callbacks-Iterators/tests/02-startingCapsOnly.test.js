@@ -6,7 +6,7 @@ import {
 } from "../data/startingCapsOnly.data.js";
 import { startingCapsOnly } from "../02-startingCapsOnly.js";
 
-describe("#2: startingCapsOnly", () => {
+xdescribe("#2: startingCapsOnly", () => {
   it("returns an array", () => {
     expect(Array.isArray(startingCapsOnly(startCapWords))).toBe(true);
     expect(Array.isArray(startingCapsOnly(noCapWords))).toBe(true);

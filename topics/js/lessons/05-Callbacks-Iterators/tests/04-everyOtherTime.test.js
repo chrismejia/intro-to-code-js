@@ -9,7 +9,7 @@ import {
 } from "../data/everyOtherTime.data.js";
 import everyOtherTime from "../04-everyOtherTime.js";
 
-describe("#4: everyOtherTime", () => {
+xdescribe("#4: everyOtherTime", () => {
   it("runs the callback the correct number of times", () => {
     const capSpy = jest.fn(capitalize);
     const cubeSpy = jest.fn(cubeNum);

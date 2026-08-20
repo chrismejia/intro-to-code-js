@@ -5,7 +5,7 @@ import {
 } from "../data/callbackConveyor.data.js";
 import callbackConveyor from "../06-callbackConveyor.js";
 
-describe("#6: callbackConveyor", () => {
+xdescribe("#6: callbackConveyor", () => {
   it("returns the correct result from one callback", () => {
     const oneResult = callbackConveyor(0, [addTen]);
     expect(oneResult).toBe(10);

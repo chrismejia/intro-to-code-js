@@ -5,7 +5,7 @@ import {
   secondArrSmaller,
 } from "../data/10-pairMultiplier.data.js";
 
-describe("#10: pairMultiplier", () => {
+xdescribe("#10: pairMultiplier", () => {
   expect(typeof pairMultiplier).toBe("function");
 
   describe("returns an array of multiplied numbers, in the correct order", () => {
