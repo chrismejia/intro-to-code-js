@@ -1,0 +1,43 @@
+import { frontOrBack } from "../03-frontOrBack.js";
+
+xdescribe("#3: frontOrBack", () => {
+  expect(typeof frontOrBack).toBe("function");
+
+  describe("returns a correctly modified array", () => {
+    it('when place = "front"; action = "add"', () => {
+      const arr1 = [1, 2, 3, 4];
+      const empty = [];
+
+      expect(frontOrBack(arr1, "front", "add", 5)).toEqual([
+        5, 1, 2, 3, 4,
+      ]);
+      expect(frontOrBack(empty, "front", "add", 5)).toEqual([5]);
+    });
+
+    it('when place = "back"; action = "add"', () => {
+      const arr1 = [1, 2, 3, 4];
+      const empty = [];
+
+      expect(frontOrBack(arr1, "back", "add", 5)).toEqual([
+        1, 2, 3, 4, 5,
+      ]);
+      expect(frontOrBack(empty, "back", "add", 5)).toEqual([5]);
+    });
+
+    it('when place = "front"; action = "remove"', () => {
+      const arr1 = [1, 2, 3, 4];
+      const oneEle = ["one"];
+
+      expect(frontOrBack(arr1, "front", "remove", 5)).toEqual([2, 3, 4]);
+      expect(frontOrBack(oneEle, "front", "remove", 5)).toEqual([]);
+    });
+
+    it('when place = "back"; action = "remove"', () => {
+      const arr1 = [1, 2, 3, 4];
+      const oneEle = ["one"];
+
+      expect(frontOrBack(arr1, "back", "remove", 5)).toEqual([1, 2, 3]);
+      expect(frontOrBack(oneEle, "back", "remove", 5)).toEqual([]);
+    });
+  });
+});
